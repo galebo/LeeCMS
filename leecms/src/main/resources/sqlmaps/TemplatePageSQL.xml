@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="TemplatePageSQL">
+
+    <typeAlias alias="templatePage" type="com.galebo.lowyer.model.TemplatePage"/>
+
+    <parameterMap id="addParam" class="templatePage">
+        <parameter property="template" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="templateId" jdbcType="INTEGER" javaType="java.lang.Long"/>
+        <parameter property="templatePageName" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="userId" jdbcType="INTEGER" javaType="java.lang.Long"/>
+    </parameterMap>
+
+    <parameterMap id="updateParam" class="templatePage">
+        <parameter property="templatePageId" jdbcType="INTEGER" javaType="java.lang.Long"/>
+        <parameter property="template" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="templateId" jdbcType="INTEGER" javaType="java.lang.Long"/>
+        <parameter property="templatePageName" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="userId" jdbcType="INTEGER" javaType="java.lang.Long"/>
+    </parameterMap>
+
+    <resultMap id="templatePageResult" class="templatePage">
+        <result property="templatePageId" column="template_Page_Id"/>
+        <result property="template" column="template"/>
+        <result property="templateId" column="template_id"/>
+        <result property="templatePageName" column="template_page_name"/>
+        <result property="userId" column="user_id"/>
+    </resultMap>
+
+    <select id="getTemplatePages" resultMap="templatePageResult">
+    <![CDATA[
+        select * from template_Page
+    ]]>
+    </select>
+
+    <select id="getTemplatePage" parameterClass="java.lang.Long" resultMap="templatePageResult">
+    <![CDATA[
+        select * from template_Page where template_Page_Id = #value#
+    ]]>
+    </select>
+
+    <insert id="addTemplatePage" parameterClass="templatePage">
+        <selectKey resultClass="java.lang.Long" keyProperty="templatePageId" type="post">
+            select last_insert_id() as template_Page_Id
+        </selectKey>
+        <![CDATA[
+            insert into template_Page (template, template_id, template_page_name, user_id)
+            values (#template#, #templateId#, #templatePageName#, #userId#)
+        ]]>
+    </insert>
+
+    <update id="updateTemplatePage" parameterClass="templatePage">
+    <![CDATA[
+        update template_Page set 
+            template = #template#, 
+            template_id = #templateId#, 
+            template_page_name = #templatePageName#, 
+            user_id = #userId#
+        where template_Page_Id = #templatePageId#
+    ]]>
+    </update>
+
+    <delete id="deleteTemplatePage" parameterClass="java.lang.Long">
+    <![CDATA[
+        delete from template_Page where template_Page_Id = #value#
+    ]]>
+    </delete>
+    <!-- lyz -->
+    <select id="getTemplatePagesByUserId" parameterClass="java.lang.Long" resultMap="templatePageResult">
+    <![CDATA[
+        select * from template_Page where user_Id=#long1#
+    ]]>
+    </select>
+    
+    <delete id="deleteTemplatePageAll">
+    <![CDATA[
+        delete from template_Page where user_id=-1;
+    ]]>
+    </delete>
+</sqlMap>

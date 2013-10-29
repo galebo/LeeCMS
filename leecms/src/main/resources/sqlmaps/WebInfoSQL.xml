@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="WebInfoSQL">
+
+    <typeAlias alias="webInfo" type="com.galebo.lowyer.model.WebInfo"/>
+
+    <parameterMap id="addParam" class="webInfo">
+        <parameter property="userId" jdbcType="INTEGER" javaType="java.lang.Long"/>
+        <parameter property="createTime" jdbcType="VARCHAR" javaType="date"/>
+        <parameter property="expireTime" jdbcType="VARCHAR" javaType="date"/>
+        <parameter property="lastLoginIp" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="lastLoginTime" jdbcType="VARCHAR" javaType="date"/>
+        <parameter property="webCfgTemplateId" jdbcType="INTEGER" javaType="java.lang.Long"/>
+        <parameter property="webDomain" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="webTmpUrl" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="webType" jdbcType="VARCHAR" javaType="java.lang.String"/>
+    </parameterMap>
+
+    <parameterMap id="updateParam" class="webInfo">
+        <parameter property="webId" jdbcType="INTEGER" javaType="java.lang.Long"/>
+        <parameter property="userId" jdbcType="INTEGER" javaType="java.lang.Long"/>
+        <parameter property="createTime" jdbcType="VARCHAR" javaType="date"/>
+        <parameter property="expireTime" jdbcType="VARCHAR" javaType="date"/>
+        <parameter property="lastLoginIp" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="lastLoginTime" jdbcType="VARCHAR" javaType="date"/>
+        <parameter property="webCfgTemplateId" jdbcType="INTEGER" javaType="java.lang.Long"/>
+        <parameter property="webDomain" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="webTmpUrl" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="webType" jdbcType="VARCHAR" javaType="java.lang.String"/>
+    </parameterMap>
+
+    <resultMap id="webInfoResult" class="webInfo">
+        <result property="webId" column="web_Id"/>
+        <result property="userId" column="user_Id"/>
+        <result property="createTime" column="create_TIME"/>
+        <result property="expireTime" column="expire_TIME"/>
+        <result property="lastLoginIp" column="last_login_ip"/>
+        <result property="lastLoginTime" column="last_login_TIME"/>
+        <result property="webCfgTemplateId" column="web_cfg_template_id"/>
+        <result property="webDomain" column="web_domain"/>
+        <result property="webTmpUrl" column="web_tmp_url"/>
+        <result property="webType" column="web_type"/>
+        <result property="parentId" column="parentId"/>
+    </resultMap>
+
+    <select id="getWebInfoes" resultMap="webInfoResult">
+    <![CDATA[
+        select * from web_Info
+    ]]>
+    </select>
+
+    <select id="getWebInfo" parameterClass="java.lang.Long" resultMap="webInfoResult">
+    <![CDATA[
+        select * from web_Info where web_Id = #value#
+    ]]>
+    </select>
+
+    <insert id="addWebInfo" parameterClass="webInfo">
+        <selectKey resultClass="java.lang.Long" keyProperty="webId" type="post">
+            select last_insert_id() as webId
+        </selectKey>
+        <![CDATA[
+            insert into web_Info (create_TIME, expire_TIME, last_login_ip, last_login_TIME, web_cfg_template_id, web_domain, web_tmp_url, web_type, user_id,parentId)
+            values (#createTime#, #expireTime#, #lastLoginIp#, #lastLoginTime#, #webCfgTemplateId#, #webDomain#, #webTmpUrl#, #webType#, #userId#,#parentId#)
+        ]]>
+    </insert>
+
+    <update id="updateWebInfo" parameterClass="webInfo">
+    <![CDATA[
+        update web_Info set 
+            create_TIME = #createTime#, 
+            expire_TIME = #expireTime#, 
+            last_login_ip = #lastLoginIp#, 
+            last_login_TIME = #lastLoginTime#, 
+            web_cfg_template_id = #webCfgTemplateId#, 
+            web_domain = #webDomain#, 
+            web_tmp_url = #webTmpUrl#, 
+            web_type = #webType#, 
+            user_id = #userId#, 
+            parentId = #parentId#
+        where web_Id = #webId#
+    ]]>
+    </update>
+
+    <delete id="deleteWebInfo" parameterClass="java.lang.Long">
+    <![CDATA[
+        delete from web_Info where web_Id = #value#
+    ]]>
+    </delete>
+    <!-- lyz -->
+    <select id="getWebInfoByUserId" parameterClass="java.lang.Long" resultMap="webInfoResult">
+    <![CDATA[
+        select * from web_Info where user_Id = #value#
+    ]]>
+    </select>
+    <select id="getWebInfoByDomain" parameterClass="java.lang.String" resultMap="webInfoResult">
+    <![CDATA[
+       select * from web_info t where t.web_domain=#lawyer#
+    ]]>
+    </select>
+    <update id="updateUserTemplate" parameterClass="com.galebo.common.dao.SSIILL">
+    <![CDATA[
+        update web_Info set web_cfg_template_id = #long1# where user_id = #long2#
+    ]]>
+    </update>
+</sqlMap>

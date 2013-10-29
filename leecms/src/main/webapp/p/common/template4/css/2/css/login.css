@@ -1,0 +1,25 @@
+
+
+body, ul, li, form, div {margin: 0;padding: 0;}
+body {background-color: #FFFFFF;background-image: url("");font-size: 12px;background-position: left top;background-repeat: repeat-x;}
+
+.login_content {color: #606060;height: 570px;margin: 0 auto;width: 980px;}
+
+.login_cnt_left {float: left;height: 570px;margin: 0;width: 490px;}
+	.login_logo {clear: both;height: 40px;margin: 14px 0 0;width: 173px;}
+	.login_img {background: url("../images/user1102_r3_c1.jpg") no-repeat scroll 0 0 transparent;height: 373px;margin: 40px 0 0;width: 462px;}
+.login_cnt_right {float: left;height: 570px;margin: 0 0 0 19px;width: 460px;}
+.login_cnt_right .login_box {background: url("../images/user_bg.jpg") no-repeat scroll 0 0 transparent;clear: both;height: 439px;margin: 71px 0 0;width: 460px;}
+
+
+.il_box {position: relative;}
+.il_box label {color: #CCCCCC;height: 20px;left: 6px;line-height: 20px;margin-top: -10px;position: absolute;top: 50%;}
+table.login_info a {color: #D20C3E;text-decoration: none;}
+.hide_box {display: block;height: 0;left: 0;overflow: hidden;position: absolute;top: 0;width: 0;}
+
+.login_fenxiang {margin: 40px auto 0;width: 370px;}
+.login_fenxiang a {background: url("../images/user1102_r10_c4.jpg") no-repeat scroll 0 3px transparent;color: #606060;padding-left: 10px;text-decoration: none;}
+.login_fenxiang p {margin: 10px 0 0;padding: 0;text-align: center;}
+input.haier_txz01 {background: url("../images/user1102_r4_c7.jpg") no-repeat scroll 0 0 transparent;border: 0 none;color: #ACACAC;height: 22px;padding: 4px 0 0 4px;width: 186px;}
+
+.gaodu {height: 80px;margin: 0 auto;width: 200px;}

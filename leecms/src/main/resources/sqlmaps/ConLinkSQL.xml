@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="ConLinkSQL">
+
+    <typeAlias alias="conLink" type="com.galebo.lowyer.model.ConLink"/>
+
+    <parameterMap id="addParam" class="conLink">
+        <parameter property="imgUrl" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="title" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="updateTime" jdbcType="VARCHAR" javaType="java.sql.Timestamp"/>
+        <parameter property="url" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="userId" jdbcType="INTEGER" javaType="java.lang.Long"/>
+    </parameterMap>
+
+    <parameterMap id="updateParam" class="conLink">
+        <parameter property="linkId" jdbcType="INTEGER" javaType="java.lang.Long"/>
+        <parameter property="imgUrl" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="title" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="updateTime" jdbcType="VARCHAR" javaType="java.sql.Timestamp"/>
+        <parameter property="url" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="userId" jdbcType="INTEGER" javaType="java.lang.Long"/>
+    </parameterMap>
+
+    <resultMap id="conLinkResult" class="conLink">
+        <result property="linkId" column="link_Id"/>
+        <result property="imgUrl" column="IMG_URL"/>
+        <result property="title" column="TITLE"/>
+        <result property="updateTime" column="UPDATE_TIME"/>
+        <result property="url" column="URL"/>
+        <result property="userId" column="USER_ID"/>
+        <result property="type" column="TYPE"/>
+    </resultMap>
+
+    <select id="getConLinks" resultMap="conLinkResult">
+    <![CDATA[
+        select * from con_Link
+    ]]>
+    </select>
+
+    <select id="getConLink" parameterClass="java.lang.Long" resultMap="conLinkResult">
+    <![CDATA[
+        select * from con_Link where link_Id = #value#
+    ]]>
+    </select>
+
+    <insert id="addConLink" parameterClass="conLink">
+        <selectKey resultClass="java.lang.Long" keyProperty="linkId" type="post">
+            select last_insert_id() as linkId
+        </selectKey>
+        <![CDATA[
+            insert into con_Link (IMG_URL, TITLE, UPDATE_TIME, URL, USER_ID,TYPE)
+            values (#imgUrl#, #title#, #updateTime#, #url#, #userId#, #type#)
+        ]]>
+    </insert>
+
+    <update id="updateConLink" parameterClass="conLink">
+    <![CDATA[
+        update con_Link set 
+            IMG_URL = #imgUrl#, 
+            TITLE = #title#, 
+            UPDATE_TIME = #updateTime#, 
+            URL = #url#, 
+            USER_ID = #userId#
+        where link_Id = #linkId#
+    ]]>
+    </update>
+
+    <delete id="deleteConLink" parameterClass="java.lang.Long">
+    <![CDATA[
+        delete from con_Link where link_Id = #value#
+    ]]>
+    </delete>
+    <!-- lyz -->
+    <select id="getConLinksByType" resultMap="conLinkResult" parameterClass="com.galebo.common.dao.SSIILL">
+    <![CDATA[select * from con_Link where type=#string1# and user_Id=#long2#]]>
+    </select>
+    
+    <resultMap id="conLinkResult2" class="conLink">
+        <result property="linkId" column="link_Id"/>
+        <result property="imgUrl" column="IMG_URL"/>
+        <result property="title" column="TITLE"/>
+        <result property="updateTime" column="UPDATE_TIME"/>
+        <result property="url" column="URL"/>
+        <result property="userId" column="USER_ID"/>
+        <result property="type" column="TYPE"/>
+        <result property="sort" column="sort"/>
+        <result property="relativeId" column="cfg_relate_id"/>
+    </resultMap>
+    <select id="getConLinksByParentId" resultMap="conLinkResult2" parameterClass="com.galebo.common.dao.SSIILL">
+    <![CDATA[select t1.*,t2.sort,t2.cfg_relate_id from con_Link t1,cfg_relative t2 where t2.parent_element_id=#long1# and t2.user_Id=#long2# and t2.element_type=#string1#
+    and t2.element_Id=t1.link_ID and t1.user_Id=#long2# order by t2.sort limit #startNum#,#pageSize#]]>
+    </select>
+    <select id="getConLinksByParentIdSize" resultClass="java.lang.Integer" parameterClass="com.galebo.common.dao.SSIILL">
+    <![CDATA[select count(t2.cfg_relate_id) from con_Link t1,cfg_relative t2 where t2.parent_element_id=#long1# and t2.user_Id=#long2# and t2.element_type=#string1#
+    and t2.element_Id=t1.link_ID and t1.user_Id=#long2# order by t2.sort]]>
+    </select>
+    <select id="getConLinksNoSelect" resultMap="conLinkResult2" parameterClass="com.galebo.common.dao.SSIILL">
+    <![CDATA[select t1.*,-1 sort,-1 cfg_relate_id from con_Link t1 where  t1.user_Id=#long2# and t1.type=#string1# and t1.link_Id not in(select t1.link_Id from con_Link t1,cfg_relative t2 where t2.parent_element_id=#long1# and t2.user_Id=#long2# and t2.element_type=#string1#
+    and t2.element_Id=t1.link_ID and t1.user_Id=#long2#)]]>
+    </select>
+    <select id="getConLinksNoSelectSize" resultClass="java.lang.Integer" parameterClass="com.galebo.common.dao.SSIILL">
+    <![CDATA[select count(t1.link_ID) from con_Link t1 where  t1.user_Id=#long2# and t1.type=#string1# and t1.link_Id not in(select t1.link_Id from con_Link t1,cfg_relative t2 where t2.parent_element_id=#long1# and t2.user_Id=#long2# and t2.element_type=#string1#
+    and t2.element_Id=t1.link_ID and t1.user_Id=#long2#)]]>
+    </select>
+    
+    <resultMap id="conLinkResult3" class="conLink">
+        <result property="linkId" column="link_Id"/>
+        <result property="imgUrl" column="IMG_URL"/>
+        <result property="title" column="TITLE"/>
+        <result property="updateTime" column="UPDATE_TIME"/>
+        <result property="url" column="URL"/>
+        <result property="userId" column="USER_ID"/>
+        <result property="type" column="TYPE"/>
+        <result property="cfgGroup.groupKey" column="group_key"/>
+        <result property="cfgGroup.groupName" column="group_name"/>
+    </resultMap>
+    <select id="getConLinksGroup" resultMap="conLinkResult3" parameterClass="com.galebo.common.dao.SSIILL">
+    <![CDATA[select t1.*,t3.group_key,t3.group_name from con_Link t1,cfg_Relative t2,cfg_group t3 where 
+    t3.type=#string1# and t3.user_Id=#long1# and t3.group_Id=t2.parent_element_id
+    and t2.element_Id=t1.link_Id and t1.type=#string1# and t1.user_Id=#long1# order by t3.group_key,t2.sort]]>
+    </select>
+</sqlMap>

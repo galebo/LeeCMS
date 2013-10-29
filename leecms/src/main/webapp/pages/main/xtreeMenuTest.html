@@ -1,0 +1,56 @@
+ 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>XTree (with Velocity) </title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" media="screen" href="css/xtree.css" />
+<script type="text/javascript" src="js/xtree.js"></script>
+</head>
+<body>
+ 
+<div class="container">
+<script type="text/javascript"> 
+	var templateMenu = new WebFXTree('模板管理');
+    var templateCreateMenu = new WebFXTreeItem('模板生成');
+	templateCreateMenu.action="javascript:parent.main.document.location.href='/pages/main/botton.htm'";
+    templateMenu.add(templateCreateMenu);
+    var templateCreateMenu = new WebFXTreeItem('模板预览');
+	templateCreateMenu.action="javascript:parent.main.document.location.href='/pages/main/botton.htm'";
+    templateMenu.add(templateCreateMenu);
+    templateMenu.action='javascript:templateMenu.toggle()';
+	document.write(templateMenu);
+    
+ 
+	var MainMenu = new WebFXTree('主菜单','/mainMenu');
+	var Logout = new WebFXTreeItem('退出');
+	Logout.action="javascript:aa()";
+    MainMenu.add(Logout);
+    MainMenu.action='javascript:MainMenu.toggle()';
+	document.write(MainMenu);
+
+	var contentMenu = new WebFXTree('内容管理');
+    var ColColumnMenu = new WebFXTreeItem('栏目管理');
+	ColColumnMenu.action="javascript:father_location('main','/pages/main/botton.htm')";
+    contentMenu.add(ColColumnMenu);
+	var ConContentMenu = new WebFXTreeItem('内容管理');
+	ConContentMenu.action="javascript:father_location('main','file:///E:/workspace/java/workspace/letvCms1.0/src/main/webapp/pages/main/botton.htm')";
+    contentMenu.add(ConContentMenu);
+	var ColumnContentMenu = new WebFXTreeItem('栏目内容管理');
+	ColumnContentMenu.action="javascript:father_location('main','/pages/main/botton.htm')";
+    contentMenu.add(ColumnContentMenu);
+	var FileUpload = new WebFXTreeItem('上传文件');
+	FileUpload.action="javascript:father_location('main','/pages/main/botton.htm')";
+    contentMenu.add(FileUpload);
+	contentMenu.action='javascript:contentMenu.toggle()';
+	document.write(contentMenu);
+
+function father_location(subframe,locate)//将右边的frame显示为响应内容
+{
+	parent.frames[subframe].location=locate;
+} 
+</script>
+</div>
+</body>
+</html>
+

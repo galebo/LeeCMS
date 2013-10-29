@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMapConfig PUBLIC "-//ibatis.apache.org//DTD SQL Map Config 2.0//EN"
+    "http://ibatis.apache.org/dtd/sql-map-config-2.dtd">
+
+<sqlMapConfig>
+    <settings enhancementEnabled="true" maxTransactions="20"
+        maxRequests="32" maxSessions="10"/>
+
+    <!-- Identify all SQL Map XML files to be loaded by this SQL map. Relative to classpath -->
+    <sqlMap resource="sqlmaps/LookupSQL.xml"/>
+    <sqlMap resource="sqlmaps/RoleSQL.xml"/>
+    <sqlMap resource="sqlmaps/UserSQL.xml"/>
+    
+    <sqlMap resource="sqlmaps/ConContentSQL.xml"/>
+    <sqlMap resource="sqlmaps/CommonSQL.xml"/>
+    <sqlMap resource="sqlmaps/ColColumnContentSQL.xml"/>
+    <sqlMap resource="sqlmaps/CfgDefineSQL.xml"/>
+    <sqlMap resource="sqlmaps/CfgDefineInstanceSQL.xml"/>
+    <sqlMap resource="sqlmaps/TemplateSQL.xml"/>
+    <sqlMap resource="sqlmaps/ConLinkSQL.xml"/>
+    <sqlMap resource="sqlmaps/CfgGroupSQL.xml"/>
+    <sqlMap resource="sqlmaps/CfgRelativeSQL.xml"/>
+    <sqlMap resource="sqlmaps/ConUploadDataSQL.xml"/>
+    <sqlMap resource="sqlmaps/ColColumnSQL.xml"/>
+    <sqlMap resource="sqlmaps/TemplatePageSQL.xml"/>
+    <sqlMap resource="sqlmaps/WebInfoSQL.xml"/>
+    
+    <!--ProCategory-START-->
+    <sqlMap resource="sqlmaps/ProCategorySQL.xml"/>
+    <!--ProCategory-END-->
+    <!--ProProduct-START-->
+    <sqlMap resource="sqlmaps/ProProductSQL.xml"/>
+    <!--ProProduct-END-->
+    <!--ProCategoryProduct-START-->
+    <sqlMap resource="sqlmaps/ProCategoryProductSQL.xml"/>
+    <!--ProCategoryProduct-END-->
+</sqlMapConfig>

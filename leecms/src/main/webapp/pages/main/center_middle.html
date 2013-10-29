@@ -1,0 +1,22 @@
+<html>
+<head>
+<link href="css/Style.css" type="text/css" rel="stylesheet">
+<script language="javascript">
+function show()
+{
+    if (parent.document.getElementById("tableframe").cols=="0,6,*"){
+    	parent.document.getElementById("tableframe").cols="150,6,*";
+		myarrow.src="images/arrow_l.gif";
+	}
+    else{
+		parent.document.getElementById("tableframe").cols="0,6,*";
+		myarrow.src="images/arrow_r.gif";
+	}
+}
+</script>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=GB2312">
+</head>
+<body class="bodyC">
+ <div onclick="show()" style="height:100%;vertical-align:middle;background:url(images/arrow_l.gif) no-repeat center;" >&nbsp;</div>
+</body></html>

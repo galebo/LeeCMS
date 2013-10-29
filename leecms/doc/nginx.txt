@@ -1,0 +1,101 @@
+user root;
+worker_processes 4;
+events {
+	worker_connections 51200;
+}
+http {
+	include mime.types;
+	default_type application/octet-stream;
+	sendfile on;
+	keepalive_timeout 65;
+	gzip on; 
+	gzip_min_length 1000; 
+	gzip_buffers 4 16k; 
+	gzip_comp_level 5; 
+	gzip_types text/plain application/x-javascript text/css text/javascript application/x-httpd-php image/jpeg image/gif image/png; 
+	gzip_vary on; 
+	upstream  oa.anbolawyer.com {
+              server   localhost:8981;
+      }
+
+	upstream  main.anbolawyer.com  {
+              server   localhost:8982;
+      }
+ 	upstream  laodong.anbolawyer.com  {
+              server   localhost:8982;
+      }
+      
+	server {
+		listen 80;
+		server_name oa.anbolawyer.com;
+		
+		location / { 
+			access_log off; 
+			proxy_set_header Host $host;
+			proxy_set_header X-Real-IP $remote_addr;
+			proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; 
+			proxy_pass http://localhost:8981; 
+		} 
+	}
+	
+	server {
+		listen 80;
+		server_name main.anbolawyer.com;
+		
+		location ~ \.(gif|jpg|jpeg|png|bmp|ico|css|js)$ { 
+			access_log off;
+			root /e/static/html/user2/; 
+			expires 24h; 
+		}
+		location ~ \.(html)$ {
+			proxy_set_header Host $host;
+			proxy_set_header X-Real-IP $remote_addr;
+			proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+			
+			root /e/static/html/user2/;
+			
+			expires 1h;
+		} 
+	}
+	
+	
+	server {
+		listen 80;
+		server_name laodong.anbolawyer.com;
+		
+		location ~ \.(gif|jpg|jpeg|png|bmp|ico|css|js)$ { 
+			access_log off;
+			root /e/static/html/user3/; 
+			expires 24h; 
+		}
+		location ~ \.(html)$ {
+			proxy_set_header Host $host;
+			proxy_set_header X-Real-IP $remote_addr;
+			proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+			
+			root /e/static/html/user3/;
+			
+			expires 1h;
+		} 
+	}
+	
+	server {
+		listen 80;
+		server_name image.anbolawyer.com;
+		
+		location ~ \.(gif|jpg|jpeg|png|bmp|ico|css|js)$ { 
+			access_log off;
+			root /e/static/html/user3/; 
+			expires 24h; 
+		}
+		location ~ \.(html)$ {
+			proxy_set_header Host $host;
+			proxy_set_header X-Real-IP $remote_addr;
+			proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+			
+			root /e/static/html/user3/;
+			
+			expires 1h;
+		} 
+	}
+}

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="ProCategorySQL">
+
+    <typeAlias alias="proCategory" type="com.galebo.lowyer.model.ProCategory"/>
+
+    <parameterMap id="addParam" class="proCategory">
+        <parameter property="CTime" jdbcType="VARCHAR" javaType="date"/>
+        <parameter property="colName" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="colType" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="description" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="dispType" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="firstId" jdbcType="INTEGER" javaType="java.lang.Long"/>
+        <parameter property="lastId" jdbcType="INTEGER" javaType="java.lang.Long"/>
+        <parameter property="level" jdbcType="INTEGER" javaType="java.lang.Long"/>
+        <parameter property="maxId" jdbcType="INTEGER" javaType="java.lang.Long"/>
+        <parameter property="smallId" jdbcType="INTEGER" javaType="java.lang.Long"/>
+        <parameter property="status" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="userId" jdbcType="INTEGER" javaType="java.lang.Long"/>
+    </parameterMap>
+
+    <parameterMap id="updateParam" class="proCategory">
+        <parameter property="categoryId" jdbcType="INTEGER" javaType="java.lang.Long"/>
+        <parameter property="CTime" jdbcType="VARCHAR" javaType="date"/>
+        <parameter property="colName" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="colType" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="description" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="dispType" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="firstId" jdbcType="INTEGER" javaType="java.lang.Long"/>
+        <parameter property="lastId" jdbcType="INTEGER" javaType="java.lang.Long"/>
+        <parameter property="level" jdbcType="INTEGER" javaType="java.lang.Long"/>
+        <parameter property="maxId" jdbcType="INTEGER" javaType="java.lang.Long"/>
+        <parameter property="smallId" jdbcType="INTEGER" javaType="java.lang.Long"/>
+        <parameter property="status" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="userId" jdbcType="INTEGER" javaType="java.lang.Long"/>
+    </parameterMap>
+
+    <resultMap id="proCategoryResult" class="proCategory">
+        <result property="categoryId" column="category_Id"/>
+        <result property="CTime" column="C_TIME"/>
+        <result property="colName" column="COL_NAME"/>
+        <result property="colType" column="COL_TYPE"/>
+        <result property="description" column="DESCRIPTION"/>
+        <result property="dispType" column="DISP_TYPE"/>
+        <result property="firstId" column="FIRST_ID"/>
+        <result property="lastId" column="LAST_ID"/>
+        <result property="level" column="LEVEL"/>
+        <result property="maxId" column="MAX_ID"/>
+        <result property="smallId" column="SMALL_ID"/>
+        <result property="status" column="STATUS"/>
+        <result property="userId" column="user_id"/>
+    </resultMap>
+
+    <resultMap id="proCategoryResult2" class="proCategory">
+        <result property="categoryId" column="category_Id"/>
+        <result property="CTime" column="C_TIME"/>
+        <result property="colName" column="COL_NAME"/>
+        <result property="colType" column="COL_TYPE"/>
+        <result property="description" column="DESCRIPTION"/>
+        <result property="dispType" column="DISP_TYPE"/>
+        <result property="firstId" column="FIRST_ID"/>
+        <result property="lastId" column="LAST_ID"/>
+        <result property="level" column="LEVEL"/>
+        <result property="maxId" column="MAX_ID"/>
+        <result property="smallId" column="SMALL_ID"/>
+        <result property="status" column="STATUS"/>
+        <result property="userId" column="user_id"/>
+        
+        <result property="sort" column="SORT"/>
+        <result property="parentId" column="parent_Id"/>
+        <result property="relativeId" column="cfg_relate_Id"/>
+    </resultMap>
+    <select id="getProCategories" resultMap="proCategoryResult">
+    <![CDATA[
+        select * from pro_Category
+    ]]>
+    </select>
+
+    <select id="getProCategory" parameterClass="java.lang.Long" resultMap="proCategoryResult">
+    <![CDATA[
+        select * from pro_Category where category_Id = #value#
+    ]]>
+    </select>
+
+    <insert id="addProCategory" parameterClass="proCategory">
+        <selectKey resultClass="java.lang.Long" keyProperty="categoryId" type="post">
+            select last_insert_id() as categoryId
+        </selectKey>
+        <![CDATA[
+            insert into pro_Category (C_TIME, COL_NAME, COL_TYPE, DESCRIPTION, DISP_TYPE, FIRST_ID, LAST_ID, LEVEL, MAX_ID, SMALL_ID, STATUS, user_id)
+            values (#CTime#, #colName#, #colType#, #description#, #dispType#, #firstId#, #lastId#, #level#, #maxId#, #smallId#, #status#, #userId#)
+        ]]>
+    </insert>
+
+    <update id="updateProCategory" parameterClass="proCategory">
+    <![CDATA[
+        update pro_Category set 
+            C_TIME = #CTime#, 
+            COL_NAME = #colName#, 
+            COL_TYPE = #colType#, 
+            DESCRIPTION = #description#, 
+            DISP_TYPE = #dispType#, 
+            FIRST_ID = #firstId#, 
+            LAST_ID = #lastId#, 
+            LEVEL = #level#, 
+            MAX_ID = #maxId#, 
+            SMALL_ID = #smallId#, 
+            STATUS = #status#, 
+            user_id = #userId#
+        where category_Id = #categoryId#
+    ]]>
+    </update>
+
+    <delete id="deleteProCategory" parameterClass="java.lang.Long">
+    <![CDATA[
+        delete from pro_Category where category_Id = #value#
+    ]]>
+    </delete>
+    <!-- lyz -->
+    
+    <select id="getSonCategory" parameterClass="com.galebo.common.dao.SSIILL" resultMap="proCategoryResult2">
+    <![CDATA[select t1.*,t2.sort,t2.parent_element_id parent_Id,t2.cfg_relate_Id from cfg_Relative t2,pro_category t1
+     where t1.category_id=t2.element_id and t2.parent_element_id=#long1# and t2.user_id=#long2# and t2.element_type=#string1# order by sort]]>
+    </select>
+    
+    <select id="getSonCategorySize" parameterClass="com.galebo.common.dao.SSIILL" resultClass="java.lang.Long">
+    <![CDATA[select count(t1.user_id) from cfg_Relative t2,pro_category t1 where t1.category_id=t2.element_id and t2.parent_element_id=#long1# and t2.user_id=#long2# and t2.element_type=#string1#]]>
+    </select>
+</sqlMap>

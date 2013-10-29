@@ -1,0 +1,54 @@
+body{margin:0px; padding:0px; color: #000000;  font-size: 12px; font-style: normal; text-decoration: none; font-family: 宋体; border:0px;
+scrollbar-face-color: #e4e4e4; font-size: 11pt; scrollbar-highlight-color: #ffffff; scrollbar-shadow-color: #a0a0a0; scrollbar-3dlight-color: #a0a0a0;
+line-height: 14pt; scrollbar-arrow-color: #ffffff; scrollbar-darkshadow-color: #ffffff; scrollbar-base-color: #e4e4e4}
+
+a:link {color: #333333;text-decoration: none;}
+a:hover {color: #0066FF;text-decoration: underline;}
+a:active {color: #FF0000;text-decoration: none;}
+a:visited {color: #333333;text-decoration: none;}
+td {font-size: 12px;line-height: 20px;color: #333333;}
+
+a.btn:link {color: #ffffff;text-decoration: none;}
+a.btn:hover {color: #FFFF00;text-decoration: underline;}
+a.btn:active {color: #FF0000;text-decoration: none;}
+a.btn:visited {color: #ffffff;text-decoration: none;}
+
+.bodyC{background-color: #b8bbc8;margin: 0;}
+
+/*
+****************************************
+button 样式
+****************************************
+*/
+.button{background-color:#87BAEF;border-top:1px solid #445588;border-left:1px solid #445588;border-bottom:1px solid #445588;border-right:1px solid #445588;background-image:url(images/button_bg2.gif);background-repeat:repeat-x;padding-top:2px;padding-bottom:0px;padding-left:5px;padding-right:5px;margin-right:2px;color:#fff;text-decoration:none;}
+
+.tdbg{background: #C8E3FF;line-height: 120%;height:23px;}
+.summary-title{font-weight: bold;background: #edf1f8;height: 23px;}
+.Cursor{cursor:hand;}
+.OverCaption{text-decoration: underline;}
+.StayCaption{background-color: #006699;color: #FFFFFF;}
+
+/*导航栏样式*/
+.TbNav{FONT-SIZE: 9pt; COLOR: #ffffff; background-color: #2f5a8e; TEXT-DECORATION: none}
+
+/*表格标题样式*/
+.tbtitle{FONT-SIZE: 9pt; COLOR: #333333; background-color: #b0c3e2; TEXT-DECORATION: none;background-image:url(images/titlebg.jpg);}
+/*表格样式*/
+.tb{background-color: #b0c3e2;}
+/*表格单元格定义一(浅色)*/
+.tb_TD{background-color: #ffffff;}
+/*表格单元格定义一(深色)*/
+.tb_TD1{background-color: #C8E2FF;}
+
+.buttonstyle {	border-top:1px solid #ffffff;border-left:1px solid #ffffff;border-right:1px solid #163765;border-bottom:1px solid #163765;font-size: 12px;padding-top:2px;padding-left:7px;padding-right:7px;background:#2D64B7;color:#ffffff;}
+
+/*按钮按下样式*/
+.BtnDown{FONT-SIZE: 9pt; COLOR: #ffffff;  TEXT-DECORATION: none;background-image:url(images/BtnBgDown.gif);}
+
+/*按钮正常样式*/
+.BtnUp{FONT-SIZE: 9pt; COLOR: #ffffff;  TEXT-DECORATION: none;background-image:url(images/BtnBgUp.gif);}
+.button2 {  BORDER-RIGHT: #666666 1px solid; BORDER-TOP: #ffffff 1px solid; BORDER-LEFT: #ffffff 1px solid; BORDER-BOTTOM: #666666 1px solid }
+.button1 { BORDER-RIGHT: #D4D0C8 1px solid; BORDER-TOP: #D4D0C8 1px solid; BORDER-LEFT: #D4D0C8 1px solid; BORDER-BOTTOM: #D4D0C8 1px solid  }
+.button3 {  BORDER-RIGHT: #ffffff 1px solid; BORDER-TOP: #666666 1px solid; BORDER-LEFT: #666666 1px solid; BORDER-BOTTOM: #ffffff 1px solid }
+
+.title { BACKGROUND-IMAGE: url(../images/bg.gif); COLOR: #000000; HEIGHT: 24px }

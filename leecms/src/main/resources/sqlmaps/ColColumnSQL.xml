@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="ColColumnSQL">
+
+    <typeAlias alias="colColumn" type="com.galebo.lowyer.model.ColColumn"/>
+
+    <parameterMap id="addParam" class="colColumn">
+        <parameter property="CTime" jdbcType="VARCHAR" javaType="date"/>
+        <parameter property="colName" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="colType" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="description" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="dispType" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="firstId" jdbcType="INTEGER" javaType="java.lang.Long"/>
+        <parameter property="lastId" jdbcType="INTEGER" javaType="java.lang.Long"/>
+        <parameter property="level" jdbcType="INTEGER" javaType="java.lang.Long"/>
+        <parameter property="maxId" jdbcType="INTEGER" javaType="java.lang.Long"/>
+        <parameter property="smallId" jdbcType="INTEGER" javaType="java.lang.Long"/>
+        <parameter property="status" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="userId" jdbcType="INTEGER" javaType="java.lang.Long"/>
+    </parameterMap>
+
+    <parameterMap id="updateParam" class="colColumn">
+        <parameter property="columnId" jdbcType="INTEGER" javaType="java.lang.Long"/>
+        <parameter property="CTime" jdbcType="VARCHAR" javaType="date"/>
+        <parameter property="colName" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="colType" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="description" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="dispType" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="firstId" jdbcType="INTEGER" javaType="java.lang.Long"/>
+        <parameter property="lastId" jdbcType="INTEGER" javaType="java.lang.Long"/>
+        <parameter property="level" jdbcType="INTEGER" javaType="java.lang.Long"/>
+        <parameter property="maxId" jdbcType="INTEGER" javaType="java.lang.Long"/>
+        <parameter property="smallId" jdbcType="INTEGER" javaType="java.lang.Long"/>
+        <parameter property="status" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="userId" jdbcType="INTEGER" javaType="java.lang.Long"/>
+    </parameterMap>
+
+    <resultMap id="colColumnResult" class="colColumn">
+        <result property="columnId" column="column_Id"/>
+        <result property="CTime" column="C_TIME"/>
+        <result property="colName" column="COL_NAME"/>
+        <result property="colType" column="COL_TYPE"/>
+        <result property="description" column="DESCRIPTION"/>
+        <result property="dispType" column="DISP_TYPE"/>
+        <result property="firstId" column="FIRST_ID"/>
+        <result property="lastId" column="LAST_ID"/>
+        <result property="level" column="LEVEL"/>
+        <result property="maxId" column="MAX_ID"/>
+        <result property="smallId" column="SMALL_ID"/>
+        <result property="status" column="STATUS"/>
+        <result property="userId" column="user_id"/>
+    </resultMap>
+
+    <resultMap id="colColumnResult2" class="colColumn">
+        <result property="columnId" column="column_Id"/>
+        <result property="CTime" column="C_TIME"/>
+        <result property="colName" column="COL_NAME"/>
+        <result property="colType" column="COL_TYPE"/>
+        <result property="description" column="DESCRIPTION"/>
+        <result property="dispType" column="DISP_TYPE"/>
+        <result property="firstId" column="FIRST_ID"/>
+        <result property="lastId" column="LAST_ID"/>
+        <result property="level" column="LEVEL"/>
+        <result property="maxId" column="MAX_ID"/>
+        <result property="smallId" column="SMALL_ID"/>
+        <result property="status" column="STATUS"/>
+        <result property="userId" column="user_id"/>
+        
+        <result property="sort" column="SORT"/>
+        <result property="colPid" column="COL_PID"/>
+        <result property="relativeId" column="cfg_relate_Id"/>
+    </resultMap>
+
+    <select id="getColColumns" resultMap="colColumnResult">
+    <![CDATA[
+        select * from col_Column
+    ]]>
+    </select>
+
+    <select id="getColColumn" parameterClass="java.lang.Long" resultMap="colColumnResult">
+    <![CDATA[
+        select * from col_Column where column_Id = #value#
+    ]]>
+    </select>
+
+    <insert id="addColColumn" parameterClass="colColumn">
+        <selectKey resultClass="java.lang.Long" keyProperty="columnId" type="post">
+            select last_insert_id() as columnId
+        </selectKey>
+        <![CDATA[
+            insert into col_Column (C_TIME, COL_NAME,  COL_TYPE, DESCRIPTION, DISP_TYPE, FIRST_ID,LAST_ID, LEVEL, MAX_ID, SMALL_ID, STATUS,user_id)
+            values (#CTime#, #colName#, #colType#, #description#, #dispType#, #firstId#, #lastId#, #level#, #maxId#, #smallId#, #status#,#userId#)
+        ]]>
+    </insert>
+
+    <update id="updateColColumn" parameterClass="colColumn">
+    <![CDATA[
+        update col_Column set 
+            C_TIME = #CTime#, 
+            COL_NAME = #colName#, 
+            COL_TYPE = #colType#, 
+            DESCRIPTION = #description#, 
+            DISP_TYPE = #dispType#, 
+            FIRST_ID = #firstId#, 
+            LAST_ID = #lastId#, 
+            LEVEL = #level#, 
+            MAX_ID = #maxId#, 
+            SMALL_ID = #smallId#, 
+            STATUS = #status#,
+            user_id = #userId#
+        where column_Id = #columnId#
+    ]]>
+    </update>
+
+    <delete id="deleteColColumn" parameterClass="java.lang.Long">
+    <![CDATA[
+        delete from col_Column where column_Id = #value#
+    ]]>
+    </delete>
+    
+    <!-- lyz -->
+    <select id="getSonColumn" parameterClass="com.galebo.common.dao.SSIILL" resultMap="colColumnResult2">
+    <![CDATA[select t1.*,t2.sort,t2.parent_element_id COL_PID,t2.cfg_relate_Id from cfg_Relative t2,col_column t1
+     where t1.column_id=t2.element_id and t2.parent_element_id=#long1# and t2.user_id=#long2# and t2.element_type=#string1# order by sort]]>
+    </select>
+    
+    <select id="getSonColumnSize" parameterClass="com.galebo.common.dao.SSIILL" resultClass="java.lang.Long">
+    <![CDATA[select count(t1.user_id) from cfg_Relative t2,col_column t1 where t1.column_id=t2.element_id and t2.parent_element_id=#long1# and t2.user_id=#long2# and t2.element_type=#string1#]]>
+    </select>
+    
+    <select id="getColumnsNoInIndex" parameterClass="com.galebo.common.dao.SSIILL" resultMap="colColumnResult2">
+    <![CDATA[select t1.*,t2.sort,t2.parent_element_id COL_PID,t2.cfg_relate_Id from cfg_Relative t2,col_column t1
+     where t1.column_id=t2.element_id and t2.user_id=#long1# and t2.element_type=#string1# and t1.col_name!='root'
+     and not EXISTS (SELECT t.element_id  FROM cfg_Relative t  WHERE t.user_id=#long1# and t.element_type=#string2# AND t1.column_id = t.element_Id) order by sort]]>
+    </select>
+    
+    <select id="getColumnsNoInIndexSize" parameterClass="com.galebo.common.dao.SSIILL" resultClass="java.lang.Integer">
+    <![CDATA[select count(t1.user_id) from cfg_Relative t2,col_column t1
+     where t1.column_id=t2.element_id and t2.user_id=#long1# and t2.element_type=#string1# and t1.col_name!='root'
+     and not EXISTS (SELECT t.element_id  FROM cfg_Relative t  WHERE t.user_id=#long1# and t.element_type=#string2# AND t1.column_id = t.element_Id)]]>
+    </select>
+    
+    
+    <select id="getColumnsInIndex"  parameterClass="com.galebo.common.dao.SSIILL" resultClass="java.lang.Long">
+    <![CDATA[
+        select t2.element_id from cfg_relative t2 where  t2.user_id=#long1# and t2.element_type2='3BA' and t2.element_type='3AD'
+    ]]>
+    </select>
+    <select id="isColumnUsed" parameterClass="java.lang.Long" resultClass="java.lang.Long">
+    <![CDATA[
+        select count(COLUMN_ID) from col_Column_content where COLUMN_ID =#long1#
+    ]]>
+    </select>
+    <select id="getColColumnsByUserId" parameterClass="com.galebo.common.dao.SSIILL" resultMap="colColumnResult2">
+    <![CDATA[
+        select t1.*,t2.sort,t2.parent_element_id COL_PID,t2.cfg_relate_Id from col_Column t1,cfg_relative t2 where t1.user_id=#long1# and t2.element_type=#string1#
+         and t2.user_id=#long1# and t2.element_id=t1.column_id
+    ]]>
+    </select>
+</sqlMap>

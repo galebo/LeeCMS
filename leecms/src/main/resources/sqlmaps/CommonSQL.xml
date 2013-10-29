@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="ColColumnContentSQL">
+
+    <typeAlias alias="define1" type="com.galebo.lowyer.bean.common.Define"/>
+    <!-- lyz -->
+    
+	<select id="selectColumnCfg" parameterClass="com.galebo.common.dao.SSIILL" resultClass="java.lang.String">
+    <![CDATA[select column_cfg from cfg_template_info where page =#string1# and user_id=#long1#]]>
+    </select>
+    
+	<update id="updateColColumnContentSort" parameterClass="com.galebo.common.dao.SSIILL">
+    <![CDATA[UPDATE col_Column_Content SET content_id = #long2#  WHERE  columnContentId = #long1#]]>
+    </update>
+    
+	<update id="updateRelativeSort" parameterClass="com.galebo.common.dao.SSIILL">
+    <![CDATA[UPDATE cfg_Relative SET sort = #long2#  WHERE  cfg_relate_id = #long1#]]>
+    </update>
+	<update id="updateColumnSort" parameterClass="com.galebo.common.dao.SSIILL">
+    <![CDATA[UPDATE cfg_Relative SET sort = #long2#  WHERE  cfg_relate_id = #long1#]]>
+    </update>
+	<update id="updateIndexMenuSort" parameterClass="com.galebo.common.dao.SSIILL">
+    <![CDATA[UPDATE cfg_Relative SET sort = #long2#  WHERE  cfg_relate_id = #long1#]]>
+    </update>
+    
+	<update id="updateContentCount" parameterClass="java.lang.Long">
+    <![CDATA[UPDATE con_Content SET VIEW_COUNT = VIEW_COUNT+1 WHERE  content_Id = #long1#]]>
+    </update>
+	<update id="updateWebCount" parameterClass="java.lang.Long">
+    <![CDATA[UPDATE web_info SET VIEW_COUNT = VIEW_COUNT+1 WHERE  user_Id = #long1#]]>
+    </update>
+
+    <resultMap id="IdCountResult" class="com.galebo.lowyer.bean.common.IdCount">
+        <result property="id" column="ID"/>
+        <result property="count" column="count"/>
+    </resultMap>
+    <select id="getWebCount" parameterClass="java.lang.Long" resultMap="IdCountResult">
+    <![CDATA[select t1.user_id id,t1.view_count count from web_info t1 where user_id = #long1#]]>
+    </select>
+    
+    <select id="getContentCount" parameterClass="java.lang.String" resultMap="IdCountResult">
+    <![CDATA[select t1.content_Id id,t1.view_count count from con_Content t1 where t1.content_Id in ($value$) ]]>
+    </select>
+
+    <select id="selectFtl" resultClass="java.lang.String" parameterClass="java.lang.String">
+    <![CDATA[select template from template_page where template_page_name=#template_name#]]>
+    </select>
+	<select id="selectFtlByUserId" resultClass="java.lang.String" parameterClass="com.galebo.common.dao.SSIILL">
+    <![CDATA[select template from template_page where template_page_name=#string1# and user_id=#long1#]]>
+    </select>
+    
+	<resultMap id="UrlNameImgMap" class="com.galebo.lowyer.bean.common.UrlNameImg">
+       <result property="name" column="title"/>
+       <result property="url" column="url"/>
+       <result property="img" column="img_Url"/>
+    </resultMap>
+    <select id="getConLinkByUserId" parameterClass="java.lang.Long" resultMap="UrlNameImgMap">
+    <![CDATA[select title,url,img_Url  from con_Link where type='2AA' and user_Id = #value#]]>
+    </select>
+    
+    
+        <typeAlias alias="indexMenu" type="com.galebo.lowyer.model.IndexMenu"/>
+
+    <resultMap id="indexMenuResult" class="indexMenu">
+        <result property="id" column="Id"/>
+        <result property="name" column="name"/>
+        <result property="type" column="type"/>
+        <result property="sort" column="SORT"/>
+        <result property="colPid" column="COL_PID"/>
+        <result property="relativeId" column="cfg_relate_Id"/>
+    </resultMap>
+    <select id="getIndexMenus" parameterClass="com.galebo.common.dao.SSIILL" resultMap="indexMenuResult">
+    <![CDATA[select * from 
+(select t1.column_id id,t1.COL_NAME name,'栏目' type,t2.sort,t2.parent_element_id COL_PID,t2.cfg_relate_Id from cfg_Relative t2,col_column t1
+     where t1.column_id=t2.element_id and t2.parent_element_id=#long1# and t2.user_id=#long1# and t2.element_type='3AD'  and t2.element_type2='3BA' 
+     union
+select t4.CONTENT_ID id,t4.NAME_CN name,'内容' type,t3.sort,t3.parent_element_id COL_PID,t3.cfg_relate_Id from cfg_Relative t3,con_content t4
+     where t4.CONTENT_ID=t3.element_id and t3.parent_element_id=#long1# and t3.user_id=#long1# and t3.element_type='3AD'  and t3.element_type2='3BB'
+     union
+select t4.link_id id,t4.title name,'链接' type,t3.sort,t3.parent_element_id COL_PID,t3.cfg_relate_Id from cfg_Relative t3,con_link t4
+     where t4.link_id=t3.element_id and t3.parent_element_id=#long1# and t3.user_id=#long1# and t3.element_type='3AD'  and t3.element_type2='3BC' )t order by sort]]>
+    </select>
+    
+    <select id="getIndexMenusSize" parameterClass="com.galebo.common.dao.SSIILL" resultClass="java.lang.Long">
+    <![CDATA[select count(t.id) from 
+(select t1.column_id id,t1.COL_NAME name,'栏目' type,t2.sort,t2.parent_element_id COL_PID,t2.cfg_relate_Id from cfg_Relative t2,col_column t1
+     where t1.column_id=t2.element_id and t2.parent_element_id=#long1# and t2.user_id=#long1# and t2.element_type='3AD'  and t2.element_type2='3BA' 
+     union
+select t4.CONTENT_ID id,t4.NAME_CN name,'内容' type,t3.sort,t3.parent_element_id COL_PID,t3.cfg_relate_Id from cfg_Relative t3,con_content t4
+     where t4.CONTENT_ID=t3.element_id and t3.parent_element_id=#long1# and t3.user_id=#long1# and t3.element_type='3AD'  and t3.element_type2='3BB'
+     union
+select t4.link_id id,t4.title name,'链接' type,t3.sort,t3.parent_element_id COL_PID,t3.cfg_relate_Id from cfg_Relative t3,con_link t4
+     where t4.link_id=t3.element_id and t3.parent_element_id=#long1# and t3.user_id=#long1# and t3.element_type='3AD'  and t3.element_type2='3BC'  )t ]]>
+    </select>
+    
+    
+	<resultMap id="nameKey1234Result" class="com.galebo.lowyer.bean.NameKey1234">
+        <result property="id" column="Id"/>
+        <result property="name" column="name"/>
+        <result property="key1" column="key1"/>
+        <result property="key2" column="key2"/>
+        <result property="key3" column="key3"/>
+        <result property="key4" column="key4"/>
+    </resultMap>
+	<select id="getNameKey"  resultMap="nameKey1234Result"  parameterClass="com.galebo.common.dao.SSIILL">
+    <![CDATA[SELECT t1.CONTENT_ID id ,t1.NAME_CN name,t2.key1,t2.key2,t2.key3,t2.key4
+  FROM con_content t1 ,cfg_indexsearch t2,col_column t3 WHERE t3.column_id=#long2# and t3.user_id=#long1# and t1.CONTENT_ID = t2.elementid ]]>
+    </select>
+	<select id="getNameKeyNotIn"  resultMap="nameKey1234Result"  parameterClass="com.galebo.common.dao.SSIILL">
+    <![CDATA[SELECT t1.CONTENT_ID id ,t1.NAME_CN name,'' key1,'' key2,'' key3,'' key4
+  FROM con_content t1 ,col_column_content t3 WHERE t3.column_id=#long2# and t1.user_id=#long1# and t3.CONTENT_ID=t1.CONTENT_ID and t1.CONTENT_ID
+   not in ( select elementid from cfg_indexsearch )]]>
+    </select>
+	<update id="setContentIndex" parameterClass="com.galebo.common.dao.SSIILL">
+    <![CDATA[UPDATE cfg_indexsearch SET key1=#string1#,key2=#string2# WHERE  elementid = #long1# ]]>
+    </update>
+    
+    <typeAlias alias="cfgIndexSearch" type="com.galebo.lowyer.model.CfgIndexSearch"/>
+     <insert id="addCfgIndexSearch" parameterClass="cfgIndexSearch">
+        <![CDATA[
+            insert into cfg_indexsearch (key1, key2,  key3, key4, elementId, type,user_id)
+            values (#key1#, #key2#, #key3#, #key4#, #id#, #type#, #userId#)
+        ]]>
+    </insert>
+    
+    
+</sqlMap>

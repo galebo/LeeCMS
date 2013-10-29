@@ -1,0 +1,27 @@
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <mapping class="com.galebo.lowyer.model.User"/>
+        <mapping class="com.galebo.lowyer.model.Role"/>
+        <mapping class="com.galebo.lowyer.model.ColColumn"/>
+        <mapping class="com.galebo.lowyer.model.ColColumnContent"/>
+        <mapping class="com.galebo.lowyer.model.ConContent"/>
+        <mapping class="com.galebo.lowyer.model.CfgDefineInstance"/>
+        <mapping class="com.galebo.lowyer.model.Template"/>
+        <mapping class="com.galebo.lowyer.model.CfgRelative"/>
+        <mapping class="com.galebo.lowyer.model.CfgGroup"/>
+        <mapping class="com.galebo.lowyer.model.CfgRelative"/>
+        <mapping class="com.galebo.lowyer.model.ColColumn"/>
+        <mapping class="com.galebo.lowyer.model.TemplatePage"/>
+        <mapping class="com.galebo.lowyer.model.WebInfo"/>
+        <mapping class="com.galebo.lowyer.model.ProProduct"/>
+        <mapping class="com.galebo.lowyer.model.ProCategory"/>
+        <mapping class="com.galebo.lowyer.model.ProCategory"/>
+        <mapping class="com.galebo.lowyer.model.ProCategory"/>
+        <mapping class="com.galebo.lowyer.model.ProCategory"/>
+        <mapping class="com.galebo.lowyer.model.ProProduct"/>
+        <mapping class="com.galebo.lowyer.model.ProCategoryProduct"/>
+    </session-factory>
+</hibernate-configuration>

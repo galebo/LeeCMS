@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="ProProductSQL">
+
+    <typeAlias alias="proProduct" type="com.galebo.lowyer.model.ProProduct"/>
+
+    <parameterMap id="addParam" class="proProduct">
+        <parameter property="author" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="html" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="nameCn" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="status" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="submitTime" jdbcType="VARCHAR" javaType="date"/>
+        <parameter property="userId" jdbcType="INTEGER" javaType="java.lang.Long"/>
+        <parameter property="viewCount" jdbcType="INTEGER" javaType="java.lang.Long"/>
+    </parameterMap>
+
+    <parameterMap id="updateParam" class="proProduct">
+        <parameter property="productId" jdbcType="INTEGER" javaType="java.lang.Long"/>
+        <parameter property="author" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="html" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="nameCn" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="status" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="submitTime" jdbcType="VARCHAR" javaType="date"/>
+        <parameter property="userId" jdbcType="INTEGER" javaType="java.lang.Long"/>
+        <parameter property="viewCount" jdbcType="INTEGER" javaType="java.lang.Long"/>
+    </parameterMap>
+
+    <resultMap id="proProductResult" class="proProduct">
+        <result property="productId" column="product_Id"/>
+        <result property="author" column="AUTHOR"/>
+        <result property="html" column="HTML"/>
+        <result property="nameCn" column="NAME_CN"/>
+        <result property="status" column="STATUS"/>
+        <result property="submitTime" column="SUBMIT_TIME"/>
+        <result property="userId" column="USER_ID"/>
+        <result property="viewCount" column="VIEW_COUNT"/>
+    </resultMap>
+
+    <select id="getProProducts" resultMap="proProductResult">
+    <![CDATA[
+        select * from pro_Product
+    ]]>
+    </select>
+
+    <select id="getProProduct" parameterClass="java.lang.Long" resultMap="proProductResult">
+    <![CDATA[
+        select * from pro_Product where Product_id = #value#
+    ]]>
+    </select>
+
+    <insert id="addProProduct" parameterClass="proProduct">
+        <selectKey resultClass="java.lang.Long" keyProperty="productId" type="post">
+            select last_insert_id() as productId
+        </selectKey>
+        <![CDATA[
+            insert into pro_Product (AUTHOR, HTML, NAME_CN, STATUS, SUBMIT_TIME, USER_ID, VIEW_COUNT)
+            values (#author#, #html#, #nameCn#, #status#, #submitTime#, #userId#, #viewCount#)
+        ]]>
+    </insert>
+
+    <update id="updateProProduct" parameterClass="proProduct">
+    <![CDATA[
+        update pro_Product set 
+            AUTHOR = #author#, 
+            HTML = #html#, 
+            NAME_CN = #nameCn#, 
+            STATUS = #status#, 
+            SUBMIT_TIME = #submitTime#, 
+            USER_ID = #userId#, 
+            VIEW_COUNT = #viewCount#
+        where Product_id = #productId#
+    ]]>
+    </update>
+
+    <delete id="deleteProProduct" parameterClass="java.lang.Long">
+    <![CDATA[
+        delete from pro_Product where product_Id = #value#
+    ]]>
+    </delete>
+</sqlMap>

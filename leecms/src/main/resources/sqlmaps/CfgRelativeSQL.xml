@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="CfgRelativeSQL">
+
+    <typeAlias alias="cfgRelative" type="com.galebo.lowyer.model.CfgRelative"/>
+
+    <resultMap id="cfgRelativeResult" class="cfgRelative">
+        <result property="cfgRelateId" column="cfg_Relate_Id"/>
+        <result property="elementId" column="element_Id"/>
+        <result property="elementType" column="element_type"/>
+        <result property="elementType2" column="element_type2"/>
+        <result property="parentElementId" column="parent_element_id"/>
+        <result property="userId" column="user_id"/>
+        <result property="sort" column="sort"/>
+    </resultMap>
+
+    <select id="getCfgRelatives" resultMap="cfgRelativeResult">
+    <![CDATA[
+        select * from cfg_Relative
+    ]]>
+    </select>
+
+    <select id="getCfgRelative" parameterClass="java.lang.Long" resultMap="cfgRelativeResult">
+    <![CDATA[
+        select * from cfg_Relative where cfg_Relate_Id = #value#
+    ]]>
+    </select>
+
+    <insert id="addCfgRelative" parameterClass="cfgRelative">
+        <selectKey resultClass="java.lang.Long" keyProperty="cfgRelateId" type="post">
+            select last_insert_id() as cfgRelateId
+        </selectKey>
+        <![CDATA[
+            insert into cfg_Relative (element_Id, element_type,  element_type2, parent_element_id, user_id,sort)
+            values (#elementId#, #elementType#,#elementType2#, #parentElementId#, #userId#,#sort#)
+        ]]>
+    </insert>
+
+    <update id="updateCfgRelative" parameterClass="cfgRelative">
+    <![CDATA[
+        update cfg_Relative set 
+            element_Id = #elementId#, 
+            element_type = #elementType#, 
+            element_type2 = #elementType2#, 
+            parent_element_id = #parentElementId#, 
+            user_id = #userId#, 
+            sort = #sort#
+        where cfg_Relate_Id = #cfgRelateId#
+    ]]>
+    </update>
+
+    <delete id="deleteCfgRelative" parameterClass="java.lang.Long">
+    <![CDATA[
+        delete from cfg_Relative where cfg_Relate_Id = #value#
+    ]]>
+    </delete>
+    
+    <!-- lyz -->
+    <select id="getRelativeDownOne" resultMap="cfgRelativeResult" parameterClass="com.galebo.common.dao.SSIILL">
+    <![CDATA[select * from cfg_Relative where sort =(select min(t.SORT) FROM cfg_Relative t where t.sort > #long1# and t.parent_element_id=#long2# and
+    (element_type='3AA' or element_type='3AB')) and parent_element_id=#long2#  and (element_type='3AA' or element_type='3AB')]]>
+    </select>
+    <select id="getRelativeUpOne" resultMap="cfgRelativeResult"  parameterClass="com.galebo.common.dao.SSIILL">
+    <![CDATA[select * from cfg_Relative where sort =(select max(t.SORT) FROM cfg_Relative t where t.sort < #long1# and t.parent_element_id=#long2# and (element_type='3AA' or element_type='3AB'))
+    and parent_element_id=#long2# and (element_type='3AA' or element_type='3AB') ]]>
+    </select>
+    <select id="getColumnDownOne" resultMap="cfgRelativeResult" parameterClass="com.galebo.common.dao.SSIILL">
+    <![CDATA[select * from cfg_Relative where sort =(select min(t.SORT) FROM cfg_Relative t where t.sort > #long1# and t.parent_element_id=#long2# and
+    (element_type='3AC')) and parent_element_id=#long2#  and (element_type='3AC')]]>
+    </select>
+    <select id="getColumnUpOne" resultMap="cfgRelativeResult"  parameterClass="com.galebo.common.dao.SSIILL">
+    <![CDATA[select * from cfg_Relative where sort =(select max(t.SORT) FROM cfg_Relative t where t.sort < #long1# and t.parent_element_id=#long2# and (element_type='3AC'))
+    and parent_element_id=#long2# and (element_type='3AC') ]]>
+    </select>
+    
+    <select id="getIndexMenuDownOne" resultMap="cfgRelativeResult" parameterClass="com.galebo.common.dao.SSIILL">
+    <![CDATA[select * from cfg_Relative where sort =(select min(t.SORT) FROM cfg_Relative t where t.sort > #long1# and t.parent_element_id=#long2# and
+    (element_type='3AD')) and parent_element_id=#long2#  and (element_type='3AD')]]>
+    </select>
+    <select id="getIndexMenuUpOne" resultMap="cfgRelativeResult"  parameterClass="com.galebo.common.dao.SSIILL">
+    <![CDATA[select * from cfg_Relative where sort =(select max(t.SORT) FROM cfg_Relative t where t.sort < #long1# and t.parent_element_id=#long2# and (element_type='3AD'))
+    and parent_element_id=#long2# and (element_type='3AD') ]]>
+    </select>
+    
+    <select id="getRelativeMaxSort" resultMap="cfgRelativeResult" parameterClass="com.galebo.common.dao.SSIILL">
+    <![CDATA[select * from cfg_Relative where parent_element_id=#long1# and element_type=#string1# order by sort desc]]>
+    </select>
+    
+</sqlMap>

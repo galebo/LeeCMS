@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="TemplateSQL">
+
+    <typeAlias alias="template" type="com.galebo.lowyer.model.Template"/>
+
+    <parameterMap id="addParam" class="template">
+        <parameter property="CTime" jdbcType="VARCHAR" javaType="date"/>
+        <parameter property="status" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="templateCssId" jdbcType="INTEGER" javaType="java.lang.Long"/>
+        <parameter property="templateId" jdbcType="INTEGER" javaType="java.lang.Long"/>
+        <parameter property="userId" jdbcType="INTEGER" javaType="java.lang.Long"/>
+    </parameterMap>
+
+    <parameterMap id="updateParam" class="template">
+        <parameter property="cfgTemplateId" jdbcType="INTEGER" javaType="java.lang.Long"/>
+        <parameter property="CTime" jdbcType="VARCHAR" javaType="date"/>
+        <parameter property="status" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="templateCssId" jdbcType="INTEGER" javaType="java.lang.Long"/>
+        <parameter property="templateId" jdbcType="INTEGER" javaType="java.lang.Long"/>
+        <parameter property="userId" jdbcType="INTEGER" javaType="java.lang.Long"/>
+    </parameterMap>
+
+    <resultMap id="templateResult" class="template">
+        <result property="cfgTemplateId" column="cfg_Template_Id"/>
+        <result property="CTime" column="C_TIME"/>
+        <result property="status" column="STATUS"/>
+        <result property="templateCssId" column="template_css_id"/>
+        <result property="templateId" column="template_id"/>
+        <result property="userId" column="user_id"/>
+    </resultMap>
+
+    <select id="getTemplates" resultMap="templateResult">
+    <![CDATA[
+        select * from template
+    ]]>
+    </select>
+
+    <select id="getTemplate" parameterClass="java.lang.Long" resultMap="templateResult">
+    <![CDATA[
+        select * from template where cfg_Template_Id = #value#
+    ]]>
+    </select>
+
+    <insert id="addTemplate" parameterClass="template">
+        <selectKey resultClass="java.lang.Long" keyProperty="cfgTemplateId" type="post">
+            select last_insert_id() as cfgTemplateId
+        </selectKey>
+        <![CDATA[
+            insert into template (C_TIME, STATUS, template_css_id, template_id, user_id)
+            values (#CTime#, #status#, #templateCssId#, #templateId#, #userId#)
+        ]]>
+    </insert>
+
+    <update id="updateTemplate" parameterClass="template">
+    <![CDATA[
+        update template set 
+            C_TIME = #CTime#, 
+            STATUS = #status#, 
+            template_css_id = #templateCssId#, 
+            template_id = #templateId#, 
+            user_id = #userId#
+        where cfg_Template_Id = #cfgTemplateId#
+    ]]>
+    </update>
+
+    <delete id="deleteTemplate" parameterClass="java.lang.Long">
+    <![CDATA[
+        delete from template where cfg_Template_Id = #value#
+    ]]>
+    </delete>
+    <!-- lyz -->
+    <select id="isTemplateExist" parameterClass="com.galebo.common.dao.SSIILL" resultMap="templateResult">
+    <![CDATA[
+        select * from template where template_Id = #long1# and  template_css_Id = #long2#
+    ]]>
+    </select>
+    <select id="getTemplateByUserId" parameterClass="java.lang.Long" resultMap="templateResult">
+    <![CDATA[
+        select * from template t1,web_info t2 where t1.cfg_template_id=t2.web_cfg_template_id and t2.user_id= #long2#
+    ]]>
+    </select>
+</sqlMap>

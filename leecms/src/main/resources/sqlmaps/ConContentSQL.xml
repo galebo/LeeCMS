@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="ConContentSQL">
+
+    <typeAlias alias="conContent" type="com.galebo.lowyer.model.ConContent"/>
+
+
+    <resultMap id="conContentResult" class="conContent">
+        <result property="contentId" column="CONTENT_ID"/>
+        <result property="author" column="AUTHOR"/>
+        <result property="nameCn" column="NAME_CN"/>
+        <result property="status" column="STATUS"/>
+        <result property="source" column="SOURCE"/>
+        <result property="submitTime" column="SUBMIT_TIME"/>
+        <result property="updateTime" column="UPDATE_TIME"/>
+        <result property="html" column="HTML"/>
+        <result property="viewCount" column="VIEW_COUNT"/>
+        <result property="userId" column="USER_ID"/>
+        <result property="pic" column="pic"/>
+        <result property="desc" column="_desc"/>
+    </resultMap>
+
+    <select id="getConContents" resultMap="conContentResult">
+    <![CDATA[
+        select * from con_Content
+    ]]>
+    </select>
+
+    <select id="getConContent" parameterClass="java.lang.Long" resultMap="conContentResult">
+    <![CDATA[
+        select * from con_Content where content_Id = #value#
+    ]]>
+    </select>
+
+    <insert id="addConContent" parameterClass="conContent" >
+        <selectKey resultClass="java.lang.Long" keyProperty="contentId" type="post">
+            select last_insert_id() as content_Id
+        </selectKey>
+        <![CDATA[
+            insert into con_Content (AUTHOR,NAME_CN, STATUS, SUBMIT_TIME, UPDATE_TIME,html,VIEW_COUNT,USER_ID,SOURCE,pic,_desc)
+            values (#author#,  #nameCn#,  #status#, #submitTime#, #updateTime#, #html#,#viewCount#,#userId#,#source#,#pic#,#desc#)
+        ]]>
+    </insert>
+
+    <update id="updateConContent" parameterClass="conContent">
+    <![CDATA[
+        update con_Content set 
+            AUTHOR = #author#, 
+            NAME_CN = #nameCn#, 
+            STATUS = #status#, 
+            SUBMIT_TIME = #submitTime#, 
+            UPDATE_TIME = #updateTime#, 
+            html = #html#,
+            view_count=#viewCount#,
+            user_id=#userId#,
+            source=#source#,
+            pic=#pic#,
+            _desc=#desc#
+        where content_Id = #contentId#
+    ]]>
+    </update>
+
+    <delete id="deleteConContent" parameterClass="java.lang.Long">
+    <![CDATA[
+        delete from con_Content where content_Id = #value#
+    ]]>
+    </delete>
+    
+    <!-- start -->
+    <select id="getConContentsByUserId" resultMap="conContentResult" parameterClass="java.lang.Long">
+    <![CDATA[
+        select * from con_Content where user_id=#value#
+    ]]>
+    </select>
+    <select id="getContentsByUserId" resultMap="conContentResult" parameterClass="java.lang.Long">
+    <![CDATA[
+        select t1.* from con_Content t1,cfg_relative t2 where t1.user_id=#long1# 
+        and t1.content_id =t2.element_id and t2.user_id=#long1# and t2.element_type2='3BB'
+    ]]>
+    </select>
+    <select id="getContents_indexByUserId" resultMap="conContentResult" parameterClass="com.galebo.common.dao.SSIILL">
+    <![CDATA[
+        select t1.* from con_Content t1,col_column_content t2 where t1.user_id=#long1# 
+        and t1.content_id =t2.content_id  and t2.column_id=#long2#
+    ]]>
+    </select>
+    <select id="getContentsByIndex" resultMap="conContentResult" parameterClass="com.galebo.common.dao.SSIILL">
+    <![CDATA[
+        SELECT t1.* FROM con_content t1, cfg_indexsearch t2 WHERE t1.CONTENT_ID = t2.elementid AND (t2.key1 = #string1# or 'lyz'= #string1#) 
+        and (t2.key2 = #string2#  or 'lyz'= #string2#);
+    ]]>
+    </select>
+    <select id="getContentsNoBang" resultMap="conContentResult" parameterClass="com.galebo.common.dao.SSIILL">
+    <![CDATA[
+        SELECT t1.* FROM con_content t1 WHERE t1.USER_ID = #long1# AND t1.CONTENT_ID NOT IN 
+        (SELECT t2.content_Id  FROM col_column_content t2  WHERE t2.Column_id = #long2# )order by t1.update_time desc
+    ]]>
+    </select>
+    
+    <select id="getContentsNoBangSize" resultClass="java.lang.Integer" parameterClass="com.galebo.common.dao.SSIILL">
+    <![CDATA[
+        SELECT count(t1.USER_ID) FROM con_content t1 WHERE t1.USER_ID = #long1# AND t1.CONTENT_ID NOT IN 
+        (SELECT t2.content_Id  FROM col_column_content t2  WHERE t2.Column_id = #long2# )
+    ]]>
+    </select>
+</sqlMap>

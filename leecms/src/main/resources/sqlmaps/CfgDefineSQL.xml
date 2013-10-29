@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="CfgDefineSQL">
+
+    <typeAlias alias="cfgDefine" type="com.galebo.lowyer.model.CfgDefine"/>
+
+    <parameterMap id="addParam" class="cfgDefine">
+        <parameter property="defaultValue" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="key" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="positionName" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="updateTime" jdbcType="VARCHAR" javaType="java.sql.Timestamp"/>
+    </parameterMap>
+
+    <parameterMap id="updateParam" class="cfgDefine">
+        <parameter property="defineId" jdbcType="INTEGER" javaType="java.lang.Long"/>
+        <parameter property="defaultValue" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="key" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="positionName" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="updateTime" jdbcType="VARCHAR" javaType="java.sql.Timestamp"/>
+    </parameterMap>
+
+    <resultMap id="cfgDefineResult" class="cfgDefine">
+        <result property="defineId" column="define_Id"/>
+        <result property="defaultValue" column="DEFAULT_VALUE"/>
+        <result property="key" column="KEY_"/>
+        <result property="positionName" column="POSITION_NAME"/>
+        <result property="updateTime" column="UPDATE_TIME"/>
+    </resultMap>
+
+    <select id="getCfgDefines" resultMap="cfgDefineResult">
+    <![CDATA[
+        select * from cfg_define
+    ]]>
+    </select>
+
+    <select id="getCfgDefine" parameterClass="java.lang.Long" resultMap="cfgDefineResult">
+    <![CDATA[
+        select * from cfg_define where define_Id = #value#
+    ]]>
+    </select>
+
+    <insert id="addCfgDefine" parameterClass="cfgDefine">
+        <selectKey resultClass="java.lang.Long" keyProperty="defineId" type="post">
+            select last_insert_id() as defineId
+        </selectKey>
+        <![CDATA[
+            insert into cfg_define (DEFAULT_VALUE, KEY_, POSITION_NAME, UPDATE_TIME)
+            values (#defaultValue#, #key#, #positionName#, #updateTime#)
+        ]]>
+    </insert>
+
+    <update id="updateCfgDefine" parameterClass="cfgDefine">
+    <![CDATA[
+        update cfg_define set 
+            DEFAULT_VALUE = #defaultValue#, 
+            KEY_ = #key#, 
+            POSITION_NAME = #positionName#, 
+            UPDATE_TIME = #updateTime#
+        where define_Id = #defineId#
+    ]]>
+    </update>
+
+    <delete id="deleteCfgDefine" parameterClass="java.lang.Long">
+    <![CDATA[
+        delete from cfg_define where define_Id = #value#
+    ]]>
+    </delete>
+    <select id="getCfgDefines1" resultMap="cfgDefineResult">
+    <![CDATA[
+        select t1.* from cfg_define t1 where t1.KEY_  not in( select t2.title from cfg_define_Instance t2 where t2.user_id=#value#)
+    ]]>
+    </select>
+</sqlMap>

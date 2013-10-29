@@ -1,0 +1,89 @@
+body, div, input, td, p {color: #000000;font-family: Arial;font-size: 12px;}
+
+body {-moz-user-select: none;}
+body {height: auto;width: 100%;}
+body {border: 0 none;margin: 0;}
+
+div, input, td, p {height: auto;}
+a {color: #333333;text-decoration: none;}
+
+.bodyC{background-color: #99CC66;margin: 0;}
+
+
+.top {background: url("../img/topBg.gif") repeat-x scroll 0 84px #FFFFFF;height: 86px;margin: 0;overflow: hidden;padding: 0 0 4px 0;width: 100%;}
+
+.main{height:560px;width: 100%;}
+
+
+.topbar {background: url("../img/topbar_bg.gif") repeat-x scroll 0 0 transparent;height: 24px;line-height: 24px;position: static;width: 100%;}
+.topbar_le {float: left;}
+.topbar_ri {color: #CCCCCC;float: right;font-family: Verdana,Geneva,sans-serif;padding-right: 10px;text-align: right;width: 400px;}
+
+.topbar_ri div.opration {float: right;width: auto;}
+.topbar_ri a {margin: 0 5px;}
+.topbar a {color: #666666;margin-left: 15px;}
+
+
+
+.topL {background: url("../img/logo.gif") no-repeat scroll 0 0 transparent;height: 50px;left: 10px;position: absolute;top: 30px;width: 250px;}
+.topR {height: 62px;margin: 0 0 0 250px;width: auto;}
+.topR .topNav {clear: both;height: 26px;margin-right: 250px;margin-top: 12px;overflow: hidden !important;}
+.topR .topNav .topMenu {float: left;height: 26px;width: 13%;}
+.topR .help {height: 20px;position: absolute;right: 5px;top: 60px;width: 218px;z-index: 99;}
+
+.topSearch {height: 20px;padding: 0;}
+.topR .pic {background: url("../img/topSkin.jpg") no-repeat scroll right top transparent;height: 62px;position: absolute;right: 0;top: 24px;width: 500px;}
+
+
+
+
+.topR .topNav .topMenu ul {display: block;height: 26px;list-style-type: none;margin: 0;padding: 0;width: 100%;}
+.topR .topNav .topMenu ul li {cursor: pointer;display: block;float: left;font-weight: bold;height: 26px;line-height: 29px;list-style-type: none;margin: 0;padding: 0;position: static;text-align: center;width: 100%;}
+
+
+.topR .topNav .topMenu ul li div.leftBorderOut {background: url("../img/topframe.gif") no-repeat scroll 0 0 transparent;float: left;height: 26px;overflow: hidden;width: 5px;}
+.topR .topNav .topMenu ul li div.rightBorderOut {background: url("../img/topframe.gif") no-repeat scroll -6px 0 transparent;float: right;height: 26px;overflow: hidden;width: 5px;}
+.topR .topNav .topMenu ul li div.contentOut {background: url("../img/gradient.gif") repeat-x scroll 0 -39px transparent;overflow: hidden;}
+.topR .topNav .topMenu ul li p.pclickOut {color: #588A25;font-size: 12px;font-weight: 200;margin: 0;text-align: left;}
+
+.topR .topNav .topMenu ul li div.leftBorderOn {background: url("../img/topframe.gif") no-repeat scroll 0 -26px transparent;float: left;height: 26px;overflow: hidden;width: 5px;}
+.topR .topNav .topMenu ul li div.rightBorderOn {background: url("../img/topframe.gif") no-repeat scroll -6px -26px transparent;float: right;height: 26px;overflow: hidden;width: 5px;}
+
+.topR .topNav .topMenu ul li div.contentOn {background: url("../img/gradient.gif") repeat-x scroll 0 -65px transparent;overflow: hidden;}
+.topR .topNav .topMenu ul li p.pclickOn {color: #FFFFFF;font-size: 12px;font-weight: bold;margin: 0;text-align: left;}
+
+
+span.ico {cursor: pointer;display: inline-block;}
+.x {background: url("../img/x.gif") no-repeat scroll 0 0 transparent;height: 12px;margin-top: 8px;width: 12px;}
+.topR .topNav .topMenu ul li div.close {display: inline;float: right;height: 26px;width: 15px;}
+
+
+/*#99CC66
+#F5f9f0
+#649D2C
+*/
+
+
+
+.left {background: none repeat scroll 0 0 #99CC66;border: medium none;padding: 0 3px 0 5px;width: 172px;height:100%;float:left;}
+.leftBody {background: url("../img/nav_bg.gif") no-repeat scroll left bottom #99CC66;height: 542px;overflow: hidden;width: 170px;}
+
+.mailInto {background: url("../img/navMailInto.gif") no-repeat scroll 0 0 transparent;height: 132px;padding: 0 10px 1px;width: 150px;}
+.nav_topbg {background: url("../img/side_topbg2.gif") repeat scroll 0 0 transparent;font-size: 1px;height: 12px;line-height: 1px;width: 170px;}
+.nav_main {background: none repeat scroll 0 0;border-left: 1px solid #649D2C;border-right: 1px solid #649D2C;height: auto;padding: 0;width: 168px;overflow-x: hidden; overflow-y: auto;}
+.nav_tree {background: none repeat scroll 0 0 #F5f9f0;height: 330px;margin-top: 0;padding: 5px 10px;width:auto;}
+
+.middle {background: url("../img/main_le_bg.gif") no-repeat scroll 0 0 transparent;padding-left: 7px;float: left;height:100%;}
+
+.right {float: left; width: auto;}
+#main {border-top: 1px solid #649D2C;}
+
+
+
+
+
+
+.tb {background-color: #649D2C;}
+td {color: #333333;font-size: 12px;line-height: 20px;}
+.tb td {background-color: #FFFFFF;font-family: 宋体;height: 27px}
+.tb td.tb_title {background-color: #e5f7d4;color: #333333;font-size: 9pt;text-decoration: none;}

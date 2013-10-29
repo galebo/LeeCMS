@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="DefineInstanceSQL">
+
+    <typeAlias alias="defineInstance" type="com.galebo.lowyer.model.CfgDefineInstance"/>
+
+    <parameterMap id="addParam" class="defineInstance">
+        <parameter property="text" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="title" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="type" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="updateTime" jdbcType="VARCHAR" javaType="java.sql.Timestamp"/>
+        <parameter property="userId" jdbcType="INTEGER" javaType="java.lang.Long"/>
+    </parameterMap>
+
+    <parameterMap id="updateParam" class="defineInstance">
+        <parameter property="defineInstanceId" jdbcType="INTEGER" javaType="java.lang.Long"/>
+        <parameter property="text" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="title" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="type" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="updateTime" jdbcType="VARCHAR" javaType="java.sql.Timestamp"/>
+        <parameter property="userId" jdbcType="INTEGER" javaType="java.lang.Long"/>
+    </parameterMap>
+
+    <resultMap id="defineInstanceResult" class="defineInstance">
+        <result property="defineInstanceId" column="define_Instance_Id"/>
+        <result property="text" column="TEXT"/>
+        <result property="title" column="TITLE"/>
+        <result property="type" column="TYPE"/>
+        <result property="updateTime" column="UPDATE_TIME"/>
+        <result property="userId" column="USER_ID"/>
+    </resultMap>
+
+    <select id="getCfgDefineInstances" resultMap="defineInstanceResult">
+    <![CDATA[
+        select * from Cfg_Define_Instance
+    ]]>
+    </select>
+
+    <select id="getCfgDefineInstance" parameterClass="java.lang.Long" resultMap="defineInstanceResult">
+    <![CDATA[
+        select * from Cfg_Define_Instance where Define_Instance_Id = #value#
+    ]]>
+    </select>
+
+    <insert id="addCfgDefineInstance" parameterClass="defineInstance">
+        <selectKey resultClass="java.lang.Long" keyProperty="defineInstanceId" type="post">
+            select last_insert_id() as Cfg_Define_InstanceId
+        </selectKey>
+        <![CDATA[
+            insert into Cfg_Define_Instance (TEXT, TITLE, TYPE, UPDATE_TIME, USER_ID)
+            values (#text#, #title#, #type#, #updateTime#, #userId#)
+        ]]>
+    </insert>
+
+    <update id="updateCfgDefineInstance" parameterClass="defineInstance">
+    <![CDATA[
+        update Cfg_Define_Instance set 
+            TEXT = #text#, 
+            TITLE = #title#, 
+            TYPE = #type#, 
+            UPDATE_TIME = #updateTime#, 
+            USER_ID = #userId#
+        where Define_Instance_Id = #defineInstanceId#
+    ]]>
+    </update>
+
+    <delete id="deleteCfgDefineInstance" parameterClass="java.lang.Long">
+    <![CDATA[
+        delete from Cfg_Define_Instance where Define_Instance_Id = #value#
+    ]]>
+    </delete>
+    
+    <!-- lyz -->
+   <select id="getSiteDefineWithName" parameterClass="com.galebo.common.dao.SSIILL" resultMap="defineInstanceResult">
+    <![CDATA[
+        select t2.position_name title,t1.define_Instance_Id,t1.text, t1.type,t1.update_time,t1.user_id
+         from Cfg_Define_Instance t1,cfg_define t2 where t1.type=#string1# and t1.user_id=#long1# and t1.TITLE=t2.key_
+    ]]>
+    </select>
+    
+    
+    <select id="getDefines" resultMap="defineInstanceResult" parameterClass="com.galebo.common.dao.SSIILL">
+    <![CDATA[select * from Cfg_Define_Instance where type=#string1# and (user_Id=#long1# or -1=#long1#)]]>
+    </select>
+</sqlMap>

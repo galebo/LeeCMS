@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="ConUploadDataSQL">
+
+    <typeAlias alias="conUploadData" type="com.galebo.lowyer.model.ConUploadData"/>
+
+    <parameterMap id="addParam" class="conUploadData">
+        <parameter property="address" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="isDelete" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="location" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="name" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="newName" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="size" jdbcType="INTEGER" javaType="java.lang.Long"/>
+        <parameter property="type" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="updateTime" jdbcType="VARCHAR" javaType="java.sql.Timestamp"/>
+        <parameter property="userId" jdbcType="INTEGER" javaType="java.lang.Long"/>
+    </parameterMap>
+
+    <parameterMap id="updateParam" class="conUploadData">
+        <parameter property="uploadDataId" jdbcType="INTEGER" javaType="java.lang.Long"/>
+        <parameter property="address" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="isDelete" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="location" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="name" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="newName" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="size" jdbcType="INTEGER" javaType="java.lang.Long"/>
+        <parameter property="type" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="updateTime" jdbcType="VARCHAR" javaType="java.sql.Timestamp"/>
+        <parameter property="userId" jdbcType="INTEGER" javaType="java.lang.Long"/>
+    </parameterMap>
+
+    <resultMap id="conUploadDataResult" class="conUploadData">
+        <result property="uploadDataId" column="upload_Data_Id"/>
+        <result property="address" column="ADDRESS"/>
+        <result property="isDelete" column="IS_DELETE"/>
+        <result property="location" column="LOCATION"/>
+        <result property="name" column="NAME"/>
+        <result property="newName" column="NEW_NAME"/>
+        <result property="size" column="SIZE"/>
+        <result property="type" column="TYPE"/>
+        <result property="updateTime" column="UPDATE_TIME"/>
+        <result property="userId" column="USER_ID"/>
+    </resultMap>
+
+    <select id="getConUploadDatas" resultMap="conUploadDataResult">
+    <![CDATA[
+        select * from con_Upload_Data
+    ]]>
+    </select>
+
+    <select id="getConUploadData" parameterClass="java.lang.Long" resultMap="conUploadDataResult">
+    <![CDATA[
+        select * from con_Upload_Data where upload_Data_Id = #value#
+    ]]>
+    </select>
+
+    <insert id="addConUploadData" parameterClass="conUploadData">
+        <selectKey resultClass="java.lang.Long" keyProperty="uploadDataId" type="post">
+            select last_insert_id() as uploadDataId
+        </selectKey>
+        <![CDATA[
+            insert into con_Upload_Data (ADDRESS, IS_DELETE, LOCATION, NAME, NEW_NAME, SIZE, TYPE, UPDATE_TIME, USER_ID)
+            values (#address#, #isDelete#, #location#, #name#, #newName#, #size#, #type#, #updateTime#, #userId#)
+        ]]>
+    </insert>
+
+    <update id="updateConUploadData" parameterClass="conUploadData">
+    <![CDATA[
+        update con_Upload_Data set 
+            ADDRESS = #address#, 
+            IS_DELETE = #isDelete#, 
+            LOCATION = #location#, 
+            NAME = #name#, 
+            NEW_NAME = #newName#, 
+            SIZE = #size#, 
+            TYPE = #type#, 
+            UPDATE_TIME = #updateTime#, 
+            USER_ID = #userId#
+        where upload_Data_Id = #uploadDataId#
+    ]]>
+    </update>
+
+    <delete id="deleteConUploadData" parameterClass="java.lang.Long">
+    <![CDATA[
+        delete from con_Upload_Data where upload_Data_Id = #value#
+    ]]>
+    </delete>
+    <!-- lyz -->
+    <select id="getConUploadDatasByUserId" parameterClass="java.lang.Long" resultMap="conUploadDataResult">
+    <![CDATA[select * from con_Upload_Data where user_id=#value#]]>
+    </select>
+</sqlMap>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="CfgGroupSQL">
+
+    <typeAlias alias="cfgGroup" type="com.galebo.lowyer.model.CfgGroup"/>
+
+    <parameterMap id="addParam" class="cfgGroup">
+        <parameter property="groupKey" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="groupName" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="type" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="updateTime" jdbcType="VARCHAR" javaType="java.sql.Timestamp"/>
+        <parameter property="userId" jdbcType="INTEGER" javaType="java.lang.Long"/>
+    </parameterMap>
+
+    <parameterMap id="updateParam" class="cfgGroup">
+        <parameter property="groupId" jdbcType="INTEGER" javaType="java.lang.Long"/>
+        <parameter property="groupKey" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="groupName" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="type" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="updateTime" jdbcType="VARCHAR" javaType="java.sql.Timestamp"/>
+        <parameter property="userId" jdbcType="INTEGER" javaType="java.lang.Long"/>
+    </parameterMap>
+
+    <resultMap id="cfgGroupResult" class="cfgGroup">
+        <result property="groupId" column="group_Id"/>
+        <result property="groupKey" column="group_key"/>
+        <result property="groupName" column="group_NAME"/>
+        <result property="type" column="type"/>
+        <result property="updateTime" column="UPDATE_TIME"/>
+        <result property="userId" column="user_id"/>
+    </resultMap>
+
+    <select id="getCfgGroups" resultMap="cfgGroupResult">
+    <![CDATA[
+        select * from cfg_Group order by type
+    ]]>
+    </select>
+
+    <select id="getCfgGroup" parameterClass="java.lang.Long" resultMap="cfgGroupResult">
+    <![CDATA[
+        select * from cfg_Group where group_Id = #value#
+    ]]>
+    </select>
+
+    <insert id="addCfgGroup" parameterClass="cfgGroup">
+        <selectKey resultClass="java.lang.Long" keyProperty="groupId" type="post">
+            select last_insert_id() as groupId
+        </selectKey>
+        <![CDATA[
+            insert into cfg_Group (group_key, group_NAME, type, UPDATE_TIME, user_id)
+            values (#groupKey#, #groupName#, #type#, #updateTime#, #userId#)
+        ]]>
+    </insert>
+
+    <update id="updateCfgGroup" parameterClass="cfgGroup">
+    <![CDATA[
+        update cfg_Group set 
+            group_key = #groupKey#, 
+            group_NAME = #groupName#, 
+            type = #type#, 
+            UPDATE_TIME = #updateTime#, 
+            user_id = #userId#
+        where group_Id = #groupId#
+    ]]>
+    </update>
+
+    <delete id="deleteCfgGroup" parameterClass="java.lang.Long">
+    <![CDATA[
+        delete from cfg_Group where group_Id = #value#
+    ]]>
+    </delete>
+    
+    <!-- lyz -->
+        <select id="getCfgGroupsByType" resultMap="cfgGroupResult" parameterClass="com.galebo.common.dao.SSIILL">
+    <![CDATA[
+        select * from cfg_Group where type=#string1# and user_Id=#long1#
+    ]]>
+    </select>
+        <select id="getCfgGroupsByTypeKey" resultMap="cfgGroupResult" parameterClass="com.galebo.common.dao.SSIILL">
+    <![CDATA[
+        select * from cfg_Group where type=#string1# and group_key=#string2# and user_Id=#long1#
+    ]]>
+    </select>
+    
+    <select id="getCfgGroupsByUserId" parameterClass="java.lang.Long" resultMap="cfgGroupResult">
+    <![CDATA[
+        select * from cfg_Group where  user_id=#value# order by type
+    ]]>
+    </select>
+    <select id="getCfgGroupsByUserIdSize" parameterClass="java.lang.Long" resultClass="java.lang.Long">
+    <![CDATA[
+        select count(group_Id) from cfg_Group where user_id=#value#
+    ]]>
+    </select>
+</sqlMap>

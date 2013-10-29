@@ -1,0 +1,89 @@
+user root;
+worker_processes 4;
+events {
+	worker_connections 51200;
+}
+http {
+	include mime.types;
+	default_type application/octet-stream;
+	sendfile on;
+	keepalive_timeout 65;
+	gzip on; 
+	gzip_min_length 1000; 
+	gzip_buffers 4 16k; 
+	gzip_comp_level 5; 
+	gzip_types text/plain application/x-javascript text/css text/javascript application/x-httpd-php image/jpeg image/gif image/png; 
+	gzip_vary on; 
+
+	upstream  sh.tvepg.letv.com  {
+              server   220.196.51.67:8080;
+              server   220.196.51.71:8080;
+      }
+
+	upstream  sh.pcepg.letv.com  {
+              server   220.196.51.67:8090;
+              server   220.196.51.71:8090;
+      }
+ 
+      
+	server {
+		listen 80;
+		server_name sh.tvepg.letv.com;
+		
+		location ~ \.(gif|jpg|jpeg|png|bmp|ico|css|js)$ { 
+			access_log off;
+			root /data/tomcat/epg/tvdisp/letv-epg-epgdisplay; 
+			expires 24h; 
+		}
+		location ~ \.(html)$ {
+			proxy_set_header Host $host;
+			proxy_set_header X-Real-IP $remote_addr;
+			proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+			
+			root /data/tomcat/epg/tvdisp/letv-epg-epgdisplay;
+			
+			if (!-e $request_filename) {
+				proxy_pass http://220.196.51.71:8080;
+			}
+			expires 1h;
+		}
+		location / { 
+			access_log off; 
+			proxy_set_header Host $host;
+			proxy_set_header X-Real-IP $remote_addr;
+			proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; 
+			proxy_pass http://220.196.51.71:8080; 
+		} 
+	}
+
+	server {
+		listen 80;
+		server_name sh.pcepg.letv.com;
+		
+		location ~ \.(gif|jpg|jpeg|png|bmp|ico|css|js)$ { 
+			access_log off;
+			root /data/tomcat/epg/pcdisp/letv-epg-epgdisplay; 
+			expires 24h; 
+		}
+		location ~ \.(html)$ {
+			proxy_set_header Host $host;
+			proxy_set_header X-Real-IP $remote_addr;
+			proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+			
+			root /data/tomcat/epg/tvdisp/letv-epg-epgdisplay;
+			
+			if (!-e $request_filename) {
+			proxy_pass http://220.196.51.71:8090;
+			}
+			expires 1h;
+		}
+		location / { 
+			access_log off; 
+			proxy_set_header Host $host;
+			proxy_set_header X-Real-IP $remote_addr;
+			proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; 
+			proxy_pass http://220.196.51.71:8090; 
+		} 
+	}
+
+}

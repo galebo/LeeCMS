@@ -1,0 +1,133 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6,
+p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small,
+strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+  background: none repeat scroll 0 0 transparent;
+  border: 0 none;
+  font-size: 100%;
+  margin: 0;
+  outline: 0 none;
+  padding: 0;
+}
+table {border-collapse: collapse;border-spacing: 0;empty-cells: show;}
+th {font-weight: bold;padding: 5px;text-align: left;}
+td {font-size: 100%;}
+
+ul {list-style: none outside none;}
+
+/*main set*/
+.fs4 {font-size: 13px;}
+
+.contentheading, .componentheading, h1, h2, h3, h4, h5 {font-family: Cambria,Times,serif;font-weight: bold;line-height: 1.2;}
+
+a {color: #000001;text-decoration: none;}
+.clear {clear: both;width: 100%;}
+.clearfix:after {clear: both;content: ".";display: block;height: 0;visibility: hidden;}
+.no-display {display: none !important;}
+html[xmlns] .clearfix {display: block;}
+
+body{background: none repeat scroll 0 0 #eeeeee;color: #000000;font-family: Arial,sans-serif;line-height: 1.5;}
+.main {margin: 0 auto;position: relative;width: 980px;}
+.main {background: none repeat scroll 0 0 #ffffff;border-top: 1px solid #cccccc;border-left: 1px solid #cccccc;border-right: 1px solid #cccccc;}
+
+
+/*frame*/
+.column p,.column pre,.column blockquote,
+.column h1, .column h2,.column h3, .column h4, .column h5, .column h6, .column ol, .column ul {margin: 15px 0;padding: 0;}
+.column {float: left;overflow: hidden;}
+.column {border-bottom: 0 none;border-right: 1px solid #cccccc;}
+.column ul li {background: url("../images/bullet.gif") no-repeat scroll 1px 7px transparent;line-height: 1.3;margin-bottom: 5px;overflow: hidden;padding-left: 10px;}
+
+
+.box-right {border-right: 0;}
+
+.main .inner1 {padding:0 15px;}
+.main .inner2 {padding: 15px;position: relative;}
+.main .inner2 h3 {color: #000000;font-size: 110%;margin: 0 0 5px;padding: 0;text-transform: uppercase;}
+
+/*index*/
+
+.header {position: relative;z-index: 10;}
+.mainnav {position: relative;z-index: 9;line-height: 1;}
+
+.header .main {padding: 30px 0 10px;}
+.mainnav .main {background: url("../images/mainnav-bg.png") repeat-x scroll center bottom #ffffff;font-family: constantia,cambria,times,serif;font-size: 100%;}
+.navhelper .main {padding: 5px 0;font-size: 92%;}
+.footer .main {padding: 0 0 15px;font-size: 92%;color: #999999;overflow: hidden;position: relative;}
+
+
+.top_bar {border-bottom: 1px solid #cccccc;font-size: 11px;position: absolute;top: 0;width: 100%;}
+.top_bar .day, .updatetime {background: none repeat scroll 0 0 #ffffff;border-right: 1px solid #cccccc;color: #999999;float: left;padding: 2px 10px 0;}
+.top_bar .updatetime em {color: #9c162e;font-style: normal;margin-left: 5px;}
+
+.header .logo {float: left;height: 62px;margin: 0;width: 265px;}
+.header .logo img{display: block;height: 62px;width: 265px;}
+.header .search {float: right;margin-top: 20px;}
+.header .search img{width:450px;height:70px;}
+
+.navhelper .breadcrums {float: left;margin-left: 10px;margin-top: 2px;text-transform: uppercase;width: 80%;}
+.navhelper .breadcrums strong {margin-right: 5px;}
+
+.img img{width:587px;height: 140px;border: 0 none;}
+.faqtoggler{background: url("../images/square.png") no-repeat scroll 0 0 transparent;padding-left: 20px;}
+
+/*foot*/
+
+.footnav {background: none repeat scroll 0 0 #0a3033;font-size: 100%;margin: 0 0 10px;overflow: hidden;position: relative;}
+.footnav ul {float: right;line-height: normal;}
+.footnav ul li {display: block;float: left;}
+.footnav ul li a {color: #cccccc;display: block;line-height: normal;padding: 7px 10px;text-transform: uppercase;}
+.footnav ul li.user-reset a {background: none repeat scroll 0 0 #9C162E;color: #FFFFFF;text-decoration: none;}
+.footnav ul li.user-reset a:hover {background: none repeat scroll 0 0 #666666;color: #FFFFFF;text-decoration: none;}
+.footnav ul li.top a {background: url("../images/arrow-3.png") no-repeat scroll 9px center transparent;padding-left: 18px;padding-right: 10px;}
+.footnav ul li.top a:hover {background-color: #666666;color: #ff0000;text-decoration: none;}
+
+/*item*/
+
+.detail .column ul li {background-position: 15px 6px;padding-left: 25px;}
+
+table.tablelist {width: 100%;}
+.contentheading {margin: 0;padding: 0 0 10px;font-size: 200%;}
+h1.componentheading {margin: 0 -15px;padding: 0 15px 10px;border-bottom: 1px solid #DDDDDD;font-size: 250%;}
+.contentdescription {border-bottom: 1px solid #DDDDDD;display: block;margin: 0 -15px;padding: 10px 15px;}
+
+.sectiontableheader {background: none repeat scroll 0 0 #333333;border: 1px solid #cccccc;color: #ffffff;padding: 5px;}
+.sectiontableentry, .sectiontableentry0, .sectiontableentry1, .sectiontableentry2 {border-bottom: 1px solid #cccccc;padding: 5px 5px 6px;}
+.sectiontableentry0 {background-color: #ffffff;}
+
+/*detail*/
+.article-tools {background: none repeat scroll 0 0 #ffffff;border-top: 1px solid #cccccc;border-bottom: 1px solid #cccccc;clear: both;color: #000001;display: block;line-height: normal;margin: 0 0 10px;padding: 5px;position: relative;text-transform: uppercase;}
+.article-meta {float: left;padding: 0;width: 70%;}
+.article-section, .article-category {color: #999999;font-size: 92%;}
+
+
+/*menu*/
+.cssmenu {margin: 0;padding: 0;}
+.cssmenu li {background: none repeat scroll 0 0 transparent;border-right: 1px solid #CCCCCC;cursor: pointer;display: block;float: left;margin: 0;padding: 0;}
+.cssmenu li a {color: #000000;display: block;padding: 10px;text-decoration: none;text-transform: uppercase;}
+.cssmenu li a.active,
+.cssmenu li a.active:hover, 
+.cssmenu li a.active:active,
+.cssmenu li a.active:focus {background: url("../images/mainnav-active.gif") repeat-x scroll center top #333333;color: #FFFFFF;}
+.cssmenu li li {margin: 0;padding: 0 1em 0 0;width: 14.9em;}
+.cssmenu li:hover{background: url(../images/mainnav-hover.png) repeat-x bottom #f7f7f7;color: #000;}
+
+.cssmenu ul {margin: 0;padding: 0;}
+.cssmenu li ul {height: auto;left: -999em;position: absolute;width: 15.9em;z-index: 99;}
+.cssmenu li ul {-moz-border-bottom-colors: none;-moz-border-left-colors: none;-moz-border-right-colors: none;-moz-border-top-colors: none;background: none repeat scroll 0 0 #edf9fa;border-color: -moz-use-text-color #CCCCCC #CCCCCC;border-image: none;border-right: 1px solid #CCCCCC;border-style: none solid solid;border-width: 0 1px 1px;}
+.cssmenu li ul a {color: #000000;font-family: Arial,sans-serif;font-size: 92%;font-weight: normal;line-height: normal;}
+.cssmenu li ul li {background: none repeat scroll 0 0 transparent;border-bottom: 1px solid #cccccc;border-right: medium none;}
+
+.cssmenu li ul a:hover,
+.cssmenu li ul a:active,
+.cssmenu li ul a:focus,
+.cssmenu ul li:hover,
+.cssmenu ul ul li:hover{background: #fff;color: #000;}
+
+.cssmenu li:hover ul ul, 
+.cssmenu li:hover ul ul ul{left: -999em;}
+
+/* This "unhides" the sub-menus (left: -999em is what hides them) */
+.cssmenu li:hover ul, 
+.cssmenu li li:hover ul, 
+.cssmenu li li li:hover ul{left: auto;}

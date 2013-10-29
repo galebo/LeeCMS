@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MenuConfig>
+    <Displayers>
+        <Displayer name="Velocity" type="net.sf.navigator.displayer.VelocityMenuDisplayer"/>
+    </Displayers>
+    <Menus>
+        <Menu name="MainMenu" title="mainMenu.title" roles="ROLE_ADMIN,ROLE_USER">
+            <Item name="MenuUserInfo" title="MenuUserInfo" page="/pages/webInfo" roles="ROLE_USER"/>
+        	<Item name="UserMenu" title="menu.user" description="User Menu" page="/editProfile" roles="ROLE_ADMIN"/>
+            <Item name="Logout" title="user.logout" page="/logout" roles="ROLE_ADMIN,ROLE_USER"/>
+        </Menu>
+        <Menu name="AdminMenu" title="menu.admin" description="Admin Menu" roles="ROLE_ADMIN" width="120" page="/admin/users">
+            <Item name="ViewUsers" title="menu.admin.users" page="/admin/users" roles="ROLE_ADMIN"/>
+            <Item name="ActiveUsers" title="mainMenu.activeUsers" page="/admin/activeUsers" roles="ROLE_ADMIN"/>
+            <Item name="ReloadContext" title="menu.admin.reload" page="/admin/reload" roles="ROLE_ADMIN"/>
+        	<Item name="TemplateMenu" title="MenuTemplate" page="/templates" roles="ROLE_ADMIN"/>
+        	<Item name="TemplatePageMenu" title="MenuTemplatePage" page="/templatePages" roles="ROLE_ADMIN"/>
+       		<Item name="DefineMenu" title="MenuDefine" page="/defines" roles="ROLE_ADMIN"/>
+        </Menu>
+        <Menu name="MenuCommon" title="MenuCommon" description="" roles="ROLE_USER" width="120">
+            <Item name="MenuColumnContent" title="MenuColumnContent" page="/ja/columnContent" roles="ROLE_USER"/>
+       		<Item name="MenuCfgRelative" title="MenuCfgRelative" page="/ja/cfgRelatives" roles="ROLE_USER"/>
+       		<Item name="MenuIndexColumn" title="MenuIndexColumn" page="/ja/indexItem" roles="ROLE_USER"/>
+       		<Item name="MenuContentIndex" title="MenuContentIndex" page="/ja/contentIndex" roles="ROLE_USER"/>
+        </Menu>
+        <Menu name="MenuMore" title="MenuMore" description="" roles="ROLE_USER" width="120">
+            <Item name="MenuConContent" title="MenuConContent" page="/conContents" roles="ROLE_USER"/>
+       		<Item name="MenuLink" title="MenuLink" page="/conLinks/3AA" roles="ROLE_USER"/>
+       		<Item name="MenuLoop" title="MenuLoop" page="/conLinks/3AB" roles="ROLE_USER"/>
+            <Item name="MenuConUploadData" title="MenuConUploadData" page="/conUploadDatas" roles="ROLE_USER"/>
+        </Menu>
+        <Menu name="templateMenu" title="MenuTemplate" description="" roles="ROLE_USER,ROLE_ADMIN" width="120">
+            <Item name="templateUserCrMenu" title="MenuTemplateCreate" page="/admin/staticAdmin" roles="ROLE_ADMIN"/>
+           	<Item name="TemplateImportMenu" title="MenuTemplateImport" page="/admin/importTemplate2DB" roles="ROLE_ADMIN"/>
+            <Item name="templateCreateMenu" title="MenuTemplateCreateUser" page="/staticUser" roles="ROLE_USER"/>
+        	<Item name="DefineInstanceMenu" title="MenuDefineInstance" page="/defineInstances" roles="ROLE_USER"/>
+        	<Item name="ClearMapMenu" title="MenuClearMap" page="/clearMap" roles="ROLE_USER"/>
+        	<!--  Item name="SelfDefineMenu" title="MenuSelfDefine" page="selfPage" roles="ROLE_USER"/-->
+        </Menu>
+    </Menus>
+</MenuConfig>

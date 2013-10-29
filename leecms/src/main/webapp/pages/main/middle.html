@@ -1,0 +1,22 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GB2312">
+<link href="css/Style.css" type="text/css" rel="stylesheet">
+<script language="javascript">
+function show()
+{
+    if (parent.document.getElementById("parentframe").rows=="0,6,*,20"){
+    	parent.document.getElementById("parentframe").rows="80,6,*,20";
+		myarrow.src="images/arrow_t.gif";
+	}
+    else{
+		parent.document.getElementById("parentframe").rows="0,6,*,20";
+		myarrow.src="images/arrow_b.gif";
+	}
+}
+</script>
+<title>控制框架</title>
+</head>
+<body class="bodyC">
+          <div onclick="show()" style="text-align: center;"><img id="myarrow" src="images/arrow_t.gif" border="0" height="5" width="50"/></div>
+</body></html>

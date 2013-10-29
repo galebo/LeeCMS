@@ -1,0 +1,142 @@
+body, div, ol, form, a, h1, h2, h3, h4, h5, p {  font-family: Arial,Helvetica,sans-serif,"宋体";margin: 0;padding: 0;table-layout: fixed;word-break: break-all;}
+body {  background: url("bg.jpg") repeat-x scroll center top #FFFFFF;}
+ul, li, select {  list-style: none outside none;margin: 0;padding: 0;}
+ol, dl, ul, li, dl, dd, dt {list-style: none outside none;margin: 0;padding: 0;}
+img {  border: 0 none;}
+a {color: #333333;text-decoration: none;}
+table{border-collapse:collapse;border-spacing:0;}
+.clear {clear: both;}
+
+
+
+.top {color: #FFFFFF;font-size: 12px;height: 25px;line-height: 25px;}
+.wrap {clear: both;margin: 0 auto;padding: 0;width: 960px;}
+.welcome {  float: left;position: relative;text-align: left;width: 960px;z-index: 998;}
+.welcome span.favorites {  float: right;}
+.welcome a {  background: url("head_0830.gif") no-repeat scroll 64px -205px transparent;color: #FFFFFF;display: inline-block;font-size: 12px;text-align: center;width: 70px;}
+.welcome span.favorites a {  background: none repeat scroll 0 center transparent;color: #FFFFFF;display: inline-block;font-size: 12px;text-decoration: none;width: 56px;}
+
+.header {  color: #757575;font-size: 12px;height: 131px;position: relative;}
+.logo {  background: url("logo_beta.png") no-repeat scroll 0 0 transparent;float: left;height: 75px;margin: 2px 10px;text-align: center;width: 188px;}
+.logo a {  border: 0 none;margin: 0;padding: 0;text-indent: -9999px;}
+.logo a:link, .logo a:visited, .logo a:hover {  display: block;height: 75px;width: 188px;}
+.menu {  background: url("sprite_bg_gd.gif") no-repeat scroll 0 6px transparent;height: 48px;line-height: 52px;overflow: hidden;padding: 0 0 0 10px;position: absolute;right: 10px;top: 28px;width: 745px;z-index: 1;}
+.menu ul {  padding-left: 10px;}
+.menu ul li {  display: inline-block;float: left;text-align: center;}
+.menu ul li a {  color: #618D00;display: inline-block;font-size: 14px;font-weight: bold;height: 48px;line-height: 52px;position: relative;text-decoration: none;width: 120px;z-index: 1;}
+.menu ul li a.this {  background: url("sprite_bg_gd.gif") no-repeat scroll -460px -266px transparent;color: #FFFFFF;}
+.menu ul .mindex a {  width: 80px;}
+.menu ul .mindex .this {  background: url("sprite_bg_gd.gif") no-repeat scroll -460px -218px transparent;display: inline-block;text-align: center;width: 80px;}
+
+
+.linebg {  background: url("linebg.gif") repeat-x scroll 0 0 transparent;min-height: 12px;}
+
+
+.index_leftnav {  width: 230px;}
+.index_leftnav {  background: url("sprite_bg_gd.gif") no-repeat scroll left -99px transparent;height: 337px;}
+
+.index_leftnav li {  color: #666666;cursor: pointer;font-size: 12px;height: 44px;line-height: 44px;padding-left: 15px;position: relative;z-index: 510;}
+.index_leftnav li {  height: 55px;line-height: 55px;}
+.index_leftnav li span {  display: block;float: left;height: 30px;margin: 13px 10px 0 0;width: 30px;}
+.index_leftnav li span.index_leftnavb1 {  background: url("sprite_num.png") no-repeat scroll -0px -0px transparent;}
+.index_leftnav li span.index_leftnavb2 {  background: url("sprite_num.png") no-repeat scroll -0px -30px transparent;}
+.index_leftnav li span.index_leftnavb3 {  background: url("sprite_num.png") no-repeat scroll -0px -60px transparent;}
+.index_leftnav li span.index_leftnavb4 {  background: url("sprite_num.png") no-repeat scroll -0px -90px transparent;}
+.index_leftnav li span.index_leftnavb5 {  background: url("sprite_num.png") no-repeat scroll -0px -120px transparent;}
+.index_leftnav li span.index_leftnavb6 {  background: url("sprite_num.png") no-repeat scroll -0px -150px transparent;}
+
+.index_leftnav li b {  color: #598200;float: left;font-size: 14px;font-weight: bold;height: 44px;line-height: 44px;margin-right: 8px;overflow: hidden;}
+.index_leftnav li b {  height: 55px;line-height: 55px;width: 110px;}
+.index_leftnav li a {  color: #666666;text-decoration: none;}
+.index_leftnav_po {  background: url("sprite_t.png") no-repeat scroll left bottom transparent;display: none;left: 205px;padding-bottom: 1px;position: absolute;top: 0;width: 380px;}
+.index_leftnav_po div {  background: url("sprite_bg_gd.gif") no-repeat scroll -460px -363px transparent;padding: 5px 30px;}
+.index_leftnav_po ul {  border-bottom: 1px dashed #CDCDCD;color: #676767;font-size: 12px;line-height: 21px;padding: 5px 0;}
+.index_leftnav_po ul h6 {  color: #676767;font-size: 12px;font-weight: bold;margin: 0;padding-left: 3px;}
+.index_leftnav_po ul a {  color: #676767;display: inline-block;margin: 0 3px;}
+.index_leftnav li a {  color: #666666;text-decoration: none;}
+
+
+.fleft {  float: left;width: 230px;}
+.fmiddle {  float: left;margin-left: 8px;margin-top: 10px;overflow: hidden;position: relative;width: 480px;}
+.fright {  float: right;margin: 10px 5px 0 0;width: 230px;}
+
+.scrollbox {  height: 328px;overflow: hidden;position: relative;width: 480px;z-index: 8;}
+.scrollbox_img {  height: 328px;margin: 0;overflow: hidden;padding: 0;width: 480px;}
+.scrollbox_img img {  height: 328px;width: 480px;}
+.scrollbox_num {  bottom: 5px;font-size: 12px;overflow: hidden;position: absolute;right: 10px;width: auto;z-index: 10;}
+.scrollbox_num li {display: inline;float: left;height: 19px;margin: 0px 0 0 3px;width: 16px;}
+.scrollbox_num a {background: url("head_0830.gif") no-repeat scroll -20px -50px transparent;color: #FFFFFF;cursor: pointer;display: block;float: left;height: 16px;line-height: 16px;margin-right: 5px;text-align: center;width: 16px;}
+.scrollbox_num a.on {  background: url("head_0830.gif") no-repeat scroll -2px -50px transparent;color: #FFFFFF;}
+
+
+
+#loginsty {  background: url("login_tab_bg.jpg") no-repeat scroll left top transparent;height: 41px;width: 234px;}
+#loginsty ul {  width: 234px;}
+#loginsty li {  color: #808080;cursor: pointer;display: block;float: left;font-size: 14px;font-weight: bold;height: 39px;line-height: 39px;list-style-type: none;margin-left: 1px;margin-top: 1px;text-align: center;text-decoration: none;width: 116px;}
+#loginsty li.select {  background: url("login_tab_on.jpg") no-repeat scroll center top transparent;color: #FFFFFF;font-size: 14px;font-weight: bold;line-height: 39px;}
+#content {  border-bottom: 1px solid #DBDBDB;border-left: 1px solid #DBDBDB;border-right: 1px solid #DBDBDB;clear: left;height: 286px;width: 232px;}
+
+
+.menu2 {background: url("sprite_bg_gd.gif") no-repeat scroll 0 -42px transparent;height: 57px;line-height: 52px;position: absolute;right: 0;top: 75px;width: 960px;z-index: 99;}
+.menuli {background: url("sprite_bg_gd.gif") no-repeat scroll -230px -99px transparent;float: left;height: 43px;margin-top: 14px;width: 230px;}
+.menuli .title{padding-left: 20px;color: #fafafa;font-family: "微软雅黑";font-size: 16px;font-weight: bold;}
+.searcht {  color: #FFFFFF;float: right;font-size: 12px;font-weight: bold;line-height: 56px;margin-left: 10px;width: 350px;}
+.searcht a {  color: #FFFFFF;font-size: 12px;font-weight: bold;padding: 0 4px;text-decoration: none;}
+.search {float: right;margin-left: 10px;padding-top: 15px;width: 350px;}
+.search .keyword {background: url("sprite_bg_gd.gif") no-repeat scroll -673px -99px transparent;border: 0 none;color: #6B6B6B;float: left;height: 28px;line-height: 28px;padding: 0 5px;width: 235px;}
+.search .submit {background: url("sprite_bg_gd.gif") no-repeat scroll -460px -190px transparent;border: 0 none;color: #6B6B6B;float: left;height: 28px;margin-left: 10px;text-align: center;width: 81px;}
+
+.footer {  border-top: 1px solid #CFCFCF;color: #868686;font-size: 12px;height: 28px;line-height: 24px;margin-top: 20px;text-align: left;word-spacing: 5px;}
+.footer a {  color: #868686;font-size: 12px;text-decoration: none;}
+
+/*index*/
+
+.menuli {  background: url("sprite_bg_gd.gif") no-repeat scroll -230px -99px transparent;float: left;height: 43px;margin-top: 14px;width: 230px;}
+.menu2 {  line-height: 52px;}
+.header {  color: #757575;font-size: 12px;}
+.bg-common-2 {  background: url("package-bg1.gif") no-repeat scroll left top transparent;height: 400px;margin-top: 15px;overflow: hidden;}
+.compose-1 li {display: inline;float: left;padding: 22px 18px 0 22px;position: relative;width: 200px;}
+.compose-1 li h5 {color: #598200;font-family: "微软雅黑";font-size: 18px;font-weight: bold;line-height: 21px;}
+.compose-1 li p {color: #666666;font-size: 12px;line-height: 18px;padding-right: 110px;padding-top: 10px;}
+.compose-1 li p.second {font-family: "微软雅黑";font-size: 18px;font-weight: bold;}
+.compose-1 li p {color: #666666;font-size: 12px;line-height: 18px;padding-right: 10px;padding-top: 10px;}
+.btn-2, .btn-2:hover {background: url("btn-bg2.gif") no-repeat scroll right -29px transparent;color: #FFFFFF;display: inline-block;font-size: 12px;font-weight: bold;height: 29px;line-height: 29px;padding-right: 34px;}
+.btn-2 span {background: url("btn-bg2.gif") no-repeat scroll left 0 transparent;display: inline-block;font-size: 12px;height: 29px;line-height: 27px;padding-left: 34px;vertical-align: top;}
+.main {font-size: 14px;padding: 8px;color: #646464;font-family: "微软雅黑";font-weight: bold;}
+.main span {padding: 0 0 10px;}
+.l_account{padding: 12px 0px;}
+span.numtext {float: left;height: 20px;line-height: 20px;text-align: center;width: 50px;font-size: 13px;}
+span.numtext1 {float: left;height: 20px;line-height: 20px;text-align: center;width: 60px;}
+span.numinput {float: right;height: 18px;line-height: 18px;margin: 0;padding-right: 15px;width: 140px;}
+.sub {height: 32px;}
+.login {display: block;float: left;line-height: 22px;padding: 0 0 0 60px;width: 140px;}
+.login input {background: url("bottom_orange.gif") no-repeat scroll 0 0 transparent;border: 0 none;color: #FFFFFF;font-size: 14px;height: 32px;line-height: 29px;text-align: center;width: 88px;}
+
+.goto {padding: 20px 0 0 60px;width: 140px;height: 49px;}
+.goto div{background: url("bottom_orange.gif") no-repeat scroll 0 0 transparent;border: 0 none;color: #FFFFFF;font-size: 12px;height: 32px;
+text-align: center;width: 88px;line-height: 29px;}
+.goto a{color: #FFFFFF;}
+
+
+.list_top{border: 1px solid #88ba1d;background-color: #fafafa;margin:7px;height: 150px;}
+.list_top .list_title{text-align: center;width: 900px;color: #88ba1d;font-family: "微软雅黑";font-weight: bold;font-size: 16px;padding: 5px 0px;}
+.list_top li {display: inline;float: left;padding: 0px 18px 18px 12px;position: relative;width: 200px;color: #ed9100;font-family: "微软雅黑";font-size: 14px;font-weight: bold;line-height: 21px;}
+.rmyw {background: url("sprite_rmyw.gif") no-repeat scroll 0 0 #FFFFFF;display: block;height: 305px;position: relative;width: 960px;margin-top:15px;}
+.rmyw .title {color: #6B6B6B;font-size: 14px;font-weight: bold;height: 30px;line-height: 30px;padding: 0 10px;}
+.rmyw .yw_box {height: 216px;margin: 0;overflow: hidden;padding: 15px 20px 0;}
+.yw_box .step {background: url("sprite_t.png") no-repeat scroll -233px -133px transparent;display: block;float: left;height: 170px;margin: 12px 0 0 0;overflow: hidden;padding: 12px 15px 0;width: 161px;}
+.yw_box .step h3 {color: #4F4F4F;float: left;font-size: 14px;font-weight: bold;height: 32px;line-height: 32px;width: 90px;}
+.yw_box .step h4 {color: #4F4F4F;float: left;font-size: 12px;height: 48px;line-height: 24px;margin: 0;padding-top: 5px;width: 160px;}
+
+.yw_box .step span {  display: block;float: left;height: 32px;padding-right: 20px;width: 32px;}
+.yw_box .step span.step_num1 {  background: url("sprite_num.png") no-repeat scroll -30px -0px transparent;}
+.yw_box .step span.step_num2 {  background: url("sprite_num.png") no-repeat scroll -30px -32px transparent;}
+.yw_box .step span.step_num3 {  background: url("sprite_num.png") no-repeat scroll -30px -64px transparent;}
+.yw_box .step span.step_num4 {  background: url("sprite_num.png") no-repeat scroll -30px -96px transparent;}
+.yw_box .step span.step_num5 {  background: url("sprite_num.png") no-repeat scroll -30px -132px transparent;}
+.yw_box .step span.step_num6 {  background: url("sprite_num.png") no-repeat scroll -30px -164px transparent;}
+.remen_img {cursor: pointer;display: block;float: left;height: 40px;padding: 80px 0;text-align: center;width: 49px;}
+/*signup*/
+.signup{padding: 20px;}
+.signup span{color: #598200;}
+td {font-size: 12px;line-height: 18px;}

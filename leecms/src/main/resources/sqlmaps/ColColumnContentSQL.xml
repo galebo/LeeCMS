@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="ColColumnContentSQL">
+
+    <typeAlias alias="colColumnContent" type="com.galebo.lowyer.model.ColColumnContent"/>
+
+    <parameterMap id="addParam" class="colColumnContent">
+        <parameter property="columnId" jdbcType="INTEGER" javaType="java.lang.Long"/>
+        <parameter property="contentId" jdbcType="INTEGER" javaType="java.lang.Long"/>
+        <parameter property="sort" jdbcType="INTEGER" javaType="java.lang.Long"/>
+    </parameterMap>
+
+    <parameterMap id="updateParam" class="colColumnContent">
+        <parameter property="columnContentId" jdbcType="INTEGER" javaType="java.lang.Long"/>
+        <parameter property="columnId" jdbcType="INTEGER" javaType="java.lang.Long"/>
+        <parameter property="contentId" jdbcType="INTEGER" javaType="java.lang.Long"/>
+        <parameter property="sort" jdbcType="INTEGER" javaType="java.lang.Long"/>
+    </parameterMap>
+    <resultMap id="colColumnContentResult" class="colColumnContent">
+        <result property="columnContentId" column="columnContentId"/>
+        <result property="colColumn.columnId" column="column_Id"/>
+        <result property="conContent.contentId" column="content_Id"/>
+        <result property="sort" column="SORT"/>
+        <result property="preId" column="pre_Id"/>
+        <result property="nextId" column="next_Id"/>
+    </resultMap>
+    
+    <resultMap id="colColumnContentResult2" class="colColumnContent">
+        <result property="colColumn.columnId" column="column_Id"/>
+        <result property="columnContentId" column="columnContentId"/>
+        <result property="sort" column="SORT"/>
+        <result property="preId" column="pre_Id"/>
+        <result property="nextId" column="next_Id"/>
+        <result property="conContent.contentId" column="CONTENT_ID"/>
+        <result property="conContent.author" column="AUTHOR"/>
+        <result property="conContent.nameCn" column="NAME_CN"/>
+        <result property="conContent.status" column="STATUS"/>
+        <result property="conContent.submitTime" column="SUBMIT_TIME"/>
+        <result property="conContent.updateTime" column="UPDATE_TIME"/>
+        <result property="conContent.source" column="SOURCE"/>
+        <result property="conContent.html" column="HTML"/>
+        <result property="conContent.viewCount" column="view_Count"/>
+        <result property="conContent.pic" column="pic"/>
+        <result property="conContent.desc" column="_desc"/>
+    </resultMap>
+    
+
+
+    <select id="getColColumnContents" resultMap="colColumnContentResult">
+    <![CDATA[
+        select * from col_Column_Content
+    ]]>
+    </select>
+
+    <select id="getColColumnContent" parameterClass="java.lang.Long" resultMap="colColumnContentResult">
+    <![CDATA[
+        select * from col_Column_Content where columnContentId = #value#
+    ]]>
+    </select>
+
+    <insert id="addColColumnContent" parameterClass="colColumnContent">
+        <selectKey resultClass="java.lang.Long" keyProperty="columnContentId" type="post">
+            select last_insert_id() as columnContentId
+        </selectKey>
+        <![CDATA[
+            insert into col_Column_Content (column_Id, content_Id, SORT,pre_Id,next_Id)
+            values (#colColumn.columnId#, #conContent.contentId#, #sort#, #preId#, #nextId#)
+        ]]>
+    </insert>
+
+    <update id="updateColColumnContent" parameterClass="colColumnContent">
+    <![CDATA[
+        update col_Column_Content set 
+            column_Id = #colColumn.columnId#, 
+            content_Id = #conContent.contentId#, 
+            SORT = #sort#, 
+            pre_Id = #preId#, 
+            next_Id = #nextId#
+        where columnContentId = #columnContentId#
+    ]]>
+    </update>
+
+    <delete id="deleteColColumnContent" parameterClass="java.lang.Long">
+    <![CDATA[
+        delete from col_Column_Content where columnContentId = #value#
+    ]]>
+    </delete>
+    <!-- lyz -->
+    
+    <select id="getColColumnContentDownOne" resultMap="colColumnContentResult" parameterClass="com.galebo.common.dao.SSIILL">
+    <![CDATA[select * from col_Column_Content where sort =(select min(t.SORT) FROM col_column_content t where t.sort > #long1# and t.Column_id=#long2#)
+    and column_id=#long2# ]]>
+    </select>
+    <select id="getColColumnContentUpOne" resultMap="colColumnContentResult"  parameterClass="com.galebo.common.dao.SSIILL">
+    <![CDATA[select * from col_Column_Content where sort =(select max(t.SORT) FROM col_column_content t where t.sort < #long1# and t.Column_id=#long2#)
+    and column_id=#long2# ]]>
+    </select>
+    
+    <select id="getColColumnContent_Page" parameterClass="com.galebo.common.dao.SSIILL" resultMap="colColumnContentResult2">
+    <![CDATA[
+        select t1.*,t2.column_Id,t2.columnContentId,t2.sort,t2.next_id,t2.pre_id from con_Content t1 ,col_column_content t2 
+        where t1.content_Id=t2.content_Id and t2.Column_id = #long1# order by t2.sort
+       limit #startNum#,#pageSize# 
+    ]]>
+    </select>
+    <select id="getColColumnContent_PageSize" parameterClass="com.galebo.common.dao.SSIILL" resultClass="java.lang.Integer">
+    <![CDATA[
+        select count(t2.column_Id) from con_Content t1 ,col_column_content t2 
+        where t1.content_Id=t2.content_Id and t2.Column_id = #long1#
+    ]]>
+    </select>
+    <select id="getColColumnContentByColumnId" parameterClass="java.lang.Long" resultMap="colColumnContentResult2">
+    <![CDATA[
+        select t1.*,t2.column_Id,t2.columnContentId,t2.sort,t2.next_id,t2.pre_id from con_Content t1 ,col_column_content t2 
+        where t1.content_Id=t2.content_Id and t2.Column_id = #long1# order by t2.sort
+    ]]>
+    </select>
+	<select id="getColColumnContent2" parameterClass="java.lang.Long" resultMap="colColumnContentResult2">
+    <![CDATA[
+        select t1.*,t2.column_Id,t2.columnContentId,t2.sort,t2.next_id,t2.pre_id from con_Content t1 ,col_column_content t2 where t1.content_Id=t2.content_Id and t2.columnContentId = #value#
+    ]]>
+    </select>
+	<select id="getColumnContentsByUserId" parameterClass="java.lang.Long" resultMap="colColumnContentResult2">
+    <![CDATA[
+        select t1.*,t2.column_Id,t2.columnContentId,t2.sort,t2.next_id,t2.pre_id from con_Content t1 ,col_column_content t2,col_column t3
+         where t1.content_Id=t2.content_Id and  t2.column_Id=t3.column_Id and t3.user_id=#value#
+    ]]>
+    </select>
+    
+    <select id="getColColumnContentSortByViewCount" resultMap="colColumnContentResult2">
+    <![CDATA[
+        select t1.*,t2.column_Id,t2.columnContentId,t2.sort,t2.next_id,t2.pre_id from con_Content t1 ,col_column_content t2 
+        where t1.content_Id=t2.content_Id  order by t1.user_id,t2.column_id,t1.view_count desc
+    ]]>
+    </select>
+    
+</sqlMap>
