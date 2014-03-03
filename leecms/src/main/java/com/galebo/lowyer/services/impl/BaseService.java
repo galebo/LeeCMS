@@ -23,19 +23,11 @@ public class BaseService {
 	public void setCompass(CompassSearchHelper compass) {
 		this.compass = compass;
 	}
+	@Autowired
 	protected QueryDao queryDao;
+	@Autowired
 	protected ModifyDao modifyDao;
 
-
-	@Autowired
-	public void setQueryDao(QueryDao commonDao) {
-		this.queryDao = commonDao;
-	}
-	@Autowired
-	public void setModifyDao(ModifyDao modifyDao) {
-		this.modifyDao = modifyDao;
-	}
-	
 	public QueryDao getQueryDao() {
 		return queryDao;
 	}
@@ -48,14 +40,14 @@ public class BaseService {
      * Search implementation using Compass.
      */
     @SuppressWarnings("unchecked")
-    public List search(String q, Class clazz) {
+    public List<Object> search(String q, Class<?> clazz) {
         if (q == null || "".equals(q.trim())) {
             return queryDao.getSqlMapClientTemplate().queryForList(
                     iBatisDaoUtils.getSelectQuery(ClassUtils.getShortName(clazz.getName())), null);
             
         }
 
-        List results = new ArrayList();
+        List<Object> results = new ArrayList<Object>();
 
         CompassSearchCommand command = new CompassSearchCommand(q);
         CompassSearchResults compassResults = compass.search(command);
