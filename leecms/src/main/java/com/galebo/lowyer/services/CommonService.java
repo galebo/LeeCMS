@@ -21,7 +21,7 @@ public interface CommonService {
 	public JGridBean getGroups(Long userId,int page);
 
 	public String deleteColumn(Long columnId);
-	public List<?> search(String searchTerm, Class<?> clazz);
+	public List search(String searchTerm, Class<?> clazz);
 
     public UserManager getUserManager();
     public MailEngine getMailEngine() ;
