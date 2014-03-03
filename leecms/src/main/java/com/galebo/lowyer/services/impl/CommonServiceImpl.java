@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.galebo.common.jgrid.JGridAble;
 import com.galebo.common.jgrid.JGridBean;
-import com.galebo.common.jgrid.JGridHelper;
+import com.galebo.common.jgrid.JGridTreeHelper;
 import com.galebo.lowyer.service.MailEngine;
 import com.galebo.lowyer.service.RoleManager;
 import com.galebo.lowyer.service.UserManager;
@@ -17,20 +17,20 @@ import com.galebo.lowyer.services.CommonService;
 public class CommonServiceImpl extends BaseService implements CommonService {
 
 
-	public JGridBean getColumns(Long userId,int page,int pageSize)
+	public JGridBean getColumns(Long userId, int page)
 	{
-			return new JGridHelperColumn(userId,Constants.columnType).getJGridBean(-1L,page,pageSize);
+			return new JGridTreeHelperColumn(userId,Constants.columnType).getJGridBean(-1L,page);
 	}
-	public JGridBean getCategorys(Long userId, int page,int pageSize)
+	public JGridBean getCategorys(Long userId, int page)
 	{
-		return new JGridHelperCategory(userId,Constants.categoryType).getJGridBean(-1L,page,pageSize);
+		return new JGridTreeHelperCategory(userId,Constants.categoryType).getJGridBean(-1L,page);
 }
-	public JGridBean getGroups(Long userId,int page,int pageSize)
+	public JGridBean getGroups(Long userId, int page)
 	{
-			return new JGridHelperGroup(userId).getJGridBean(-1L,page,pageSize);
+			return new JGridTreeHelperGroup(userId).getJGridBean(-1L,page);
 	}
-	public JGridBean getIndexColumns(Long userId, int page, int pageSize) {
-		return new JGridHelperMenu(userId).getJGridBean(userId,page,pageSize);
+	public JGridBean getIndexColumns(Long userId, int page) {
+		return new JGridTreeHelperMenu(userId).getJGridBean(userId,page);
 	}
 
     @Autowired
@@ -72,14 +72,13 @@ public class CommonServiceImpl extends BaseService implements CommonService {
 		}
 	}
 
-	class JGridHelperGroup extends JGridHelper{
+	class JGridTreeHelperGroup extends JGridTreeHelper{
 		Long userId;
-		public JGridHelperGroup(Long userId) {
+		public JGridTreeHelperGroup(Long userId) {
 			this.userId=userId;
 		}
 
-		@SuppressWarnings("unchecked")
-		public List getSons(long ParentId, int level,int page,int pageSize) {
+		public List<? extends JGridAble> getSons(long ParentId, int level) {
 				if(level>0)
 					return new ArrayList<JGridAble>();
 				return queryDao.getCfgGroupsByUserId(userId);
@@ -92,14 +91,13 @@ public class CommonServiceImpl extends BaseService implements CommonService {
 		}
 
 	}
-	class JGridHelperMenu extends JGridHelper{
+	class JGridTreeHelperMenu extends JGridTreeHelper{
 		Long userId;
-		public JGridHelperMenu(Long userId) {
+		public JGridTreeHelperMenu(Long userId) {
 			this.userId=userId;
 		}
 
-		@SuppressWarnings("unchecked")
-		public List getSons(long ParentId, int level,int page,int pageSize) {
+		public List<? extends JGridAble> getSons(long ParentId, int level) {
 			if(level>0)
 				return new ArrayList<JGridAble>();
 			return queryDao.getIndexMenus(this.userId);
@@ -110,16 +108,15 @@ public class CommonServiceImpl extends BaseService implements CommonService {
 			return queryDao.getIndexMenusSize(this.userId);
 		}
 	}
-	class JGridHelperColumn extends JGridHelper{
+	class JGridTreeHelperColumn extends JGridTreeHelper{
 		Long userId;
 		String type;
-		public JGridHelperColumn(Long userId,String type) {
+		public JGridTreeHelperColumn(Long userId,String type) {
 			this.userId=userId;
 			this.type=type;
 		}
 
-		@SuppressWarnings("unchecked")
-		public List getSons(long ParentId, int level,int page,int pageSize) {
+		public List<? extends JGridAble> getSons(long ParentId, int level) {
 				return queryDao.getSonColumns(ParentId,this.userId,type);
 			}
 	
@@ -128,16 +125,15 @@ public class CommonServiceImpl extends BaseService implements CommonService {
 			return queryDao.getSonColumnSize(ParentId,this.userId,type);
 		}
 	}
-	class JGridHelperCategory extends JGridHelper{
+	class JGridTreeHelperCategory extends JGridTreeHelper{
 		Long userId;
 		String type;
-		public JGridHelperCategory(Long userId,String type) {
+		public JGridTreeHelperCategory(Long userId,String type) {
 			this.userId=userId;
 			this.type=type;
 		}
 
-		@SuppressWarnings("unchecked")
-		public List getSons(long ParentId, int level,int page,int pageSize) {
+		public List<? extends JGridAble> getSons(long ParentId, int level) {
 				return queryDao.getSonCategorys(ParentId,this.userId,type);
 			}
 	

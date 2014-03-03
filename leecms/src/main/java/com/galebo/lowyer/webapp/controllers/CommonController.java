@@ -141,14 +141,14 @@ public class CommonController extends BaseController{
     //查询加入首页菜单的栏目和内容
     @RequestMapping(value = "/jqJson/indexMenus", method = RequestMethod.GET)
     @ResponseBody
-    public Object IndexItems(@RequestParam("page") int page,@RequestParam("totalrows") int pageSize,HttpServletRequest request) {
+    public Object IndexItems(@RequestParam("page") int page,@RequestParam("rows") int pageSize,HttpServletRequest request) {
     	Long userId = getCurrentUser(request);
-    	return commonService.getIndexColumns(userId,page, pageSize);
+    	return commonService.getIndexColumns(userId,page);
     }
     //没有加入首页菜单的栏目
     @RequestMapping(value = "/jqJson/columnsNoInIndex", method = RequestMethod.GET)
     @ResponseBody
-    public Object ColumnsNoInIndex(@RequestParam("page") int page,@RequestParam("totalrows") int pageSize,HttpServletRequest request) {
+    public Object ColumnsNoInIndex(@RequestParam("page") int page,@RequestParam("rows") int pageSize,HttpServletRequest request) {
     	Long userId = getCurrentUser(request);
     	int size = commonService.getQueryDao().getColumnsNoInIndexSize(userId,Constants.columnType);
     	List<ColColumn> list = commonService.getQueryDao().getColumnsNoInIndex(userId,Constants.columnType);
@@ -157,7 +157,7 @@ public class CommonController extends BaseController{
     //没有加入首页菜单的内容
     @RequestMapping(value = "/jqJson/contentsNoInIndex", method = RequestMethod.GET)
     @ResponseBody
-    public Object contentsNoInIndex(@RequestParam("page") int page,@RequestParam("totalrows") int pageSize,HttpServletRequest request) {
+    public Object contentsNoInIndex(@RequestParam("page") int page,@RequestParam("rows") int pageSize,HttpServletRequest request) {
     	Long userId = getCurrentUser(request);
     	int size = commonService.getQueryDao().getContentsNoInIndexSize(userId,Constants.columnType);
     	List<ConContent> list = commonService.getQueryDao().getContentsNoInIndex(userId,Constants.columnType);
@@ -195,12 +195,12 @@ public class CommonController extends BaseController{
 
     @RequestMapping(value = "/jqJson/parents/{type}", method = RequestMethod.GET)
     @ResponseBody
-    public Object parents(@PathVariable String type,@RequestParam("page") int page,@RequestParam("totalrows") int pageSize,HttpServletRequest request) {
+    public Object parents(@PathVariable String type,@RequestParam("page") int page,@RequestParam("rows") int pageSize,HttpServletRequest request) {
     	Long userId = getCurrentUser(request);
     	if(type.equals(Constants.columnType))
-    		return commonService.getColumns(userId,page, pageSize);
+    		return commonService.getColumns(userId,page);
     	else if(type.equals(Constants.categoryType))
-    		return commonService.getCategorys(userId,page, pageSize);
+    		return commonService.getCategorys(userId,page);
     	else if(type.equals(Constants.linkType))
     	{
         	List<ConLink> list = commonService.getQueryDao().getLinks(type,getCurrentUser(request));
@@ -210,14 +210,14 @@ public class CommonController extends BaseController{
     }
     @RequestMapping(value = "/jqJson/CfgGroups", method = RequestMethod.GET)
     @ResponseBody
-    public Object CfgGroups(@RequestParam("page") int page,@RequestParam("totalrows") int pageSize,HttpServletRequest request) {
+    public Object CfgGroups(@RequestParam("page") int page,@RequestParam("rows") int pageSize,HttpServletRequest request) {
     	Long userId = getCurrentUser(request);
-    	return commonService.getGroups(userId,page, pageSize);
+    	return commonService.getGroups(userId,page);
     }
 
     @RequestMapping(value = "/jqJson/sons/{type}/{parentId}", method = RequestMethod.GET)
     @ResponseBody
-    public Object sons(@PathVariable String type,@PathVariable long parentId,@RequestParam("page") int page,@RequestParam("totalrows") int pageSize) {
+    public Object sons(@PathVariable String type,@PathVariable long parentId,@RequestParam("page") int page,@RequestParam("rows") int pageSize) {
     	if(type.equals(Constants.columnType))
     	{
     		int size = commonService.getQueryDao().getContentsSize(parentId);
@@ -235,7 +235,7 @@ public class CommonController extends BaseController{
 
     @RequestMapping(value = "/jqJson/sonsNoBang/{type}/{parentId}", method = RequestMethod.GET)
     @ResponseBody
-    public Object sonsNoBang(@PathVariable String type,@PathVariable long parentId,@RequestParam("page") int page,@RequestParam("totalrows") int pageSize,HttpServletRequest request) {
+    public Object sonsNoBang(@PathVariable String type,@PathVariable long parentId,@RequestParam("page") int page,@RequestParam("rows") int pageSize,HttpServletRequest request) {
     	if(type.equals(Constants.columnType))
     	{
     		int size = commonService.getQueryDao().getContentsNoBangSize(parentId,getCurrentUser(request));
@@ -272,13 +272,13 @@ public class CommonController extends BaseController{
     //查询人属性
     @RequestMapping(value = "/jqJson/getIndexSearchData", method = RequestMethod.GET)
     @ResponseBody
-    public Object getIndexSearchData(@RequestParam("page") int page,@RequestParam("totalrows") int pageSize,HttpServletRequest request) {
+    public Object getIndexSearchData(@RequestParam("page") int page,@RequestParam("rows") int pageSize,HttpServletRequest request) {
         	List<NameKey1234> list = commonService.getQueryDao().getIndexSearchData(getCurrentUser(request),322L);
         	return JGridBean.fromList(list,page, pageSize,list.size());
     }
     @RequestMapping(value = "/jqJson/getIndexSearchDataNotIn", method = RequestMethod.GET)
     @ResponseBody
-    public Object getIndexSearchDataNotIn(@RequestParam("page") int page,@RequestParam("totalrows") int pageSize,HttpServletRequest request) {
+    public Object getIndexSearchDataNotIn(@RequestParam("page") int page,@RequestParam("rows") int pageSize,HttpServletRequest request) {
         	List<NameKey1234> list = commonService.getQueryDao().getIndexSearchDataNotIn(getCurrentUser(request),322L);
         	return JGridBean.fromList(list,page, pageSize,list.size());
     }
@@ -303,14 +303,14 @@ public class CommonController extends BaseController{
     }
     @RequestMapping(value = "/jqJson/GroupSon/{groupId}/{type}", method = RequestMethod.GET)
     @ResponseBody
-    public Object GroupSon(@PathVariable long groupId,@PathVariable String type,HttpServletRequest request,@RequestParam("page") int page,@RequestParam("totalrows") int pageSize) {
+    public Object GroupSon(@PathVariable long groupId,@PathVariable String type,HttpServletRequest request,@RequestParam("page") int page,@RequestParam("rows") int pageSize) {
     	int size = commonService.getQueryDao().getSonLinksSize(groupId, getCurrentUser(request), type);
     	List<ConLink> list = commonService.getQueryDao().getSonLinks(groupId,getCurrentUser(request),type,page,pageSize);
     	return JGridBean.fromList(list,page, pageSize,size);
     }
     @RequestMapping(value = "/jqJson/GroupSonNoSelect/{groupId}/{type}", method = RequestMethod.GET)
     @ResponseBody
-    public Object GroupSonNoSelect(@PathVariable long groupId,@PathVariable String type,HttpServletRequest request,@RequestParam("page") int page,@RequestParam("totalrows") int pageSize) {
+    public Object GroupSonNoSelect(@PathVariable long groupId,@PathVariable String type,HttpServletRequest request,@RequestParam("page") int page,@RequestParam("rows") int pageSize) {
     	int size = commonService.getQueryDao().getSonLinksNoSelectSize(groupId, getCurrentUser(request), type);
     	List<ConLink> list = commonService.getQueryDao().getSonLinksNoSelect(groupId,getCurrentUser(request),type,page,pageSize);
     	return JGridBean.fromList(list,page, pageSize,size);
@@ -403,7 +403,7 @@ public class CommonController extends BaseController{
     @SuppressWarnings("unchecked")
 	@RequestMapping(value = "/jqJson/getTemplates", method = RequestMethod.GET)
     @ResponseBody
-    public Object getTemplates(@RequestParam("page") int page,@RequestParam("totalrows") int pageSize,HttpServletRequest request) {
+    public Object getTemplates(@RequestParam("page") int page,@RequestParam("rows") int pageSize,HttpServletRequest request) {
     	List list = commonService.getQueryDao().getTemplateDao().getAll();
     	return JGridBean.fromList(list,page, pageSize,list.size());
     }
