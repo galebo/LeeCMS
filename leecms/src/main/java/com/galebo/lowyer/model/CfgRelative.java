@@ -18,7 +18,7 @@ import org.compass.annotations.SearchableProperty;
 import com.galebo.lowyer.bean.Sortable;
 
 @Entity
-@Table(name="cfg_relative",catalog="lowyer")
+@Table(name="cfg_relative")
 @Searchable
 @XmlRootElement
 public class CfgRelative extends BaseObject implements Serializable,Sortable {

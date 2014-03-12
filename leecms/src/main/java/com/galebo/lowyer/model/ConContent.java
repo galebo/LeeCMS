@@ -29,7 +29,7 @@ import com.galebo.common.UtilsString;
 import com.galebo.common.jgrid.JGridAble;
 
 @Entity
-@Table(name="con_content",catalog="lowyer")
+@Table(name="con_content")
 @Searchable
 @XmlRootElement
 public class ConContent extends BaseObject implements Serializable ,JGridAble{
@@ -225,7 +225,7 @@ public class ConContent extends BaseObject implements Serializable ,JGridAble{
         a.add("select");
         a.add(getContentId().toString());
         a.add(getNameCn());
-        a.add(UtilsCommon.sdf.format(updateTime));
+        a.add(UtilsCommon.sdf_yyyy_mm_dd_HH_mm_ss.format(updateTime));
         return a;
 	}
 

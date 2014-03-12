@@ -24,7 +24,7 @@ import com.galebo.common.UtilsCommon;
 import com.galebo.common.jgrid.JGridAble;
 
 @Entity
-@Table(name="template",catalog="lowyer")
+@Table(name="template")
 @Searchable
 @XmlRootElement
 public class Template extends BaseObject implements Serializable,JGridAble {
@@ -149,7 +149,7 @@ public class Template extends BaseObject implements Serializable,JGridAble {
         a.add(getCfgTemplateId());
         a.add(getTemplateId());
         a.add(getTemplateCssId());
-        a.add(UtilsCommon.sdf.format(getCTime()));
+        a.add(UtilsCommon.sdf_yyyy_mm_dd_HH_mm_ss.format(getCTime()));
         a.add("");
       
         return a;

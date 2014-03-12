@@ -29,7 +29,7 @@ import com.galebo.common.UtilsCommon;
 import com.galebo.common.jgrid.JGridAble;
 
 @Entity
-@Table(name="col_column",catalog="lowyer")
+@Table(name="col_column")
 @Searchable
 @XmlRootElement
 public class ColColumn extends BaseObject implements Serializable ,JGridAble{
@@ -300,7 +300,7 @@ public class ColColumn extends BaseObject implements Serializable ,JGridAble{
         a.add(getColumnId());
         a.add(getColName());
         a.add(getSort());
-        a.add(UtilsCommon.sdf.format(getCTime()));
+        a.add(UtilsCommon.sdf_yyyy_mm_dd_HH_mm_ss.format(getCTime()));
         a.add(getColPid());
         a.add(relativeId);
         a.add("");

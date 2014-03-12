@@ -22,7 +22,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 
 @Entity
-@Table(name="template_page",catalog="lowyer")
+@Table(name="template_page")
 @Searchable
 @XmlRootElement
 public class TemplatePage extends BaseObject implements Serializable {

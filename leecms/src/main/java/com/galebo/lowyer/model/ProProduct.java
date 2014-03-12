@@ -25,7 +25,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 
 @Entity
-@Table(name="pro_product",catalog="lowyer")
+@Table(name="pro_product")
 @Searchable
 @XmlRootElement
 public class ProProduct extends BaseObject implements Serializable {

@@ -24,7 +24,7 @@ import com.galebo.common.UtilsCommon;
 import com.galebo.common.jgrid.JGridAble;
 
 @Entity
-@Table(name="cfg_group",catalog="lowyer")
+@Table(name="cfg_group")
 @Searchable
 @XmlRootElement
 public class CfgGroup extends BaseObject implements Serializable,JGridAble {
@@ -142,7 +142,7 @@ public class CfgGroup extends BaseObject implements Serializable,JGridAble {
         a.add(getGroupName());
         a.add(getGroupKey());
         a.add(getType());
-        a.add(UtilsCommon.sdf.format(getUpdateTime()));
+        a.add(UtilsCommon.sdf_yyyy_mm_dd_HH_mm_ss.format(getUpdateTime()));
         a.add("");
       
         return a;

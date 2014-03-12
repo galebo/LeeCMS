@@ -24,7 +24,7 @@ import com.galebo.common.UtilsCommon;
 import com.galebo.common.jgrid.JGridAble;
 
 @Entity
-@Table(name="pro_category",catalog="lowyer")
+@Table(name="pro_category")
 @Searchable
 @XmlRootElement
 public class ProCategory extends BaseObject implements Serializable,JGridAble{
@@ -272,7 +272,7 @@ public class ProCategory extends BaseObject implements Serializable,JGridAble{
         a.add(getCategoryId());
         a.add(getColName());
         a.add(getSort());
-        a.add(UtilsCommon.sdf.format(getCTime()));
+        a.add(UtilsCommon.sdf_yyyy_mm_dd_HH_mm_ss.format(getCTime()));
         a.add(getParentId());
         a.add(relativeId);
         a.add("");

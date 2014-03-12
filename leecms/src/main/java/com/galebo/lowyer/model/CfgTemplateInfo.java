@@ -25,7 +25,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 
 @Entity
-@Table(name="cfg_template_info",catalog="lowyer")
+@Table(name="cfg_template_info")
 @Searchable
 @XmlRootElement
 public class CfgTemplateInfo extends BaseObject implements Serializable {

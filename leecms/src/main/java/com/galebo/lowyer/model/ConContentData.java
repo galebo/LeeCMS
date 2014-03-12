@@ -27,7 +27,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 
 @Entity
-@Table(name="con_content_data",catalog="lowyer")
+@Table(name="con_content_data")
 @Searchable
 @XmlRootElement
 public class ConContentData extends BaseObject implements Serializable {

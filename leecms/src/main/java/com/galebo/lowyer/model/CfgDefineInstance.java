@@ -25,7 +25,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 
 @Entity
-@Table(name="cfgDefineInstance",catalog="lowyer")
+@Table(name="cfgDefineInstance")
 @Searchable
 @XmlRootElement
 public class CfgDefineInstance extends BaseObject implements Serializable {

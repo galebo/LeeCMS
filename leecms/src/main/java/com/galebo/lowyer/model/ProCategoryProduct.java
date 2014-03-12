@@ -27,7 +27,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name="pro_category_product",catalog="lowyer")
+@Table(name="pro_category_product")
 @Searchable
 @XmlRootElement
 public class ProCategoryProduct extends BaseObject implements Serializable,JGridAble {

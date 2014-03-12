@@ -23,7 +23,7 @@ import org.compass.annotations.SearchableProperty;
 import com.galebo.common.jgrid.JGridAble;
 
 @Entity
-@Table(name="con_link",catalog="lowyer")
+@Table(name="con_link")
 @Searchable
 @XmlRootElement
 public class ConLink extends BaseObject implements Serializable,JGridAble{

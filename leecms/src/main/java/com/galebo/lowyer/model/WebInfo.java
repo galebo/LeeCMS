@@ -26,7 +26,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 
 @Entity
-@Table(name="web_info",catalog="lowyer", uniqueConstraints = {@UniqueConstraint(columnNames="web_domain"), @UniqueConstraint(columnNames="web_tmp_url")} )
+@Table(name="web_info", uniqueConstraints = {@UniqueConstraint(columnNames="web_domain"), @UniqueConstraint(columnNames="web_tmp_url")} )
 @Searchable
 @XmlRootElement
 public class WebInfo extends BaseObject implements Serializable {

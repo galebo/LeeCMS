@@ -23,7 +23,7 @@ import com.galebo.common.jgrid.JGridAble;
 import com.galebo.lowyer.bean.Sortable;
 
 @Entity
-@Table(name="col_column_content",catalog="lowyer")
+@Table(name="col_column_content")
 @Searchable
 @XmlRootElement
 public class ColColumnContent extends BaseObject implements Serializable ,Sortable,JGridAble{
