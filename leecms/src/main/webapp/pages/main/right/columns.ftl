@@ -7,7 +7,7 @@
 	<div id="parentDiv"></div>
 </div>
 
-<script type="text/javascript" src="/p/js/business/common.js"></script>
+<script type="text/javascript" src="/p/js/common/common.js"></script>
 <script>
 var name="栏目";
 var name_en="Column";

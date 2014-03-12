@@ -68,6 +68,6 @@
 <script type="text/javascript" src="/p/plugin/jquery.jqGrid-4.3.1/js/jquery.jqGrid.src.js"></script>
 <!-- jquery jqgrid end -->
 <v:javascript formName="conLink" cdata="false" dynamicJavascript="true" staticJavascript="false"/>
-<script type="text/javascript" src="<c:url value='/p/js/business/common.js'/>"></script>
+<script type="text/javascript" src="<c:url value='/p/js/common/common.js'/>"></script>
 <script type="text/javascript" src="<c:url value='/p/js/business/conLink.js'/>"></script>
 <link rel="stylesheet" type="text/css" media="all" href="<c:url value='/p/css/jq.css'/>" />

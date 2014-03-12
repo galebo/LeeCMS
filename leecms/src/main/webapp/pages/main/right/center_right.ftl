@@ -66,7 +66,7 @@
 	<table id="selectTable"></table>
 	<div id="selectDiv"></div>
 </div>
-<script type="text/javascript" src="/p/js/business/common.js"></script>
+<script type="text/javascript" src="/p/js/common/common.js"></script>
 <script type="text/javascript" src="/p/js/business/template.js"></script>
 </@common.body>
 </#macro>

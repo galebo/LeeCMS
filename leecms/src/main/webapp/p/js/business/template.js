@@ -22,23 +22,23 @@ CfgRelative.prototype.select= function (rowData,rowId,opType,tableId)
 {
 	var url="/jqJson/updateUserTemplate/"+rowId;
 	this.selectId=rowId;
-	_callAjax(url,"",{closed:function(){business.resetSonTable();}});
-}
+	G_callAjax(url,"",{closed:function(){business.resetSonTable();}});
+};
 CfgRelative.prototype.resetSonTable= function ()
 {
 	jQuery("#templateInstanceId").html("NO."+this.selectId);
 	jQuery("#select").hide();
-}
+};
 CfgRelative.prototype.close= function ()
 {
 	jQuery("#select").hide();
-}
+};
 
 CfgRelative.prototype.show= function ()
 {
 	jQuery("#select").show();
-	initOrRefreshJqGrid(parentDefine,this.Url_getTemplate);
-}
+	G_initOrRefreshJqGrid(parentDefine,this.Url_getTemplate);
+};
 var business=new CfgRelative();
 
 var op={

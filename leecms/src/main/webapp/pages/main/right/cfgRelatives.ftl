@@ -20,7 +20,7 @@
 		<table id="selectTable"></table>
 		<div id="selectDiv"></div>
 	</div>
-	<script type="text/javascript" src="/p/js/business/common.js"></script>
+	<script type="text/javascript" src="/p/js/common/common.js"></script>
 	<script type="text/javascript" src="/p/js/business/cfgRelative.js"></script>
 	<!-- jqGreed end-->
 </@common.body>

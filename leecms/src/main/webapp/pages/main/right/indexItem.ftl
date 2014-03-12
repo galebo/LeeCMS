@@ -37,7 +37,7 @@
 	<table id="son3Table"></table>
 	<div id="son3Div"></div>
 </div>
-<script type="text/javascript" src="/p/js/business/common.js"></script>
+<script type="text/javascript" src="/p/js/common/common.js"></script>
 <script type="text/javascript" src="/p/js/business/indexItem.js"></script>
 </@common.body>
 </#macro>

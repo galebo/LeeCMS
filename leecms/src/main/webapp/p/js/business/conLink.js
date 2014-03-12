@@ -76,8 +76,8 @@ ColumnContent.prototype.showColumn= function ()
 	$("#parent").hide();
 	$("#son").hide();
 	$("#column").show();
-	initOrRefreshJqGrid(columnDefine,this.Url_getColColumns);
-}
+	G_initOrRefreshJqGrid(columnDefine,this.Url_getColColumns);
+};
 
 ColumnContent.prototype.setDesc= function ()
 {
@@ -96,34 +96,34 @@ ColumnContent.prototype.setDesc= function ()
 		$("#url").attr({readonly:false});
 		$("#desc").html("<font color='red'>链接URL属性为自定义，（内容和栏目不可以编辑，自定义可以编辑）</font>");
 	}
-}
+};
 ColumnContent.prototype.showContent= function ()
 {
 	$("#select").show();
 	$("#column").hide();
 	$("#parent").show();
 	$("#son").show();
-	initOrRefreshJqGrid(parentDefine,this.Url_getColColumns);
-}
+	G_initOrRefreshJqGrid(parentDefine,this.Url_getColColumns);
+};
 ColumnContent.prototype.showSelfDefine= function ()
 {
 	$("#select").hide();
-}
+};
 ColumnContent.prototype.resetSonTable= function (rowData,rowId,opType,tableId)
 {
 	var url=this.Url_getConContent+"/"+rowId;
-	initOrRefreshJqGrid(sonDefine,url);
-}
+	G_initOrRefreshJqGrid(sonDefine,url);
+};
 ColumnContent.prototype.selectColumn= function (rowData,rowId,opType,tableId)
 {
 	$("#select").hide();
 	$("#url").val("${column}/"+rowId);
 	this.setDesc();
-}
+};
 ColumnContent.prototype.selectContent= function (rowData,rowId,opType,tableId)
 {
 	$("#select").hide();
 	$("#url").val("${content}/"+rowData.columnContentId);
 	this.setDesc();
-}
+};
 var business=new ColumnContent();

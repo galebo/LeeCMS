@@ -21,7 +21,7 @@ var parentDefine={
 		treeGrid: true,ExpandColumn:"name",
   	    width:  1000,
 	caption: name
-}
+};
 var op={
         name:"business",
         defines:[
@@ -42,26 +42,26 @@ function Column()
 
 Column.prototype.initColumn=function ()
 {
-	initOrRefreshJqGrid(parentDefine,this.Url_getColColumns);
-}
+	G_initOrRefreshJqGrid(parentDefine,this.Url_getColColumns);
+};
 Column.prototype.editColumn= function (rowData,rowId,opType,tableId)
 {
 	var url="/"+name_big+"form?"+name_en_l+"Id="+rowId;
 	G_showCommBox(url,'编辑'+name,600,450,{'关闭': true},callBack_resetSonTable);
-}	
+};
 Column.prototype.addColumn= function (rowData,rowId,opType,tableId){
 	var url="/"+name_big+"form?parentId="+rowId+"&parent"+name_en+"Name="+rowData.name;
 	G_showCommBox(url,'增加'+name,600,450,{'关闭': true},callBack_resetSonTable);
-}
+};
 Column.prototype.deleteColumn=function (rowData,rowId,opType,tableId)
 {
 	var url="/jqJson/delete"+name_en+"/"+rowId;
-	_callAjax(url,"",{closed:callBack_resetSonTable});
-}
+	G_callAjax(url,"",{closed:callBack_resetSonTable});
+};
 Column.prototype.changeSort= function (rowData,rowId,opType,tableId)
 {
 	var url="/jqJson/changeSort/"+name_en+"/"+opType+"/"+rowData.parentId+"/"+rowData.relativeId+"/"+rowId+"/"+rowData.sort;
-	_callAjax(url,"",{closed:callBack_resetSonTable});
-}
+	G_callAjax(url,"",{closed:callBack_resetSonTable});
+};
 function callBack_resetSonTable(){business.initColumn();}
 var business=new Column();

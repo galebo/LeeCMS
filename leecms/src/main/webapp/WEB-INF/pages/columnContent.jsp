@@ -18,6 +18,6 @@
 	<table id="sonTable"></table>
 	<div id="sonDiv"></div>
 </div>
-<script type="text/javascript" src="<c:url value='/p/js/business/common.js'/>"></script>
+<script type="text/javascript" src="<c:url value='/p/js/common/common.js'/>"></script>
 <script type="text/javascript" src="<c:url value='/p/js/business/columnContent.js'/>"></script>
 <!-- jqGreed end-->

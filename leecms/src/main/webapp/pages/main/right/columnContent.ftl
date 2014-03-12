@@ -16,7 +16,7 @@
 		<table id="son1Table"></table>
 		<div id="son1Div"></div>
 	</div>
-<script type="text/javascript" src="/p/js/business/common.js"></script>
+<script type="text/javascript" src="/p/js/common/common.js"></script>
 <script>
 	var parent_name="栏目";
 	var son_name="文章"

@@ -65,47 +65,47 @@ CfgRelative.prototype.set= function (rowData,rowId,opType,tableId)
 	this.groupId=rowId;
 	this.groupType=rowData.type;
 	jQuery("#currentCol").html(rowData.name);
-}
+};
 CfgRelative.prototype.resetParentTable= function (rowData,rowId,opType,tableId)
 {
 	jQuery("#son").hide();
 	jQuery("#select").hide();
-	initOrRefreshJqGrid(parentDefine,this.Url_getCfgGroups);
-}
+	G_initOrRefreshJqGrid(parentDefine,this.Url_getCfgGroups);
+};
 CfgRelative.prototype.resetSonTable= function (rowData,rowId,opType,tableId)
 {
 	jQuery("#select").hide();
 	jQuery("#son").show();
 	var url=this.Url_getGroupSon+"/"+this.groupId+"/"+this.groupType;
-	initOrRefreshJqGrid(sonDefine,url);
-}
+	G_initOrRefreshJqGrid(sonDefine,url);
+};
 CfgRelative.prototype.resetSelectTable= function (rowData,rowId,opType,tableId)
 {
 	jQuery("#son").hide();
 	jQuery("#select").show();
 	var url=this.Url_getGroupSonNoSelect+"/"+this.groupId+"/"+this.groupType;
-	initOrRefreshJqGrid(selectDefine,url);
-}
+	G_initOrRefreshJqGrid(selectDefine,url);
+};
 CfgRelative.prototype.changeSort= function (rowData,rowId,opType,tableId)
 {
 	var url=this.Url_changeSort+"/"+opType+"/"+this.groupId+"/"+rowData.relativeId+"/"+rowId+"/"+rowData.sort;
-	_callAjax(url,"",{closed:function(){business.resetSonTable();}});
-}
+	G_callAjax(url,"",{closed:function(){business.resetSonTable();}});
+};
 CfgRelative.prototype.release= function (rowData,rowId,opType,tableId)
 {
 	var url="/jqJson/releaseLinkLoop/"+rowData.relativeId;
-	_callAjax(url,"",{closed:function(){business.resetSonTable();}});
-}
+	G_callAjax(url,"",{closed:function(){business.resetSonTable();}});
+};
 CfgRelative.prototype.op_edit= function (rowData,rowId,opType,tableId)
 {
 	var url="/cfgGroupform?groupId="+this.groupId;
 	G_showCommBox(url,'编辑',900,450,{'关闭': true});
-}
+};
 CfgRelative.prototype.op_addBang= function (rowData,rowId,opType,tableId)
 {
 	var url="/conLinkform?type="+rowData.type+"&groupId="+this.groupId;
 	G_showCommBox(url,'编辑',900,450,{'关闭': true});
-}
+};
 
 CfgRelative.prototype.addToGroup=function (type){
 	var sonIds=G_captureCheckValue("selectTable");
@@ -114,9 +114,9 @@ CfgRelative.prototype.addToGroup=function (type){
 	else if(confirm("请确认添加这几项信息")){
 		var url =this.Url_getGroupSonAdd+"/"+this.groupId+"/"+this.groupType;
 		var para ="sonIds="+sonIds;
-		_callAjax(url,para,{closed:function(){business.resetParentTable();}});
+		G_callAjax(url,para,{closed:function(){business.resetParentTable();}});
 	}
-}
+};
 var business=new CfgRelative();
 
 

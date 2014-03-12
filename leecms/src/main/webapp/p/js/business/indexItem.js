@@ -101,49 +101,49 @@ function IndexItem()
 	this.div=new Div(["#son1","#son2","#son3"]);
 	this.G_columnId=null;
 
-	initOrRefreshJqGrid(parentDefine,this.Url_getColColumns);
+	G_initOrRefreshJqGrid(parentDefine,this.Url_getColColumns);
 	this.div.show('none');
 }
 
 IndexItem.prototype.showSon1= function()
 {
 	this.div.show('#son1');
-	initOrRefreshJqGrid(selectColumnDefine,'/jqJson/columnsNoInIndex');
-}
+	G_initOrRefreshJqGrid(selectColumnDefine,'/jqJson/columnsNoInIndex');
+};
 IndexItem.prototype.showSon2= function()
 {
 	this.div.show('#son2');
-	initOrRefreshJqGrid(selectContent_ColumnDefine,'/jqJson/parents/3AC');
-}
+	G_initOrRefreshJqGrid(selectContent_ColumnDefine,'/jqJson/parents/3AC');
+};
 IndexItem.prototype.showSon3= function()
 {
 	this.div.show('#son3');
-	initOrRefreshJqGrid(linkDefine,'/jqJson/parents/3AA');
-}
+	G_initOrRefreshJqGrid(linkDefine,'/jqJson/parents/3AA');
+};
 IndexItem.prototype.resetContentTable= function (rowData,rowId,opType,tableId)
 {
-	initOrRefreshJqGrid(selectContent_ContentDefine,'/jqJson/sons/3AC/'+rowId);
-}
+	G_initOrRefreshJqGrid(selectContent_ContentDefine,'/jqJson/sons/3AC/'+rowId);
+};
 IndexItem.prototype.resetSonTable= function (rowData,rowId,opType,tableId)
 {
-	var url=this.Url_getConContent+"/"+this.G_columnId;
-	initOrRefreshJqGrid(parentDefine,this.Url_getColColumns);
+	//var url=this.Url_getConContent+"/"+this.G_columnId;
+	G_initOrRefreshJqGrid(parentDefine,this.Url_getColColumns);
 	this.div.show('none');
-}
+};
 IndexItem.prototype.releaseMenuElement= function (rowData,rowId,opType,tableId)
 {
 	var url="/jqJson/releaseMenuElement/"+rowData.relativeId;
-	_callAjax(url,"",{closed:callBack_resetSonTable});
-}
+	G_callAjax(url,"",{closed:callBack_resetSonTable});
+};
 IndexItem.prototype.addItems=function (){
 	var sonIds=G_captureCheckValue("son1Table");
 	if(sonIds==null||sonIds.length==0)
 		confirm("选项数为0");
 	else if(confirm("请确认添加这几项信息")){
 		var url ="/jqJson/addItem/"+sonIds;
-		_callAjax(url,"",{closed:callBack_resetSonTable});
+		G_callAjax(url,"",{closed:callBack_resetSonTable});
 	}
-}
+};
 
 IndexItem.prototype.addLinks=function (type){
 	var sonIds=G_captureCheckValue("son3Table");
@@ -151,18 +151,18 @@ IndexItem.prototype.addLinks=function (type){
 		confirm("选项数为0");
 	else if(confirm("请确认添加这几项信息")){
 		var url ="/jqJson/addLink/"+sonIds;
-		_callAjax(url,"",{closed:callBack_resetSonTable});
+		G_callAjax(url,"",{closed:callBack_resetSonTable});
 	}
-}
+};
 IndexItem.prototype.addContent= function (rowData,rowId,opType,tableId)
 {
 	var url="/jqJson/menuAddContent/"+rowData.contentId;
-	_callAjax(url,"",{closed:callBack_resetSonTable});
-}
+	G_callAjax(url,"",{closed:callBack_resetSonTable});
+};
 IndexItem.prototype.changeSort= function (rowData,rowId,opType,tableId)
 {
 	var url=this.Url_changeSort+"/"+opType+"/"+rowData.parentElmentId+"/"+rowData.relativeId+"/"+rowData.elmentId+"/"+rowData.sort;
-	_callAjax(url,"",{closed:callBack_resetSonTable});
-}
+	G_callAjax(url,"",{closed:callBack_resetSonTable});
+};
 var business=new IndexItem();
 function callBack_resetSonTable(){business.resetSonTable();}

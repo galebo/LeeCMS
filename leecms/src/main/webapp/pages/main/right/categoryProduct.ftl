@@ -11,7 +11,7 @@
 		<table id="sonTable"></table>
 		<div id="sonDiv"></div>
 	</div>
-	<script type="text/javascript" src="/p/js/business/common.js"></script>
+	<script type="text/javascript" src="/p/js/common/common.js"></script>
 	<script>
 	var parent_name="类别";
 	var son_name="产品"
