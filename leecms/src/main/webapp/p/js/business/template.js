@@ -9,7 +9,8 @@ var parentDefine={
   	   		{name:'manger',width: 150, align:'center', formatter:opFormatter}
   	   	],
     width:  400,
-	caption: '模板组<input style="margin-left:280px;" type="button" onclick="business.close();" value="放弃"/></input>'
+	caption: '模板组',
+	showClose:true
 };
 
 
@@ -29,10 +30,7 @@ CfgRelative.prototype.resetSonTable= function ()
 	jQuery("#templateInstanceId").html("NO."+this.selectId);
 	jQuery("#select").hide();
 };
-CfgRelative.prototype.close= function ()
-{
-	jQuery("#select").hide();
-};
+
 
 CfgRelative.prototype.show= function ()
 {

@@ -7,11 +7,11 @@
 		<table id="parentTable"></table>
 		<div id="parentDiv"></div>
 	</div>
-	<div class="divTree" id="div">
+	<div class="divTree" id="son">
 		<table id="sonTable"></table>
 		<div id="sonDiv"></div>
 	</div>
-	<div class="divTree" id="div1">
+	<div class="divTree" id="son1">
 		<input type="button" value="增加" onclick="business.addToParent();"></input>
 		<table id="son1Table"></table>
 		<div id="son1Div"></div>

@@ -3,11 +3,11 @@
 <@common.body>
 	<div id="colTip" class="jqTitle">栏目:<span id="currentCol"></span></div>
 	<!-- jqGreed start-->
-	<div class="divTree">
+	<div class="divTree" id="parent">
 		<table id="parentTable"></table>
 		<div id="parentDiv"></div>
 	</div>
-	<div class="divTree">
+	<div class="divTree" id="son">
 		<table id="sonTable"></table>
 		<div id="sonDiv"></div>
 	</div>

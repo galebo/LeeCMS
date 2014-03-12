@@ -7,7 +7,7 @@
 	<option value="2" selected="selected"  >未设置</option> 
 	</select>
 </div>
-	<div class="divTree">
+	<div class="divTree" id="son">
 		<table id="sonTable"></table>
 		<div id="sonDiv"></div>
 	</div>

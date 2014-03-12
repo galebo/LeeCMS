@@ -51,7 +51,7 @@ function G_initOrRefreshJqGrid(setBean,url){
 			rowNum      :setBean.rowNum ?setBean.rowNum:100,
 			treeGrid    :setBean.treeGrid,
 			width       :setBean.width,
-			caption     :setBean.caption,
+			caption     :setBean.caption+(setBean.showClose?'<input style="margin-left:'+(setBean.width-120)+'px;" type="button" onclick="business.close();" value="放弃"/></input>':''),
 			ExpandColumn:setBean.ExpandColumn,
 			datatype    : 'json',
 			height      :'auto',

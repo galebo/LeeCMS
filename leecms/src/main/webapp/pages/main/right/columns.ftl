@@ -2,7 +2,7 @@
 <#macro main>
 <@common.body>
 <!-- jqGreed start-->
-<div class="divTree">
+<div class="divTree" id="parent">
 	<table id="parentTable"></table>
 	<div id="parentDiv"></div>
 </div>
