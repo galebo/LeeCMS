@@ -1,0 +1,39 @@
+<html lang="zh-CN"><head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>使用common.js</title>
+<style type="text/css">
+.red {
+    color: #0085DA;
+}
+</style>
+
+<body>
+
+<h1>html代码</h1>
+	&lt;div class="divTree" id="<span class="red">parent</span>"&gt; </br>
+	&nbsp;&nbsp;	&lt;table id="<span class="red">parent</span>Table"&gt;&lt;/table&gt; </br>
+	&nbsp;&nbsp;	&lt;div id="<span class="red">parent</span>Div"&gt;&lt;/div&gt;</br>
+	&lt;/div&gt;</br>
+	</br>
+	
+<h1>js代码</h1>
+	var <span class="red">parent</span>Define={</br>
+	&nbsp;&nbsp;	name:"<span class="red">parent</span>",</br>
+   	&nbsp;&nbsp;	colNames:['模板实例ID','模板ID','cssID','更新时间', '操作'],</br>
+   	&nbsp;&nbsp;	colModel:[</br>
+  	&nbsp;&nbsp;&nbsp;&nbsp;		   		{name:'instanceId',index:'instanceId', width:30,key:true},</br>
+  	&nbsp;&nbsp;&nbsp;&nbsp;		   		{name:'templateId',index:'templateId', width:40},</br>
+  	&nbsp;&nbsp;&nbsp;&nbsp;		   		{name:'cssId',index:'cssId', width:30},</br>
+  	&nbsp;&nbsp;&nbsp;&nbsp;		   		{name:'time',index:'time', width:120},</br>
+  	&nbsp;&nbsp;&nbsp;&nbsp;		   		{name:'manger',width: 150, align:'center', formatter:opFormatter}</br>
+  	&nbsp;&nbsp;	   	],</br>
+    &nbsp;&nbsp;	width:  400,</br>
+	&nbsp;&nbsp;	caption: '模板组',</br>
+	&nbsp;&nbsp;	showClose:true//是否出现关闭按钮</br>
+};</br>
+
+	<span class="red">此色的parent</span>需要一致，便于管理</br></br>
+	
+
+</body>
+</html>

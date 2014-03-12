@@ -1,4 +1,4 @@
-var parentDefine={
+var selectDefine={
 	name:"select",
    	colNames:['模板实例ID','模板ID','cssID','更新时间', '操作'],
    	colModel:[
@@ -35,7 +35,7 @@ CfgRelative.prototype.resetSonTable= function ()
 CfgRelative.prototype.show= function ()
 {
 	jQuery("#select").show();
-	G_initOrRefreshJqGrid(parentDefine,this.Url_getTemplate);
+	G_initOrRefreshJqGrid(selectDefine,this.Url_getTemplate);
 };
 var business=new CfgRelative();
 
