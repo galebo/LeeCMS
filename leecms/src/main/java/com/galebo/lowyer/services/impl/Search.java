@@ -38,14 +38,14 @@ public class Search extends BaseService{
 	public void build(String indexPath,Long userId,Url url) throws CorruptIndexException, LockObtainFailedException, IOException {
 		long startTime = new Date().getTime();
 		List<ColColumnContent> columnContents = queryDao.getColumnContents(userId);
-		System.out.println("共" + columnContents.size() + "文件正在被索引....");
+		log.info("共" + columnContents.size() + "文件正在被索引....");
 		IndexWriter indexWriter = new IndexWriter(indexPath+Constants.FILE_SEP+userId, new StandardAnalyzer(), true, IndexWriter.MaxFieldLength.UNLIMITED);
 		// 增加document到索引去
 		for (ColColumnContent colColumnContent : columnContents) {
 			//System.out.println(temp);
 			String url_name=url.getDetailUrl(colColumnContent.getColumnContentId())
 			+spliter+colColumnContent.getConContent().getNameCn()
-			+spliter+UtilsCommon.sdf.format(colColumnContent.getConContent().getUpdateTime());
+			+spliter+UtilsCommon.sdf_yyyy_mm_dd_HH_mm_ss.format(colColumnContent.getConContent().getUpdateTime());
 			Field FieldPath = new Field(path,url_name,Field.Store.YES, Field.Index.NO);
 			Field FieldBody = new Field(body, colColumnContent.getConContent().getHtml(), Field.Store.YES, Field.Index.ANALYZED, Field.TermVector.WITH_POSITIONS_OFFSETS);
 			Document document = new Document();
@@ -77,7 +77,7 @@ public class Search extends BaseService{
 			o.setName(split[1]);
 			o.setUrl(split[0]);
 			try {
-				o.setUpdateTime(UtilsCommon.sdf.parse(split[2]));
+				o.setUpdateTime(UtilsCommon.sdf_yyyy_mm_dd_HH_mm_ss.parse(split[2]));
 			} catch (java.text.ParseException e) {
 				WorkerException.handleNoThrowNew(e);
 				o.setUpdateTime(new Date());
