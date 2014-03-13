@@ -7,7 +7,7 @@
 <!-- jquery jqgrid start -->
 <link rel="stylesheet" type="text/css" media="screen" href="/p/plugin/jquery.jqGrid-4.3.1/css/ui.jqgrid.css" />
 <script type="text/javascript" src="/p/plugin/jquery.jqGrid-4.3.1/js/i18n/grid.locale-cn.js"></script>
-<script type="text/javascript" src="/p/plugin/jquery.jqGrid-4.3.1/js/jquery.jqGrid.src.js"></script>
+<script type="text/javascript" src="/p/plugin/jquery.jqGrid-4.3.1/js/jquery.jqGrid.min.js"></script>
 <!-- jquery jqgrid end -->
 
 <!-- jquery jBox start -->
