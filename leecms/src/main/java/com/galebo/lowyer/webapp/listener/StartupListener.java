@@ -106,8 +106,8 @@ public class StartupListener implements ServletContextListener {
         context.setAttribute(Constants.AVAILABLE_ROLES, mgr.getAllRoles());
         log.debug("Drop-down initialization complete [OK]");
 
-        CompassGps compassGps = ctx.getBean(CompassGps.class);
-        compassGps.index();
+/*        CompassGps compassGps = ctx.getBean(CompassGps.class);
+        compassGps.index();*/
     }
 
     /**

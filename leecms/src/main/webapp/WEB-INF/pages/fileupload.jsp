@@ -47,6 +47,7 @@
             value="<fmt:message key="button.cancel"/>" />
     </li>
 </ul>
+<input type="hidden" id="jbox" name="jbox" value="${jbox}"/>
 </form:form>
 
 <script type="text/javascript">
