@@ -24,6 +24,7 @@ import com.galebo.common.Result;
 import com.galebo.common.UtilsWeb;
 import com.galebo.common.dao.SSIILL;
 import com.galebo.common.freemarker.DbTemplateLoader;
+import com.galebo.common.jgrid.JGridAble;
 import com.galebo.common.jgrid.JGridBean;
 import com.galebo.lowyer.bean.NameKey1234;
 import com.galebo.lowyer.bean.Sortable;
@@ -400,11 +401,10 @@ public class CommonController extends BaseController{
 		return Result.Sucess;
     }
 
-    @SuppressWarnings("unchecked")
 	@RequestMapping(value = "/jqJson/getTemplates", method = RequestMethod.GET)
     @ResponseBody
     public Object getTemplates(@RequestParam("page") int page,@RequestParam("rows") int pageSize,HttpServletRequest request) {
-    	List list = commonService.getQueryDao().getTemplateDao().getAll();
+    	List<? extends JGridAble> list = commonService.getQueryDao().getTemplateDao().getAll();
     	return JGridBean.fromList(list,page, pageSize,list.size());
     }
     @RequestMapping(value = "/jqJson/updateUserTemplate/{templateId}", method = RequestMethod.GET)
