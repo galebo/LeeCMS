@@ -12,9 +12,9 @@
 <ul>
     <li>
         <appfuse:label styleClass="desc" key="conLink.imgUrl"/>
-        <input type="button" onclick="business.showUploadFile();" value='<fmt:message key="2BA"/>'></input>
         <form:errors path="imgUrl" cssClass="fieldError"/>
         <form:input path="imgUrl" id="imgUrl" cssClass="text large" cssErrorClass="text medium error" maxlength="200"/>
+        <input type="button" onclick="business.showUploadFile();" value='<fmt:message key="menu.selectFile"/>'></input>
     </li>
     <li>
         <appfuse:label styleClass="desc" key="conLink.title"/>
@@ -34,13 +34,18 @@
         <input type="submit" class="button" name="save" value="<fmt:message key="button.save"/>"/>
         <c:if test="${not empty conLink.linkId}">
         <c:if test="${type ==1}">
-        <input type="submit" class="button" name="delete" onclick="bCancel=true;return confirmDelete('conLink')" value="<fmt:message key="button.delete"/>" />
+       		 <input type="submit" class="button" name="delete" onclick="bCancel=true;return confirmDelete('conLink')" value="<fmt:message key="button.delete"/>" />
         </c:if>
         <c:if test="${type ==2}">
-        <input type="submit" class="button" name="delete" onclick="bCancel=true;return confirmDelete('changePic')" value="<fmt:message key="button.delete"/>" />
+   		     <input type="submit" class="button" name="delete" onclick="bCancel=true;return confirmDelete('changePic')" value="<fmt:message key="button.delete"/>" />
         </c:if>
         </c:if>
-        <input type="submit" class="button" name="cancel" value="<fmt:message key="button.return"/>" onclick="bCancel=true"/>
+		<c:if test="${not empty jbox}">
+        	<input type="submit" class="button" name="cancel" value="<fmt:message key="button.cancel"/>" onclick="javascript:window.parent.window.jBox.close();"/>
+        </c:if>
+		<c:if test="${empty jbox}">
+           <input type="submit" class="button" name="cancel" value="<fmt:message key="button.cancel"/>" onclick="bCancel=true"/>
+        </c:if>
     </li>
 </ul>
 </form:form>
