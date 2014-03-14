@@ -1,5 +1,22 @@
 
+function isInJBox(){
+	if(window.parent){
+		if(window.parent.window.jBox){
+			window.parent.window.jBox.close();
+			return ture;
+		}
+	}
+	return false;
+}
 
+function cancelButton(){
+	var isJbox=isInJBox();
+
+	if(!isJbox){
+		bCancel = true;
+	}
+	return true;
+}
 
 
 function G_showCommBox(desUrl,dialogName,width,height,options,close){
