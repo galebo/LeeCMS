@@ -2,7 +2,6 @@
 <script type="text/javascript" src="/p/plugin/jquery-ui-1.8.17.custom/js/jquery-1.7.1.min.js"></script>
 <script type="text/javascript" src="/p/plugin/jquery-ui-1.8.17.custom/js/jquery-ui-1.8.17.custom.min.js"></script>
 <link rel="stylesheet" type="text/css"  href="/p/plugin/jquery-ui-1.8.17.custom/css/ui-lightness/jquery-ui-1.8.17.custom.css"/>
-<link rel="stylesheet" type="text/css"  href="/p/plugin/jquery-ui-1.8.17.custom/development-bundle/themes/base/jquery.ui.all.css"/>
 
 <!-- jquery jqgrid start -->
 <link rel="stylesheet" type="text/css" media="screen" href="/p/plugin/jquery.jqGrid-4.3.1/css/ui.jqgrid.css" />
@@ -11,7 +10,7 @@
 <!-- jquery jqgrid end -->
 
 <!-- jquery jBox start -->
-<link rel="stylesheet" type="text/css" media="screen" href="/p/plugin/jBox/Skins2/Gray/jbox.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/p/plugin/jBox/Skins2/Green/jbox.css" />
 <script type="text/javascript" src="/p/plugin/jBox/jquery.jBox-2.3.min.js"></script>
 <script type="text/javascript" src="/p/plugin/jBox/i18n/jquery.jBox-zh-CN.js"></script>		
 <!-- jquery jBox end -->	
