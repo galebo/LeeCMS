@@ -1,4 +1,4 @@
-<%@ page language="java" isErrorPage="true" %>
+<%@ page language="java" isErrorPage="true" pageEncoding="UTF-8" contentType="text/html;charset=utf-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
@@ -15,7 +15,7 @@
     <div id="page">
         <div id="content" class="clearfix">
             <div id="main">
-                <h1><fmt:message key="errorPage.heading"/></h1>
+                <h1>ffff<fmt:message key="errorPage.heading"/></h1>
                 <fmt:message key="exception_occur"/>
                 <%@ include file="/common/messages.jsp" %>
                  <% if (exception != null) { %>
