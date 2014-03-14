@@ -126,4 +126,8 @@ ColumnContent.prototype.selectContent= function (rowData,rowId,opType,tableId)
 	$("#url").val("${content}/"+rowData.columnContentId);
 	this.setDesc();
 };
+ColumnContent.prototype.showUploadFile= function ()
+{
+	G_showCommBox("/fileupload?a=1",'上传文件',600,450,{'关闭': true},null);
+};
 var business=new ColumnContent();
