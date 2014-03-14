@@ -40,12 +40,7 @@
    		     <input type="submit" class="button" name="delete" onclick="bCancel=true;return confirmDelete('changePic')" value="<fmt:message key="button.delete"/>" />
         </c:if>
         </c:if>
-		<c:if test="${not empty jbox}">
-        	<input type="submit" class="button" name="cancel" value="<fmt:message key="button.cancel"/>" onclick="javascript:window.parent.window.jBox.close();"/>
-        </c:if>
-		<c:if test="${empty jbox}">
-           <input type="submit" class="button" name="cancel" value="<fmt:message key="button.cancel"/>" onclick="bCancel=true"/>
-        </c:if>
+		<input type="submit" class="button" name="cancel" value="<fmt:message key="button.cancel"/>" onclick="javascript:cancelButton();"/>
     </li>
 </ul>
 </form:form>
