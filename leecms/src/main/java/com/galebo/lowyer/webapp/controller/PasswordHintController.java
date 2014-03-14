@@ -102,9 +102,9 @@ public class PasswordHintController {
 
     @SuppressWarnings("unchecked")
     public void saveError(HttpServletRequest request, String error) {
-        List errors = (List) request.getSession().getAttribute("errors");
+        List<String> errors = (List<String>) request.getSession().getAttribute("errors");
         if (errors == null) {
-            errors = new ArrayList();
+            errors = new ArrayList<String>();
         }
         errors.add(error);
         request.getSession().setAttribute("errors", errors);
@@ -113,9 +113,9 @@ public class PasswordHintController {
     // this method is also in BaseForm Controller
     @SuppressWarnings("unchecked")
     public void saveMessage(HttpServletRequest request, String msg) {
-        List messages = (List) request.getSession().getAttribute(BaseFormController.MESSAGES_KEY);
+        List<String> messages = (List<String>) request.getSession().getAttribute(BaseFormController.MESSAGES_KEY);
         if (messages == null) {
-            messages = new ArrayList();
+            messages = new ArrayList<String>();
         }
         messages.add(msg);
         request.getSession().setAttribute(BaseFormController.MESSAGES_KEY, messages);

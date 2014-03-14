@@ -12,7 +12,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.galebo.lowyer.model.CfgRelative;
 import com.galebo.lowyer.model.ColColumn;
@@ -44,8 +43,7 @@ public class ColColumnFormController extends BaseFormController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public String onSubmit(ColColumn colColumn, BindingResult errors, HttpServletRequest request,
-                           HttpServletResponse response,@RequestParam(value="jbox",required=false)String jbox)
+    public String onSubmit(ColColumn colColumn, BindingResult errors, HttpServletRequest request,  HttpServletResponse response)
     throws Exception {
         if (request.getParameter("cancel") != null) {
             return getCancelView();
@@ -53,7 +51,6 @@ public class ColColumnFormController extends BaseFormController {
 
 
         boolean isNew = (colColumn.getColumnId() == null);
-        String success = getSuccessView();
         Locale locale = request.getLocale();
 
         if (request.getParameter("delete") != null) {
@@ -84,13 +81,10 @@ public class ColColumnFormController extends BaseFormController {
             saveMessage(request, getText(key, locale));
 
             if (!isNew) {
-                success = "redirect:colColumnform?columnId=" + colColumn.getColumnId();
-            }
-            if (jbox!=null) {
-                success = successDirect;
+                return "redirect:colColumnform?columnId=" + colColumn.getColumnId();
             }
         }
 
-        return success;
+        return getSuccessView_Html_Ajax(request);
     }
 }

@@ -16,8 +16,6 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.beans.propertyeditors.CustomNumberEditor;
-import org.springframework.context.MessageSource;
-import org.springframework.context.support.MessageSourceAccessor;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.validation.Validator;
 import org.springframework.web.bind.ServletRequestDataBinder;
@@ -26,8 +24,6 @@ import org.springframework.web.multipart.support.ByteArrayMultipartFileEditor;
 
 import com.galebo.lowyer.Constants;
 import com.galebo.lowyer.model.User;
-import com.galebo.lowyer.service.MailEngine;
-import com.galebo.lowyer.service.UserManager;
 
 /**
  * Implementation of <strong>SimpleFormController</strong> that contains
@@ -53,9 +49,9 @@ public class BaseFormController extends BaseController  {
 
     @SuppressWarnings("unchecked")
     public void saveError(HttpServletRequest request, String error) {
-        List errors = (List) request.getSession().getAttribute("errors");
+    	List<String> errors = (List<String>) request.getSession().getAttribute("errors");
         if (errors == null) {
-            errors = new ArrayList();
+            errors = new ArrayList<String>();
         }
         errors.add(error);
         request.getSession().setAttribute("errors", errors);
@@ -63,10 +59,10 @@ public class BaseFormController extends BaseController  {
     
     @SuppressWarnings("unchecked")
     public void saveMessage(HttpServletRequest request, String msg) {
-        List messages = (List) request.getSession().getAttribute(MESSAGES_KEY);
+        List<String> messages = (List<String>) request.getSession().getAttribute(MESSAGES_KEY);
 
         if (messages == null) {
-            messages = new ArrayList();
+            messages = new ArrayList<String>();
         }
 
         messages.add(msg);
@@ -117,12 +113,13 @@ public class BaseFormController extends BaseController  {
      *
      * @return the user's populated form from the session
      */
-    public Map getConfiguration() {
-        Map config = (HashMap) servletContext.getAttribute(Constants.CONFIG);
+    @SuppressWarnings("unchecked")
+	public Map<String, Object> getConfiguration() {
+        Map<String, Object> config = (HashMap<String, Object>) servletContext.getAttribute(Constants.CONFIG);
 
         // so unit tests don't puke when nothing's been set
         if (config == null) {
-            return new HashMap();
+            return new HashMap<String, Object>();
         }
 
         return config;
@@ -196,6 +193,13 @@ public class BaseFormController extends BaseController  {
         return this.cancelView;   
     }
 
+
+    public final String getSuccessView_Html_Ajax(HttpServletRequest request) {
+        if (request.getParameter("jbox")!=null) {
+            return successDirect;
+        }
+        return this.successView;
+    }
     public final String getSuccessView() {
         return this.successView;
     }

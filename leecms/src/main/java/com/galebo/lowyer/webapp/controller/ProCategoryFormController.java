@@ -4,7 +4,6 @@ import java.util.Date;
 import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Controller;
@@ -12,10 +11,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.galebo.lowyer.model.CfgRelative;
-import com.galebo.lowyer.model.ColColumn;
 import com.galebo.lowyer.model.ProCategory;
 import com.galebo.lowyer.services.impl.Constants;
 
@@ -46,8 +43,7 @@ public class ProCategoryFormController extends BaseFormController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public String onSubmit(ProCategory proCategory, BindingResult errors, HttpServletRequest request,
-                           HttpServletResponse response,@RequestParam(value="jbox",required=false)String jbox)
+    public String onSubmit(ProCategory proCategory, BindingResult errors, HttpServletRequest request)
     throws Exception {
         if (request.getParameter("cancel") != null) {
             return getCancelView();
@@ -56,7 +52,6 @@ public class ProCategoryFormController extends BaseFormController {
         log.debug("entering 'onSubmit' method...");
 
         boolean isNew = (proCategory.getCategoryId() == null);
-        String success = getSuccessView();
         Locale locale = request.getLocale();
 
         if (request.getParameter("delete") != null) {
@@ -83,12 +78,9 @@ public class ProCategoryFormController extends BaseFormController {
 	        saveMessage(request, getText(key, locale));
 	
 	        if (!isNew) {
-	            success = "redirect:proCategoryform?categoryId=" + proCategory.getCategoryId();
-        }
-    }
-        if (jbox!=null) {
-            success = successDirect;
-        }
-        return success;
+	            return "redirect:proCategoryform?categoryId=" + proCategory.getCategoryId();
+	        }
+	    }
+        return getSuccessView_Html_Ajax(request);
     }
 }

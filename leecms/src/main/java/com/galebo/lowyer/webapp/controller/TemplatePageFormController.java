@@ -46,7 +46,6 @@ public class TemplatePageFormController extends BaseFormController {
 
 
         boolean isNew = (templatePage.getTemplatePageId() == null);
-        String success = getSuccessView();
         Locale locale = request.getLocale();
 
         if (request.getParameter("delete") != null) {
@@ -58,10 +57,10 @@ public class TemplatePageFormController extends BaseFormController {
             saveMessage(request, getText(key, locale));
 
             if (!isNew) {
-                success = "redirect:templatePageform?templatePageId=" + templatePage.getTemplatePageId();
+               return "redirect:templatePageform?templatePageId=" + templatePage.getTemplatePageId();
             }
         }
 
-        return success;
+        return getSuccessView_Html_Ajax(request);
     }
 }

@@ -40,7 +40,6 @@ public class ConLinkFormController extends BaseFormController {
 
     @RequestMapping(method = RequestMethod.POST)
     public String onSubmit(ConLink conLink, BindingResult errors, HttpServletRequest request,
-    		@RequestParam(value="jbox",required=false)String jbox,
     		@RequestParam(value="groupId",required=false) Long groupId,
                            HttpServletResponse response)
     throws Exception {
@@ -53,7 +52,6 @@ public class ConLinkFormController extends BaseFormController {
 
 
         boolean isNew = (conLink.getLinkId() == null);
-        String success = getSuccessView();
         Locale locale = request.getLocale();
 
         if (request.getParameter("delete") != null) {
@@ -71,12 +69,9 @@ public class ConLinkFormController extends BaseFormController {
             saveMessage(request, getText(key, locale));
 
             if (!isNew) {
-                success = "redirect:conLinkform?linkId=" + conLink.getLinkId()+"&type="+conLink.getType();
+                return "redirect:conLinkform?linkId=" + conLink.getLinkId()+"&type="+conLink.getType();
             }
         }
-        if (jbox!=null) {
-            success = successDirect;
-        }
-        return success;
+        return getSuccessView_Html_Ajax(request);
     }
 }

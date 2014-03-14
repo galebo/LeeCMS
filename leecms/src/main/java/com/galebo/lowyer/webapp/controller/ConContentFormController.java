@@ -53,7 +53,6 @@ public class ConContentFormController extends BaseFormController {
 		}
 
         boolean isNew = (conContent.getContentId() == null);
-        String success = getSuccessView();
         Locale locale = request.getLocale();
 
         if (request.getParameter("delete") != null) {
@@ -72,13 +71,10 @@ public class ConContentFormController extends BaseFormController {
             saveMessage(request, getText(key, locale));
 
             if (!isNew) {
-                success = "redirect:conContentform?contentId=" + conContent.getContentId();
+                return "redirect:conContentform?contentId=" + conContent.getContentId();
             }
         }
-        if (jbox!=null) {
-            success = successDirect;
-        }
 
-        return success;
+        return getSuccessView_Html_Ajax(request);
     }
 }

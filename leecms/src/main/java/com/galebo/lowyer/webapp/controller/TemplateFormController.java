@@ -49,7 +49,6 @@ public class TemplateFormController extends BaseFormController {
         log.debug("entering 'onSubmit' method...");
 
         boolean isNew = (template.getCfgTemplateId() == null);
-        String success = getSuccessView();
         Locale locale = request.getLocale();
 
         if (request.getParameter("delete") != null) {
@@ -66,16 +65,16 @@ public class TemplateFormController extends BaseFormController {
                 saveMessage(request, getText(key, locale));
 
                 if (!isNew) {
-                    success = "redirect:templateform?cfgTemplateId=" + template.getCfgTemplateId();
+                    return "redirect:templateform?cfgTemplateId=" + template.getCfgTemplateId();
                 }
         	}
         	else
         	{
                 saveMessage(request, getText("template.isExist", locale));
-                success = "templateform";
+               return "templateform";
         	}
         }
 
-        return success;
+        return getSuccessView();
     }
 }

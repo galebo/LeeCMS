@@ -47,7 +47,6 @@ public class CfgGroupFormController extends BaseFormController {
 
 
         boolean isNew = (cfgGroup.getGroupId() == null);
-        String success = getSuccessView();
         Locale locale = request.getLocale();
 
         if (request.getParameter("delete") != null) {
@@ -69,13 +68,10 @@ public class CfgGroupFormController extends BaseFormController {
         		
 
             if (!isNew) {
-                success = "redirect:cfgGroupform?groupId=" + cfgGroup.getGroupId();
-            }
-            if (request.getParameter("jbox")!=null) {
-                success = successDirect;
+                return "redirect:cfgGroupform?groupId=" + cfgGroup.getGroupId();
             }
         }
 
-        return success;
+        return getSuccessView_Html_Ajax(request);
     }
 }

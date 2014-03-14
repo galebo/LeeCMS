@@ -45,7 +45,6 @@ public class ConUploadDataFormController extends BaseFormController {
 
 
         boolean isNew = (conUploadData.getUploadDataId() == null);
-        String success = getSuccessView();
         Locale locale = request.getLocale();
 
         if (request.getParameter("delete") != null) {
@@ -57,10 +56,10 @@ public class ConUploadDataFormController extends BaseFormController {
             saveMessage(request, getText(key, locale));
 
             if (!isNew) {
-                success = "redirect:conUploadDataform?uploadDataId=" + conUploadData.getUploadDataId();
+                return "redirect:conUploadDataform?uploadDataId=" + conUploadData.getUploadDataId();
             }
         }
 
-        return success;
+        return getSuccessView_Html_Ajax(request);
     }
 }

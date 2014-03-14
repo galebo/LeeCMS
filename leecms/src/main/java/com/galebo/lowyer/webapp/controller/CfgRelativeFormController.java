@@ -46,7 +46,6 @@ public class CfgRelativeFormController extends BaseFormController {
 
 
         boolean isNew = (cfgRelative.getCfgRelateId() == null);
-        String success = getSuccessView();
         Locale locale = request.getLocale();
 
         if (request.getParameter("delete") != null) {
@@ -58,10 +57,10 @@ public class CfgRelativeFormController extends BaseFormController {
             saveMessage(request, getText(key, locale));
 
             if (!isNew) {
-                success = "redirect:cfgRelativeform?cfgRelateId=" + cfgRelative.getCfgRelateId();
+                return "redirect:cfgRelativeform?cfgRelateId=" + cfgRelative.getCfgRelateId();
             }
         }
 
-        return success;
+        return getSuccessView_Html_Ajax(request);
     }
 }

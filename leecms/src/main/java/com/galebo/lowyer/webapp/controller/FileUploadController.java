@@ -122,6 +122,7 @@ public class FileUploadController extends BaseFormController {
         bean.setUpdateTime(new Date());
         bean.setUserId(getCurrentUser(multipartRequest));
         commonService.getQueryDao().getConUploadDataDao().save(bean);
-        return getSuccessView();
+
+        return getSuccessView_Html_Ajax(request);
     }
 }
