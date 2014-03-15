@@ -8,13 +8,23 @@ function isInJBox(){
 	return false;
 }
 
-function cancelButton(){
-	var isJbox=isInJBox();
-
-	if(!isJbox){
-		bCancel = true;
+function submitButton(){
+	if(!isInJBox()){
+		bCancel = false;
+	}else{
+		if(jQuery('#jbox'))
+			jQuery('#jbox').val("jbox");
 	}
-	return true;
+	return false;
+}
+function cancelButton(){
+
+	if(!isInJBox()){
+		bCancel = true;
+	}else{
+		window.parent.window.jBox.close();
+	}
+	return false;
 }
 
 

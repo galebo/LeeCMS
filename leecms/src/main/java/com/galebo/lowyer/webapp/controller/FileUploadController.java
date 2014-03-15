@@ -34,7 +34,7 @@ import com.galebo.lowyer.model.ConUploadData;
 public class FileUploadController extends BaseFormController {
 
     public FileUploadController() {
-        setCancelView("redirect:/mainMenu");
+        setCancelView("redirect:/conUploadDatas");
         setSuccessView("uploadDisplay");
     }
 
@@ -123,7 +123,7 @@ public class FileUploadController extends BaseFormController {
         bean.setUserId(getCurrentUser(multipartRequest));
         commonService.getQueryDao().getConUploadDataDao().save(bean);
 
-        return getSuccessView_Html_Ajax(request,"/fileUploadSuccess");
+        return getSuccessView_Html_Ajax(request);
     }
 
 }

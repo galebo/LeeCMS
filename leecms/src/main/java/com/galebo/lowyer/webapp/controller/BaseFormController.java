@@ -198,7 +198,7 @@ public class BaseFormController extends BaseController  {
         return getSuccessView_Html_Ajax(request,successDirect);
     }
     protected String getSuccessView_Html_Ajax(HttpServletRequest request, String string) {
-        if (request.getParameter("jbox")!=null) {
+        if (request.getParameter("jbox")!=null&&request.getParameter("jbox").equals("jbox")) {
             return string;
         }
         return this.successView;

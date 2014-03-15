@@ -51,7 +51,7 @@ public class BaseController implements ServletContextAware{
         }
         return null;
 	}
-    protected static final String successDirect = "redirect:/ja/success";
+    protected static final String successDirect = "/AjaxExeSuccess";
     protected static ModelAndView successView=new ModelAndView(successDirect);
 
     protected MessageSourceAccessor messages;

@@ -34,8 +34,6 @@ public class ProProductFormController extends BaseFormController {
         if (!StringUtils.isBlank(productId)) {
             return commonService.getQueryDao().getProProductDao().get(new Long(productId));
         }
-        String jbox = request.getParameter("jbox");
-        request.setAttribute("jbox", jbox);
         String columnId = request.getParameter("parentId");
         request.setAttribute("parentId", columnId);
 
@@ -44,7 +42,7 @@ public class ProProductFormController extends BaseFormController {
 
     @RequestMapping(method = RequestMethod.POST)
     public String onSubmit(ProProduct proProduct, BindingResult errors, HttpServletRequest request,
-    		@RequestParam(value="jbox",required=false)String jbox,HttpServletResponse response,@RequestParam(value="parentId",required=false)Long parentId)
+    		HttpServletRequest jbox,HttpServletResponse response,@RequestParam(value="parentId",required=false)Long parentId)
     throws Exception {
         if (request.getParameter("cancel") != null) {
             return getCancelView();
@@ -53,7 +51,6 @@ public class ProProductFormController extends BaseFormController {
         log.debug("entering 'onSubmit' method...");
 
         boolean isNew = (proProduct.getProductId() == null);
-        String success = getSuccessView();
         Locale locale = request.getLocale();
 
         if (request.getParameter("delete") != null) {
@@ -70,12 +67,9 @@ public class ProProductFormController extends BaseFormController {
             saveMessage(request, getText(key, locale));
 
             if (!isNew) {
-                success = "redirect:proProductform?productId=" + proProduct.getProductId();
+                return "redirect:proProductform?productId=" + proProduct.getProductId();
             }
         }
-        if (jbox!=null) {
-            success = successDirect;
-        }
-        return success;
+        return getSuccessView_Html_Ajax(jbox);
     }
 }

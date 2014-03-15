@@ -34,9 +34,6 @@ public class ProCategoryFormController extends BaseFormController {
         if (!StringUtils.isBlank(categoryId)) {
             return commonService.getQueryDao().getProCategoryDao().get(new Long(categoryId));
         }
-
-        String jbox = request.getParameter("jbox");
-        request.setAttribute("jbox", jbox);
         ProCategory colColumn = new ProCategory();
         colColumn.setParentId(Long.valueOf(request.getParameter("parentId")));
         return colColumn;

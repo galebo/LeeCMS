@@ -34,9 +34,6 @@ public class ColColumnFormController extends BaseFormController {
         if (!StringUtils.isBlank(columnId)) {
             return commonService.getQueryDao().getColColumnDao().get(new Long(columnId));
         }
-
-        String jbox = request.getParameter("jbox");
-        request.setAttribute("jbox", jbox);
         ColColumn colColumn = new ColColumn();
         colColumn.setColPid(Long.valueOf(request.getParameter("parentId")));
 		return colColumn;
