@@ -22,7 +22,7 @@
     <li class="buttonBar bottom">
         <input type="submit" class="button" name="save" value="<fmt:message key="button.save"/>"/>
         <c:if test="${not empty template.cfgTemplateId}">
-        <input type="submit" class="button" name="delete" onclick="bCancel=true;return confirmDelete('template')"
+        <input type="submit" class="button" name="delete" onclick="javascript:deleteButton('template')"
             value="<fmt:message key="button.delete"/>" />
         </c:if>
         <input type="submit" class="button" name="cancel" value="<fmt:message key="button.cancel"/>" onclick="bCancel=true"/>

@@ -21,7 +21,7 @@
 		<input type="hidden" id="jbox" name="jbox" value=""/>
         <input type="submit" class="button" name="save" value="<fmt:message key="button.save"/>" onclick="javascript:submitButton();" />
         <c:if test="${not empty proCategory.categoryId}">
-        <input type="submit" class="button" name="delete" onclick="bCancel=true;return confirmDelete('proCategory')"
+        <input type="submit" class="button" name="delete" onclick="javascript:deleteButton('proCategory')"
             value="<fmt:message key="button.delete"/>" />
         </c:if>
 		<input type="submit" class="button" name="cancel" value="<fmt:message key="button.cancel"/>" onclick="javascript:cancelButton();"/>

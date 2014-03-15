@@ -21,7 +21,7 @@
         <input type="submit" class="button" name="save" value="<fmt:message key="button.save"/>" onclick="javascript:submitButton();" />
 		<input type="submit" class="button" name="cancel" value="<fmt:message key="button.cancel"/>" onclick="javascript:cancelButton();"/>
         <c:if test="${not empty colColumn.columnId}">
-        <input type="submit" class="button" name="delete" onclick="bCancel=true;return confirmDelete('colColumn')"
+        <input type="submit" class="button" name="delete" onclick="javascript:deleteButton('colColumn')"
             value="<fmt:message key="button.delete"/>" />
         </c:if>
     </li>

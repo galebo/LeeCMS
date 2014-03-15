@@ -23,7 +23,7 @@
     <li class="buttonBar bottom">
         <input type="submit" class="button" name="save" value="<fmt:message key="button.save"/>"/>
         <c:if test="${not empty template.templateId}">
-        <input type="submit" class="button" name="delete" onclick="bCancel=true;return confirmDelete('templatePage')"
+        <input type="submit" class="button" name="delete" onclick="javascript:deleteButton('templatePage')"
             value="<fmt:message key="button.delete"/>" />
         </c:if>
         <input type="submit" class="button" name="cancel" value="<fmt:message key="button.cancel"/>" onclick="bCancel=true"/>

@@ -35,10 +35,10 @@
         <input type="submit" class="button" name="save" value="<fmt:message key="button.save"/>" onclick="javascript:submitButton();" />
         <c:if test="${not empty conLink.linkId}">
         <c:if test="${type ==1}">
-       		 <input type="submit" class="button" name="delete" onclick="bCancel=true;return confirmDelete('conLink')" value="<fmt:message key="button.delete"/>" />
+       		 <input type="submit" class="button" name="delete" onclick="javascript:deleteButton('conLink')" value="<fmt:message key="button.delete"/>" />
         </c:if>
         <c:if test="${type ==2}">
-   		     <input type="submit" class="button" name="delete" onclick="bCancel=true;return confirmDelete('changePic')" value="<fmt:message key="button.delete"/>" />
+   		     <input type="submit" class="button" name="delete" onclick="javascript:deleteButton('changePic')" value="<fmt:message key="button.delete"/>" />
         </c:if>
         </c:if>
 		<input type="submit" class="button" name="cancel" value="<fmt:message key="button.cancel"/>" onclick="javascript:cancelButton();"/>

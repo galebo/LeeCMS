@@ -29,7 +29,7 @@
     <li class="buttonBar bottom">
         <input type="submit" class="button" name="save" value="<fmt:message key="button.save"/>"/>
         <c:if test="${not empty define.defineId}">
-        <input type="submit" class="button" name="delete" onclick="bCancel=true;return confirmDelete('define')"
+        <input type="submit" class="button" name="delete" onclick="javascript:deleteButton('define')"
             value="<fmt:message key="button.delete"/>" />
         </c:if>
         <input type="submit" class="button" name="cancel" value="<fmt:message key="button.cancel"/>" onclick="bCancel=true"/>

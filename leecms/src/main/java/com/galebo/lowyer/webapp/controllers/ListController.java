@@ -25,63 +25,62 @@ import com.galebo.lowyer.webapp.controller.BaseFormController;
 @Controller
 public class ListController extends BaseController {
 
-	@RequestMapping("/conContents*")
-	public ModelAndView conContents(@RequestParam(required = false, value = "q") String query, HttpServletRequest request) throws Exception {
+	@RequestMapping(value = "/conContents*", method = RequestMethod.GET)
+	public ModelAndView conContents( HttpServletRequest request){
 		return new ModelAndView().addObject(commonService.getQueryDao().getConContentsByUserId(getCurrentUser(request)));
 	}
 
 	@RequestMapping(value = "/conUploadDatas*", method = RequestMethod.GET)
-	public ModelAndView conUploadDatas(@RequestParam(required = false, value = "q") String query, HttpServletRequest request) throws Exception {
+	public ModelAndView conUploadDatas( HttpServletRequest request){
 		return new ModelAndView().addObject(commonService.getQueryDao().getConUploadDatasByUserId(getCurrentUser(request)));
 	}
 
 	@RequestMapping(value = "/cfgGroups*", method = RequestMethod.GET)
-	public ModelAndView cfgGroups(@RequestParam(required = false, value = "q") String query, @RequestParam("type") String type,
-			HttpServletRequest request) throws Exception {
+	public ModelAndView cfgGroups(@RequestParam("type") String type,HttpServletRequest request){
 		ModelAndView addObject = new ModelAndView().addObject(commonService.getQueryDao().getGroup(type, getCurrentUser(request)));
 		addObject.addObject("type", type);
 		return addObject;
 	}
 
 	@RequestMapping(value = "/defineInstances*", method = RequestMethod.GET)
-	public ModelAndView defineInstances(@RequestParam(required = false, value = "q") String query, HttpServletRequest request) throws Exception {
+	public ModelAndView defineInstances( HttpServletRequest request){
 		return new ModelAndView().addObject(userDataCreator.getSiteDefineWithName(BaseFormController.getCurrentUser(request)));
 	}
 
 	@RequestMapping(value = "/conLinks/{type}", method = RequestMethod.GET)
-	public ModelAndView conLinks(@PathVariable String type, HttpServletRequest request) throws Exception {
+	public ModelAndView conLinks(@PathVariable String type, HttpServletRequest request){
 		ModelAndView addObject = new ModelAndView("conLinks").addObject(commonService.getQueryDao().getLinks(type, getCurrentUser(request)));
 		addObject.addObject("type", type);
 		return addObject;
 	}
 
 	@RequestMapping(value = "/defines*", method = RequestMethod.GET)
-	public ModelAndView defines(@RequestParam(required = false, value = "q") String query) throws Exception {
+	public ModelAndView defines(@RequestParam(required = false, value = "q") String query){
 		return new ModelAndView().addObject(commonService.search(query, CfgDefine.class));
 	}
 
 	@RequestMapping(value = "/proCategories*", method = RequestMethod.GET)
-	public ModelAndView proCategories(@RequestParam(required = false, value = "q") String query) throws Exception {
+	public ModelAndView proCategories(@RequestParam(required = false, value = "q") String query){
 		return new ModelAndView().addObject(commonService.search(query, ProCategory.class));
 	}
 
 	@RequestMapping(value = "/proProducts*", method = RequestMethod.GET)
-	public ModelAndView proProducts(@RequestParam(required = false, value = "q") String query) throws Exception {
+	public ModelAndView proProducts(@RequestParam(required = false, value = "q") String query){
 		return new ModelAndView().addObject(commonService.search(query, ProProduct.class));
 	}
 
 	@RequestMapping(value = "/templates*", method = RequestMethod.GET)
-	public ModelAndView templates(@RequestParam(required = false, value = "q") String query) throws Exception {
+	public ModelAndView templates(@RequestParam(required = false, value = "q") String query){
 		return new ModelAndView().addObject(commonService.search(query, Template.class));
 	}
 
 	@RequestMapping(value = "/templatePages*", method = RequestMethod.GET)
-	public ModelAndView templatePages(HttpServletRequest request) throws Exception {
+	public ModelAndView templatePages(HttpServletRequest request){
 		return new ModelAndView().addObject(commonService.search("", TemplatePage.class));
 	}
 
 	@RequestMapping(value = "/admin/users*", method = RequestMethod.GET)
-	public ModelAndView users(@RequestParam(required = false, value = "q") String query) throws Exception {
+	public ModelAndView users(@RequestParam(required = false, value = "q") String query){
 		return new ModelAndView("admin/userList", Constants.USER_LIST, commonService.search(query, User.class));
 	}
 

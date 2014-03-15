@@ -38,7 +38,7 @@
         <input type="submit" class="button" name="save" onclick="bCancel=false" value="<fmt:message key="button.save"/>"/>
 
         <c:if test="${param.from == 'list' and param.method != 'Add'}">
-            <input type="submit" class="button" name="delete" onclick="bCancel=true;return confirmDelete('user')"
+            <input type="submit" class="button" name="delete" onclick="javascript:deleteButton('user')"
                 value="<fmt:message key="button.delete"/>"/>
         </c:if>
 
@@ -200,7 +200,7 @@
       <input type="submit" class="button" name="save" onclick="bCancel=false" value="<fmt:message key="button.save"/>"/>
 
       <c:if test="${param.from == 'list' and param.method != 'Add'}">
-          <input type="submit" class="button" name="delete" onclick="bCancel=true;return confirmDelete('user')"
+          <input type="submit" class="button" name="delete" onclick="javascript:deleteButton('user')"
               value="<fmt:message key="button.delete"/>"/>
       </c:if>
 

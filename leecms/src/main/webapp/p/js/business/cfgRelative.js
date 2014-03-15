@@ -42,11 +42,32 @@ var selectDefine={
 	caption: '未绑定元素列表'
 };
 
+
+var op={
+        name:"business",
+        defines:[
+	        {
+	        	name:"parentTable",
+	        	ops:[{cnName:'查看',enName:'SearchSon',op:"resetSonTable"},
+		    	        {cnName:"添加",enName:'AddSon',op:"op_addBang"},
+		    	        {cnName:"编辑",enName:'Edit',op:"op_edit"},
+		    	        {cnName:"绑定",enName:'BangSon',op:"resetSelectTable"}],
+	    		opAll:"set"
+	        },
+	       {
+	        	name:"sonTable",
+			    ops:[{cnName:"向上移动",enName:'Up',op:"changeSort"},
+			         {cnName:"向下移动",enName:'Down',op:"changeSort"},
+			         {cnName:"解绑",enName:'Release',op:"release"}]
+	    	}
+        ]};
 function addGroup(type){
 	var url="/cfgGroupform?type="+type;
-	G_showCommBox(url,'增加组',900,450,{'关闭': true});
+	G_showCommBox(url,'增加组',900,450,{'关闭': true},callback_resetParentTable);
 }
-
+function callback_resetParentTable(){
+	business.resetParentTable();
+}
 
 function CfgRelative()
 {
@@ -99,7 +120,7 @@ CfgRelative.prototype.release= function (rowData,rowId,opType,tableId)
 CfgRelative.prototype.op_edit= function (rowData,rowId,opType,tableId)
 {
 	var url="/cfgGroupform?groupId="+this.groupId;
-	G_showCommBox(url,'编辑',900,450,{'关闭': true});
+	G_showCommBox(url,'编辑',900,450,{'关闭': true},callback_resetParentTable);
 };
 CfgRelative.prototype.op_addBang= function (rowData,rowId,opType,tableId)
 {
@@ -120,22 +141,3 @@ CfgRelative.prototype.addToGroup=function (type){
 var business=new CfgRelative();
 
 
-
-var op={
-        name:"business",
-        defines:[
-	        {
-	        	name:"parentTable",
-	        	ops:[{cnName:'查看',enName:'SearchSon',op:"resetSonTable"},
-		    	        {cnName:"添加",enName:'AddSon',op:"op_addBang"},
-		    	        {cnName:"编辑",enName:'Edit',op:"op_edit"},
-		    	        {cnName:"绑定",enName:'BangSon',op:"resetSelectTable"}],
-	    		opAll:"set"
-	        },
-	       {
-	        	name:"sonTable",
-			    ops:[{cnName:"向上移动",enName:'Up',op:"changeSort"},
-			         {cnName:"向下移动",enName:'Down',op:"changeSort"},
-			         {cnName:"解绑",enName:'Release',op:"release"}]
-	    	}
-        ]};

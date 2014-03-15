@@ -8,6 +8,15 @@ function isInJBox(){
 	return false;
 }
 
+function deleteButton(beanName){
+	if(!isInJBox()){
+		bCancel=true;
+	}else{
+		if(jQuery('#jbox'))
+			jQuery('#jbox').val("jbox");
+	}
+	return confirmDelete(beanName);
+}
 function submitButton(){
 	if(!isInJBox()){
 		bCancel = false;
