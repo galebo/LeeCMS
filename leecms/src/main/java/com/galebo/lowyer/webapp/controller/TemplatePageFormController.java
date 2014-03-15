@@ -57,10 +57,10 @@ public class TemplatePageFormController extends BaseFormController {
             saveMessage(request, getText(key, locale));
 
             if (!isNew) {
-               return "redirect:templatePageform?templatePageId=" + templatePage.getTemplatePageId();
+               return getUpdateSuccessView_Html_Ajax(request,"redirect:templatePageform?templatePageId=" + templatePage.getTemplatePageId());
             }
         }
 
-        return getSuccessView_Html_Ajax(request);
+        return getInsertSuccessView_Html_Ajax(request);
     }
 }

@@ -56,10 +56,10 @@ public class ConUploadDataFormController extends BaseFormController {
             saveMessage(request, getText(key, locale));
 
             if (!isNew) {
-                return "redirect:conUploadDataform?uploadDataId=" + conUploadData.getUploadDataId();
+                return getUpdateSuccessView_Html_Ajax(request,"redirect:conUploadDataform?uploadDataId=" + conUploadData.getUploadDataId());
             }
         }
 
-        return getSuccessView_Html_Ajax(request);
+        return getInsertSuccessView_Html_Ajax(request);
     }
 }

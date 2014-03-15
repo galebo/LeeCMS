@@ -41,5 +41,5 @@
 <script type="text/javascript" src="<c:url value='/p/plugin/xheditor/xheditor-1.1.14-zh-cn.min.js'/>"></script>
 
 <script type="text/javascript">
-    Form.focusFirstElement($('proProductForm'));
+    //Form.focusFirstElement($('proProductForm'));
 </script>

@@ -26,7 +26,6 @@ public class ConLinkFormController extends BaseFormController {
     throws Exception {
         String linkId = request.getParameter("linkId");
         String type = request.getParameter("type");
-        request.setAttribute("jbox", request.getParameter("jbox"));
         request.setAttribute("groupId", request.getParameter("groupId"));
 
         if (!StringUtils.isBlank(linkId)) {
@@ -69,9 +68,9 @@ public class ConLinkFormController extends BaseFormController {
             saveMessage(request, getText(key, locale));
 
             if (!isNew) {
-                return "redirect:conLinkform?linkId=" + conLink.getLinkId()+"&type="+conLink.getType();
+                return getUpdateSuccessView_Html_Ajax(request,"redirect:conLinkform?linkId=" + conLink.getLinkId()+"&type="+conLink.getType());
             }
         }
-        return getSuccessView_Html_Ajax(request);
+        return getInsertSuccessView_Html_Ajax(request);
     }
 }

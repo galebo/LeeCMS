@@ -78,10 +78,10 @@ public class ColColumnFormController extends BaseFormController {
             saveMessage(request, getText(key, locale));
 
             if (!isNew) {
-                return "redirect:colColumnform?columnId=" + colColumn.getColumnId();
+                return getUpdateSuccessView_Html_Ajax(request,"redirect:colColumnform?columnId=" + colColumn.getColumnId());
             }
         }
 
-        return getSuccessView_Html_Ajax(request);
+        return getInsertSuccessView_Html_Ajax(request);
     }
 }

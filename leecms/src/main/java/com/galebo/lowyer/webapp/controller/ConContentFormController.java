@@ -71,10 +71,10 @@ public class ConContentFormController extends BaseFormController {
             saveMessage(request, getText(key, locale));
 
             if (!isNew) {
-                return "redirect:conContentform?contentId=" + conContent.getContentId();
+                return getUpdateSuccessView_Html_Ajax(request,"redirect:conContentform?contentId=" + conContent.getContentId());
             }
         }
 
-        return getSuccessView_Html_Ajax(request);
+        return getInsertSuccessView_Html_Ajax(request);
     }
 }

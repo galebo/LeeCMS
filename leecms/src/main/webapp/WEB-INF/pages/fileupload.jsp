@@ -49,7 +49,7 @@
 </form:form>
 
 <script type="text/javascript">
-    Form.focusFirstElement($('uploadForm'));
+    //Form.focusFirstElement($('uploadForm'));
     highlightFormElements();
     
 

@@ -51,8 +51,8 @@ public class BaseController implements ServletContextAware{
         }
         return null;
 	}
-    protected static final String successDirect = "/AjaxExeSuccess";
-    protected static ModelAndView successView=new ModelAndView(successDirect);
+    protected static final String AjaxExeSuccessDirect = "/AjaxExeSuccess";
+    protected static ModelAndView successView=new ModelAndView(AjaxExeSuccessDirect);
 
     protected MessageSourceAccessor messages;
     @Autowired

@@ -56,7 +56,7 @@ public class CfgGroupFormController extends BaseFormController {
         	Long userId = getCurrentUser(request);
         	if(!StringUtils.isAlphanumeric(cfgGroup.getType()))
                 saveMessage(request, getText("key.isChiness", locale));
-        	else if(!isNew&&commonService.getQueryDao().isGroupExist(cfgGroup.getType(), cfgGroup.getGroupKey(), userId))
+        	else if(isNew&&commonService.getQueryDao().isGroupExist(cfgGroup.getType(), cfgGroup.getGroupKey(), userId))
                 saveMessage(request, getText("key.isUsed", locale));
         	else
         	{
@@ -68,10 +68,10 @@ public class CfgGroupFormController extends BaseFormController {
         		
 
             if (!isNew) {
-                return "redirect:cfgGroupform?groupId=" + cfgGroup.getGroupId();
+                return getUpdateSuccessView_Html_Ajax(request,"redirect:cfgGroupform?groupId=" + cfgGroup.getGroupId());
             }
         }
 
-        return getSuccessView_Html_Ajax(request);
+        return getInsertSuccessView_Html_Ajax(request);
     }
 }

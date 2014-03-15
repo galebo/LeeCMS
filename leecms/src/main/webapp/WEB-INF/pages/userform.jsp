@@ -210,7 +210,7 @@
 </form:form>
 
 <script type="text/javascript">
-    Form.focusFirstElement($('userForm'));
+    //Form.focusFirstElement($('userForm'));
     highlightFormElements();
 
     function passwordChanged(passwordField) {

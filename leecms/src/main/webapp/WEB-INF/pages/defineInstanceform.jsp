@@ -42,5 +42,5 @@
 <script type="text/javascript" src="<c:url value='/p/scripts/validator.jsp'/>"></script>
 
 <script type="text/javascript">
-    Form.focusFirstElement($('defineInstanceForm'));
+    //Form.focusFirstElement($('defineInstanceForm'));
 </script>

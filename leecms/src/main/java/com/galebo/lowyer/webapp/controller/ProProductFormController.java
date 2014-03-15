@@ -67,9 +67,9 @@ public class ProProductFormController extends BaseFormController {
             saveMessage(request, getText(key, locale));
 
             if (!isNew) {
-                return "redirect:proProductform?productId=" + proProduct.getProductId();
+                return getUpdateSuccessView_Html_Ajax(request,"redirect:proProductform?productId=" + proProduct.getProductId());
             }
         }
-        return getSuccessView_Html_Ajax(jbox);
+        return getInsertSuccessView_Html_Ajax(jbox);
     }
 }

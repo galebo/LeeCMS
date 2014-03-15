@@ -75,9 +75,9 @@ public class ProCategoryFormController extends BaseFormController {
 	        saveMessage(request, getText(key, locale));
 	
 	        if (!isNew) {
-	            return "redirect:proCategoryform?categoryId=" + proCategory.getCategoryId();
+	            return getUpdateSuccessView_Html_Ajax(request,"redirect:proCategoryform?categoryId=" + proCategory.getCategoryId());
 	        }
 	    }
-        return getSuccessView_Html_Ajax(request);
+        return getInsertSuccessView_Html_Ajax(request);
     }
 }

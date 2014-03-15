@@ -57,10 +57,10 @@ public class CfgRelativeFormController extends BaseFormController {
             saveMessage(request, getText(key, locale));
 
             if (!isNew) {
-                return "redirect:cfgRelativeform?cfgRelateId=" + cfgRelative.getCfgRelateId();
+                return getUpdateSuccessView_Html_Ajax(request,"redirect:cfgRelativeform?cfgRelateId=" + cfgRelative.getCfgRelateId());
             }
         }
 
-        return getSuccessView_Html_Ajax(request);
+        return getInsertSuccessView_Html_Ajax(request);
     }
 }
