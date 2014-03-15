@@ -972,7 +972,7 @@
         <web.framework>spring</web.framework>
         <amp.genericCore>false</amp.genericCore>
         <amp.fullSource>true</amp.fullSource>
-        <db.name>lowyer</db.name>
+        <db.name>lee_cms</db.name>
 
         <!-- Framework dependency versions -->
         <appfuse.version>2.1.0</appfuse.version>
