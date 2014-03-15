@@ -10,7 +10,6 @@
 <form:hidden path="categoryId"/>
 <form:hidden path="parentId"/>
 <form:hidden path="userId"/>
-<input type="hidden" id="jbox" name="jbox" value="${jbox}"/>
 <ul>
     <li>
         <appfuse:label styleClass="desc" key="proCategory.colName"/>
@@ -19,17 +18,13 @@
     </li>
 
     <li class="buttonBar bottom">
-        <input type="submit" class="button" name="save" value="<fmt:message key="button.save"/>"/>
+		<input type="hidden" id="jbox" name="jbox" value=""/>
+        <input type="submit" class="button" name="save" value="<fmt:message key="button.save"/>" onclick="javascript:submitButton();" />
         <c:if test="${not empty proCategory.categoryId}">
         <input type="submit" class="button" name="delete" onclick="bCancel=true;return confirmDelete('proCategory')"
             value="<fmt:message key="button.delete"/>" />
         </c:if>
-        <c:if test="${not empty jbox}">
-        	<input type="submit" class="button" name="cancel" value="<fmt:message key="button.cancel"/>" onclick="javascript:window.parent.window.jBox.close();"/>
-        </c:if>
-        <c:if test="${empty jbox}">
-			<input type="button" class="button" name="cancel" value="<fmt:message key="button.cancel"/>" onclick="javascript:history.back(-1);"/>
-        </c:if>
+		<input type="submit" class="button" name="cancel" value="<fmt:message key="button.cancel"/>" onclick="javascript:cancelButton();"/>
     </li>
 </ul>
 </form:form>
