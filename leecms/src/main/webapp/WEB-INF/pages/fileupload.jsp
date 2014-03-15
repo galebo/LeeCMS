@@ -41,7 +41,8 @@
         <input type="file" name="file" id="file" class="file medium"/>
     </li>
     <li class="buttonBar bottom">
-        <input type="submit" name="upload" class="button" onclick="bCancel=false" value="<fmt:message key="button.upload"/>" />
+		<input type="hidden" id="jbox" name="jbox" value=""/>
+        <input type="submit" class="button" name="upload" value="<fmt:message key="button.upload"/>" onclick="javascript:submitButton();" />
 		<input type="submit" class="button" name="cancel" value="<fmt:message key="button.cancel"/>" onclick="javascript:cancelButton();"/>
     </li>
 </ul>
