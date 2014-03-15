@@ -61,10 +61,6 @@ var op={
 			         {cnName:"解绑",enName:'Release',op:"release"}]
 	    	}
         ]};
-function addGroup(type){
-	var url="/cfgGroupform?type="+type;
-	G_showCommBox(url,'增加组',900,450,{'关闭': true},callback_resetParentTable);
-}
 function callback_resetParentTable(){
 	business.resetParentTable();
 }
@@ -78,9 +74,19 @@ function CfgRelative()
 	this.Url_changeSort='/jqJson/changeSort/Relative';
 	this.groupId;
 	this.groupType;
-
-	this.resetParentTable();
 }
+CfgRelative.prototype.init=function (type){
+	this.Url_getCfgGroups=this.Url_getCfgGroups+"?type="+type;
+	if(type=='3AA')
+		jQuery('#add').val("增加链接组");
+	if(type=='3AB')
+		jQuery('#add').val("增加轮播组");
+	this.resetParentTable();
+};
+CfgRelative.prototype.addGroup=function (){
+	var url="/cfgGroupform?type="+type;
+	G_showCommBox(url,'增加组',900,450,{'关闭': true},callback_resetParentTable);
+};
 CfgRelative.prototype.set= function (rowData,rowId,opType,tableId)
 {
 	this.groupId=rowId;

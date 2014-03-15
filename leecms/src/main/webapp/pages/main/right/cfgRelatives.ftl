@@ -2,10 +2,7 @@
 <#macro main>
 <@common.body>
 	<div id="colTip" class="jqTitle">组名称:<span id="currentCol"></span></div>
-	<div>
-	<input type="button" value="增加链接组" onclick="addGroup('3AA')"></input>
-	<input type="button" value="增加轮播组" onclick="addGroup('3AB')"></input>
-	</div>
+	<div><input type="button" id="add" value="增加链接组" onclick="business.addGroup()"></input></div>
 	<!-- jqGreed start-->
 	<div class="divTree" id="parent">
 		<table id="parentTable"></table>
@@ -22,7 +19,9 @@
 	</div>
 	<script type="text/javascript" src="/p/js/common/common.js"></script>
 	<script type="text/javascript" src="/p/js/business/cfgRelative.js"></script>
-	<!-- jqGreed end-->
+	<script type="text/javascript" >
+		business.init('${type}');
+	</script>
 </@common.body>
 </#macro>
 

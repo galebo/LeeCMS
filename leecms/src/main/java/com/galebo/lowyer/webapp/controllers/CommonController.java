@@ -62,8 +62,11 @@ public class CommonController extends BaseController{
     }
 
     @RequestMapping(value = "/ja/{viewName}", method = RequestMethod.GET)
-    public ModelAndView direct(@PathVariable String viewName) {
-		return new ModelAndView("/main/right/"+viewName);
+    public ModelAndView direct(@PathVariable String viewName,@RequestParam(value="type",required=false) String type) {
+		ModelAndView modelAndView = new ModelAndView("/main/right/"+viewName);
+		if(!StringUtils.isBlank(type))
+			modelAndView.addObject("type", type);
+		return modelAndView;
     }
 
     @RequestMapping(value = "/pages/webInfo", method = RequestMethod.GET)
