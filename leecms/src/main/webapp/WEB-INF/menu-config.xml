@@ -19,6 +19,7 @@
         </Menu>
         <Menu name="MenuCommon" title="MenuCommon" description="" roles="ROLE_USER" width="120">
             <Item name="MenuColumnContent" title="MenuColumnContent" page="/ja/columnContent" roles="ROLE_USER"/>
+            <Item name="MenuColumn" title="MenuColumn" page="/ja/column" roles="ROLE_USER"/>
        		<Item name="MenuCfgRelative" title="MenuCfgRelative" page="/ja/cfgRelatives" roles="ROLE_USER"/>
        		<Item name="MenuIndexColumn" title="MenuIndexColumn" page="/ja/indexItem" roles="ROLE_USER"/>
        		<Item name="MenuContentIndex" title="MenuContentIndex" page="/ja/contentIndex" roles="ROLE_USER"/>

@@ -42,29 +42,6 @@ var son1Define={
 	    width:  700,
 		caption: '可绑定文章'
     };
-var op={
-        name:"business",
-        defines:[
-	        {
-	        	name:"parentTable",
-		        ops:[{cnName:"查看",enName:'searchContent',op:"op_resetSonTable"},
-		    	     {cnName:"添加",enName:'addContent',op:"op_addContent"},
-		    	     {cnName:"绑定",enName:'op_bang',op:"op_bang"},
-		    	     {cnName:"编辑",enName:'editColumn',op:"op_editColumn",check:function(level){if(level==0){return false;}return true;}  },
-		    	     {cnName:"删除",enName:'deleteColumn',op:"op_deleteColumn",check:function(level){if(level==0){return false;}return true;}  },
-			         {cnName:"向上移动",enName:'Up',op:"op_changeSort_column",check:function(level){if(level<=1){return false;}return true;}  },
-			         {cnName:"向下移动",enName:'Down',op:"op_changeSort_column",check:function(level){if(level<=1){return false;}return true;}  },
-			    	 {cnName:"添加子"+parent_name,enName:'addColumn',op:"op_addColumn",check:function(level){if(level>=2){return false;}return true;}}],
-		     	opAll:"set"
-	        },
-	    	{
-	        	name:"sonTable",
-			    ops:[{cnName:"查看",enName:'viewContent',op:"op_viewContent"},
-			         {cnName:"向上移动",enName:'Up',op:"op_changeSort"},
-			         {cnName:"向下移动",enName:'Down',op:"op_changeSort"},
-			         {cnName:"解绑",enName:'releaseContent',op:"op_releaseContent"}]
-	    	}]
-    	};
 
 
 function ColumnContent()

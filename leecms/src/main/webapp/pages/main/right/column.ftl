@@ -25,7 +25,7 @@
 	var parentSon='ColColumnContent';
 </script>
 <script type="text/javascript" src="/p/js/business/columnContent.js"></script>
-<script type="text/javascript" src="/p/js/business/content_op.js"></script>
+<script type="text/javascript" src="/p/js/business/column_op.js"></script>
 </@common.body>
 </#macro>
 
