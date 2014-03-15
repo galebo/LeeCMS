@@ -21,7 +21,7 @@
             <Item name="MenuColumnContent" title="MenuColumnContent" page="/ja/columnContent" roles="ROLE_USER"/>
             <Item name="MenuColumn" title="MenuColumn" page="/ja/column" roles="ROLE_USER"/>
        		<Item name="MenuLink" title="MenuLink" page="/ja/cfgRelatives?type=3AA" roles="ROLE_USER"/>
-       		<Item name="MenuLoop" title="MenuLink" page="/ja/cfgRelatives?type=3AB" roles="ROLE_USER"/>
+       		<Item name="MenuLoop" title="MenuLoop" page="/ja/cfgRelatives?type=3AB" roles="ROLE_USER"/>
        		<Item name="MenuIndexColumn" title="MenuIndexColumn" page="/ja/indexItem" roles="ROLE_USER"/>
        		<Item name="MenuContentIndex" title="MenuContentIndex" page="/ja/contentIndex" roles="ROLE_USER"/>
         </Menu>
