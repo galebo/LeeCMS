@@ -36,7 +36,7 @@ import com.galebo.lowyer.model.User;
  * @author <a href="mailto:matt@raibledesigns.com">Matt Raible</a>
  */
 public class BaseFormController extends BaseController  {
-    protected final transient Log log = LogFactory.getLog(getClass());
+	protected final transient Log log = LogFactory.getLog(getClass());
     public static final String MESSAGES_KEY = "successMessages";
     protected SimpleMailMessage message = null;
     protected String templateName = "accountCreated.vm";
@@ -194,18 +194,23 @@ public class BaseFormController extends BaseController  {
     }
 
 
+    private static final String JBOX = "jbox";
+	private boolean isUseJBox(HttpServletRequest request) {
+		return request.getParameter(JBOX)!=null&&request.getParameter(JBOX).equals(JBOX);
+	}
     protected final String getInsertSuccessView_Html_Ajax(HttpServletRequest request) {
-        if (request.getParameter("jbox")!=null&&request.getParameter("jbox").equals("jbox")) {
+        if (isUseJBox(request)) {
             return AjaxExeSuccessDirect;
         }
         return this.successView;
     }
     protected String getUpdateSuccessView_Html_Ajax(HttpServletRequest request, String noJboxRedirect) {
-        if (request.getParameter("jbox")!=null&&request.getParameter("jbox").equals("jbox")) {
+        if (isUseJBox(request)) {
             return AjaxExeSuccessDirect;
         }
         return noJboxRedirect;
     }
+
     public final String getSuccessView() {
         return this.successView;
     }

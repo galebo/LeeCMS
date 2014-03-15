@@ -19,7 +19,7 @@
 
     <li class="buttonBar bottom">
 		<input type="hidden" id="jbox" name="jbox" value=""/>
-        <input type="submit" class="button" name="save" value="<fmt:message key="button.save"/>" onclick="javascript:submitButton();" />
+        <input type="submit" class="button" name="save"   value="<fmt:message key="button.save"/>"   onclick="javascript:submitButton();"/>
         <c:if test="${not empty proCategory.categoryId}">
         <input type="submit" class="button" name="delete" onclick="javascript:deleteButton('proCategory')"
             value="<fmt:message key="button.delete"/>" />

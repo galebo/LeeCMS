@@ -23,7 +23,7 @@
 
     <li class="buttonBar bottom">
 		<input type="hidden" id="jbox" name="jbox" value=""/>
-        <input type="submit" class="button" name="save" value="<fmt:message key="button.save"/>" onclick="javascript:submitButton();" />
+        <input type="submit" class="button" name="save"   value="<fmt:message key="button.save"/>"   onclick="javascript:submitButton();"/>
         <c:if test="${not empty cfgGroup.groupId}">
         <input type="submit" class="button" name="delete" value="<fmt:message key="button.delete"/>" onclick="javascript:deleteButton('cfgGroup')"/>
         </c:if>

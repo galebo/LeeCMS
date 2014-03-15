@@ -38,7 +38,6 @@ public class ConContentFormController extends BaseFormController {
         }
         else
         	conContent = new ConContent();
-        request.setAttribute("jbox", request.getParameter("jbox"));
         request.setAttribute("parentId",request.getParameter("parentId") );
         request.setAttribute("parentSonId", request.getParameter("parentSonId"));
 		return conContent;
@@ -46,7 +45,7 @@ public class ConContentFormController extends BaseFormController {
 
 	@RequestMapping(method = RequestMethod.POST)
 	public String onSubmit(ConContent conContent, BindingResult errors, HttpServletRequest request, HttpServletResponse response,
-			@RequestParam(value="jbox",required=false)String jbox,@RequestParam(value="parentId",required=false)Long parentId,
+			@RequestParam(value="parentId",required=false)Long parentId,
 			@RequestParam(value="parentSonId",required=false)Long parentSonId) throws Exception {
 		if (request.getParameter("cancel") != null) {
 			return getCancelView();

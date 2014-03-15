@@ -52,7 +52,7 @@
 
     <li class="buttonBar bottom">
     	<input type="hidden" id="jbox" name="jbox" value=""/>
-        <input type="submit" class="button" name="save" value="<fmt:message key="button.save"/>" onclick="javascript:submitButton();" />
+        <input type="submit" class="button" name="save"   value="<fmt:message key="button.save"/>"   onclick="javascript:submitButton();"/>
 		<input type="submit" class="button" name="cancel" value="<fmt:message key="button.cancel"/>" onclick="javascript:cancelButton();"/>
     </li>
 </ul>

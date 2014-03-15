@@ -24,7 +24,6 @@ public class CfgGroupFormController extends BaseFormController {
     throws Exception {
         String groupId = request.getParameter("groupId");
         String type = request.getParameter("type");
-        request.setAttribute("jbox", request.getParameter("jbox"));
 
         if (!StringUtils.isBlank(groupId)) {
             return commonService.getQueryDao().getCfgGroupDao().get(new Long(groupId));
