@@ -42,7 +42,7 @@ public class ProProductFormController extends BaseFormController {
 
     @RequestMapping(method = RequestMethod.POST)
     public String onSubmit(ProProduct proProduct, BindingResult errors, HttpServletRequest request,
-    		HttpServletRequest jbox,HttpServletResponse response,@RequestParam(value="parentId",required=false)Long parentId)
+    		HttpServletResponse response,@RequestParam(value="parentId",required=false)Long parentId)
     throws Exception {
         if (request.getParameter("cancel") != null) {
             return getCancelView();
@@ -70,6 +70,6 @@ public class ProProductFormController extends BaseFormController {
                 return getUpdateSuccessView_Html_Ajax(request,"redirect:proProductform?productId=" + proProduct.getProductId());
             }
         }
-        return getInsertSuccessView_Html_Ajax(jbox);
+        return getInsertSuccessView_Html_Ajax(request);
     }
 }
