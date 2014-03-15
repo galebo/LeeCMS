@@ -130,5 +130,9 @@
             </field>
         </form>
         <!--ConContent-END-->   
+             <!--CfgGroup-START-->
+        <form name="cfgGroup">
+        </form>
+        <!--CfgGroup-END-->   
     </formset>
 </form-validation>
