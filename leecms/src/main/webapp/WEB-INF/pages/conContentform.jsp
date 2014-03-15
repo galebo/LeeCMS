@@ -10,7 +10,6 @@
 <form:hidden path="contentId"/>
 <input type="hidden" name="parentId" value="${parentId}"/>
 <input type="hidden" name="parentSonId" value="${parentSonId}"/>
-<input type="hidden" name="jbox" value="${jbox}"/>
 <ul>
     <li>
         <appfuse:label styleClass="desc" key="conContent.nameCn"/>
@@ -52,15 +51,9 @@
     </li>
 
     <li class="buttonBar bottom">
-        <input type="submit" class="button" name="save" value="<fmt:message key="button.save"/>"/>
-
-        <c:if test="${not empty jbox}">
-        <input type="submit" class="button" name="cancel" value="<fmt:message key="button.cancel"/>" onclick="javascript:window.parent.window.jBox.close();"/>
-
-        </c:if>
-        <c:if test="${empty jbox}">
-			<input type="button" class="button" name="cancel" value="<fmt:message key="button.cancel"/>" onclick="javascript:history.back(-1);"/>
-        </c:if>
+    	<input type="hidden" id="jbox" name="jbox" value=""/>
+        <input type="submit" class="button" name="save" value="<fmt:message key="button.save"/>" onclick="javascript:submitButton();" />
+		<input type="submit" class="button" name="cancel" value="<fmt:message key="button.cancel"/>" onclick="javascript:cancelButton();"/>
     </li>
 </ul>
 </form:form>

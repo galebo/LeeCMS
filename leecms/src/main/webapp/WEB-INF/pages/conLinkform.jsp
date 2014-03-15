@@ -31,7 +31,8 @@
     </li>
 
     <li class="buttonBar bottom">
-        <input type="submit" class="button" name="save" value="<fmt:message key="button.save"/>"/>
+    	<input type="hidden" id="jbox" name="jbox" value=""/>
+        <input type="submit" class="button" name="save" value="<fmt:message key="button.save"/>" onclick="javascript:submitButton();" />
         <c:if test="${not empty conLink.linkId}">
         <c:if test="${type ==1}">
        		 <input type="submit" class="button" name="delete" onclick="bCancel=true;return confirmDelete('conLink')" value="<fmt:message key="button.delete"/>" />
