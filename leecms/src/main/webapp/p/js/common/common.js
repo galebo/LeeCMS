@@ -2,8 +2,7 @@
 function isInJBox(){
 	if(window.parent){
 		if(window.parent.window.jBox){
-			window.parent.window.jBox.close();
-			return ture;
+			return true;
 		}
 	}
 	return false;
@@ -20,7 +19,7 @@ function cancelButton(){
 
 
 function G_showCommBox(desUrl,dialogName,width,height,options,close){
-	desUrl = "iframe:"+desUrl+"&jbox=true";
+	desUrl = "iframe:"+desUrl;
 	$.jBox(desUrl, {
 	    title: dialogName,
 	    width: width,

@@ -11,6 +11,7 @@
         <link rel="stylesheet" type="text/css" media="print" href="<c:url value='/p/styles/${appConfig["csstheme"]}/print.css'/>" />
 
         <script type="text/javascript" src="<c:url value='/p/scripts/global.js'/>"></script>
+		<script type="text/javascript" src="<c:url value='/p/js/common/common.js'/>"></script>
         <decorator:head/>
     </head>
 <body<decorator:getProperty property="body.id" writeEntireProperty="true"/>

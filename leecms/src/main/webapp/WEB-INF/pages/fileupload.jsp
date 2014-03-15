@@ -41,18 +41,17 @@
         <input type="file" name="file" id="file" class="file medium"/>
     </li>
     <li class="buttonBar bottom">
-        <input type="submit" name="upload" class="button" onclick="bCancel=false"
-            value="<fmt:message key="button.upload"/>" />
-        <input type="submit" name="cancel" class="button" onclick="bCancel=true"
-            value="<fmt:message key="button.cancel"/>" />
+        <input type="submit" name="upload" class="button" onclick="bCancel=false" value="<fmt:message key="button.upload"/>" />
+		<input type="submit" class="button" name="cancel" value="<fmt:message key="button.cancel"/>" onclick="javascript:cancelButton();"/>
     </li>
 </ul>
-<input type="hidden" id="jbox" name="jbox" value="${jbox}"/>
 </form:form>
 
 <script type="text/javascript">
     Form.focusFirstElement($('uploadForm'));
     highlightFormElements();
+    
+
 </script>
 <v:javascript formName="fileUpload" staticJavascript="false"/>
 <script type="text/javascript" src="<c:url value="/p/scripts/validator.jsp"/>"></script>
