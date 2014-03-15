@@ -11,6 +11,7 @@
         <link rel="stylesheet" type="text/css" media="print" href="<c:url value='/p/styles/${appConfig["csstheme"]}/print.css'/>" />
 
         <script type="text/javascript" src="<c:url value='/p/scripts/global.js'/>"></script>
+		<script type="text/javascript" src="<c:url value='/p/plugin/jquery-ui-1.8.17.custom/js/jquery-1.7.1.min.js'/>"></script>
 		<script type="text/javascript" src="<c:url value='/p/js/common/common.js'/>"></script>
         <decorator:head/>
     </head>
