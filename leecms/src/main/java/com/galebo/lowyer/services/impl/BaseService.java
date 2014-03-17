@@ -39,8 +39,7 @@ public class BaseService {
      * <p/>
      * Search implementation using Compass.
      */
-    @SuppressWarnings("unchecked")
-    public List search(String q, Class clazz) {
+    public List<?> search(String q, Class<?> clazz) {
         if (q == null || "".equals(q.trim())) {
             return queryDao.getSqlMapClientTemplate().queryForList(
                     iBatisDaoUtils.getSelectQuery(ClassUtils.getShortName(clazz.getName())), null);
