@@ -15,7 +15,6 @@
 </div>
 
 <input type="button" style="margin-right: 5px" onclick="location.href='<c:url value="/proProductform"/>'" value="<fmt:message key="button.add"/>"/>
-<input type="button" onclick="location.href='<c:url value="/mainMenu"/>'" value="<fmt:message key="button.done"/>"/>
 
 <display:table name="proProductList" class="table" requestURI="" id="proProductList" export="true" pagesize="25">
     <display:column property="productId" sortable="true" href="proProductform" media="html"
@@ -38,7 +37,6 @@
 </display:table>
 
 <input type="button" style="margin-right: 5px" onclick="location.href='<c:url value="/proProductform"/>'" value="<fmt:message key="button.add"/>"/>
-<input type="button" onclick="location.href='<c:url value="/mainMenu"/>'" value="<fmt:message key="button.done"/>"/>
 
 <script type="text/javascript">
     highlightTableRows("proProductList");

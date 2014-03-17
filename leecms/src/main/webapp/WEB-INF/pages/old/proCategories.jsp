@@ -15,7 +15,6 @@
 </div>
 
 <input type="button" style="margin-right: 5px" onclick="location.href='<c:url value="/proCategoryform"/>'" value="<fmt:message key="button.add"/>"/>
-<input type="button" onclick="location.href='<c:url value="/mainMenu"/>'" value="<fmt:message key="button.done"/>"/>
 
 <display:table name="proCategoryList" class="table" requestURI="" id="proCategoryList" export="true" pagesize="25">
     <display:column property="categoryId" sortable="true" href="proCategoryform" media="html"
@@ -47,7 +46,6 @@
 </display:table>
 
 <input type="button" style="margin-right: 5px" onclick="location.href='<c:url value="/proCategoryform"/>'" value="<fmt:message key="button.add"/>"/>
-<input type="button" onclick="location.href='<c:url value="/mainMenu"/>'" value="<fmt:message key="button.done"/>"/>
 
 <script type="text/javascript">
     highlightTableRows("proCategoryList");

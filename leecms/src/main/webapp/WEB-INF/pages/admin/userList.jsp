@@ -18,8 +18,6 @@
     onclick="location.href='<c:url value="/userform?method=Add&from=list"/>'"
     value="<fmt:message key="button.add"/>"/>
 
-<input type="button" onclick="location.href='<c:url value="/mainMenu"/>'"
-    value="<fmt:message key="button.done"/>"/>
 
 
 <display:table name="userList" cellspacing="0" cellpadding="0" requestURI="" 
@@ -36,18 +34,12 @@
 
     <display:setProperty name="paging.banner.item_name" value="user"/>
     <display:setProperty name="paging.banner.items_name" value="users"/>
-
-    <display:setProperty name="export.excel.filename" value="User List.xls"/>
-    <display:setProperty name="export.csv.filename" value="User List.csv"/>
-    <display:setProperty name="export.pdf.filename" value="User List.pdf"/>
 </display:table>
 
 <input type="button" style="margin-right: 5px"
     onclick="location.href='<c:url value="/userform?method=Add&from=list"/>'"
     value="<fmt:message key="button.add"/>"/>
 
-<input type="button" onclick="location.href='<c:url value="/mainMenu"/>'"
-    value="<fmt:message key="button.done"/>"/>
 
 <script type="text/javascript">
     highlightTableRows("users");
