@@ -225,8 +225,8 @@ public class QueryDaoImpl extends BaseDaoImpl implements QueryDao{
 	public IdCount getWebCount(Long userId) {
 		return (IdCount)sqlMapClientTemplate.queryForObject("getWebCount",userId);
 	}
-	public Long getCfgGroupsByUserIdSize(Long userId) {
-		return (Long)sqlMapClientTemplate.queryForObject("getCfgGroupsByUserIdSize",userId);
+	public Long getCfgGroupsByUserIdSize(Long userId, String type) {
+		return (Long)sqlMapClientTemplate.queryForObject("getCfgGroupsByUserIdSize",SSIILL.create(type, null, null, null, userId, null));
 	}
 
 	@SuppressWarnings("unchecked")
@@ -248,8 +248,8 @@ public class QueryDaoImpl extends BaseDaoImpl implements QueryDao{
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<CfgGroup> getCfgGroupsByUserId(Long userId) {
-		return sqlMapClientTemplate.queryForList("getCfgGroupsByUserId",userId);
+	public List<CfgGroup> getCfgGroupsByUserId(Long userId, String type) {
+		return sqlMapClientTemplate.queryForList("getCfgGroupsByUserId",SSIILL.create(type, null, null, null, userId, null));
 	}
 
 	@SuppressWarnings("unchecked")

@@ -84,14 +84,14 @@
     ]]>
     </select>
     
-    <select id="getCfgGroupsByUserId" parameterClass="java.lang.Long" resultMap="cfgGroupResult">
+    <select id="getCfgGroupsByUserId" parameterClass="com.galebo.common.dao.SSIILL" resultMap="cfgGroupResult">
     <![CDATA[
-        select * from cfg_Group where  user_id=#value# order by type
+        select * from cfg_Group where  user_id=#value# and type=#type# order by group_Id
     ]]>
     </select>
-    <select id="getCfgGroupsByUserIdSize" parameterClass="java.lang.Long" resultClass="java.lang.Long">
+    <select id="getCfgGroupsByUserIdSize" parameterClass="com.galebo.common.dao.SSIILL" resultClass="java.lang.Long">
     <![CDATA[
-        select count(group_Id) from cfg_Group where user_id=#value#
+        select count(group_Id) from cfg_Group where user_id=#value# and type=#type#
     ]]>
     </select>
 </sqlMap>

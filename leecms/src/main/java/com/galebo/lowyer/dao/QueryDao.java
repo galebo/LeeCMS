@@ -96,11 +96,11 @@ public interface QueryDao {
 	public WebInfo getWebInfoByUserId(Long userId);
 	public Template getTemplateByUserId(Long currentUser);
 	public List<IdCount> getContentCount(String replaceAll);
-	public Long getCfgGroupsByUserIdSize(Long userId);
+	public Long getCfgGroupsByUserIdSize(Long userId, String type);
 	public List<CfgDefine> getCfgDefinesByUserId(Long userId);
 	public List<CfgDefine> getCfgDefines();
 	public List<CfgDefineInstance> getSiteDefineWithName(Long userId);
-	public List<CfgGroup> getCfgGroupsByUserId(Long userId);
+	public List<CfgGroup> getCfgGroupsByUserId(Long userId, String type);
 	public List<ConContent> getConContentsByUserId(Long userId);
 	public List<ConUploadData> getConUploadDatasByUserId(Long userId);
 	public List<CfgRelative> getRelativeMaxSort(String type, Long groupId);

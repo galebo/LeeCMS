@@ -25,9 +25,9 @@ public class CommonServiceImpl extends BaseService implements CommonService {
 	{
 		return new JGridTreeHelperCategory(userId,Constants.categoryType).getJGridBean(-1L,page);
 }
-	public JGridBean getGroups(Long userId, int page)
+	public JGridBean getGroups(Long userId, int page,String type)
 	{
-			return new JGridTreeHelperGroup(userId).getJGridBean(-1L,page);
+			return new JGridTreeHelperGroup(userId,type).getJGridBean(-1L,page);
 	}
 	public JGridBean getIndexColumns(Long userId, int page) {
 		return new JGridTreeHelperMenu(userId).getJGridBean(userId,page);
@@ -74,20 +74,22 @@ public class CommonServiceImpl extends BaseService implements CommonService {
 
 	class JGridTreeHelperGroup extends JGridTreeHelper{
 		Long userId;
-		public JGridTreeHelperGroup(Long userId) {
+		String type;
+		public JGridTreeHelperGroup(Long userId,String type) {
 			this.userId=userId;
+			this.type=type;
 		}
 
 		public List<? extends JGridAble> getSons(long ParentId, int level) {
 				if(level>0)
 					return new ArrayList<JGridAble>();
-				return queryDao.getCfgGroupsByUserId(userId);
+				return queryDao.getCfgGroupsByUserId(userId,type);
 			}
 
 	
 		@Override
 		public Long getSonSize(long ParentId) {
-			return queryDao.getCfgGroupsByUserIdSize(userId);
+			return queryDao.getCfgGroupsByUserIdSize(userId,type);
 		}
 
 	}

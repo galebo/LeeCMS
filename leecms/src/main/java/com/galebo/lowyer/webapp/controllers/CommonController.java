@@ -214,9 +214,9 @@ public class CommonController extends BaseController{
     }
     @RequestMapping(value = "/jqJson/CfgGroups", method = RequestMethod.GET)
     @ResponseBody
-    public Object CfgGroups(@RequestParam("page") int page,@RequestParam("rows") int pageSize,HttpServletRequest request) {
+    public Object CfgGroups(@RequestParam("page") int page,@RequestParam("rows") int pageSize,@RequestParam("type") String type,HttpServletRequest request) {
     	Long userId = getCurrentUser(request);
-    	return commonService.getGroups(userId,page);
+    	return commonService.getGroups(userId,page,type);
     }
 
     @RequestMapping(value = "/jqJson/sons/{type}/{parentId}", method = RequestMethod.GET)
