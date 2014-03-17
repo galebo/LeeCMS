@@ -184,10 +184,10 @@ function makeTransBg(el, bgimgdf, sizingMethod, type, offset){
 }
 
 function isIE6() {
-	version=0
+	version=0;
 	if (navigator.appVersion.indexOf("MSIE")!=-1){
-		temp=navigator.appVersion.split("MSIE")
-		version=parseFloat(temp[1])
+		temp=navigator.appVersion.split("MSIE");
+		version=parseFloat(temp[1]);
 	}
 	return (version && (version < 7));
 }
@@ -218,20 +218,19 @@ jaAddFirstItemToTopmenu = function() {
 	if(li) {
 		li.addClass('ja-firstitem');
 	}
-}
+};
 
 
 function addMouseOver (className) {
 	objs = getElementsByClass (className, document, 'DIV');
 	if (objs){
-		for (i=0; i<objs.length; i++){
+		for (var i=0; i<objs.length; i++){
 			objs[i].onmouseover=function() {
 				this.className+=" hover";
-			}
+			};
 			objs[i].onmouseout=function() {
 				this.className=this.className.replace(new RegExp(" hover\\b"), "");
-			}
-
+			};
 		}
 	}
 }
@@ -239,7 +238,7 @@ function addMouseOver (className) {
 jaIE6hover = function(){
 	addMouseOver('jazin-box');
 	addMouseOver('ja-headtool');
-}
+};
 
 window.addEvent ('load', function() {
 	equalHeight();

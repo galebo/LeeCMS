@@ -409,7 +409,7 @@ JAResizer = new Class({
 			resizemouseout = function(){
 				//console.log('call mouse out event for ' + this);
 				this.removeClass('ja-colresizehover');
-			}
+			};
 			el.onmouseout = resizemouseout;
 
 			var prev = el.getPrevious();

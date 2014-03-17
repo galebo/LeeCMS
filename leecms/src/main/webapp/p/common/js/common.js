@@ -18,7 +18,9 @@ function ScrollPic(scrollContId, arrLeftId, arrRightId, dotListId) {
 	this.pageIndex = 0;
 	this.autoPlay = true;
 	this.autoPlayTime = 5;
-	var _autoTimeObj, _scrollTimeObj, _state = "ready";
+	var _autoTimeObj="";
+	var _scrollTimeObj="";
+	var _state = "ready";
 	this.stripDiv = document.createElement("DIV");
 	this.listDiv01 = document.createElement("DIV");
 	this.listDiv02 = document.createElement("DIV");
@@ -155,7 +157,7 @@ function ScrollPic(scrollContId, arrLeftId, arrRightId, dotListId) {
 		} else {
 			thisMove = Math.round(thisMove);
 		}
-		var temp = this.scrollContDiv.scrollLeft + thisMove;
+		//var temp = this.scrollContDiv.scrollLeft + thisMove;
 		if (thisMove > 0) {
 			if (this.scrollContDiv.scrollLeft + thisMove >= this.listDiv01.scrollWidth) {
 				this.scrollContDiv.scrollLeft = this.scrollContDiv.scrollLeft + thisMove - this.listDiv01.scrollWidth;
@@ -234,7 +236,7 @@ function ScrollPic(scrollContId, arrLeftId, arrRightId, dotListId) {
 		} else {
 			element.addEventListener(i, event, false);
 		}
-	}
+	};
 };
 
 function moveDiv(id,divUrl,divImg)
@@ -263,7 +265,7 @@ moveDiv.prototype.moveAd=function (){//飘浮广告主函数
 	var _adLeft=parseInt(this.moveDiv.style.left); 
 	var _adTop=parseInt(this.moveDiv.style.top); 
 	var _adWidth=parseInt(this.moveDiv.style.width); 
-	var _adHeight=parseInt(this.moveDiv.style.height) 
+	var _adHeight=parseInt(this.moveDiv.style.height);
 	var _bodyLeft=document.body.scrollLeft; 
 	var _bodyTop=document.body.scrollTop; 
 	var _bodyHeight=document.body.clientHeight+_bodyTop; 
@@ -284,7 +286,7 @@ moveDiv.prototype.moveAd=function (){//飘浮广告主函数
 	this.moveDiv.style.top=_adTop+this._stepy; 
 };
 moveDiv.prototype.beginMoveAd=function (){
-	this.varId=window.setInterval(this.name+".moveAd()",this.moveSpeed) 
+	this.varId=window.setInterval(this.name+".moveAd()",this.moveSpeed);
 };
 
 
@@ -312,7 +314,7 @@ PicTimeChange.prototype.changePic=function () {
 	document.getElementById(this.name+'_'+this.nextPic).className = 'on';
     document.getElementById(this.name+'_div'+this.nextPic).style.display='block';
 	this.nextPic = this.nextPic+1;
-}
+};
 
 PicTimeChange.prototype.picOn=function () {
 	var obj=this;
@@ -322,29 +324,32 @@ PicTimeChange.prototype.picOn=function () {
 		}
 		obj.changePic();
 	}, 4000);
-}
+};
 
 PicTimeChange.prototype.picOff=function (index) {
 	this.nextPic=index;
 	if(this.timer !== null) clearTimeout(this.timer);
 	this.changePic();
-}
+};
+
+
+
 
 function menuFix(menuId,offCss) {
 	var navMenuLis = document.getElementById(menuId).getElementsByTagName("li");
 	for ( var i = 0; i < navMenuLis.length; i++) {
 		navMenuLis[i].onmouseover = function() {
 			this.className += (this.className.length > 0 ? " " : "") + offCss;
-		}
+		};
 		navMenuLis[i].onMouseDown = function() {
 			this.className += (this.className.length > 0 ? " " : "") + offCss;
-		}
+		};
 		navMenuLis[i].onMouseUp = function() {
 			this.className += (this.className.length > 0 ? " " : "") + offCss;
-		}
+		};
 		navMenuLis[i].onmouseout = function() {
 			this.className = this.className.replace(new RegExp("( ?|^)"+offCss+"\\b"), "");
-		}
+		};
 	}
 }
 

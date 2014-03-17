@@ -27,7 +27,7 @@ function upCount(url,_id)
 function upCountCallBack(name,data, textStatus){
 	if(data)
 	{
-		for(i=0;i<data.length;i++)
+		for(var i=0;i<data.length;i++)
 		{
 			if(document.getElementById(name+data[i].id))
 				document.getElementById(name+data[i].id).innerHTML=""+data[i].count;
@@ -42,7 +42,7 @@ function getWebCount(url,_name,_id)
 function getWebCountCallBack(name,data, textStatus){
 	if(data)
 	{
-		for(i=0;i<data.length;i++)
+		for(var i=0;i<data.length;i++)
 		{
 			if(document.getElementById(name+data[i].id))
 			{
@@ -54,6 +54,9 @@ function getWebCountCallBack(name,data, textStatus){
 		}
 	}
 }
+
+
+
 
 function getItemTop(url,_id)
 {
@@ -72,10 +75,18 @@ function getItemTopCallBack(data, textStatus){
 		}
 	}
 }
+
+
+
+
+
+
+
+
 function _set(name,data,txt){
 	if(document.getElementById("item"+name))
 		document.getElementById("item"+name).innerHTML=txt;
-	for(i=0;i<data.length;i++)
+	for(var i=0;i<data.length;i++)
 	{
 		if(document.getElementById(name+i))
 		{
@@ -123,6 +134,10 @@ function showKey2(key)
 	$("#"+key1+"_"+key2).show();
 	$("#key2"+key2).css("color","#ff0000");
 }
+
+
+
+
 /*
  * lyz page类 2012-11-17
  */
