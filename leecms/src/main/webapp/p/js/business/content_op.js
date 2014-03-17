@@ -4,8 +4,8 @@ var op={
         defines:[
 	        {
 	        	name:"parentTable",
-		        ops:[{cnName:"查看文章",enName:'searchContent',op:"op_resetSonTable"},
-		    	     {cnName:"添加文章",enName:'addContent',op:"op_addContent"},
+		        ops:[{cnName:"查看",enName:'searchContent',op:"op_resetSonTable"},
+		    	     {cnName:"添加新文章",enName:'addContent',op:"op_addContent"},
 		    	     {cnName:"绑定文章",enName:'op_bang',op:"op_bang"}
 		    	     ],
 		     	opAll:"set"

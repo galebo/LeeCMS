@@ -10,7 +10,7 @@
 <form:hidden path="contentId"/>
 <input type="hidden" name="parentId" value="${parentId}"/>
 <input type="hidden" name="parentSonId" value="${parentSonId}"/>
-<ul>
+<ul  style="height:1200px;display:block;">
     <li>
         <appfuse:label styleClass="desc" key="conContent.nameCn"/>
         <form:errors path="nameCn" cssClass="fieldError"/>

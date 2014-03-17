@@ -8,11 +8,11 @@ var parentDefine={
 	  	   		{name:'name',index:'name', width:80},
 	  	   		{name:'sort',index:'sort', width:1,hidden:true},
 	  	   		{name:'time',index:'time', width:1,hidden:true},
-	  	   		{name:'parentId',index:'parentId', width:140,hidden:true},
-	  	   		{name:'relativeId',index:'relativeId', width:140,hidden:true},
-	  	   		{name:'manger',  width: 300, align:'center', formatter:opFormatter}
+	  	   		{name:'parentId',index:'parentId', width:10,hidden:true},
+	  	   		{name:'relativeId',index:'relativeId', width:10,hidden:true},
+	  	   		{name:'manger',  width: 120, align:'center', formatter:opFormatter}
 	  	   	],
-	    width:  550,
+	    width:  400,
 		treeGrid: true,ExpandColumn:"name",
 		caption: parent_name
 	};
@@ -51,7 +51,7 @@ function ColumnContent()
 	this.Url_changeSort='/jqJson/changeSort/'+parentSon;
 	this.Url_addToParent='/jqJson/addToParent/'+type;
 	this.G_columnId=null;
-	this.div=new Div(["#div","#div1"]);
+	this.div=new Div(["#son","#son1"]);
 	this.div.hideAll();
 	this.init();
 }
@@ -74,18 +74,18 @@ ColumnContent.prototype.set= function (rowData,rowId,opType,tableId)
 ColumnContent.prototype.op_viewContent= function(rowData,rowId,opType,tableId)
 {
 	var url="/"+son_name_big_l+"form?parentId="+rowData.id+"&sonId="+rowData.contentId+"&parentSonId="+rowData.columnContentId;
-	G_showCommBox(url,'查看'+son_name,900,750,{'关闭': true});
+	G_showCommBox(url,'查看'+son_name,900,1050,{'关闭': true});
 };
 ColumnContent.prototype.op_resetSonTable= function (rowData,rowId,opType,tableId)
 {
 	var url=this.Url_getConContent+"/"+this.G_columnId;
 	G_initOrRefreshJqGrid(sonDefine,url);
-	this.div.show("#div");
+	this.div.show("#son");
 };
 ColumnContent.prototype.op_addContent= function (rowData,rowId,opType,tableId)
 {
 	var url="/"+son_name_big_l+"form?parentId="+this.G_columnId;
-	G_showCommBox(url,'增加'+son_name,900,750,{'关闭': true},callBack_resetSonTable);
+	G_showCommBox(url,'增加'+son_name,900,1050,{'关闭': true},callBack_resetSonTable);
 };
 ColumnContent.prototype.op_releaseContent= function(rowData,rowId,opType,tableId)
 {
@@ -96,13 +96,16 @@ ColumnContent.prototype.op_bang= function (rowData,rowId,opType,tableId)
 {
 	var url='/jqJson/sonsNoBang/'+type+"/"+this.G_columnId;
 	G_initOrRefreshJqGrid(son1Define,url);
-	this.div.show("#div1");
+	this.div.show("#son1");
 };
 ColumnContent.prototype.op_changeSort= function (rowData,rowId,opType,tableId)
 {
 	var url=this.Url_changeSort+"/"+opType+"/"+this.G_columnId+"/"+rowData.columnContentId+"/"+rowData.contentId+"/"+rowData.sort;
 	G_callAjax(url,"",{closed:callBack_resetSonTable});
 };
+
+
+/*操作栏目*/
 ColumnContent.prototype.op_editColumn= function (rowData,rowId,opType,tableId)
 {
 	var url="/colColumnform?columnId="+rowId;
