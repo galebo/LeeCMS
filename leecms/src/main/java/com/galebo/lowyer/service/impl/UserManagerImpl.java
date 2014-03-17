@@ -41,15 +41,14 @@ public class UserManagerImpl extends BaseService implements UserManager, UserSer
     /**
      * {@inheritDoc}
      */
-    @SuppressWarnings("unchecked")
 	public User getUser(String userId) {
-        User user = (User) queryDao.getSqlMapClientTemplate().queryForObject("getUser", userId);
+        User user = _getUser(userId);
 
         if (user == null) {
             log.warn("uh oh, user not found...");
             throw new ObjectRetrievalFailureException(User.class, userId);
         } else {
-            List roles = queryDao.getSqlMapClientTemplate().queryForList("getUserRoles", user);
+            List<Role> roles = _getUserRoles(user);
             user.setRoles(new HashSet<Role>(roles));
         }
 
@@ -60,7 +59,7 @@ public class UserManagerImpl extends BaseService implements UserManager, UserSer
      * {@inheritDoc}
      */
     public List<User> getUsers() {
-        return queryDao.getUserDao().getAllDistinct();
+        return _getUsers();
     }
 
     /**
@@ -118,7 +117,7 @@ public class UserManagerImpl extends BaseService implements UserManager, UserSer
      */
     public void removeUser(String userId) {
         log.debug("removing user: " + userId);
-        queryDao.getUserDao().remove(new Long(userId));
+        _removeUser(userId);
     }
 
     /**
@@ -128,15 +127,14 @@ public class UserManagerImpl extends BaseService implements UserManager, UserSer
      * @return User the populated user object
      * @throws UsernameNotFoundException thrown when username not found
      */
-    @SuppressWarnings("unchecked")
 	public User getUserByUsername(String username) throws UsernameNotFoundException {
-        User user = (User) queryDao.getSqlMapClientTemplate().queryForObject("getUserByUsername", username);
+        User user = (User) _getUserByUsername(username);
 
         if (user == null) {
             log.warn("uh oh, user not found...");
             throw new UsernameNotFoundException("user '" + username + "' not found...");
         } else {
-            List roles = queryDao.getSqlMapClientTemplate().queryForList("getUserRoles", user);
+            List<Role> roles = _getUserRoles(user);
             user.setRoles(new HashSet<Role>(roles));
         }
 
@@ -146,24 +144,22 @@ public class UserManagerImpl extends BaseService implements UserManager, UserSer
     /**
      * {@inheritDoc}
      */
-    @SuppressWarnings("unchecked")
     public List<User> search(String searchTerm) {
-        return super.search(searchTerm, User.class);
+        return super.getUsers(searchTerm);
     }
 
 
     /**
      * {@inheritDoc}
      */
-    @SuppressWarnings("unchecked")
     public List<User> getUsers2() {
-        List users = queryDao.getSqlMapClientTemplate().queryForList("getUsers", null);
+        List<User> users = _getUsers();
 
         // get the roles for each user
         for (int i = 0; i < users.size(); i++) {
             User user = (User) users.get(i);
 
-            List roles =  queryDao.getSqlMapClientTemplate().queryForList("getUserRoles", user);
+            List<Role> roles =  _getUserRoles(user);
             user.setRoles(new HashSet<Role>(roles));
             users.set(i, user);
         }
@@ -176,10 +172,9 @@ public class UserManagerImpl extends BaseService implements UserManager, UserSer
      * @param userId the id of the user to delete
      */
     private void deleteUserRoles(final Long userId) {
-    	queryDao.getSqlMapClientTemplate().update("deleteUserRoles", userId);
+    	_deleteUserRoles(userId);
     }
 
-    @SuppressWarnings("unchecked")
     private void addUserRoles(final User user) {
         if (user.getRoles() != null) {
             for (Role role : user.getRoles()) {
@@ -187,9 +182,9 @@ public class UserManagerImpl extends BaseService implements UserManager, UserSer
                 newRole.put("userId", user.getId());
                 newRole.put("roleId", role.getId());
 
-                List userRoles = queryDao.getSqlMapClientTemplate().queryForList("getUserRoles", user);
+                List<Role> userRoles = _getUserRoles(user);
                 if (userRoles.isEmpty()) {
-                	queryDao.getSqlMapClientTemplate().update("addUserRole", newRole);
+                	_addUserRole(newRole);
                 }
             }
         }
@@ -202,11 +197,11 @@ public class UserManagerImpl extends BaseService implements UserManager, UserSer
         iBatisDaoUtils.prepareObjectForSaveOrUpdate(user);
 
         if (user.getId() == null) {
-            Long id = (Long) queryDao.getSqlMapClientTemplate().insert("addUser", user);
+            Long id =  _addUser(user);
             user.setId(id);
             addUserRoles(user);
         } else {
-        	queryDao.getSqlMapClientTemplate().update("updateUser", user);
+        	_updateUser(user);
             deleteUserRoles(user.getId());
             addUserRoles(user);
         }
@@ -219,7 +214,7 @@ public class UserManagerImpl extends BaseService implements UserManager, UserSer
       * {@inheritDoc}
       */
      public String getUserPassword(String username) {
-         return (String) queryDao.getSqlMapClientTemplate().queryForObject("getUserPassword", username);
+         return _getUserPassword(username);
      }
 
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException, DataAccessException {

@@ -1,4 +1,4 @@
-package com.galebo.lowyer.services;
+package com.galebo.lowyer.services.mock;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +35,7 @@ public class BeanCreator {
 	{
 		Index index=new Index();
 		List<Menu> menus = getMenu(true);
+		System.out.println(menus.size());
 		return index;
 	}
 	private List<Menu> getMenu(boolean addSon) {

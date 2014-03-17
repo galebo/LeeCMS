@@ -12,13 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.galebo.lowyer.Constants;
-import com.galebo.lowyer.model.CfgDefine;
 import com.galebo.lowyer.model.ConContent;
-import com.galebo.lowyer.model.ProCategory;
-import com.galebo.lowyer.model.ProProduct;
-import com.galebo.lowyer.model.Template;
-import com.galebo.lowyer.model.TemplatePage;
-import com.galebo.lowyer.model.User;
 import com.galebo.lowyer.webapp.controller.BaseController;
 import com.galebo.lowyer.webapp.controller.BaseFormController;
 
@@ -56,32 +50,32 @@ public class ListController extends BaseController {
 
 	@RequestMapping(value = "/defines*", method = RequestMethod.GET)
 	public ModelAndView defines(@RequestParam(required = false, value = "q") String query){
-		return new ModelAndView().addObject(commonService.search(query, CfgDefine.class));
+		return new ModelAndView().addObject(commonService.getCfgDefines());
 	}
 
 	@RequestMapping(value = "/proCategories*", method = RequestMethod.GET)
 	public ModelAndView proCategories(@RequestParam(required = false, value = "q") String query){
-		return new ModelAndView().addObject(commonService.search(query, ProCategory.class));
+		return new ModelAndView().addObject(commonService.getProCategorys());
 	}
 
 	@RequestMapping(value = "/proProducts*", method = RequestMethod.GET)
 	public ModelAndView proProducts(@RequestParam(required = false, value = "q") String query){
-		return new ModelAndView().addObject(commonService.search(query, ProProduct.class));
+		return new ModelAndView().addObject(commonService.getProProducts());
 	}
 
 	@RequestMapping(value = "/templates*", method = RequestMethod.GET)
 	public ModelAndView templates(@RequestParam(required = false, value = "q") String query){
-		return new ModelAndView().addObject(commonService.search(query, Template.class));
+		return new ModelAndView().addObject(commonService.getTemplates());
 	}
 
 	@RequestMapping(value = "/templatePages*", method = RequestMethod.GET)
 	public ModelAndView templatePages(HttpServletRequest request){
-		return new ModelAndView().addObject(commonService.search("", TemplatePage.class));
+		return new ModelAndView().addObject(commonService.getTemplatePages());
 	}
 
 	@RequestMapping(value = "/admin/users*", method = RequestMethod.GET)
 	public ModelAndView users(@RequestParam(required = false, value = "q") String query){
-		return new ModelAndView("admin/userList", Constants.USER_LIST, commonService.search(query, User.class));
+		return new ModelAndView("admin/userList", Constants.USER_LIST, commonService._getUsers());
 	}
 
 	@RequestMapping("/export")

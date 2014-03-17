@@ -35,7 +35,7 @@ import freemarker.template.Template;
 @Service("templateStatic")
 public class TemplateStatic {
     private static final String staticPath = "/static";
-	protected final Log log = LogFactory.getLog(getClass());
+	static protected final Log log = LogFactory.getLog(TemplateStatic.class);
 	Configuration configuration = null;
 	BeanCreater beanCreater;
 	@Autowired
@@ -70,7 +70,7 @@ public class TemplateStatic {
 				String pathname = realPath+staticPath;
 				String destPath = Constants.destPath+"/user"+userId+"/";
 
-				log.info("输出目录:"+destPath);
+				log.info("输出目录:"+destPath+",模板id:"+template.getTemplateId()+",cssId:"+template.getTemplateCssId());
 				FileUtils.copyDirectory(new File(pathname),new File(destPath));
 				FileUtils.copyDirectory(new File(commonPath+"/js"),new File(destPath+"/js"));
 				FileUtils.copyDirectory(new File(commonPath+"/template"+template.getTemplateId()),new File(destPath+"/template"+template.getTemplateId()));

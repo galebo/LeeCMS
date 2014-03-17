@@ -1,12 +1,10 @@
 package com.galebo.lowyer.webapp.controller;
 
-import org.apache.commons.lang.StringUtils;
-import com.galebo.lowyer.Constants;
-import com.galebo.lowyer.model.User;
-import com.galebo.lowyer.service.RoleManager;
-import com.galebo.lowyer.service.UserExistsException;
-import com.galebo.lowyer.webapp.util.RequestUtil;
-import org.springframework.beans.factory.annotation.Autowired;
+import java.util.Locale;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.mail.MailException;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -17,9 +15,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.util.Locale;
+import com.galebo.lowyer.Constants;
+import com.galebo.lowyer.model.User;
+import com.galebo.lowyer.service.UserExistsException;
+import com.galebo.lowyer.webapp.util.RequestUtil;
 
 /**
  * Controller to signup new users.
