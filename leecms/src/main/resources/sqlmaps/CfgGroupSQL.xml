@@ -86,12 +86,12 @@
     
     <select id="getCfgGroupsByUserId" parameterClass="com.galebo.common.dao.SSIILL" resultMap="cfgGroupResult">
     <![CDATA[
-        select * from cfg_Group where  user_id=#value# and type=#type# order by group_Id
+        select * from cfg_Group where  user_id=#long1# and type=#string1# order by group_Id
     ]]>
     </select>
     <select id="getCfgGroupsByUserIdSize" parameterClass="com.galebo.common.dao.SSIILL" resultClass="java.lang.Long">
     <![CDATA[
-        select count(group_Id) from cfg_Group where user_id=#value# and type=#type#
+        select count(group_Id) from cfg_Group where user_id=#long1# and type=#string1#
     ]]>
     </select>
 </sqlMap>
