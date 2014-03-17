@@ -11,11 +11,17 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
+import com.galebo.lowyer.services.impl.TemplateStatic;
+
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 
 public class Create
 {
+	static protected final Log log = LogFactory.getLog(TemplateStatic.class);
 	private Configuration cfg;
 
 	public Configuration getCfg()
@@ -33,24 +39,24 @@ public class Create
 	{
 		Create test = new Create();
 		test.init();
-		Map map = test.getMap();
+		Map<String,Object> map = test.getMap();
 		
 		Template template = test.getCfg().getTemplate("CommonDao.ftl");
 		Writer writer = new OutputStreamWriter(new FileOutputStream("E:/workspace/java/workspace/letvCms1.0/src/main/java/com/galebo/lowyer/dao/CommonDao.java"), "GBK");
 		template.process(map, writer);
-		System.out.println("Successfull................");
+		log.debug("Successfull................");
 	}
 
 	private  List<String> getList(List<String> _beans) {
 		List<String> beans=new ArrayList<String>();
-		for (Iterator iterator = _beans.iterator(); iterator.hasNext();) {
-			String string = (String) iterator.next();
+		for (Iterator<String> iterator = _beans.iterator(); iterator.hasNext();) {
+			String string = iterator.next();
 			beans.add(string.replace("user.", ""));
 		}
 		return beans;
 	}
-	private  Map getMap() {
-		Map map = new HashMap();
+	private  Map<String,Object> getMap() {
+		Map<String,Object> map = new HashMap<String,Object>();
 		List<String> beans=new ArrayList<String>();
 
 		beans.add("ConContent");
