@@ -17,5 +17,4 @@
 </display:table>
 
 <input type="button" style="margin-right: 5px" onclick="location.href='<c:url value="/templatePageform"/>'" value="<fmt:message key="button.add"/>"/>
-<input type="button" onclick="location.href='<c:url value="/mainMenu"/>'" value="<fmt:message key="button.done"/>"/>
 
