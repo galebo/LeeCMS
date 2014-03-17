@@ -148,7 +148,7 @@ public class BeanCreator2 extends BaseService implements BeanCreater {
 			parent.setSonColumn(sonColumn);
 		for (ColColumn son: parent.getSonColumn()) {
 			son.setLevel(level);
-			System.out.println(son.getColName()+","+level);
+			log.debug(son.getColName()+","+level);
 			idMap.put(son.getColumnId(), son);
 			initIdMap(parentIdMap,son,idMap,level+1);
 		}

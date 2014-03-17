@@ -65,7 +65,6 @@ public class CmsMap {
 			}
 		}
 		for (String key : a) {
-			System.out.println("remove:"+key);
 			map.remove(key);
 		}
 	}

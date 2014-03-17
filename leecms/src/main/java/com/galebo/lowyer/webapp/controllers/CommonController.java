@@ -172,7 +172,6 @@ public class CommonController extends BaseController{
     @RequestMapping(value = "/jqJson/addItem/{columnIds}", method = RequestMethod.GET)
     @ResponseBody
     public Object addItem(@PathVariable String columnIds,HttpServletRequest request) {
-    	System.out.println(columnIds);
 		Long userId = getCurrentUser(request);
 		userDataCreator.saveRelate(Constants.indexType,Constants.menuColumn, userId, columnIds, userId);
 

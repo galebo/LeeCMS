@@ -42,7 +42,7 @@ public class Search extends BaseService{
 		IndexWriter indexWriter = new IndexWriter(indexPath+Constants.FILE_SEP+userId, new StandardAnalyzer(), true, IndexWriter.MaxFieldLength.UNLIMITED);
 		// 增加document到索引去
 		for (ColColumnContent colColumnContent : columnContents) {
-			//System.out.println(temp);
+			//log.debug(temp);
 			String url_name=url.getDetailUrl(colColumnContent.getColumnContentId())
 			+spliter+colColumnContent.getConContent().getNameCn()
 			+spliter+UtilsCommon.sdf_yyyy_mm_dd_HH_mm_ss.format(colColumnContent.getConContent().getUpdateTime());

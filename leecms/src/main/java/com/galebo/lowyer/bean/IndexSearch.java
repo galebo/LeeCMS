@@ -5,10 +5,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 import com.galebo.lowyer.bean.common.UrlNameAuthor;
 import com.galebo.lowyer.model.LabelValue;
 
 public class IndexSearch {
+	static protected final Log log = LogFactory.getLog(IndexSearch.class);
 	public final static  String ALL = "ALL";
 	static public List<LabelValue> _key1= new ArrayList<LabelValue>();
 	static public List<LabelValue> _key2= new ArrayList<LabelValue>();
@@ -53,7 +57,7 @@ public class IndexSearch {
 				a=a+",{label:'"+key12.get(i).getLabel()+"',value:'"+key12.get(i).getValue()+"'}";
 		}
 		a=a+"]";
-		System.out.println(a);
+		log.debug(a);
 	}
 
 	public Map<String, List<UrlNameAuthor>> getSons() {

@@ -44,7 +44,7 @@ public class Statistics extends BaseService{
 		}
 		for (List<IdCount> list : lists) {
 			for (IdCount colColumnContent : list) {
-				System.out.println(colColumnContent.getId()
+				log.debug(colColumnContent.getId()
 						+"-"+colColumnContent.getName()
 						+"-"+colColumnContent.getCount());
 			}

@@ -69,6 +69,8 @@ public class TemplateStatic {
 			try {
 				String pathname = realPath+staticPath;
 				String destPath = Constants.destPath+"/user"+userId+"/";
+
+				log.info("输出目录:"+destPath);
 				FileUtils.copyDirectory(new File(pathname),new File(destPath));
 				FileUtils.copyDirectory(new File(commonPath+"/js"),new File(destPath+"/js"));
 				FileUtils.copyDirectory(new File(commonPath+"/template"+template.getTemplateId()),new File(destPath+"/template"+template.getTemplateId()));
