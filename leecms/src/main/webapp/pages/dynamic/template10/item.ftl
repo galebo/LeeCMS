@@ -29,14 +29,16 @@
 				<div id="list_right_nr_1">
 					<div id="list_right_nr_2">
 						<div id="list_right_nr_3">
-							<strong>当前位置：</strong> <span><a href="/">首页</a></span> <font>&gt;</font> <span><a href="/art/">律师文集</a></span> <font>&gt;</font> <span><a href="List.asp?classid=736527670376">刑事动态</a></span>
+							<strong>当前位置：</strong>
+							 <span><a href="/">首页</a></span> <font>&gt;</font>
+							 <span><a href="${item.url}">${item.name}</a></span>
 						</div>
 						<!--新闻版块Begin-->
-							<#list 1..14 as one>
+							<#list item.contents as one>
 								<div id='list_right_nr_4'>
 									<div id='list_right_nr_4_1'>
-										<span> <a href='#' target='_blank'>最高检:提高七种岗位技能 加强侦查监督能力建设</a>
-										</span> <font>2014-3-18 12:13:22</font>
+										<span> <a href='${one.url}' target='_blank'>${one.name}</a>
+										</span> <font>${one.updateTime?string('yyyy-MM-dd HH:mm:ss')}</font>
 									</div>
 									<div id='list_right_nr_4_2'>
 										分类: <strong><a href='#'>刑事动态</a></strong>&nbsp;| 浏览: <font>2 </font>
