@@ -13,9 +13,9 @@
 <#macro menu>
 	<div id="menu1">
 		<ul class="menul1">
-  <#list menuList as one>
-    <li><a href="${one.url}" title="${one.name}">${one.name}</a></li>
-	</#list>
+		  <#list common.menuList as one>
+		    <li><a href="${one.url}" title="${one.name}">${one.name}</a></li>
+		</#list>
 		</ul>
 	</div>
 	
@@ -56,4 +56,41 @@
 				class="linkGray">中国大律师网</a>
 		</div>
 	</div>
+</#macro>
+
+
+
+<#macro list_left>
+<div id="list_left">
+			<div id="list_left_top">
+				<div id="list_left_top_1">
+					<h3>法律文集</h3>
+				</div>
+				<div id="list_left_nr">
+					<div id="list_left_nrbg">
+						<div id="list_left_nr1">
+							<div id="list_left_nr2">
+								<ul class="list_left_nrul">
+								<#list 1..14 as one>
+									<li><a <#if one_index=0>class='on'</#if> href='#'>刑事动态</a></li>
+								</#list>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="list_left_nr3">
+				<div id="list_left_nr3_1">
+					<div id="list_left_nr3_2">
+						<div id="list_lfet_input">
+							<form name="formsearch" method="post" action="/art/Tags.asp" onsubmit="return zCheckSearch(this);">
+								<input class="list_left_input" type="text" name="key" size="18" />
+								 <input type="submit" class="list_left_input_bt" value="文档搜索" />
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 </#macro>

@@ -5,9 +5,9 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>律师文集-刑事动态</title>
-<meta name="description" content="刑事动态">
-<meta name="keywords" content="刑事动态">
+<title>${item.name}</title>
+<meta name="description" content="${item.name}">
+<meta name="keywords" content="${item.name}">
 <link href="http://www.xslsbj.com/style/list.css" rel="stylesheet" type="text/css" />
 </head>
 
@@ -19,41 +19,8 @@
 	<@g.logo1/>
 
 	<div id="list_nr">
-		<div id="list_left">
-			<div id="list_left_top">
-				<div id="list_left_top_1">
-					<h3>法律文集</h3>
-				</div>
-				<div id="list_left_nr">
-					<div id="list_left_nrbg">
-						<div id="list_left_nr1">
-							<div id="list_left_nr2">
-								<ul class="list_left_nrul">
-								<#list 1..14 as one>
-									<li><a <#if one_index=0>class='on'</#if> href='#'>刑事动态</a></li>
-								</#list>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div id="list_left_nr3">
-				<div id="list_left_nr3_1">
-					<div id="list_left_nr3_2">
-						<div id="list_lfet_input">
-							<form name="formsearch" method="post" action="/art/Tags.asp" onsubmit="return zCheckSearch(this);">
-								<input class="list_left_input" type="text" name="key" size="18" />
-								 <input type="submit" class="list_left_input_bt" value="文档搜索" />
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-
-
-		</div>
+		
+		<@g.list_left/>
 
 
 		<div id="list_right">
@@ -62,7 +29,7 @@
 				<div id="list_right_nr_1">
 					<div id="list_right_nr_2">
 						<div id="list_right_nr_3">
-							<strong>当前位置：</strong> <span><a href="/">首页</a></span> <font>&gt;</font> <span><a href="/art/">律师文集</a></span> <font>&gt;</font> <span><a href="/art/List.asp?classid=736527670376">刑事动态</a></span>
+							<strong>当前位置：</strong> <span><a href="/">首页</a></span> <font>&gt;</font> <span><a href="/art/">律师文集</a></span> <font>&gt;</font> <span><a href="List.asp?classid=736527670376">刑事动态</a></span>
 						</div>
 						<!--新闻版块Begin-->
 							<#list 1..14 as one>
@@ -87,15 +54,11 @@
 							</span>
 
 						</div>
-
 					</div>
 				</div>
 			</div>
-
 		</div>
 	</div>
-
-
 	<@g.foot/>
 
 

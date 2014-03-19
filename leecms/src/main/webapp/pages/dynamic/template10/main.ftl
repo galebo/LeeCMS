@@ -68,11 +68,11 @@
 
 				<div id="lawermore_down">
 					<div id="lawermore_down1">
-						<a href="${defaultItem.url}">${defaultItem.name}</a>
+						<a href="${common.defaultItem.url}">${common.defaultItem.name}</a>
 					</div>
 					<div id="lawermore_down2_1">
 						<ul id="lawermore_down2">
-						<#list defaultItem.contents as one>
+						<#list common.defaultItem.contents as one>
 							<li><a href='${one.url}' target='_blank'>${one.name}</a></li>
 						</#list>
 						</ul>
@@ -106,14 +106,14 @@
 
 <div class='neirong_anli${css}'>
 				<div class='neirong_anli_1'>
-					<h1>${defaultItem.name}</h1>
+					<h1>${common.defaultItem.name}</h1>
 					<span><a href='/art/List.asp?classid=736527670436'>more</a></span>
 				</div>
 				<div class='neirong_anli_1_2'>
 					<div class='neirong_anli_11'>
 						<div class='neirong_anli_1_21'>
 							<ul class='neirong_anliul'>
-								<#list defaultItem.contents as one>
+								<#list common.defaultItem.contents as one>
 								<li><a href=''${one.url}' target='_blank' title='${one.name}'>'${one.name}</a></li>
 								</#list>
 							</ul>
