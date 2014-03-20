@@ -1,20 +1,19 @@
 <#import "/common.ftl" as g/>
 
 <#macro search>
-
-			<div id="neirong_left2">
-				<div id="neirong_leftl2">
-					<div id="neirong_left2_2">
-						<div id="neirong_left2_2_1">
-							<form name="formsearch" method="post" action="/art/Tags.asp"
-								onsubmit="return zCheckSearch(this);">
-								<input id="neirong_left2_2_2" type="text" name="key" /> 
-								<input type="submit" value="" id="neirong_left2_2_3" />
-							</form>
-						</div>
-					</div>
+	<div id="neirong_left2">
+		<div id="neirong_leftl2">
+			<div id="neirong_left2_2">
+				<div id="neirong_left2_2_1">
+					<form name="formsearch" method="post" action="/art/Tags.asp"
+						onsubmit="return zCheckSearch(this);">
+						<input id="neirong_left2_2_2" type="text" name="key" /> 
+						<input type="submit" value="" id="neirong_left2_2_3" />
+					</form>
 				</div>
 			</div>
+		</div>
+	</div>
 </#macro>
 
 <#macro person>
@@ -83,45 +82,27 @@
 	</div>
 </#macro>
 
-<#macro adv1>
-<div id='neirong_allogo'>
-				<object classid='clsid:D27CDB6E-AE6D-11cf-96B8-444553540000'
-					codebase='http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0'
-					width='680' height='90'>
-					<param name='movie'
-						value='http://images.xslsbj.com/uploadpic/common/banner/tabanner2.swf'>
-						<param name='wmode' value='opaque'>
-							<param name='quality' value='high'>
-								<embed style='width:680px; height:90px;'
-									pluginspage='http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash'
-									src='http://images.xslsbj.com/uploadpic/common/banner/tabanner2.swf'
-									wmode='transparent' width='680' height='90'
-									type='application/x-shockwave-flash' quality='high'
-									menu='false'></embed>
-				</object>
-			</div>
-</#macro>
 
 <#macro div2 css>
-
 <div class='neirong_anli${css}'>
-				<div class='neirong_anli_1'>
-					<h1>${common.defaultItem.name}</h1>
-					<span><a href='/art/List.asp?classid=736527670436'>more</a></span>
-				</div>
-				<div class='neirong_anli_1_2'>
-					<div class='neirong_anli_11'>
-						<div class='neirong_anli_1_21'>
-							<ul class='neirong_anliul'>
-								<#list common.defaultItem.contents as one>
-								<li><a href=''${one.url}' target='_blank' title='${one.name}'>'${one.name}</a></li>
-								</#list>
-							</ul>
-						</div>
-					</div>
-				</div>
+	<div class='neirong_anli_1'>
+		<h1>${common.defaultItem.name}</h1>
+		<span><a href='/art/List.asp?classid=736527670436'>more</a></span>
+	</div>
+	<div class='neirong_anli_1_2'>
+		<div class='neirong_anli_11'>
+			<div class='neirong_anli_1_21'>
+				<ul class='neirong_anliul'>
+					<#list common.defaultItem.contents as one>
+					<li><a href=''${one.url}' target='_blank' title='${one.name}'>'${one.name}</a></li>
+					</#list>
+				</ul>
 			</div>
+		</div>
+	</div>
+</div>
 </#macro>
+
 <#macro div1 >
 	<@div2 css=''/>
 	<@div2 css='2' />
@@ -177,14 +158,10 @@
 			</div>
 		</div>
 		<div class="neirong_right">
-			
 			<@div1/>
-				
-			<@adv1/>
-			
+			<@g.adv1/>
 			<@div1/>
 			<@div1/>
-
 		</div>
 	</div>
 	<div id="hezuo_add">

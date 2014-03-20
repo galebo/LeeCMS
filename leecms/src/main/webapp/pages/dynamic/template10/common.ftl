@@ -18,7 +18,6 @@
 		</#list>
 		</ul>
 	</div>
-	
 </#macro>
 
 <#macro logo1>
@@ -37,6 +36,53 @@
 		</object>
 	</div>
 </#macro>
+
+
+<#macro adv1>
+<div id='neirong_allogo'>
+				<object classid='clsid:D27CDB6E-AE6D-11cf-96B8-444553540000'
+					codebase='http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0'
+					width='680' height='90'>
+					<param name='movie'
+						value='http://images.xslsbj.com/uploadpic/common/banner/tabanner2.swf'>
+						<param name='wmode' value='opaque'>
+							<param name='quality' value='high'>
+								<embed style='width:680px; height:90px;'
+									pluginspage='http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash'
+									src='http://images.xslsbj.com/uploadpic/common/banner/tabanner2.swf'
+									wmode='transparent' width='680' height='90'
+									type='application/x-shockwave-flash' quality='high'
+									menu='false'></embed>
+				</object>
+			</div>
+</#macro>
+<#macro GuestBook>
+		<div id="list_right_xq2">
+			<div id="list_right_xq2_1">
+				<a href='/GuestBook/PingLun.asp?cpid=780459908495&classid=22' target="_blank"> 【已有<span>3</span>位网友浏览过此网页】
+				</a>
+			</div>
+			<div id="list_right_xq2_2">
+				<iframe id="iframe_gbook" src="http://xslsbj.maxlaw.cn/GuestBook/iframeGbook.asp?classid=22&countPingLun=0&products_id=780459908495&referUrl=http://xslsbj.maxlaw.cn/GuestBook/iframeGbook.asp" height="270px" width="706px" border="no" frameborder="no"
+					scrolling="no"></iframe>
+			</div>
+		</div>
+
+
+		<script language="javascript" src="/js/ReGuestBook.js"></script>
+		<BR>
+			<div id="list_right_xq3">
+				<div id="list_right_xq3_1">
+					<div id="list_right_xq3_2">您可能也对以下文章感兴趣</div>
+					<ul>
+					<#list 1..5 as one>
+						<li><a href='#' target='_blank'>1.执行预案威力大 快速执结效果好</a></li>
+					</#list>
+					</ul>
+				</div>
+			</div>
+</#macro>
+
 <#macro foot>
 	<div id="foot1">
 		<div id="foot1_1">
@@ -60,7 +106,7 @@
 
 
 
-<#macro list_left>
+<#macro list_left items>
 <div id="list_left">
 			<div id="list_left_top">
 				<div id="list_left_top_1">
@@ -71,8 +117,8 @@
 						<div id="list_left_nr1">
 							<div id="list_left_nr2">
 								<ul class="list_left_nrul">
-								<#list 1..14 as one>
-									<li><a <#if one_index=0>class='on'</#if> href='#'>刑事动态</a></li>
+								<#list items as one>
+									<li><a <#if one_index=0>class='on'</#if> href='#'>${one.name}</a></li>
 								</#list>
 								</ul>
 							</div>

@@ -41,7 +41,7 @@
 										</span> <font>${one.updateTime?string('yyyy-MM-dd HH:mm:ss')}</font>
 									</div>
 									<div id='list_right_nr_4_2'>
-										分类: <strong><a href='#'>刑事动态</a></strong>&nbsp;| 浏览: <font>2 </font>
+										分类: <strong><a href='#'>${item.name}</a></strong>&nbsp;| 浏览: <font>2 </font>
 									</div>
 								</div>
 							</#list>
@@ -54,7 +54,6 @@
 									</#list>
 								 <a href="#" title='尾页'>&gt;&gt;</a>
 							</span>
-
 						</div>
 					</div>
 				</div>
