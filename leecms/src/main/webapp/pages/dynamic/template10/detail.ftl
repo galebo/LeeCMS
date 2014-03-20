@@ -1,9 +1,9 @@
-<#import "/common.ftl" as g/>
+<#import "${ftlPath}/common.ftl" as g/>
 
 
 
 
-<#macro main>
+<#macro main detail>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -21,14 +21,14 @@
 	<@g.logo1/>
 	
 	<div id="list_nr">
-		<@g.list_left items=detail.parentItems/>
+		<@g.list_left items=detail.item.brotherItems/>
 		<div id="list_right">
 			<div id="list_right_nr">
 				<div id="list_right_nr_1">
 					<div id="list_right_nr_2">
 						<div id="list_right_nr_3">
 							<strong>当前位置：</strong>
-							 <span><a href="/">首页</a></span> <font>&gt;</font>
+							 <span><a href="${common.homepage.url}">首页</a></span> <font>&gt;</font>
 							 <span><a href="${detail.item.url}">${detail.item.name}</a></span>
 						</div>
 						<div id="list_right_xq">
@@ -60,4 +60,4 @@
 </html>
 </#macro>
 
-<@main/>
+<@main detail=data/>

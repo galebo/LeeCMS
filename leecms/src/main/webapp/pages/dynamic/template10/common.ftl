@@ -86,20 +86,19 @@
 <#macro foot>
 	<div id="foot1">
 		<div id="foot1_1">
-			<#list 1..10 as one>
-			<a href="/"> 相册影集</a><span>|</span> 
+			<#list common.links as one>
+			<a href="${one.url}">${one.name}</a><span>|</span> 
 		</#list>
 			<a href="/map.xml" target="_blank">网站地图</a>
 		</div>
 	</div>
 	<div id="foot2">
 		<div id="foot2_1">
-			All Right Reserved <span><a href="http://www.miibeian.gov.cn/"
-				target="_blank">闽ICP备08005907号</a></span> <font id="foot2_2"><a
-				href="http://www.xslsbj.com/"><b>北京刑事律师</b></a></font> <a href="/LawAdmin/">网站管理</a></br>
-			Copyright @2008-2014 <span style="color: #000000">版权所有 法律咨询热线：</span>13901078504
-			&nbsp;技术支持： <a href="http://www.maxlaw.cn" target="_blank"
-				class="linkGray">中国大律师网</a>
+			All Right Reserved 
+			<span><a href="http://www.miibeian.gov.cn/" target="_blank">闽ICP备08005907号</a></span> 
+			<font id="foot2_2"><a href="http://www.xslsbj.com/"><b>北京刑事律师</b></a></font> 
+			<a href="/LawAdmin/">网站管理</a></br> Copyright @2008-2014 <span style="color: #000000">版权所有 法律咨询热线：</span>13901078504
+			&nbsp;技术支持： <a href="http://www.maxlaw.cn" target="_blank" class="linkGray">中国大律师网</a>
 		</div>
 	</div>
 </#macro>
@@ -118,7 +117,7 @@
 							<div id="list_left_nr2">
 								<ul class="list_left_nrul">
 								<#list items as one>
-									<li><a <#if one_index=0>class='on'</#if> href='#'>${one.name}</a></li>
+									<li><a <#if one_index=0>class='on'</#if> href='${one.url}'>${one.name}</a></li>
 								</#list>
 								</ul>
 							</div>
@@ -139,4 +138,20 @@
 				</div>
 			</div>
 		</div>
+</#macro>
+
+<#macro index_search>
+	<div id="neirong_left2">
+		<div id="neirong_leftl2">
+			<div id="neirong_left2_2">
+				<div id="neirong_left2_2_1">
+					<form name="formsearch" method="post" action="/art/Tags.asp"
+						onsubmit="return zCheckSearch(this);">
+						<input id="neirong_left2_2_2" type="text" name="key" /> 
+						<input type="submit" value="" id="neirong_left2_2_3" />
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
 </#macro>

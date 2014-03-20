@@ -1,5 +1,6 @@
-<#import "/common.ftl" as g/>
+<#import "${ftlPath}/common.ftl" as g/>
 
+<#macro main item>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -20,7 +21,7 @@
 
 	<div id="list_nr">
 		
-		<@g.list_left/>
+		<@g.list_left items=item.brotherItems/>
 
 
 		<div id="list_right">
@@ -65,3 +66,6 @@
 
 </body>
 </html>
+</#macro>
+
+<@main item=data/>
