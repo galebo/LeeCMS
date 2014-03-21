@@ -20,21 +20,26 @@
 	</div>
 </#macro>
 
+<#macro flash id width height src>
+<div id='${id}'>
+				<object classid='clsid:D27CDB6E-AE6D-11cf-96B8-444553540000'
+					codebase='http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0'
+					width='${width}' height='${height}'>
+					<param name='movie' value='${src}'>
+						<param name='wmode' value='opaque'>
+							<param name='quality' value='high'>
+								<embed style='width:${width}px; height:${height}px;'
+									pluginspage='http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash'
+									src='${src}'
+									wmode='transparent' width='${width}' height='${height}' type='application/x-shockwave-flash' quality='high' menu='false'></embed>
+				</object>
+			</div>
+</#macro>
+<#macro adv1>
+	<@flash id="neirong_allogo" width='680' height='90' src='http://images.xslsbj.com/uploadpic/common/banner/tabanner2.swf'/>
+</#macro>
 <#macro logo1>
-	<div id="logo">
-		<object classid='clsid:D27CDB6E-AE6D-11cf-96B8-444553540000'
-			codebase='http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0'
-			width='1000' height='180'>
-			<param name='movie' value='http://www.xslsbj.com//uploadpic/common/banner/TABanner.swf'>
-				<param name='wmode' value='opaque'>
-					<param name='quality' value='high'>
-						<embed
-							pluginspage='http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash'
-							src='http://www.xslsbj.com//uploadpic/common/banner/TABanner.swf' wmode='transparent'
-							width='1000' height='180' type='application/x-shockwave-flash'
-							quality='high' menu='false'></embed>
-		</object>
-	</div>
+	<@flash id="logo" width='1000' height='180' src='http://www.xslsbj.com//uploadpic/common/banner/TABanner.swf'/>
 </#macro>
 
 <#macro foot>
@@ -52,7 +57,6 @@
 			<span><a href="http://www.miibeian.gov.cn/" target="_blank">${common.siteDefine['ICP']}</a></span> 
 			<font id="foot2_2"><a href="${common.siteDefine['siteDomain']}"><b>${common.siteDefine['siteName']}</b></a></font> 
 			<a href="#">网站管理</a></br>${common.siteDefine['copyright']} <span style="color: #000000">版权所有 法律咨询热线：</span>${common.siteDefine['mobile']}
-
 			&nbsp;技术支持： <a href="#" target="_blank" class="linkGray">${common.siteDefine['siteName']}</a>
 		</div>
 	</div>
@@ -61,30 +65,10 @@
 
 
 
-
-<#macro adv1>
-<div id='neirong_allogo'>
-				<object classid='clsid:D27CDB6E-AE6D-11cf-96B8-444553540000'
-					codebase='http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0'
-					width='680' height='90'>
-					<param name='movie'
-						value='http://images.xslsbj.com/uploadpic/common/banner/tabanner2.swf'>
-						<param name='wmode' value='opaque'>
-							<param name='quality' value='high'>
-								<embed style='width:680px; height:90px;'
-									pluginspage='http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash'
-									src='http://images.xslsbj.com/uploadpic/common/banner/tabanner2.swf'
-									wmode='transparent' width='680' height='90'
-									type='application/x-shockwave-flash' quality='high'
-									menu='false'></embed>
-				</object>
-			</div>
-</#macro>
 <#macro GuestBook>
 		<div id="list_right_xq2">
 			<div id="list_right_xq2_1">
-				<a href='/GuestBook/PingLun.asp?cpid=780459908495&classid=22' target="_blank"> 【已有<span>3</span>位网友浏览过此网页】
-				</a>
+				<a href='/GuestBook/PingLun.asp?cpid=780459908495&classid=22' target="_blank"> 【已有<span>3</span>位网友浏览过此网页】 </a>
 			</div>
 			<div id="list_right_xq2_2">
 				<iframe id="iframe_gbook" src="http://xslsbj.maxlaw.cn/GuestBook/iframeGbook.asp?classid=22&countPingLun=0&products_id=780459908495&referUrl=http://xslsbj.maxlaw.cn/GuestBook/iframeGbook.asp" height="270px" width="706px" border="no" frameborder="no"
@@ -152,8 +136,7 @@
 		<div id="neirong_leftl2">
 			<div id="neirong_left2_2">
 				<div id="neirong_left2_2_1">
-					<form name="formsearch" method="post" action="/art/Tags.asp"
-						onsubmit="return zCheckSearch(this);">
+					<form name="formsearch" method="post" action="/art/Tags.asp" onsubmit="return zCheckSearch(this);">
 						<input id="neirong_left2_2_2" type="text" name="key" /> 
 						<input type="submit" value="" id="neirong_left2_2_3" />
 					</form>

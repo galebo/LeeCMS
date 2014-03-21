@@ -53,7 +53,7 @@
 					</div>
 					<div id="lawermore_down2_1">
 						<ul id="lawermore_down2">
-						<#list common.itemIdList[0] as one>
+						<#list common.itemIdList[0].contents as one>
 							<li><a href='${one.url}' target='_blank'>${one.name}</a></li>
 						</#list>
 						</ul>
