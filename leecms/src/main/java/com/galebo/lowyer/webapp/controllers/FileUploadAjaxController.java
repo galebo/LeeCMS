@@ -18,6 +18,7 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import com.galebo.common.UtilsCommon;
 import com.galebo.lowyer.Constants;
+import com.galebo.lowyer.bean.Result;
 import com.galebo.lowyer.model.ConUploadData;
 import com.galebo.lowyer.webapp.controller.BaseFormController;
 
