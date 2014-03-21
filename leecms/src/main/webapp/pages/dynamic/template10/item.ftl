@@ -21,7 +21,7 @@
 
 	<div id="list_nr">
 		
-		<@g.list_left items=item.brotherItems/>
+		<@g.list_left items=item.brotherItems currentItem=item/>
 
 
 		<div id="list_right">

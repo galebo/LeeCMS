@@ -107,11 +107,11 @@
 				</div>
 			</div>
 </#macro>
-<#macro list_left items>
+<#macro list_left items currentItem>
 <div id="list_left">
 			<div id="list_left_top">
 				<div id="list_left_top_1">
-					<h3>法律文集</h3>
+					<h3>${currentItem.name}</h3>
 				</div>
 				<div id="list_left_nr">
 					<div id="list_left_nrbg">
@@ -119,7 +119,7 @@
 							<div id="list_left_nr2">
 								<ul class="list_left_nrul">
 								<#list items as one>
-									<li><a <#if one_index=0>class='on'</#if> href='${one.url}'>${one.name}</a></li>
+									<li><a <#if one.name=currentItem.name>class='on'</#if> href='${one.url}'>${one.name}</a></li>
 								</#list>
 								</ul>
 							</div>
