@@ -18,7 +18,7 @@ public class Common {
 	private ColColumn defaultColumn;
 	private ColColumn rootColumn;
 
-	private List<ColColumn> columns;
+	private List<ColColumn> columns;//栏目集合
 	private Map<Long,List<ColColumn>> columnPidMap=new HashMap<Long,List<ColColumn>>();//父id挂接的子栏目
 	private Map<Long,List<ColColumn>> columnId_brotherColumnsMap=new HashMap<Long,List<ColColumn>>();//id挂接的兄弟栏目
 	private Map<Long,ColColumnContent> columnContentMap=new HashMap<Long,ColColumnContent>();

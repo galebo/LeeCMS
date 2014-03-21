@@ -6,6 +6,8 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import net.sf.json.JSONObject;
+
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -161,6 +163,7 @@ public class ViewController extends BaseController{
 			object = beanCreater.getIndex(url,common);
 		}
 
+		System.out.println(JSONObject.fromBean(object).toString());
 		return getMV(templateUrl.getTemplateId(), object,type,mainCommon,templateUrl,userId,false);
 	}
 
@@ -179,6 +182,8 @@ public class ViewController extends BaseController{
 	}
 
 
+	@Autowired
+    Search search;
     public Item search(Long userId,Common common,String key,Url url){
 		List<UrlNameAuthorHtml> contents=new ArrayList<UrlNameAuthorHtml>();
 		if(StringUtils.isNotBlank(key))
@@ -194,11 +199,6 @@ public class ViewController extends BaseController{
 			key="";
 		return beanCreater.getSearchItem(contents, key, url, common);
     }
-    Search search;
-	@Autowired
-	public void setSearch(Search search) {
-		this.search = search;
-	}
     @RequestMapping(value = "/rebuldIndex", method = RequestMethod.GET)
     public ModelAndView rebuldIndex(HttpServletRequest request) throws IOException, TemplateException {
     	String realPath = getServletContext().getRealPath(Constants.indexPath);

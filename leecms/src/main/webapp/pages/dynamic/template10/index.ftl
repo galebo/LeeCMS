@@ -2,10 +2,6 @@
 <#import "${ftlPath}/person.ftl" as p/>
 
 
-
-
-
-
 <#macro div2 css item>
 <div class='neirong_anli${css}'>
 	<div class='neirong_anli_1'>
@@ -17,7 +13,7 @@
 			<div class='neirong_anli_1_21'>
 				<ul class='neirong_anliul'>
 					<#list item.contents as one>
-					<li><a href=''${one.url}' target='_blank' title='${one.name}'>'${one.name}</a></li>
+					<li><a href='${one.url}' target='_blank' title='${one.name}'>'${one.name}</a></li>
 					</#list>
 				</ul>
 			</div>
@@ -27,7 +23,7 @@
 </#macro>
 
 <#macro div1 item1 item2>
-	<@div2 css='' item=item1/>
+	<@div2 css=''  item=item1/>
 	<@div2 css='2' item=item2 />
 </#macro>
 
@@ -62,23 +58,7 @@
 			</div>
 			<@g.index_search/>
 			
-			<div id="neirong_bm">
-				<div id="neirong_bml">
-					<h3 class="neirong_bm1">便民法律网址导航</h3>
-					<div id="neirong_bm2">
-					<#list 1..7 as one>
-						<div id="neirong_bm2_1">
-							<div id="neirong_bm2_2"> <span>律师行业协会</span> <img src="http://www.xslsbj.com/style/images/tub_4.gif" /></div>
-							<div id="neirong_bm2_3">
-							<#list 1..3 as one1>
-									<span><a href='' target='_blank' rel="nofollow">行业协会</a></span> 
-							</#list>
-							</div>
-						</div>
-					</#list>
-					</div>
-				</div>
-			</div>
+			<@p.index_bianli/>
 		</div>
 		<div class="neirong_right">
 			<@div1 item1=common.itemIdList[1] item2=common.itemIdList[2]/>

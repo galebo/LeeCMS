@@ -159,4 +159,10 @@
          and t2.user_id=#long1# and t2.element_id=t1.column_id
     ]]>
     </select>
+    <select id="getColColumnRootByUserId" parameterClass="com.galebo.common.dao.SSIILL" resultMap="colColumnResult2">
+    <![CDATA[
+        select t1.*,t2.sort,t2.parent_element_id COL_PID,t2.cfg_relate_Id from col_Column t1,cfg_relative t2 where t1.user_id=#long1# and t2.element_type='3AC'
+         and t2.user_id=#long1# and t2.element_id=t1.column_id and t2.parent_element_id=-1
+    ]]>
+    </select>
 </sqlMap>

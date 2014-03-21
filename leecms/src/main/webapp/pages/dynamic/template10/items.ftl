@@ -31,10 +31,9 @@
 					<div id="list_right_nr_2">
 						<div id="list_right_nr_3">
 							<strong>当前位置：</strong>
-							 <span><a href="/">首页</a></span> <font>&gt;</font>
+							 <span><a href="${common.homePage.url}">首页</a></span> <font>&gt;</font>
 							 <span><a href="${item.url}">${item.name}</a></span>
 						</div>
-						<!--新闻版块Begin-->
 							<#list item.contents as one>
 								<div id='list_right_nr_4'>
 									<div id='list_right_nr_4_1'>
@@ -42,11 +41,10 @@
 										</span> <font>${one.updateTime?string('yyyy-MM-dd HH:mm:ss')}</font>
 									</div>
 									<div id='list_right_nr_4_2'>
-										分类: <strong><a href='#'>${item.name}</a></strong>&nbsp;| 浏览: <font>2 </font>
+										分类: <strong><a href='${item.url}'>${item.name}</a></strong>&nbsp;| 浏览: <font>2 </font>
 									</div>
 								</div>
 							</#list>
-						
 
 						<div id="list_right_nr_fy">
 							<span> <a href="#" title="首页">&lt;&lt;</a> 

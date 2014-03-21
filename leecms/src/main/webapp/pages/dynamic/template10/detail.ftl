@@ -28,7 +28,7 @@
 					<div id="list_right_nr_2">
 						<div id="list_right_nr_3">
 							<strong>当前位置：</strong>
-							 <span><a href="${common.homepage.url}">首页</a></span> <font>&gt;</font>
+							 <span><a href="${common.homePage.url}">首页</a></span> <font>&gt;</font>
 							 <span><a href="${detail.item.url}">${detail.item.name}</a></span>
 						</div>
 						<div id="list_right_xq">

@@ -67,6 +67,11 @@ public class ConfigController extends BaseController implements ServletContextAw
 		userDataCreator.createContent(colColumn.getUserId(),"<p>第一段</p><p>第二段</p><p>第三段</p>",colColumn,size);
 		return successView;
     }
+    @RequestMapping(value = "/createColumn")
+    public ModelAndView createColumn(HttpServletRequest request,@RequestParam(value="size",required=false,defaultValue="3") int size) {
+		userDataCreator.createColumnHaveRoot(getCurrentUser(request),size);
+		return successView;
+    }
 
     @Autowired
     UserDataCreator userDataCreator;

@@ -20,6 +20,7 @@ import com.galebo.lowyer.model.ProProduct;
 
 @Service("UserDataCreator")
 public class UserDataCreator  extends BaseService{
+	private static final String HTML = "<p>第一段</p><p>第二段</p><p>第三段</p><p>第四段</p>";
 	private void createColumn(Long userId,String html) {
 		ColColumn root=new ColColumn();
 		{
@@ -30,7 +31,11 @@ public class UserDataCreator  extends BaseService{
 			root=queryDao.getColColumnDao().save(root);
 		}
 		saveRelate(Constants.columnType, null, -1L, root.getColumnId(), userId);
-		for (int i = 0; i < 4; i++) {
+		createColumn(userId, html, root,4);
+	}
+
+	private void createColumn(Long userId, String html, ColColumn root,int count) {
+		for (int i = 0; i < count; i++) {
 			ColColumn colColumn=new ColColumn();
 			{
 				colColumn.setColName("栏目"+i);
@@ -47,6 +52,11 @@ public class UserDataCreator  extends BaseService{
 	}
 
 
+
+	public void createColumnHaveRoot(Long userId,int count) {
+		ColColumn root=queryDao.getRootColumn(userId);
+		createColumn(userId,HTML,root,count);
+	}
 	public void createContent(Long userId, String html, ColColumn colColumn,int size) {
 		for (int x = 0; x < size; x++) {
 			ConContent conContent=new ConContent();
@@ -231,13 +241,13 @@ public class UserDataCreator  extends BaseService{
 	}
 
 	public void createUserData_small(Long userId) {
-		createColumn(userId,"<p>第一段</p><p>第二段</p><p>第三段</p><p>第四段</p>");
+		createColumn(userId,HTML);
 		createGroup(Constants.loopType, 3L, userId,"loop","链接",1,false);
 		getSiteDefineWithName(userId);
 		CmsMap.clearMap(userId);
 	}
 	public void createUserData(Long userId) {
-		createColumn(userId,"<p>第一段</p><p>第二段</p><p>第三段</p><p>第四段</p>");
+		createColumn(userId,HTML);
 		createGroup(Constants.linkType, 3L, userId,"link","链接",1,true);
 		createGroup(Constants.linkType, 3L, userId,"link","链接",2,true);
 		createGroup(Constants.loopType, 3L, userId,"loop","轮播",1,true);

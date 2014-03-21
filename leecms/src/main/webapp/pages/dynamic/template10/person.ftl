@@ -63,3 +63,23 @@
 		</div>
 	</div>
 </#macro>
+
+<#macro index_bianli>
+<div id="neirong_bm">
+				<div id="neirong_bml">
+					<h3 class="neirong_bm1">便民法律网址导航</h3>
+					<div id="neirong_bm2">
+					<#list 1..7 as one>
+						<div id="neirong_bm2_1">
+							<div id="neirong_bm2_2"> <span>律师行业协会</span> <img src="http://www.xslsbj.com/style/images/tub_4.gif" /></div>
+							<div id="neirong_bm2_3">
+							<#list 1..3 as one1>
+									<span><a href='#' target='_blank' rel="nofollow">行业协会</a></span> 
+							</#list>
+							</div>
+						</div>
+					</#list>
+					</div>
+				</div>
+			</div>
+</#macro>

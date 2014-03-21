@@ -37,6 +37,30 @@
 	</div>
 </#macro>
 
+<#macro foot>
+	<div id="foot1">
+		<div id="foot1_1">
+			<#list common.links as one>
+			<a href="${one.url}">${one.name}</a><span>|</span> 
+		</#list>
+			<a href="/map.xml" target="_blank">网站地图</a>
+		</div>
+	</div>
+	<div id="foot2">
+		<div id="foot2_1">
+			All Right Reserved 
+			<span><a href="http://www.miibeian.gov.cn/" target="_blank">${common.siteDefine['ICP']}</a></span> 
+			<font id="foot2_2"><a href="${common.siteDefine['siteDomain']}"><b>${common.siteDefine['siteName']}</b></a></font> 
+			<a href="#">网站管理</a></br>${common.siteDefine['copyright']} <span style="color: #000000">版权所有 法律咨询热线：</span>${common.siteDefine['mobile']}
+
+			&nbsp;技术支持： <a href="#" target="_blank" class="linkGray">${common.siteDefine['siteName']}</a>
+		</div>
+	</div>
+</#macro>
+
+
+
+
 
 <#macro adv1>
 <div id='neirong_allogo'>
@@ -83,28 +107,22 @@
 			</div>
 </#macro>
 
-<#macro foot>
-	<div id="foot1">
-		<div id="foot1_1">
-			<#list common.links as one>
-			<a href="${one.url}">${one.name}</a><span>|</span> 
-		</#list>
-			<a href="/map.xml" target="_blank">网站地图</a>
-		</div>
-	</div>
-	<div id="foot2">
-		<div id="foot2_1">
-			All Right Reserved 
-			<span><a href="http://www.miibeian.gov.cn/" target="_blank">闽ICP备08005907号</a></span> 
-			<font id="foot2_2"><a href="http://www.xslsbj.com/"><b>北京刑事律师</b></a></font> 
-			<a href="/LawAdmin/">网站管理</a></br> Copyright @2008-2014 <span style="color: #000000">版权所有 法律咨询热线：</span>13901078504
-			&nbsp;技术支持： <a href="http://www.maxlaw.cn" target="_blank" class="linkGray">中国大律师网</a>
-		</div>
-	</div>
+
+<#macro list_search>
+
+			<div id="list_left_nr3">
+				<div id="list_left_nr3_1">
+					<div id="list_left_nr3_2">
+						<div id="list_lfet_input">
+							<form name="formsearch" method="post" action="/art/Tags.asp" onsubmit="return zCheckSearch(this);">
+								<input class="list_left_input" type="text" name="key" size="18" />
+								 <input type="submit" class="list_left_input_bt" value="文档搜索" />
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
 </#macro>
-
-
-
 <#macro list_left items>
 <div id="list_left">
 			<div id="list_left_top">
@@ -125,18 +143,7 @@
 					</div>
 				</div>
 			</div>
-			<div id="list_left_nr3">
-				<div id="list_left_nr3_1">
-					<div id="list_left_nr3_2">
-						<div id="list_lfet_input">
-							<form name="formsearch" method="post" action="/art/Tags.asp" onsubmit="return zCheckSearch(this);">
-								<input class="list_left_input" type="text" name="key" size="18" />
-								 <input type="submit" class="list_left_input_bt" value="文档搜索" />
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
+			<@list_search/>
 		</div>
 </#macro>
 

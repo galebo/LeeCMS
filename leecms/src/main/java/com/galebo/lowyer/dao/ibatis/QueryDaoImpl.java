@@ -82,6 +82,10 @@ public class QueryDaoImpl extends BaseDaoImpl implements QueryDao{
 	{
 		return (List<ColColumn>) sqlMapClientTemplate.queryForList("getColColumnsByUserId",SSIILL.create(Constants.columnType, null, null, null, userId, null));
 	}
+	public ColColumn getRootColumn(Long userId)
+	{
+		return (ColColumn)sqlMapClientTemplate.queryForObject("getColColumnRootByUserId",SSIILL.create(null, null, null, null, userId, null));
+	}
 	@SuppressWarnings("unchecked")
 	public List<ColColumnContent> getColColumnContentSortByViewCount()
 	{

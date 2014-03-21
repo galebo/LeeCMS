@@ -58,6 +58,7 @@ public interface QueryDao {
 	public int getContentsSize(Long columnId);
 	public int getProductsSize(long parentId);
 	public ColColumn getColumn(Long columnId);
+	public ColColumn getRootColumn(Long userId);
 	public List<ColColumn> getColColumnsByUserId(Long userId);
 	public List<Long> getColumnsInIndex(long userId);
 	public List<ColColumn> getSonColumns(Long columnId, Long userId,String type);
