@@ -20,7 +20,7 @@ import com.galebo.lowyer.model.ProProduct;
 
 @Service("UserDataCreator")
 public class UserDataCreator  extends BaseService{
-	private static final String HTML = "<p>第一段</p><p>第二段</p><p>第三段</p><p>第四段</p>";
+	public static final String HTML = "<p>第一段</p><p>第二段</p><p>第三段</p><p>第四段</p>";
 	private void createColumn(Long userId,String html) {
 		ColColumn root=new ColColumn();
 		{

@@ -64,7 +64,7 @@ public class ConfigController extends BaseController implements ServletContextAw
     @RequestMapping(value = "/createContent/{columnId}")
     public ModelAndView createContent(HttpServletRequest request,@PathVariable Long columnId,@RequestParam(value="size",required=false,defaultValue="3") int size) {
     	ColColumn colColumn = commonService.getQueryDao().getColColumnDao().get(columnId);
-		userDataCreator.createContent(colColumn.getUserId(),"<p>第一段</p><p>第二段</p><p>第三段</p>",colColumn,size);
+		userDataCreator.createContent(colColumn.getUserId(),UserDataCreator.HTML,colColumn,size);
 		return successView;
     }
     @RequestMapping(value = "/createColumn")
