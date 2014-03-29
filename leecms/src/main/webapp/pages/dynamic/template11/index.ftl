@@ -239,7 +239,7 @@
 				        <tr>
 				        	<#list 1..7 as one>
 		        	          <td><table width="100%"><tr><td><a  href="./show.asp?id=24">
-		        	          <img class=proimg border="0" height="120" alt="洛杉矶贝佛利山庄" src="http://www.usacradi.com//upfiles/image/20131224091209.jpg" width="160">
+		        	          <img class=proimg border="0" height="120" alt="洛杉矶贝佛利山庄" src="http://www.usacradi.com/upfiles/image/20131224091209.jpg" width="160">
 		        	          </a></td></tr></table><table width="100%"><tr><td align="center"><a  href="#">洛杉矶贝佛利山庄</a></td></tr></table></td>
 				 			</#list>
 				        </tr>
