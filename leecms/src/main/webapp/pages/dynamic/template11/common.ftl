@@ -1,14 +1,14 @@
 <#macro top>
-<TABLE width="920" height=95 border=0 align="center" cellPadding=0 cellSpacing=0 bgcolor="#ffffff">
-  <TBODY>
-    <TR>
-      <TD><TABLE width="100%" border=0 align="center" cellPadding=0 cellSpacing=0>
-        <TBODY>
-          <TR>
-            <TD><a href="/"><img src="http://www.usacradi.com/images/logo.jpg" width="611" height="134" border="0"></a></TD>
-            <TD width="1" valign="middle"><DIV class=lysearch2>
+<table width="920" height=95 border=0 align="center" cellPadding=0 cellSpacing=0 bgcolor="#ffffff">
+  <tbody>
+    <tr>
+      <td><table width="100%" border=0 align="center" cellPadding=0 cellSpacing=0>
+        <tbody>
+          <tr>
+            <td><a href="/"><img src="${publicBase}/upload/logo.jpg" width="611" height="134" border="0"></a></td>
+            <td width="1" valign="middle"><DIV class=lysearch2>
 			
-			<FORM action=search.asp method="get">
+			<form action=search.asp method="get">
 			<table width="100%" border="0" align="right" style="margin-top:10px;">
 			    <tr>
                 <td valign="right" nowrap>24小时咨询热线：13343214455</td>   
@@ -16,75 +16,73 @@
               <tr>
                 <td valign="right" nowrap><div align="right"><SPAN><A href="" style="COLOR: #000; CURSOR: #000;" 
             onclick=window.external.AddFavorite(location.href,document.title)>加入收藏</A> |&nbsp;<A style="COLOR: #000; CURSOR: 000; " 
-            onclick='this.style.behavior="url(#default#homepage)";this.setHomePage("http://http://www.usacradi.com/");' 
-            href="http://http://www.usacradi.com/">设为首页</A></SPAN>&nbsp;| <A 
+            onclick='this.style.behavior="url(#default#homepage)";this.setHomePage("http://${publicBase}/");' 
+            href="http://${publicBase}/">设为首页</A></SPAN>&nbsp;| <A 
             href="contact.asp" style="COLOR: #000; CURSOR: #000;" >联系我们</A></div></td>
               
               </tr>
 			  <tr>
                 <td valign="right" nowrap><INPUT value=0 
                   type=hidden name=kwtype>
-                      <INPUT name=q  class=text type=text id="q"  onfocus="if(this.value==this.defaultValue){this.value='';}" onBlur="if(this.value==''){this.value=this.defaultValue;}" value="信息搜索" >
-                      <INPUT 
+                      <input name=q  class=text type=text id="q"  onfocus="if(this.value==this.defaultValue){this.value='';}"
+                       onBlur="if(this.value==''){this.value=this.defaultValue;}" value="信息搜索" >
+                      <input 
                   value=titlekeyword type=hidden name=searchtype></td>
-                <td valign="right" nowrap>
-                   
-                    <INPUT class=lysub value=提交 type=submit name=Submit>                </td>
+                <td valign="right" nowrap><INPUT class=lysub value=提交 type=submit name=Submit>                </td>
               </tr>
             
             </table>
-			</FORM>
-			</DIV>			</TD>
-            <TD width="10"></TD>
-          </TR>
-        </TBODY>
-      </TABLE></TD>
-    </TR>
-  </TBODY>
-</TABLE>
-<TABLE width="920" height=33 border=0 align="center" cellPadding=0 cellSpacing=0>
-  <TBODY>
-    <TR>
-      <TD background="http://www.usacradi.com/images/top_3.jpg"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+			</form>
+			</DIV>			</td>
+            <td width="10"></td>
+          </tr>
+        </tbody>
+      </table></td>
+    </tr>
+  </tbody>
+</table>
+<table width="920" height=33 border=0 align="center" cellPadding=0 cellSpacing=0>
+  <tbody>
+    <tr>
+      <td background="${publicBase}/images/top_3.jpg"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr>
           <td>&nbsp;</td>
-          <td width="2"><IMG SRC="http://www.usacradi.com/images/top_5.jpg" WIDTH=2 HEIGHT=33 ALT=""></td>
+          <td width="2"><img src="${publicBase}/images/top_5.jpg" width=2 height=33 alt=""/></td>
           <td align="center" width="90"><a href="/" class="tt1">首页</a></td>
-          <td width="2"><IMG SRC="http://www.usacradi.com/images/top_5.jpg" WIDTH=2 HEIGHT=33 ALT=""></td>
+          <td width="2"><img src="${publicBase}/images/top_5.jpg" width=2 height=33 alt=""/></td>
           <#list 1..10 as one>
-         
-          <td width="135" align="center"><a href="list.asp?id=3"  class="tt1">海外资讯</a></td>
-          <td width="2"><IMG SRC="http://www.usacradi.com/images/top_5.jpg" WIDTH=2 HEIGHT=33 ALT=""></td>
-</#list>
+	          <td width="135" align="center"><a href="list.asp?id=3"  class="tt1">海外资讯</a></td>
+	          <td width="2"><img src="${publicBase}/images/top_5.jpg" width=2 height=33 alt=""/></td>
+			</#list>
           <td>&nbsp;</td>
         </tr>
-      </table></TD>
-    </TR>
-  </TBODY>
-</TABLE>
-<TABLE width="920" height=29 border=0 align="center" cellPadding=0 cellSpacing=0 background="images/top_7.jpg">
-  <TBODY>
-    <TR>
-      <TD><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+      </table></td>
+    </tr>
+  </tbody>
+</table>
+<table width="920" height=29 border=0 align="center" cellPadding=0 cellSpacing=0 background="${publicBase}/images/top_7.jpg">
+  <tbody>
+    <tr>
+      <td><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr>
           <td><DIV id=banner2>
             <DIV 
 style="TEXT-ALIGN: left; WIDTH: 920px; HEIGHT: 30px; FONT-SIZE: 12px; OVERFLOW: hidden; PADDING-TOP: 0px" 
 id=demo50>
-              <TABLE border=0 cellPadding=0 align=left cellspace="0">
-                <TBODY>
-                  <TR>
-                    <TD id=demo60 vAlign=top align=middle><TABLE border=0 width=980 align=center>
-                      <TBODY>
-                        <TR>
-                          <TD>美国长城国际有限公司主要从事境外培训、境外考察、国际展览、会议服务、文化交流等业务。包括组织和实施国家外国专家局批准 的出国(境)培训项目工作;组织和实施国际组织、外国政府等机构授权委托的培训工作。</TD>
-                        </TR>
-                      </TBODY>
-                    </TABLE></TD>
-                    <TD id=demo70 vAlign=top align=middle></TD>
-                  </TR>
-                </TBODY>
-              </TABLE>
+              <table border=0 cellPadding=0 align=left cellspace="0">
+                <tbody>
+                  <tr>
+                    <td id=demo60 vAlign=top align=middle><table border=0 width=980 align=center>
+                      <tbody>
+                        <tr>
+                          <td>美国长城国际有限公司主要从事境外培训、境外考察、国际展览、会议服务、文化交流等业务。包括组织和实施国家外国专家局批准 的出国(境)培训项目工作;组织和实施国际组织、外国政府等机构授权委托的培训工作。</td>
+                        </tr>
+                      </tbody>
+                    </table></td>
+                    <td id=demo70 vAlign=top align=middle></td>
+                  </tr>
+                </tbody>
+              </table>
             </DIV>
             <SCRIPT>
 //<![CDATA[
@@ -104,10 +102,10 @@ demo50.onmouseout=function() {MyMar=setInterval(Marquee,speed)}
 </SCRIPT>
           </DIV></td>
         </tr>
-      </table></TD>
-    </TR>
-  </TBODY>
-</TABLE>
+      </table></td>
+    </tr>
+  </tbody>
+</table>
 <table width="920" height="5" border="0" align="center" cellpadding="0" cellspacing="0">
   <tr>
     <td></td>
@@ -121,13 +119,13 @@ demo50.onmouseout=function() {MyMar=setInterval(Marquee,speed)}
 <table style="border:1px solid #dcdcdc;" border="0" cellpadding="0" cellspacing="0" width="100%">
             <tbody>
               <tr>
-                <td width="320" height="26" colspan="2" align="right" background="images/index-02_54.jpg"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <td width="320" height="26" colspan="2" align="right" background="${publicBase}/images/index-02_54.jpg"><table width="100%" border="0" cellpadding="0" cellspacing="0">
                     <tr>
                       <td width="2"></td>
-                      <td width="90" background="http://www.usacradi.com/images/index-02_69.jpg" align=left><div class="pianbt2">联系我们 &gt;&nbsp;&nbsp;</div></td>
-                      <td width="16"><img src="http://www.usacradi.com/images/index-02_69.gif" width="16" height="26" /></td>
+                      <td width="90" background="${publicBase}/images/index-02_69.jpg" align=left><div class="pianbt2">联系我们 &gt;&nbsp;&nbsp;</div></td>
+                      <td width="16"><img src="${publicBase}/images/index-02_69.gif" width="16" height="26" /></td>
                       <td></td>
-                      <td width="1"><a href="contact.asp" target="_parent"><img src="http://www.usacradi.com/images/index-02_59.jpg" border="0" /></a></td>
+                      <td width="1"><a href="contact.asp" target="_parent"><img src="${publicBase}/images/index-02_59.jpg" border="0" /></a></td>
                     </tr>
                 </table></td>
               </tr>
@@ -186,13 +184,13 @@ demo50.onmouseout=function() {MyMar=setInterval(Marquee,speed)}
 <table style="border:1px solid #dcdcdc;" border="0" cellpadding="0" cellspacing="0" width="100%">
             <tbody>
               <tr>
-                <td width="320" height="26" colspan="2" align="right" background="http://www.usacradi.com/images/index-02_54.jpg"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <td width="320" height="26" colspan="2" align="right" background="${publicBase}/images/index-02_54.jpg"><table width="100%" border="0" cellpadding="0" cellspacing="0">
                     <tr>
                       <td width="2"></td>
-                      <td width="90" background="http://www.usacradi.com/images/index-02_69.jpg" align=left><div class="pianbt2">关于我们 &gt;&nbsp;&nbsp;</div></td>
-                      <td width="16"><img src="http://www.usacradi.com/images/index-02_69.gif" width="16" height="26" /></td>
+                      <td width="90" background="${publicBase}/images/index-02_69.jpg" align=left><div class="pianbt2">关于我们 &gt;&nbsp;&nbsp;</div></td>
+                      <td width="16"><img src="${publicBase}/images/index-02_69.gif" width="16" height="26" /></td>
                       <td></td>
-                      <td width="1"><a href="show.asp?id=2" target="_parent"><img src="images/index-02_59.jpg" border="0" /></a></td>
+                      <td width="1"><a href="show.asp?id=2" target="_parent"><img src="${publicBase}/images/index-02_59.jpg" border="0" /></a></td>
                     </tr>
                 </table></td>
               </tr>
@@ -238,7 +236,7 @@ demo50.onmouseout=function() {MyMar=setInterval(Marquee,speed)}
 <table width="920" border="0" align="center" cellpadding="0" cellspacing="0">
   <tr>
     <td width="10"></td>
-    <td width="180"><img src="http://www.usacradi.com/images/bottomlogo.jpg" width="250" height="50"></td>
+    <td width="180"><img src="${publicBase}/upload/bottomlogo.jpg" width="250" height="50"></td>
     <td width="40"></td>
     <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
       <tr>
