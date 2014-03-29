@@ -3,7 +3,7 @@
 
 
 <#macro detail>
-	<@item_detail title='美国商标注册服务以及流程'>
+	<@item_detail.item_detail title='美国商标注册服务以及流程'>
 		<table width="100%" border="0" cellspacing="0" cellpadding="20" height="300">
 			<tr>
 				<td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -23,7 +23,7 @@
 					</table></td>
 			</tr>
 		</table>
-	</@item_detail>
+	</@item_detail.item_detail>
 </#macro>
 
 <@detail/>

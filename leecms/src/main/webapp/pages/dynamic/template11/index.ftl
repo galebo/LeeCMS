@@ -1,5 +1,39 @@
 <#import "common.ftl" as g/>
+<#macro list title>
+	<table style="border:1px solid #dcdcdc;" border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tbody>
+        <tr>
+          <td width="320" height="26" colspan="2" align="right" background="http://www.usacradi.com/images/index-02_54.jpg"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+              <tr>
+                <td width="2"></td>
+                <td width="90" background="http://www.usacradi.com/images/index-02_69.jpg" align=left><div class="pianbt2">${title}&gt;&nbsp;&nbsp;</div></td>
+                <td width="16"><img src="http://www.usacradi.com/images/index-02_69.gif" width="16" height="26" /></td>
+                <td></td>
+                <td width="1"><a href="#" target="_parent"><img src="http://www.usacradi.com/images/index-02_59.jpg" border="0" /></a></td>
+              </tr>
+          </table></td>
+        </tr>
+        <tr>
+          <td colspan="2" align="left"><table width="100%" border="0" cellspacing="0" cellpadding="10">
+              <tr>
+                <td><table width="100%" height="5" border="0" cellpadding="0" cellspacing="0">
+                    <tr>
+                      <td>
+                      	<#list 1..12 as one>
+                       <table width="100%" align="center" cellspacing="0" cellpadding="0"><tr> <td width=12 height=20><img src="http://www.usacradi.com/images/newsdot.gif"></td><td><a  href="#" >美国社会的自信</a></td></tr></table>
+						</#list>
+                       </td>
+                    </tr>
+                </table></td>
+              </tr>
+          </table></td>
+        </tr>
+      </tbody>
+  </table>
+</#macro>
 
+
+<#macro index>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -22,6 +56,7 @@
 <table width="920" border="0" align="center" cellpadding="0" cellspacing="0">
   <tr>
     <td width="190" valign="top">
+    
     <table style="border:1px solid #dcdcdc;" border="0" cellpadding="0" cellspacing="0" width="100%">
       <tbody>
         <tr>
@@ -33,16 +68,16 @@
                 <td></td>
               </tr>
             </table>
-              <table width="100%" height="10" border="0" cellpadding="0" cellspacing="0">
+            <table width="100%" height="10" border="0" cellpadding="0" cellspacing="0">
                 <tr>
                   <td style="padding-left:13px;">
 					<#list 1..6 as one>
                    <table width="100%" align="center" cellspacing="0" cellpadding="0">
                    <tr><td width=12 height=20><img src="http://www.usacradi.com/images/newsdot.gif"></td><td><a  href="./show.asp?id=145" >美国商标注册服务以及流程</a></td></tr></table>
  					</#list>
- 					</td>
-                </tr>
-              </table>
+				</td>
+       			 </tr>
+            </table>
             <table width="100%" height="4" border="0" cellpadding="0" cellspacing="0">
                 <tr>
                   <td></td>
@@ -51,11 +86,13 @@
         </tr>
       </tbody>
     </table>
+    
       <table width="100%" height="10" border="0" cellpadding="0" cellspacing="0">
         <tr>
           <td></td>
         </tr>
       </table>
+      
       <table style="border:1px solid #dcdcdc;" border="0" cellpadding="0" cellspacing="0" width="100%">
       <tbody>
         <tr>
@@ -63,7 +100,6 @@
         </tr>
         <tr>
           <td align="left" valign="top">
-              
             <table border="0" cellpadding="0" cellspacing="1" width="100%">
               <tbody>
               	<#list 1..5 as one>
@@ -73,26 +109,27 @@
                 </tr>
 				</#list>
               </tbody>
-            </table>			</td>
+            </table>
+			</td>
         </tr>
       </tbody>
     </table>
+    
       <table width="100%" height="10" border="0" cellpadding="0" cellspacing="0">
         <tr>
           <td>
-          <SCRIPT language="javascript" type="text/javascript"> 
-			 ImageShow();
-			</SCRIPT>
           </td>
         </tr>
       </table>
+      
 	  <table style="border:1px solid #dcdcdc;" border="0" cellpadding="0" cellspacing="0" width="100%">
       <tbody>
         <tr>
           <td class="baojie" align="left" background="http://www.usacradi.com/images/index-02_77.jpg" height="24"><div class="pianbt3">移民美国 &gt;&nbsp;&nbsp;</div></td>
         </tr>
         <tr>
-          <td align="left" valign="top"><table width="100%" height="4" border="0" cellpadding="0" cellspacing="0">
+          <td align="left" valign="top">
+          	<table width="100%" height="4" border="0" cellpadding="0" cellspacing="0">
               <tr>
                 <td></td>
               </tr>
@@ -111,104 +148,62 @@
                 <tr>
                   <td></td>
                 </tr>
-            </table></td>
+            </table>
+            </td>
         </tr>
       </tbody>
-    </table>&nbsp;</td>
-    <td width="9" valign="top"></td>
-    <td valign="top"><table width="100%" height="10" border="0" cellpadding="0" cellspacing="0">
-      <tr>
-        <td></td>
-      </tr>
     </table>
-      <table width="100%" height="10" border="0" cellpadding="0" cellspacing="0">
-        <tr>
-          <td></td>
-        </tr>
-      </table>
-      <table width="100%" height="10" border="0" cellpadding="0" cellspacing="0">
-        <tr>
-          <td width="49%" valign="top">
-          <@g.bb/>
-          </td>
-          <td width="9"></td>
-          <td valign="top">
-          	<@g.aa/>
-          </td>
-        </tr>
-      </table>
-      <table width="100%" height="10" border="0" cellpadding="0" cellspacing="0">
-        <tr>
-          <td></td>
-        </tr>
-      </table>
-      <table width="100%" height="10" border="0" cellpadding="0" cellspacing="0">
-        <tr>
-          <td width="49%" valign="top"><table style="border:1px solid #dcdcdc;" border="0" cellpadding="0" cellspacing="0" width="100%">
-              <tbody>
-                <tr>
-                  <td width="320" height="26" colspan="2" align="right" background="http://www.usacradi.com/images/index-02_54.jpg"><table width="100%" border="0" cellpadding="0" cellspacing="0">
-                      <tr>
-                        <td width="2"></td>
-                        <td width="90" background="http://www.usacradi.com/images/index-02_69.jpg" align=left><div class="pianbt2">美国会展&gt;&nbsp;&nbsp;</div></td>
-                        <td width="16"><img src="http://www.usacradi.com/images/index-02_69.gif" width="16" height="26" /></td>
-                        <td></td>
-                        <td width="1"><a href="list.asp?id=11" target="_parent"><img src="http://www.usacradi.com/images/index-02_59.jpg" border="0" /></a></td>
-                      </tr>
-                  </table></td>
-                </tr>
-                <tr>
-                  <td colspan="2" align="left"><table width="100%" border="0" cellspacing="0" cellpadding="10">
-                      <tr>
-                        <td><table width="100%" height="5" border="0" cellpadding="0" cellspacing="0">
-                            <tr>
-                              <td>
-                              	<#list 1..12 as one>
-                              	  <table width="100%" align="center" cellspacing="0" cellpadding="0"><tr><td width=12 height=20><img src="http://www.usacradi.com/images/newsdot.gif"></td><td><a  href="" >2014年美国国际瓷砖、石材展览会</a></td></tr></table>
- 								</#list>
-                               </td>
-                            </tr>
-                        </table></td>
-                      </tr>
-                  </table></td>
-                </tr>
-              </tbody>
-          </table></td>
-          <td width="9"></td>
-          <td valign="top"><table style="border:1px solid #dcdcdc;" border="0" cellpadding="0" cellspacing="0" width="100%">
-              <tbody>
-                <tr>
-                  <td width="320" height="26" colspan="2" align="right" background="http://www.usacradi.com/images/index-02_54.jpg"><table width="100%" border="0" cellpadding="0" cellspacing="0">
-                      <tr>
-                        <td width="2"></td>
-                        <td width="90" background="http://www.usacradi.com/images/index-02_69.jpg" align=left><div class="pianbt2">海外资讯&gt;&nbsp;&nbsp;</div></td>
-                        <td width="16"><img src="http://www.usacradi.com/images/index-02_69.gif" width="16" height="26" /></td>
-                        <td></td>
-                        <td width="1"><a href="#" target="_parent"><img src="http://www.usacradi.com/images/index-02_59.jpg" border="0" /></a></td>
-                      </tr>
-                  </table></td>
-                </tr>
-                <tr>
-                  <td colspan="2" align="left"><table width="100%" border="0" cellspacing="0" cellpadding="10">
-                      <tr>
-                        <td><table width="100%" height="5" border="0" cellpadding="0" cellspacing="0">
-                            <tr>
-                              <td>	
-                              <#list 1..12 as one>
-                               <table width="100%" align="center" cellspacing="0" cellpadding="0">
-                               <tr> <td width=12 height=20><img src="http://www.usacradi.com/images/newsdot.gif"></td>
-                               <td><a  href="#" >美国社会的自信</a></td></tr></table>
-							</#list>                            
-                              </td>
-                            </tr>
-                        </table></td>
-                      </tr>
-                  </table></td>
-                </tr>
-              </tbody>
-          </table></td>
-        </tr>
-      </table>
+	</td>
+	
+    <td width="9" valign="top"></td>
+    
+    <td valign="top">
+	    <table width="100%" height="10" border="0" cellpadding="0" cellspacing="0">
+	      <tr>
+	        <td>
+	          <SCRIPT language="javascript" type="text/javascript"> 
+				 ImageShow();
+				</SCRIPT>
+			</td>
+	      </tr>
+	    </table>
+	    
+	      <table width="100%" height="10" border="0" cellpadding="0" cellspacing="0">
+	        <tr>
+	          <td></td>
+	        </tr>
+	      </table>
+	      
+	      <table width="100%" height="10" border="0" cellpadding="0" cellspacing="0">
+	        <tr>
+	          <td width="49%" valign="top">
+	          <@g.bb/>
+	          </td>
+	          <td width="9"></td>
+	          <td valign="top">
+	          	<@g.aa/>
+	          </td>
+	        </tr>
+	      </table>
+	      <table width="100%" height="10" border="0" cellpadding="0" cellspacing="0">
+	        <tr>
+	          <td></td>
+	        </tr>
+	      </table>
+	      
+	      <table width="100%" height="10" border="0" cellpadding="0" cellspacing="0">
+	        <tr>
+	          <td width="49%" valign="top">
+				<@list title="移民澳洲"/>
+				</td>
+	          
+	          <td width="9"></td>
+	          
+	          <td valign="top">
+				<@list title="移民美国"/>
+	          </td>
+	        </tr>
+	      </table>
     </td>
   </tr>
 </table>
@@ -261,3 +256,8 @@
 
 </body>
 </html>
+
+
+</#macro>
+
+<@index/>

@@ -17,8 +17,7 @@
 	<table width="920" border="0" align="center" cellpadding="0" cellspacing="0">
 		<tr>
 			<td width="190" valign="top">
-				
-   				<@g.item_detail_left/>
+   				<@item_detail_left/>
 			</td>
 			<td width="9" valign="top"></td>
 			<td valign="top">

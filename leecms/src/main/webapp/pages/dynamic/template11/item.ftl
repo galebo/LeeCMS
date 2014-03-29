@@ -3,7 +3,7 @@
 
 
 <#macro detail>
-	<@item_detail title='海外资讯'>
+	<@item_detail.item_detail title='海外资讯'>
 		<table width="100%" border="0" cellspacing="0" cellpadding="20" height="300">
                 <tr>
                   <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -21,7 +21,7 @@
                   </table></td>
                 </tr>
               </table>
-	</@item_detail>
+	</@item_detail.item_detail>
 </#macro>
 
 <@detail/>
