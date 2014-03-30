@@ -105,7 +105,7 @@ public class BeanCreator {
 		UrlNameAuthorHtml content = new UrlNameAuthorHtml();
 		content.setAuthor("作者");
 		try {
-			content.setHtml(IOUtils.toString(new FileInputStream("E:/workspace/git/LeeCMS/leecms/src/test/java/com/galebo/lowyer/content.txt")));
+			content.setHtml(IOUtils.toString(new FileInputStream("E:/workspace/git/LeeCMS/leecms/content.txt")));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
