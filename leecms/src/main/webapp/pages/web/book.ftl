@@ -33,15 +33,14 @@
 	}
 	function goPage(theForm)
 	{
-		if (theForm.page.value == "")
+		if (document.getElementById("page").value == "")
 		{
 			alert("页码为空");
-			theForm.page.focus();
+			document.getElementById("page").focus();
 			return (false);
 		}else{
-			var url='/pp/listMessage?page='+theForm.page.value;
-			theForm.action=url;
-			return true;
+			var url='/pp/listMessage?page='+document.getElementById("page").value;
+			window.location.href=url;
 		}
 	} 
 </script>
@@ -64,9 +63,9 @@
 								| <a href="http://www.usacradi.com/" target="_blank">版主主页</a> |
 							</div></td>
 						<td width="17%"><div align="center">
-								| <a href="userlogin.asp">留言管理</a> |
+								| <a href="#">留言管理</a> |
 							</div></td>
-						<td width="17%"><div align="center">
+						<!--td width="17%"><div align="center">
 								| <a href="modify.asp">资料修改</a> |
 							</div></td>
 						<td width="17%"><div align="center">
@@ -80,7 +79,7 @@
 									</table>
 								</div>
 								| <a href="#" onMouseOver="ShowSearch()"><strong>搜索留言</strong></a> |
-							</div></td>
+							</div></td-->
 						<td width="17%"><div align="center"></div></td>
 						<td width="17%"><div align="center"></div></td>
 					</tr>
@@ -222,7 +221,7 @@
 
 
 	<table width='740' border='0' align='center' cellPadding='0' cellSpacing='1' bgcolor='FF6500' class='f12'>
-		<form method=Post action='' onSubmit="return goPage(this)">
+		
 			<tr bgcolor='FED5BA'>
 				<td height='24'>
 				<div align='center'>
@@ -241,24 +240,17 @@
 						<font color='#333333'>尾页</font>
 						</#if>
 						
-						<#if page.currentPage lt page.totolPage>
-						<#else><font color='#333333'>尾页</font>
-						</#if>
-						
 						
 						&nbsp;&nbsp;<font color='#333333'>页次:</font>
 						<font color=#ff0000 face='Geneva, Arial, Helvetica, sans-serif'>${page.currentPage}</font><font
 							color='#333333' face='Geneva, Arial, Helvetica, sans-serif'>/${page.totalPage}</font>&nbsp;
-							<font color=#ff0000 face='Geneva, Arial, Helvetica, sans-serif'>5</font>
-							<font color='#333333' face='Geneva, Arial, Helvetica, sans-serif'>条/页&nbsp共</font><font color=#ff0000
-							face='Geneva, Arial, Helvetica, sans-serif'>${page.count}</font>
-							<font color='#333333'>条信息</font>&nbsp;&nbsp;<font color='#333333'>转到：</font>
-							<input type='text' name='page' size=4 maxlength=4 class='Input' value=1>&nbsp;
-							<input type='submit' value='转到' name='cndok' class='button'></span>
+							<font color=#ff0000 face='Geneva, Arial, Helvetica, sans-serif'>5</font><font color='#333333' face='Geneva, Arial, Helvetica, sans-serif'>条/页&nbsp共</font><font color=#ff0000
+							face='Geneva, Arial, Helvetica, sans-serif'>${page.count}</font><font color='#333333'>条信息</font>&nbsp;&nbsp;<font color='#333333'>转到：</font>
+							<input type='text' id="page" name='page' size=4 maxlength=4 class='Input' value=1>&nbsp;
+							<input type='button' value='转到' name='cndok' class='button' onclick="goPage();"></span>
 					</div>
 				</td>
 			</tr>
-		</form>
 	</table>
 	<table width="90%" border="0" cellspacing="0" cellpadding="0">
 		<tr>
