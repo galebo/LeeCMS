@@ -23,6 +23,7 @@ public interface CommonService {
 	public JGridBean getColumns(Long userId, int page);
 	public JGridBean getCategorys(Long userId, int page);
 	public JGridBean getIndexColumns(Long userId, int page);
+	public JGridBean getIndexMenus(Long userId, int page);
 	public JGridBean getGroups(Long userId,int page, String type);
 
 	public String deleteColumn(Long columnId);

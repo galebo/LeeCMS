@@ -14,7 +14,6 @@ import com.galebo.lowyer.model.ColColumnContent;
 import com.galebo.lowyer.model.ConContent;
 
 public class Common {
-	private List<Menu> menuList;
 	private ColColumn defaultColumn;
 	private ColColumn rootColumn;
 
@@ -25,6 +24,10 @@ public class Common {
 	private Map<Long,ColColumn> columnIdMap=new HashMap<Long,ColColumn>();
 	private Map<Long,ConContent> contentIdMap=null;//直接菜单内容的内容
 //	private Map<Long,ConContent> contentIdMap_Index=null;//索引的内容
+
+	//以下可以用于模板
+	private List<Menu> menuList;
+	private List<Item> indexItemList;
 
 	private Item defaultItem;//用于如果没有找到栏目的默认项
 	private List<Item> itemIdList=new ArrayList<Item>();//用于全局的栏目List
@@ -142,6 +145,13 @@ public class Common {
 
 	public void setMenuList(List<Menu> list) {
 		this.menuList = list;
+	}
+	public List<Item> getIndexItemList() {
+		return indexItemList;
+	}
+
+	public void setIndexItemList(List<Item> indexItemList) {
+		this.indexItemList = indexItemList;
 	}
 	
 	public List<Define> getDivDefines() {

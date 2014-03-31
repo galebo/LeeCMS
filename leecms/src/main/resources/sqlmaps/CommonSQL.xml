@@ -71,28 +71,28 @@
         <result property="colPid" column="COL_PID"/>
         <result property="relativeId" column="cfg_relate_Id"/>
     </resultMap>
-    <select id="getIndexMenus" parameterClass="com.galebo.common.dao.SSIILL" resultMap="indexMenuResult">
+    <select id="getIndexBeans" parameterClass="com.galebo.common.dao.SSIILL" resultMap="indexMenuResult">
     <![CDATA[select * from 
 (select t1.column_id id,t1.COL_NAME name,'栏目' type,t2.sort,t2.parent_element_id COL_PID,t2.cfg_relate_Id from cfg_Relative t2,col_column t1
-     where t1.column_id=t2.element_id and t2.parent_element_id=#long1# and t2.user_id=#long1# and t2.element_type='3AD'  and t2.element_type2='3BA' 
+     where t1.column_id=t2.element_id and t2.parent_element_id=#long1# and t2.user_id=#long1# and t2.element_type=#string1#  and t2.element_type2='3BA' 
      union
 select t4.CONTENT_ID id,t4.NAME_CN name,'内容' type,t3.sort,t3.parent_element_id COL_PID,t3.cfg_relate_Id from cfg_Relative t3,con_content t4
-     where t4.CONTENT_ID=t3.element_id and t3.parent_element_id=#long1# and t3.user_id=#long1# and t3.element_type='3AD'  and t3.element_type2='3BB'
+     where t4.CONTENT_ID=t3.element_id and t3.parent_element_id=#long1# and t3.user_id=#long1# and t3.element_type=#string1#  and t3.element_type2='3BB'
      union
 select t4.link_id id,t4.title name,'链接' type,t3.sort,t3.parent_element_id COL_PID,t3.cfg_relate_Id from cfg_Relative t3,con_link t4
-     where t4.link_id=t3.element_id and t3.parent_element_id=#long1# and t3.user_id=#long1# and t3.element_type='3AD'  and t3.element_type2='3BC' )t order by sort]]>
+     where t4.link_id=t3.element_id and t3.parent_element_id=#long1# and t3.user_id=#long1# and t3.element_type=#string1#  and t3.element_type2='3BC' )t order by sort]]>
     </select>
     
-    <select id="getIndexMenusSize" parameterClass="com.galebo.common.dao.SSIILL" resultClass="java.lang.Long">
+    <select id="getIndexBeansSize" parameterClass="com.galebo.common.dao.SSIILL" resultClass="java.lang.Long">
     <![CDATA[select count(t.id) from 
 (select t1.column_id id,t1.COL_NAME name,'栏目' type,t2.sort,t2.parent_element_id COL_PID,t2.cfg_relate_Id from cfg_Relative t2,col_column t1
-     where t1.column_id=t2.element_id and t2.parent_element_id=#long1# and t2.user_id=#long1# and t2.element_type='3AD'  and t2.element_type2='3BA' 
+     where t1.column_id=t2.element_id and t2.parent_element_id=#long1# and t2.user_id=#long1# and t2.element_type=#string1#  and t2.element_type2='3BA' 
      union
 select t4.CONTENT_ID id,t4.NAME_CN name,'内容' type,t3.sort,t3.parent_element_id COL_PID,t3.cfg_relate_Id from cfg_Relative t3,con_content t4
-     where t4.CONTENT_ID=t3.element_id and t3.parent_element_id=#long1# and t3.user_id=#long1# and t3.element_type='3AD'  and t3.element_type2='3BB'
+     where t4.CONTENT_ID=t3.element_id and t3.parent_element_id=#long1# and t3.user_id=#long1# and t3.element_type=#string1#  and t3.element_type2='3BB'
      union
 select t4.link_id id,t4.title name,'链接' type,t3.sort,t3.parent_element_id COL_PID,t3.cfg_relate_Id from cfg_Relative t3,con_link t4
-     where t4.link_id=t3.element_id and t3.parent_element_id=#long1# and t3.user_id=#long1# and t3.element_type='3AD'  and t3.element_type2='3BC'  )t ]]>
+     where t4.link_id=t3.element_id and t3.parent_element_id=#long1# and t3.user_id=#long1# and t3.element_type=#string1#  and t3.element_type2='3BC'  )t ]]>
     </select>
     
     

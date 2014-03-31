@@ -19,22 +19,7 @@
 	<table id="son1Table"></table>
 	<div id="son1Div"></div>
 </div>
-<div class="divTree" id="son2">
-	<div class="divTree" id="columnParent">
-		<table id="columnParentTable"></table>
-		<div id="columnParentDiv"></div>
-	</div>
-	<div class="divTree" id="columnSon">
-		<table id="columnSonTable"></table>
-		<div id="columnSonDiv"></div>
-	</div>
-</div>
 
-<div class="divTree" id="son3">
-	<input type="button" value="增加" onclick="business.addLinks();"></input>
-	<table id="son3Table"></table>
-	<div id="son3Div"></div>
-</div>
 <script type="text/javascript" src="/p/js/common/common.js"></script>
 <script type="text/javascript" src="/p/js/business/indexItem.js"></script>
 </@common.body>

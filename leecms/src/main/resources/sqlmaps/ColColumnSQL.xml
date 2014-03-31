@@ -130,13 +130,13 @@
     <![CDATA[select count(t1.user_id) from cfg_Relative t2,col_column t1 where t1.column_id=t2.element_id and t2.parent_element_id=#long1# and t2.user_id=#long2# and t2.element_type=#string1#]]>
     </select>
     
-    <select id="getColumnsNoInIndex" parameterClass="com.galebo.common.dao.SSIILL" resultMap="colColumnResult2">
+    <select id="getColumnsNoInRelative" parameterClass="com.galebo.common.dao.SSIILL" resultMap="colColumnResult2">
     <![CDATA[select t1.*,t2.sort,t2.parent_element_id COL_PID,t2.cfg_relate_Id from cfg_Relative t2,col_column t1
      where t1.column_id=t2.element_id and t2.user_id=#long1# and t2.element_type=#string1# and t1.col_name!='root'
      and not EXISTS (SELECT t.element_id  FROM cfg_Relative t  WHERE t.user_id=#long1# and t.element_type=#string2# AND t1.column_id = t.element_Id) order by sort]]>
     </select>
     
-    <select id="getColumnsNoInIndexSize" parameterClass="com.galebo.common.dao.SSIILL" resultClass="java.lang.Integer">
+    <select id="getColumnsNoInRelativeSize" parameterClass="com.galebo.common.dao.SSIILL" resultClass="java.lang.Integer">
     <![CDATA[select count(t1.user_id) from cfg_Relative t2,col_column t1
      where t1.column_id=t2.element_id and t2.user_id=#long1# and t2.element_type=#string1# and t1.col_name!='root'
      and not EXISTS (SELECT t.element_id  FROM cfg_Relative t  WHERE t.user_id=#long1# and t.element_type=#string2# AND t1.column_id = t.element_Id)]]>

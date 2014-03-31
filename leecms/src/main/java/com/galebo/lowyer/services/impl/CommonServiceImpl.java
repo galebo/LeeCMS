@@ -19,18 +19,21 @@ public class CommonServiceImpl extends BaseService implements CommonService {
 
 	public JGridBean getColumns(Long userId, int page)
 	{
-			return new JGridTreeHelperColumn(userId,Constants.columnType).getJGridBean(-1L,page);
+			return new JGridTreeHelper_Column(userId,Constants.columnType).getJGridBean(-1L,page);
 	}
 	public JGridBean getCategorys(Long userId, int page)
 	{
-		return new JGridTreeHelperCategory(userId,Constants.categoryType).getJGridBean(-1L,page);
+		return new JGridTreeHelper_Category(userId,Constants.categoryType).getJGridBean(-1L,page);
 }
 	public JGridBean getGroups(Long userId, int page,String type)
 	{
-			return new JGridTreeHelperGroup(userId,type).getJGridBean(-1L,page);
+			return new JGridTreeHelper_Group(userId,type).getJGridBean(-1L,page);
+	}
+	public JGridBean getIndexMenus(Long userId, int page) {
+		return new JGridTreeHelper_IndexBean(userId,Constants.indexMenuType).getJGridBean(userId,page);
 	}
 	public JGridBean getIndexColumns(Long userId, int page) {
-		return new JGridTreeHelperMenu(userId).getJGridBean(userId,page);
+		return new JGridTreeHelper_IndexBean(userId,Constants.indexItemType).getJGridBean(userId,page);
 	}
 
     @Autowired
@@ -72,10 +75,10 @@ public class CommonServiceImpl extends BaseService implements CommonService {
 		}
 	}
 
-	class JGridTreeHelperGroup extends JGridTreeHelper{
+	class JGridTreeHelper_Group extends JGridTreeHelper{
 		Long userId;
 		String type;
-		public JGridTreeHelperGroup(Long userId,String type) {
+		public JGridTreeHelper_Group(Long userId,String type) {
 			this.userId=userId;
 			this.type=type;
 		}
@@ -93,27 +96,29 @@ public class CommonServiceImpl extends BaseService implements CommonService {
 		}
 
 	}
-	class JGridTreeHelperMenu extends JGridTreeHelper{
+	class JGridTreeHelper_IndexBean extends JGridTreeHelper{
 		Long userId;
-		public JGridTreeHelperMenu(Long userId) {
+		String indexType ;
+		public JGridTreeHelper_IndexBean(Long userId,String indexType) {
 			this.userId=userId;
+			this.indexType=indexType;
 		}
 
 		public List<? extends JGridAble> getSons(long ParentId, int level) {
 			if(level>0)
 				return new ArrayList<JGridAble>();
-			return queryDao.getIndexMenus(this.userId);
+			return queryDao.getIndexBeans(this.userId,indexType);
 		}
 	
 		@Override
 		public Long getSonSize(long ParentId) {
-			return queryDao.getIndexMenusSize(this.userId);
+			return queryDao.getIndexBeansSize(this.userId,indexType);
 		}
 	}
-	class JGridTreeHelperColumn extends JGridTreeHelper{
+	class JGridTreeHelper_Column extends JGridTreeHelper{
 		Long userId;
 		String type;
-		public JGridTreeHelperColumn(Long userId,String type) {
+		public JGridTreeHelper_Column(Long userId,String type) {
 			this.userId=userId;
 			this.type=type;
 		}
@@ -127,10 +132,10 @@ public class CommonServiceImpl extends BaseService implements CommonService {
 			return queryDao.getSonColumnSize(ParentId,this.userId,type);
 		}
 	}
-	class JGridTreeHelperCategory extends JGridTreeHelper{
+	class JGridTreeHelper_Category extends JGridTreeHelper{
 		Long userId;
 		String type;
-		public JGridTreeHelperCategory(Long userId,String type) {
+		public JGridTreeHelper_Category(Long userId,String type) {
 			this.userId=userId;
 			this.type=type;
 		}

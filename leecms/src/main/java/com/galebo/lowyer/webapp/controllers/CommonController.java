@@ -145,57 +145,74 @@ public class CommonController extends BaseController{
     //查询加入首页菜单的栏目和内容
     @RequestMapping(value = "/jqJson/indexMenus", method = RequestMethod.GET)
     @ResponseBody
+    public Object indexMenus(@RequestParam("page") int page,@RequestParam("rows") int pageSize,HttpServletRequest request) {
+    	Long userId = getCurrentUser(request);
+    	return commonService.getIndexMenus(userId,page);
+    }
+    //没有加入首页菜单的栏目
+    @RequestMapping(value = "/jqJson/itemsNoInMenu", method = RequestMethod.GET)
+    @ResponseBody
+    public Object itemsNoInMenu(@RequestParam("page") int page,@RequestParam("rows") int pageSize,HttpServletRequest request) {
+    	Long userId = getCurrentUser(request);
+    	int size = commonService.getQueryDao().getColumnsNoInRelativeSize(userId,Constants.columnType,Constants.indexMenuType);
+    	List<ColColumn> list = commonService.getQueryDao().getColumnsNoInRelative(userId,Constants.columnType,Constants.indexMenuType);
+    	return JGridBean.fromList(list,page, pageSize,size);
+    }
+
+    //将栏目加入菜单
+    @RequestMapping(value = "/jqJson/addMenu_Item/{columnIds}", method = RequestMethod.GET)
+    @ResponseBody
+    public Object addMenu_Item(@PathVariable String columnIds,HttpServletRequest request) {
+		Long userId = getCurrentUser(request);
+		userDataCreator.saveRelate(Constants.indexMenuType,Constants.menuColumn, userId, columnIds, userId);
+
+		return Result.Sucess;
+    }
+    //将内容加入菜单
+    @RequestMapping(value = "/jqJson/addMenu_Content/{contentId}", method = RequestMethod.GET)
+    @ResponseBody
+    public Object addMenu_Content(@PathVariable Long contentId,HttpServletRequest request) {
+    	String contentIds=""+contentId;
+		Long userId = getCurrentUser(request);
+		userDataCreator.saveRelate(Constants.indexMenuType,Constants.menuContent, userId, contentIds, userId);
+		return Result.Sucess;
+    }
+    //将自定义链接加入菜单
+    @RequestMapping(value = "/jqJson/addMenu_Link/{linkId}", method = RequestMethod.GET)
+    @ResponseBody
+    public Object addMenu_Link(@PathVariable Long linkId,HttpServletRequest request) {
+    	String linkIds=""+linkId;
+		Long userId = getCurrentUser(request);
+		userDataCreator.saveRelate(Constants.indexMenuType,Constants.selfType, userId, linkIds, userId);
+		return Result.Sucess;
+    }
+
+    //查询首页显示的栏目
+    @RequestMapping(value = "/jqJson/indexItems", method = RequestMethod.GET)
+    @ResponseBody
     public Object IndexItems(@RequestParam("page") int page,@RequestParam("rows") int pageSize,HttpServletRequest request) {
     	Long userId = getCurrentUser(request);
     	return commonService.getIndexColumns(userId,page);
     }
     //没有加入首页菜单的栏目
-    @RequestMapping(value = "/jqJson/columnsNoInIndex", method = RequestMethod.GET)
+    @RequestMapping(value = "/jqJson/itemsNoInIndex", method = RequestMethod.GET)
     @ResponseBody
-    public Object ColumnsNoInIndex(@RequestParam("page") int page,@RequestParam("rows") int pageSize,HttpServletRequest request) {
+    public Object itemsNoInIndex(@RequestParam("page") int page,@RequestParam("rows") int pageSize,HttpServletRequest request) {
     	Long userId = getCurrentUser(request);
-    	int size = commonService.getQueryDao().getColumnsNoInIndexSize(userId,Constants.columnType);
-    	List<ColColumn> list = commonService.getQueryDao().getColumnsNoInIndex(userId,Constants.columnType);
+    	int size = commonService.getQueryDao().getColumnsNoInRelativeSize(userId,Constants.columnType,Constants.indexItemType);
+    	List<ColColumn> list = commonService.getQueryDao().getColumnsNoInRelative(userId,Constants.columnType,Constants.indexItemType);
     	return JGridBean.fromList(list,page, pageSize,size);
     }
-    //没有加入首页菜单的内容
-    @RequestMapping(value = "/jqJson/contentsNoInIndex", method = RequestMethod.GET)
-    @ResponseBody
-    public Object contentsNoInIndex(@RequestParam("page") int page,@RequestParam("rows") int pageSize,HttpServletRequest request) {
-    	Long userId = getCurrentUser(request);
-    	int size = commonService.getQueryDao().getContentsNoInIndexSize(userId,Constants.columnType);
-    	List<ConContent> list = commonService.getQueryDao().getContentsNoInIndex(userId,Constants.columnType);
-    	return JGridBean.fromList(list,page, pageSize,size);
-    }
-
     //将栏目加入菜单
-    @RequestMapping(value = "/jqJson/addItem/{columnIds}", method = RequestMethod.GET)
+    @RequestMapping(value = "/jqJson/addIndexItem/{columnIds}", method = RequestMethod.GET)
     @ResponseBody
-    public Object addItem(@PathVariable String columnIds,HttpServletRequest request) {
+    public Object addIndexItem(@PathVariable String columnIds,HttpServletRequest request) {
 		Long userId = getCurrentUser(request);
-		userDataCreator.saveRelate(Constants.indexType,Constants.menuColumn, userId, columnIds, userId);
+		userDataCreator.saveRelate(Constants.indexItemType,Constants.menuColumn, userId, columnIds, userId);
 
 		return Result.Sucess;
     }
-    //将内容加入菜单
-    @RequestMapping(value = "/jqJson/menuAddContent/{contentId}", method = RequestMethod.GET)
-    @ResponseBody
-    public Object menuAddContent(@PathVariable Long contentId,HttpServletRequest request) {
-    	String contentIds=""+contentId;
-		Long userId = getCurrentUser(request);
-		userDataCreator.saveRelate(Constants.indexType,Constants.menuContent, userId, contentIds, userId);
-		return Result.Sucess;
-    }
-    //将自定义链接加入菜单
-    @RequestMapping(value = "/jqJson/addLink/{linkId}", method = RequestMethod.GET)
-    @ResponseBody
-    public Object menuAddSelfLink(@PathVariable Long linkId,HttpServletRequest request) {
-    	String linkIds=""+linkId;
-		Long userId = getCurrentUser(request);
-		userDataCreator.saveRelate(Constants.indexType,Constants.selfType, userId, linkIds, userId);
-		return Result.Sucess;
-    }
-
+    
     @RequestMapping(value = "/jqJson/parents/{type}", method = RequestMethod.GET)
     @ResponseBody
     public Object parents(@PathVariable String type,@RequestParam("page") int page,@RequestParam("rows") int pageSize,HttpServletRequest request) {

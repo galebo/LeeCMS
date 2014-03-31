@@ -107,7 +107,7 @@ public class BeanCreator2 extends BaseService implements BeanCreater {
 			}
 		}
 		{
-			List<IndexMenu> indexMenus = queryDao.getIndexMenus(userId);
+			List<IndexMenu> indexMenus = queryDao.getIndexBeans(userId,Constants.indexMenuType);
 			common.setMenuList(getMenu(indexMenus,url,common));
 //				common.setMenuList(getMenu(common.getRootColumn(),url));
 		}

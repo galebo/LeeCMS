@@ -106,13 +106,13 @@ public class QueryDaoImpl extends BaseDaoImpl implements QueryDao{
 		return (Long)sqlMapClientTemplate.queryForObject("getSonColumnSize",SSIILL.create(type,null, null, null, columnId, userId) );
 	}
 	@SuppressWarnings("unchecked")
-	public List<IndexMenu> getIndexMenus(Long userId)
+	public List<IndexMenu> getIndexBeans(Long userId,String indexType)
 	{
-		return (List<IndexMenu>)sqlMapClientTemplate.queryForList("getIndexMenus",SSIILL.create(null,null, null, null, userId,null));
+		return (List<IndexMenu>)sqlMapClientTemplate.queryForList("getIndexBeans",SSIILL.create(indexType,null, null, null, userId,null));
 	}
-	public Long getIndexMenusSize(Long userId)
+	public Long getIndexBeansSize(Long userId,String indexType)
 	{
-		return (Long)sqlMapClientTemplate.queryForObject("getIndexMenusSize",SSIILL.create(null,null, null, null, userId,null) );
+		return (Long)sqlMapClientTemplate.queryForObject("getIndexBeansSize",SSIILL.create(indexType,null, null, null, userId,null) );
 	}
 	@SuppressWarnings("unchecked")
 	public List<ProCategory> getSonCategorys(Long columnId,Long userId,String type)
@@ -124,22 +124,13 @@ public class QueryDaoImpl extends BaseDaoImpl implements QueryDao{
 		return (Long)sqlMapClientTemplate.queryForObject("getSonCategorySize",SSIILL.create(type,null, null, null, columnId, userId) );
 	}
 	@SuppressWarnings("unchecked")
-	public List<ColColumn> getColumnsNoInIndex(Long userId,String type)
+	public List<ColColumn> getColumnsNoInRelative(Long userId,String type,String indexType)
 	{
-		return (List<ColColumn>)sqlMapClientTemplate.queryForList("getColumnsNoInIndex",SSIILL.create(type, Constants.indexType, null, null, userId, null));
+		return (List<ColColumn>)sqlMapClientTemplate.queryForList("getColumnsNoInRelative",SSIILL.create(type, indexType, null, null, userId, null));
 	}
-	public int getColumnsNoInIndexSize(Long userId,String type)
+	public int getColumnsNoInRelativeSize(Long userId,String type,String indexType)
 	{
-		return (Integer)sqlMapClientTemplate.queryForObject("getColumnsNoInIndexSize",SSIILL.create(type, Constants.indexType, null, null, userId, null) );
-	}
-	@SuppressWarnings("unchecked")
-	public List<ConContent> getContentsNoInIndex(Long userId,String type)
-	{
-		return (List<ConContent>)sqlMapClientTemplate.queryForList("getContentsNoInIndex",SSIILL.create(type, Constants.indexType, null, null, userId, null));
-	}
-	public int getContentsNoInIndexSize(Long userId,String type)
-	{
-		return (Integer)sqlMapClientTemplate.queryForObject("getContentsNoInIndexSize",SSIILL.create(type, Constants.indexType, null, null, userId, null) );
+		return (Integer)sqlMapClientTemplate.queryForObject("getColumnsNoInRelativeSize",SSIILL.create(type, indexType, null, null, userId, null) );
 	}
 	public ColColumn getColumn(Long columnId)
 	{

@@ -1,6 +1,7 @@
 package com.galebo.lowyer.dao.ibatis;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.orm.ibatis.SqlMapClientTemplate;
 
 import com.galebo.lowyer.model.CfgDefine;
@@ -102,6 +103,9 @@ public class BaseDaoImpl{
 		return ProCategoryProductDao;
 	}
 
+	@Autowired
+	JdbcTemplate jdbcTemplate;
+	
 	@Autowired
 	public void setSqlMapClientTemplate(SqlMapClientTemplate sqlMapClientTemplate) {
 		this.sqlMapClientTemplate = sqlMapClientTemplate;

@@ -14,7 +14,8 @@ public class Constants {
 	static public final String loopType="3AB";
 	static public final String linkType="3AA";
 	static public final String columnType="3AC";
-	static public final String indexType="3AD";
+	static public final String indexMenuType="3AD";
+	static public final String indexItemType="3AF";
 	static public final String categoryType="3AE";
 	
 	static public final String menuColumn="3BA";

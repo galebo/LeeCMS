@@ -108,7 +108,7 @@ function IndexMenu()
 IndexMenu.prototype.showSon1= function()
 {
 	this.div.show('#son1');
-	G_initOrRefreshJqGrid(selectColumnDefine,'/jqJson/columnsNoInIndex');
+	G_initOrRefreshJqGrid(selectColumnDefine,'/jqJson/itemsNoInMenu');
 };
 IndexMenu.prototype.showSon2= function()
 {
@@ -140,7 +140,7 @@ IndexMenu.prototype.addItems=function (){
 	if(sonIds==null||sonIds.length==0)
 		confirm("选项数为0");
 	else if(confirm("请确认添加这几项信息")){
-		var url ="/jqJson/addItem/"+sonIds;
+		var url ="/jqJson/addMenu_Item/"+sonIds;
 		G_callAjax(url,"",{closed:callBack_resetSonTable});
 	}
 };
@@ -150,13 +150,13 @@ IndexMenu.prototype.addLinks=function (type){
 	if(sonIds==null||sonIds.length==0)
 		confirm("选项数为0");
 	else if(confirm("请确认添加这几项信息")){
-		var url ="/jqJson/addLink/"+sonIds;
+		var url ="/jqJson/addMenu_Link/"+sonIds;
 		G_callAjax(url,"",{closed:callBack_resetSonTable});
 	}
 };
 IndexMenu.prototype.addContent= function (rowData,rowId,opType,tableId)
 {
-	var url="/jqJson/menuAddContent/"+rowData.contentId;
+	var url="/jqJson/addMenu_Content/"+rowData.contentId;
 	G_callAjax(url,"",{closed:callBack_resetSonTable});
 };
 IndexMenu.prototype.changeSort= function (rowData,rowId,opType,tableId)

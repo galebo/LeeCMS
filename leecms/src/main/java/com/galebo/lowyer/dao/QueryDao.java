@@ -63,13 +63,11 @@ public interface QueryDao {
 	public List<Long> getColumnsInIndex(long userId);
 	public List<ColColumn> getSonColumns(Long columnId, Long userId,String type);
 	public Long getSonColumnSize(Long columnId, Long userId,String type);
-	public List<IndexMenu> getIndexMenus(Long userId);
-	public Long getIndexMenusSize(Long userId);
-	
-	public List<ColColumn> getColumnsNoInIndex(Long userId,String type);
-	public int getColumnsNoInIndexSize(Long userId,String type);
-	public List<ConContent> getContentsNoInIndex(Long userId,String type);
-	public int getContentsNoInIndexSize(Long userId,String type);
+	public List<IndexMenu> getIndexBeans(Long userId,String indexType);
+	public Long getIndexBeansSize(Long userId,String indexType);
+
+	public List<ColColumn> getColumnsNoInRelative(Long userId,String type,String indexType);
+	public int getColumnsNoInRelativeSize(Long userId,String type,String indexType);
 
 	public List<ProCategory> getSonCategorys(Long columnId,Long userId,String type);
 	public Long getSonCategorySize(Long columnId,Long userId,String type);
