@@ -12,6 +12,9 @@
         <property name="configLocation" value="classpath:/sql-map-config.xml"/>
         <property name="dataSource" ref="dataSource"/>
     </bean>
+	<bean id="jdbcTemplateVrs" class="org.springframework.jdbc.core.JdbcTemplate">  
+    	<property name="dataSource"><ref bean="dataSource"/></property>  
+	</bean>  
     <bean id="sqlMapClientTemplate" class="org.springframework.orm.ibatis.SqlMapClientTemplate">
         <property name="sqlMapClient" ref="sqlMapClient"/>
     </bean>
