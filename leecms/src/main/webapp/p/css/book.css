@@ -1,0 +1,40 @@
+.f12 {
+	font-size: 12px;
+}
+a {
+	color: #000000;
+	text-decoration: none;
+}
+a:hover {
+	color: #FF0000;
+	text-decoration: underline;
+}
+.table2 {
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 0px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: #000000;
+	border-right-color: #000000;
+	border-bottom-color: #000000;
+	border-left-color: #000000;
+}
+.input {
+	font-size: 12px;
+	border: 1px solid #333333;
+}
+.button {
+	font-size: 12px;
+	background-color: #FFFFFF;
+	border: 1px solid #333333;
+	height: 21px;
+}
+.message {
+	font-size: 12px;
+	line-height: 20px;
+	color: #003366;
+}

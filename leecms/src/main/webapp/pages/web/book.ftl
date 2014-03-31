@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="keywords" content="留言板">
 <meta name="description" content="雨点免费留言板,单用户免费留言本">
-<link href="http://www.usacradi.com/gbook/css.css" rel="stylesheet" type="text/css">
+<link href="/p/css/book.css" rel="stylesheet" type="text/css">
 <script type="text/javascript">
 	function Mpic(f) {
 		if (pass.style.display == "none") {
