@@ -14,6 +14,7 @@ public class RowMapperGstMessage implements RowMapper<GstMessage>{
 		GstMessage bean = new GstMessage();
 		bean.setId        (rs.getLong     ("id"         ));
 		bean.setMessage   (rs.getString   ("message"    ));
+		bean.setUserName  (rs.getString   ("user_name"  ));
 		bean.setIsPublic  (rs.getLong     ("is_public"  ));
 		bean.setCreateTime(rs.getTimestamp("create_time"));
 		bean.setContentId (rs.getLong     ("content_id" ));

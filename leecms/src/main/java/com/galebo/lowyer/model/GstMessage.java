@@ -29,6 +29,7 @@ public class GstMessage extends BaseObject implements Serializable {
 	private static final long serialVersionUID = -3227130770702348038L;
 	private Long id;
     private String message;
+    private String userName;
     private Long isPublic;
     private Date createTime;
     private Long contentId;
@@ -41,7 +42,7 @@ public class GstMessage extends BaseObject implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
-    
+
     @Column(name="message", nullable=false, length=10240)
     @SearchableProperty
     public String getMessage() {
@@ -50,6 +51,16 @@ public class GstMessage extends BaseObject implements Serializable {
     
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    @Column(name="user_name", nullable=false, length=255)
+    @SearchableProperty
+    public String getUserName() {
+        return this.userName;
+    }
+    
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
     
     @Column(name="is_public", nullable=false)

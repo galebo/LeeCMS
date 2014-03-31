@@ -8,15 +8,21 @@ import javax.servlet.http.HttpServletResponse;
 
 import net.sf.json.JSONArray;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.ServletContextAware;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.galebo.common.WorkerException;
+import com.galebo.lowyer.bean.PageFront;
 import com.galebo.lowyer.bean.common.IdCount;
+import com.galebo.lowyer.dao.CommonDao;
+import com.galebo.lowyer.model.GstMessage;
 import com.galebo.lowyer.services.impl.Url;
 import com.galebo.lowyer.webapp.controller.BaseController;
 
@@ -79,5 +85,37 @@ public class PublicController extends BaseController implements ServletContextAw
 			}
     	}
     	return "";
+    }
+	
+	
+	/**
+	 * 客户留言
+	 */
+	@Autowired
+	CommonDao guestMessageDao;
+	
+    @RequestMapping(value="/pp/saveMessage",method = RequestMethod.POST)
+    public String onSubmit(GstMessage gstMessage, BindingResult errors){
+
+		if(gstMessage.getIsPublic()==null)
+			gstMessage.setIsPublic (0l);
+		if(gstMessage.getContentId()==null)
+			gstMessage.setContentId (-1l);
+		
+        guestMessageDao.insertGstMessage(gstMessage);
+        return "redirect:/pp/listMessage";
+    }
+    @RequestMapping(value="/pp/listMessage")
+    public ModelAndView listMessage(@RequestParam(required=false,value="page") Integer currentPage){
+    	int gstMessagesSize = guestMessageDao.getGstMessagesSize();
+    	if(currentPage==null||(currentPage!=null&&currentPage<1))
+    		currentPage=1;
+    	PageFront page=new PageFront(5,gstMessagesSize,currentPage);
+    	if(page.getTotalPage()<currentPage){
+    		page=new PageFront(5,gstMessagesSize,page.getTotalPage());
+    	}
+
+		return new ModelAndView("/web/book").addObject("messages",guestMessageDao.getGstMessages((currentPage-1)*5,5))
+				.addObject("page",page);
     }
 }
