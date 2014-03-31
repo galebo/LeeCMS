@@ -23,6 +23,7 @@
        		<Item name="MenuLink" title="MenuLink" page="/ja/cfgRelatives?type=3AA" roles="ROLE_USER"/>
        		<Item name="MenuLoop" title="MenuLoop" page="/ja/cfgRelatives?type=3AB" roles="ROLE_USER"/>
        		<Item name="MenuIndexColumn" title="MenuIndexColumn" page="/ja/indexItem" roles="ROLE_USER"/>
+       		<Item name="MenuIndexMenu" title="MenuIndexMenu" page="/ja/indexMenu" roles="ROLE_USER"/>
        		<Item name="MenuContentIndex" title="MenuContentIndex" page="/ja/contentIndex" roles="ROLE_USER"/>
         </Menu>
         <Menu name="MenuMore" title="MenuMore" description="" roles="ROLE_USER" width="120">

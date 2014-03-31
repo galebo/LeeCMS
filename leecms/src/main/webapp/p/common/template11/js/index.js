@@ -2,17 +2,17 @@
  var counts = 3;
  //大图//
  img1 = new Image();
- img1.src = 'images/top1.jpg';
+ img1.src = '/p/common/template11/upload/top1.jpg';
  img2 = new Image();
- img2.src = 'images/top2.jpg';
+ img2.src = '/p/common/template11/upload/top2.jpg';
  img3 = new Image();
- img3.src = 'images/top3.jpg';
+ img3.src = '/p/common/template11/upload/top3.jpg';
  
  var smallImg = new Array();
  //小图
- smallImg[0] = 'images/index_adb1.gif';
- smallImg[1] = 'images/index_adb2.gif';
- smallImg[2] = 'images/index_adb3.gif';
+ smallImg[0] = '/p/common/template11/images/index_adb1.gif';
+ smallImg[1] = '/p/common/template11/images/index_adb2.gif';
+ smallImg[2] = '/p/common/template11/images/index_adb3.gif';
  
  //链接地址
  url1 = new Image();

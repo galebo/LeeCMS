@@ -20,7 +20,7 @@ public class Ftl2Html {
 		
 		
 		Configuration cfg=new Configuration();
-		cfg.setDirectoryForTemplateLoading(new File("E:/workspace/git/LeeCMS/leecms/src/main/webapp/pages/dynamic/template10"));
+		cfg.setDirectoryForTemplateLoading(new File("E:/workspace/git/LeeCMS/leecms/src/main/webapp/pages/dynamic/template11"));
 		
 
 		BeanCreator BeanCreator=new BeanCreator();
@@ -30,6 +30,7 @@ public class Ftl2Html {
 		Common common = BeanCreator.getCommon();
 		map.put("common", common);
 		map.put("ftlPath", "/");
+		map.put("commTBase", "../src/main/webapp/p/common/template11");
 		
 		Template template = cfg.getTemplate("index.ftl");
 		template.process(map, new FileWriter(out+"zindex.html"));
@@ -43,7 +44,7 @@ public class Ftl2Html {
 		Template template2 = cfg.getTemplate("detail.ftl");
 		map.put("data", detail);
 		template2.process(map, new FileWriter(out+"zdetail.html"));
-		
+
 		System.out.println("over");
 	}
 }

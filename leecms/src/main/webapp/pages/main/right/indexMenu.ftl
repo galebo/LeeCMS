@@ -13,6 +13,8 @@
 </div>
 <div>
 	<input type="button" value="增加栏目" onclick="business.showSon1()"></input>
+	<input type="button" value="增加内容链接" onclick="business.showSon2()"></input>
+	<input type="button" value="增加链接" onclick="business.showSon3()"></input>
 </div>
 <div class="divTree" id="son1">
 	<input type="button" value="增加" onclick="business.addItems();"></input>
@@ -36,7 +38,7 @@
 	<div id="son3Div"></div>
 </div>
 <script type="text/javascript" src="/p/js/common/common.js"></script>
-<script type="text/javascript" src="/p/js/business/indexItem.js"></script>
+<script type="text/javascript" src="/p/js/business/indexMenu.js"></script>
 </@common.body>
 </#macro>
 

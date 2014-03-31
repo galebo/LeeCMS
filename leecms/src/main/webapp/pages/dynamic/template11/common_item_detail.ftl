@@ -1,4 +1,4 @@
-
+<#import "${ftlPath}/common.ftl" as g/>
 <#macro item_detail title>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -10,7 +10,7 @@
 <meta name="keywords" content="移民美国、留学、L-1签证国外美国展会 EB1-C签证">
 <meta name="description" content="专门为中国公司设立美国跨国公司服务， L-1签证，美国展会全程地接服务。带领国人，冲出国门。走向美国，走向世界！">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link href="${publicBase}/css/css.css" rel="stylesheet" type="text/css" />
+<link href="${commTBase}/css/css.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -27,12 +27,12 @@
 			<table style="border: 1px solid #dcdcdc;" border="0" cellpadding="0" cellspacing="0" width="100%">
 					<tbody>
 						<tr>
-           					 <td width="320" height="26" colspan="2" align="right" background="${publicBase}/images/index-02_54.jpg">
+           					 <td width="320" height="26" colspan="2" align="right" background="${commTBase}/images/index-02_54.jpg">
            					 <table width="100%" border="0" cellpadding="0" cellspacing="0">
 									<tr>
 										<td width="2"></td>
-										<td width="90" nowrap="nowrap" background="${publicBase}/images/index-02_69.jpg"><div class="pianbt2">${title} &gt;&nbsp;&nbsp;</div></td>
-                 						 <td width="16"><img src="${publicBase}/images/index-02_69.gif" width="16" height="26"></td>
+										<td width="90" nowrap="nowrap" background="${commTBase}/images/index-02_69.jpg"><div class="pianbt2">${title} &gt;&nbsp;&nbsp;</div></td>
+                 						 <td width="16"><img src="${commTBase}/images/index-02_69.gif" width="16" height="26"></td>
 										<td></td>
 
 									</tr>
@@ -62,7 +62,7 @@
 			<table style="border: 1px solid #dcdcdc;" border="0" cellpadding="0" cellspacing="0" width="100%">
 					<tbody>
 						<tr>
-     			 		<td class="baojie" align="left" background="${publicBase}/images/index-02_77.jpg" height="24"><div class="pianbt3">信息搜索 &gt;&nbsp;&nbsp;</div></td>
+     			 		<td class="baojie" align="left" background="${commTBase}/images/index-02_77.jpg" height="24"><div class="pianbt3">信息搜索 &gt;&nbsp;&nbsp;</div></td>
 						</tr>
 						<tr>
 							<td align="left" valign="top"><DIV class=lysearch>
@@ -84,33 +84,7 @@
 						<td></td>
 					</tr>
 				</table>
-				<table style="border: 1px solid #dcdcdc;" border="0" cellpadding="0" cellspacing="0" width="100%">
-					<tbody>
-						<tr>
-      						<td class="baojie" align="left" background="${publicBase}/images/index-02_77.jpg" height="24"><div class="pianbt3">海外资讯 &gt;&nbsp;&nbsp;</div></td>
-						</tr>
-						<tr>
-							<td align="left" valign="top"><table width="100%" height="4" border="0" cellpadding="0" cellspacing="0">
-									<tr>
-										<td></td>
-									</tr>
-								</table>
-								<table width="100%" height="10" border="0" cellpadding="0" cellspacing="0">
-									<tr>
-										<td style="padding-left: 5px;">
-						              <#list 1..5 as one>
-						              <table width="100%" align="center" cellspacing="0" cellpadding="0">
-						              	<tr><td width=12 height=20><img src="${publicBase}/images/newsdot.gif"></td><td><a  href="#" >美国人闯不闯黄灯!</a></td></tr></table>       
-									</#list>
-									</td>
-									</tr>
-								</table>
-								<table width="100%" height="4" border="0" cellpadding="0" cellspacing="0">
-									<tr>
-										<td></td>
-									</tr>
-								</table></td>
-						</tr>
-					</tbody>
-				</table>
+				
+  	<@g.left_list column=common.itemIdList[2]/>
+
 </#macro>

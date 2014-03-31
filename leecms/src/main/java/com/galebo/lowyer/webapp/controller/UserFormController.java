@@ -96,6 +96,8 @@ public class UserFormController extends BaseFormController {
 
             try {
             	commonService.getUserManager().saveUser(user);
+
+            	userDataCreator.createUserData_small(user.getId());
             } catch (AccessDeniedException ade) {
                 // thrown by UserSecurityAdvice configured in aop:advisor userManagerSecurity
                 log.warn(ade.getMessage());

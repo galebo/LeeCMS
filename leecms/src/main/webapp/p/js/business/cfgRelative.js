@@ -81,10 +81,11 @@ CfgRelative.prototype.init=function (type){
 		jQuery('#add').val("增加链接组");
 	if(type=='3AB')
 		jQuery('#add').val("增加轮播组");
+	this.groupType=type;
 	this.resetParentTable();
 };
 CfgRelative.prototype.addGroup=function (){
-	var url="/cfgGroupform?type="+type;
+	var url="/cfgGroupform?type="+this.groupType;
 	G_showCommBox(url,'增加组',900,450,{'关闭': true},callback_resetParentTable);
 };
 CfgRelative.prototype.set= function (rowData,rowId,opType,tableId)

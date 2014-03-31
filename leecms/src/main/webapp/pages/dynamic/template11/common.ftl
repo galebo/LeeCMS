@@ -5,7 +5,7 @@
       <td><table width="100%" border=0 align="center" cellPadding=0 cellSpacing=0>
         <tbody>
           <tr>
-            <td><a href="/"><img src="${publicBase}/upload/logo.jpg" width="611" height="134" border="0"></a></td>
+            <td><a href="/"><img src="${commTBase}/upload/logo.jpg" width="611" height="134" border="0"></a></td>
             <td width="1" valign="middle"><DIV class=lysearch2>
 			
 			<form action=search.asp method="get">
@@ -16,8 +16,8 @@
               <tr>
                 <td valign="right" nowrap><div align="right"><SPAN><A href="" style="COLOR: #000; CURSOR: #000;" 
             onclick=window.external.AddFavorite(location.href,document.title)>加入收藏</A> |&nbsp;<A style="COLOR: #000; CURSOR: 000; " 
-            onclick='this.style.behavior="url(#default#homepage)";this.setHomePage("http://${publicBase}/");' 
-            href="http://${publicBase}/">设为首页</A></SPAN>&nbsp;| <A 
+            onclick='this.style.behavior="url(#default#homepage)";this.setHomePage("http://${commTBase}/");' 
+            href="http://${commTBase}/">设为首页</A></SPAN>&nbsp;| <A 
             href="contact.asp" style="COLOR: #000; CURSOR: #000;" >联系我们</A></div></td>
               
               </tr>
@@ -44,15 +44,15 @@
 <table width="920" height=33 border=0 align="center" cellPadding=0 cellSpacing=0>
   <tbody>
     <tr>
-      <td background="${publicBase}/images/top_3.jpg"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+      <td background="${commTBase}/images/top_3.jpg"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr>
           <td>&nbsp;</td>
-          <td width="2"><img src="${publicBase}/images/top_5.jpg" width=2 height=33 alt=""/></td>
+          <td width="2"><img src="${commTBase}/images/top_5.jpg" width=2 height=33 alt=""/></td>
           <td align="center" width="90"><a href="/" class="tt1">首页</a></td>
-          <td width="2"><img src="${publicBase}/images/top_5.jpg" width=2 height=33 alt=""/></td>
-          <#list 1..10 as one>
-	          <td width="135" align="center"><a href="list.asp?id=3"  class="tt1">海外资讯</a></td>
-	          <td width="2"><img src="${publicBase}/images/top_5.jpg" width=2 height=33 alt=""/></td>
+          <td width="2"><img src="${commTBase}/images/top_5.jpg" width=2 height=33 alt=""/></td>
+			<#list common.menuList as one>
+	          <td width="135" align="center"><a href="${one.url}"  class="tt1">${one.name}</a></td>
+	          <td width="2"><img src="${commTBase}/images/top_5.jpg" width=2 height=33 alt=""/></td>
 			</#list>
           <td>&nbsp;</td>
         </tr>
@@ -60,7 +60,7 @@
     </tr>
   </tbody>
 </table>
-<table width="920" height=29 border=0 align="center" cellPadding=0 cellSpacing=0 background="${publicBase}/images/top_7.jpg">
+<table width="920" height=29 border=0 align="center" cellPadding=0 cellSpacing=0 background="${commTBase}/images/top_7.jpg">
   <tbody>
     <tr>
       <td><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
@@ -114,18 +114,53 @@ demo50.onmouseout=function() {MyMar=setInterval(Marquee,speed)}
 </#macro>
 
 
+<#macro left_list column>
+  <table style="border:1px solid #dcdcdc;" border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tbody>
+        <tr>
+          <td class="baojie" align="left" background="${commTBase}/images/index-02_77.jpg" height="24"><div class="pianbt3">${column.name} &gt;&nbsp;&nbsp;</div></td>
+        </tr>
+        <tr>
+          <td align="left" valign="top"><table width="100%" height="4" border="0" cellpadding="0" cellspacing="0">
+              <tr>
+                <td></td>
+              </tr>
+            </table>
+            <table width="100%" height="10" border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td style="padding-left:13px;">
+					<#list column.contents as one>
+                   <table width="100%" align="center" cellspacing="0" cellpadding="0">
+                   <tr><td width=12 height=20><img src="${commTBase}/images/newsdot.gif"/></td><td><a  href="${one.url}" >${one.name}</a></td></tr></table>
+ 					</#list>
+				</td>
+       			 </tr>
+            </table>
+            <table width="100%" height="4" border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td></td>
+                </tr>
+            </table></td>
+        </tr>
+      </tbody>
+    </table>
+
+</#macro>
+
+
+
 <#macro aa>
 
 <table style="border:1px solid #dcdcdc;" border="0" cellpadding="0" cellspacing="0" width="100%">
             <tbody>
               <tr>
-                <td width="320" height="26" colspan="2" align="right" background="${publicBase}/images/index-02_54.jpg"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <td width="320" height="26" colspan="2" align="right" background="${commTBase}/images/index-02_54.jpg"><table width="100%" border="0" cellpadding="0" cellspacing="0">
                     <tr>
                       <td width="2"></td>
-                      <td width="90" background="${publicBase}/images/index-02_69.jpg" align=left><div class="pianbt2">联系我们 &gt;&nbsp;&nbsp;</div></td>
-                      <td width="16"><img src="${publicBase}/images/index-02_69.gif" width="16" height="26" /></td>
+                      <td width="90" background="${commTBase}/images/index-02_69.jpg" align=left><div class="pianbt2">联系我们 &gt;&nbsp;&nbsp;</div></td>
+                      <td width="16"><img src="${commTBase}/images/index-02_69.gif" width="16" height="26" /></td>
                       <td></td>
-                      <td width="1"><a href="contact.asp" target="_parent"><img src="${publicBase}/images/index-02_59.jpg" border="0" /></a></td>
+                      <td width="1"><a href="contact.asp" target="_parent"><img src="${commTBase}/images/index-02_59.jpg" border="0" /></a></td>
                     </tr>
                 </table></td>
               </tr>
@@ -184,13 +219,13 @@ demo50.onmouseout=function() {MyMar=setInterval(Marquee,speed)}
 <table style="border:1px solid #dcdcdc;" border="0" cellpadding="0" cellspacing="0" width="100%">
             <tbody>
               <tr>
-                <td width="320" height="26" colspan="2" align="right" background="${publicBase}/images/index-02_54.jpg"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <td width="320" height="26" colspan="2" align="right" background="${commTBase}/images/index-02_54.jpg"><table width="100%" border="0" cellpadding="0" cellspacing="0">
                     <tr>
                       <td width="2"></td>
-                      <td width="90" background="${publicBase}/images/index-02_69.jpg" align=left><div class="pianbt2">关于我们 &gt;&nbsp;&nbsp;</div></td>
-                      <td width="16"><img src="${publicBase}/images/index-02_69.gif" width="16" height="26" /></td>
+                      <td width="90" background="${commTBase}/images/index-02_69.jpg" align=left><div class="pianbt2">关于我们 &gt;&nbsp;&nbsp;</div></td>
+                      <td width="16"><img src="${commTBase}/images/index-02_69.gif" width="16" height="26" /></td>
                       <td></td>
-                      <td width="1"><a href="show.asp?id=2" target="_parent"><img src="${publicBase}/images/index-02_59.jpg" border="0" /></a></td>
+                      <td width="1"><a href="show.asp?id=2" target="_parent"><img src="${commTBase}/images/index-02_59.jpg" border="0" /></a></td>
                     </tr>
                 </table></td>
               </tr>
@@ -236,7 +271,7 @@ demo50.onmouseout=function() {MyMar=setInterval(Marquee,speed)}
 <table width="920" border="0" align="center" cellpadding="0" cellspacing="0">
   <tr>
     <td width="10"></td>
-    <td width="180"><img src="${publicBase}/upload/bottomlogo.jpg" width="250" height="50"></td>
+    <td width="180"><img src="${commTBase}/upload/bottomlogo.jpg" width="250" height="50"></td>
     <td width="40"></td>
     <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
       <tr>
@@ -246,16 +281,17 @@ demo50.onmouseout=function() {MyMar=setInterval(Marquee,speed)}
         <td style="font-size:12px; ">地址：11100 Valley Blvd., Suite 106, EI Monte, CA91731 U.S.A</td>
       </tr>
       <tr>
-        <td style="font-size:12px; ">        24小时咨询热线：13343214455&nbsp;&nbsp;/&nbsp;&nbsp;QQ：<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=1346369183&amp;site=qq&amp;menu=yes">1346369183</a>&nbsp;&nbsp;<a href="http://www.greattranslation.com" target="_blank">格林翻译</a></td>
+        <td style="font-size:12px; ">24小时咨询热线：13343214455&nbsp;&nbsp;/&nbsp;&nbsp;QQ：<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=1346369183&amp;site=qq&amp;menu=yes">1346369183</a>&nbsp;&nbsp;<a href="http://www.greattranslation.com" target="_blank">格林翻译</a></td>
       </tr>
       <tr>
-        <td style="font-size:12px; " align=left><table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td width=70>网站流量：</td>
-    <td align=left><script src="http://www.newzgc.com/others/counter/counter.asp?username=usacradi.com&style=2"></script></td>
-  </tr>
-</table>
-</td>
+        <td style="font-size:12px; " align=left>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+		  <tr>
+		    <td width=70>网站流量：</td>
+		    <td align=left><script src="http://www.newzgc.com/others/counter/counter.asp?username=usacradi.com&style=2"></script></td>
+		  </tr>
+		</table>
+		</td>
       </tr>
     </table></td>
   </tr>
