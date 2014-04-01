@@ -48,7 +48,7 @@
         <tr>
           <td>&nbsp;</td>
           <td width="2"><img src="${commTBase}/images/top_5.jpg" width=2 height=33 alt=""/></td>
-          <td align="center" width="90"><a href="/" class="tt1">首页</a></td>
+          <td align="center" width="90"><a href="${common.homePage.url}" class="tt1">首页</a></td>
           <td width="2"><img src="${commTBase}/images/top_5.jpg" width=2 height=33 alt=""/></td>
 			<#list common.menuList as one>
 	          <td width="135" align="center"><a href="${one.url}"  class="tt1">${one.name}</a></td>

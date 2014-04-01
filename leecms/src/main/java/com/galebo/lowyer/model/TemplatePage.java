@@ -1,32 +1,30 @@
 package com.galebo.lowyer.model;
 
-import com.galebo.lowyer.model.BaseObject;
+import static javax.persistence.GenerationType.IDENTITY;
 
-import org.compass.annotations.Searchable;
-import org.compass.annotations.SearchableComponent;
-import org.compass.annotations.SearchableId;
-import org.compass.annotations.SearchableProperty;
+import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-
 import javax.xml.bind.annotation.XmlRootElement;
 
-import java.io.Serializable;
+import org.compass.annotations.Searchable;
+import org.compass.annotations.SearchableId;
+import org.compass.annotations.SearchableProperty;
 
 @Entity
 @Table(name="template_page")
 @Searchable
 @XmlRootElement
 public class TemplatePage extends BaseObject implements Serializable {
-    private Long templatePageId;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -4512903903589738099L;
+	private Long templatePageId;
     private Long templateId;
     private String templatePageName;
     private Long userId;

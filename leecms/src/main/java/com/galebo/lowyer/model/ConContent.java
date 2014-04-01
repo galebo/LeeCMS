@@ -5,16 +5,12 @@ import static javax.persistence.GenerationType.IDENTITY;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-import javax.persistence.CascadeType;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -25,7 +21,6 @@ import org.compass.annotations.SearchableId;
 import org.compass.annotations.SearchableProperty;
 
 import com.galebo.common.UtilsCommon;
-import com.galebo.common.UtilsString;
 import com.galebo.common.jgrid.JGridAble;
 
 @Entity
@@ -33,7 +28,11 @@ import com.galebo.common.jgrid.JGridAble;
 @Searchable
 @XmlRootElement
 public class ConContent extends BaseObject implements Serializable ,JGridAble{
-    private Long contentId;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -8186798061846685847L;
+	private Long contentId;
     private Long userId;
     private String nameCn;
     private String source;

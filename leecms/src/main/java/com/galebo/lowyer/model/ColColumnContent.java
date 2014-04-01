@@ -27,7 +27,11 @@ import com.galebo.lowyer.bean.Sortable;
 @Searchable
 @XmlRootElement
 public class ColColumnContent extends BaseObject implements Serializable ,Sortable,JGridAble{
-    private Long columnContentId;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 3228532305506697073L;
+	private Long columnContentId;
     private ColColumn colColumn=new ColColumn();
     private ConContent conContent=new ConContent();
     public ConContent getConContent() {

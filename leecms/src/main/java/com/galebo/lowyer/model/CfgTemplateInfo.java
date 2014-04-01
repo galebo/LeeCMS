@@ -1,35 +1,33 @@
 package com.galebo.lowyer.model;
 
-import com.galebo.lowyer.model.BaseObject;
+import static javax.persistence.GenerationType.IDENTITY;
 
-import org.compass.annotations.Searchable;
-import org.compass.annotations.SearchableComponent;
-import org.compass.annotations.SearchableId;
-import org.compass.annotations.SearchableProperty;
-
+import java.io.Serializable;
 import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-
 import javax.xml.bind.annotation.XmlRootElement;
 
-import java.io.Serializable;
+import org.compass.annotations.Searchable;
+import org.compass.annotations.SearchableId;
+import org.compass.annotations.SearchableProperty;
 
 @Entity
 @Table(name="cfg_template_info")
 @Searchable
 @XmlRootElement
 public class CfgTemplateInfo extends BaseObject implements Serializable {
-    private Long cfgTemplateId;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 2982261296070661556L;
+	private Long cfgTemplateId;
     private Date CTime;
     private String columnCfg;
     private String contentCfg;

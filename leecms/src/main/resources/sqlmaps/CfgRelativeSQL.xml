@@ -63,16 +63,16 @@
     (element_type='3AA' or element_type='3AB')) and parent_element_id=#long2#  and (element_type='3AA' or element_type='3AB')]]>
     </select>
     <select id="getRelativeUpOne" resultMap="cfgRelativeResult"  parameterClass="com.galebo.common.dao.SSIILL">
-    <![CDATA[select * from cfg_Relative where sort =(select max(t.SORT) FROM cfg_Relative t where t.sort < #long1# and t.parent_element_id=#long2# and (element_type='3AA' or element_type='3AB'))
-    and parent_element_id=#long2# and (element_type='3AA' or element_type='3AB') ]]>
+    <![CDATA[select * from cfg_Relative where sort =(select max(t.SORT) FROM cfg_Relative t where t.sort < #long1# and t.parent_element_id=#long2# and 
+    (element_type='3AA' or element_type='3AB')) and parent_element_id=#long2# and (element_type='3AA' or element_type='3AB') ]]>
     </select>
     <select id="getColumnDownOne" resultMap="cfgRelativeResult" parameterClass="com.galebo.common.dao.SSIILL">
     <![CDATA[select * from cfg_Relative where sort =(select min(t.SORT) FROM cfg_Relative t where t.sort > #long1# and t.parent_element_id=#long2# and
     (element_type='3AC')) and parent_element_id=#long2#  and (element_type='3AC')]]>
     </select>
     <select id="getColumnUpOne" resultMap="cfgRelativeResult"  parameterClass="com.galebo.common.dao.SSIILL">
-    <![CDATA[select * from cfg_Relative where sort =(select max(t.SORT) FROM cfg_Relative t where t.sort < #long1# and t.parent_element_id=#long2# and (element_type='3AC'))
-    and parent_element_id=#long2# and (element_type='3AC') ]]>
+    <![CDATA[select * from cfg_Relative where sort =(select max(t.SORT) FROM cfg_Relative t where t.sort < #long1# and t.parent_element_id=#long2# and
+     (element_type='3AC')) and parent_element_id=#long2# and (element_type='3AC') ]]>
     </select>
     
     <select id="getIndexMenuDownOne" resultMap="cfgRelativeResult" parameterClass="com.galebo.common.dao.SSIILL">
@@ -80,8 +80,17 @@
     (element_type='3AD')) and parent_element_id=#long2#  and (element_type='3AD')]]>
     </select>
     <select id="getIndexMenuUpOne" resultMap="cfgRelativeResult"  parameterClass="com.galebo.common.dao.SSIILL">
-    <![CDATA[select * from cfg_Relative where sort =(select max(t.SORT) FROM cfg_Relative t where t.sort < #long1# and t.parent_element_id=#long2# and (element_type='3AD'))
-    and parent_element_id=#long2# and (element_type='3AD') ]]>
+    <![CDATA[select * from cfg_Relative where sort =(select max(t.SORT) FROM cfg_Relative t where t.sort < #long1# and t.parent_element_id=#long2# and 
+    (element_type='3AD')) and parent_element_id=#long2# and (element_type='3AD') ]]>
+    </select>
+    
+    <select id="getIndexItemDownOne" resultMap="cfgRelativeResult" parameterClass="com.galebo.common.dao.SSIILL">
+    <![CDATA[select * from cfg_Relative where sort =(select min(t.SORT) FROM cfg_Relative t where t.sort > #long1# and t.parent_element_id=#long2# and
+    (element_type='3AF')) and parent_element_id=#long2#  and (element_type='3AF')]]>
+    </select>
+    <select id="getIndexItemUpOne" resultMap="cfgRelativeResult"  parameterClass="com.galebo.common.dao.SSIILL">
+    <![CDATA[select * from cfg_Relative where sort =(select max(t.SORT) FROM cfg_Relative t where t.sort < #long1# and t.parent_element_id=#long2# and 
+    (element_type='3AF')) and parent_element_id=#long2# and (element_type='3AF') ]]>
     </select>
     
     <select id="getRelativeMaxSort" resultMap="cfgRelativeResult" parameterClass="com.galebo.common.dao.SSIILL">

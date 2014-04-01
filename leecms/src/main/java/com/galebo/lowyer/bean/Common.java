@@ -31,6 +31,8 @@ public class Common {
 
 	private Item defaultItem;//用于如果没有找到栏目的默认项
 	private List<Item> itemIdList=new ArrayList<Item>();//用于全局的栏目List
+	private Map<Long,Item> itemIdMap=new HashMap<Long,Item>();//用于全局的栏目Map
+
 	private List<NameKey1234> indexSearchData=null;
 	private List<UrlNameAuthor> similar = null;
 	private List<UrlNameAuthor> contents_IndexSearch = null;
@@ -213,6 +215,13 @@ public class Common {
 
 	public void setItemIdList(List<Item> itemIdList) {
 		this.itemIdList = itemIdList;
+	}
+	public Map<Long, Item> getItemIdMap() {
+		return itemIdMap;
+	}
+
+	public void setItemIdMap(Map<Long, Item> itemIdMap) {
+		this.itemIdMap = itemIdMap;
 	}
 
 	public Common getSonCommon() {

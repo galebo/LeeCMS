@@ -33,7 +33,11 @@ import com.galebo.common.jgrid.JGridAble;
 @Searchable
 @XmlRootElement
 public class ColColumn extends BaseObject implements Serializable ,JGridAble{
-    private Long columnId;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 8080316868994049794L;
+	private Long columnId;
     private Long userId;
     private Date CTime;
     private Long smallId;

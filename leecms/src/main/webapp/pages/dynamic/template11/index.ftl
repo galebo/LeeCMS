@@ -56,7 +56,7 @@
   <tr>
     <td width="190" valign="top">
     
-  	<@g.left_list column=common.itemIdList[1]/>
+  	<@g.left_list column=common.indexItemList[0]/>
     
       <table width="100%" height="10" border="0" cellpadding="0" cellspacing="0">
         <tr>
@@ -93,7 +93,7 @@
         </tr>
       </table>
       
-  	<@g.left_list column=common.itemIdList[2]/>
+  	<@g.left_list column=common.indexItemList[1]/>
   	
 	</td>
 	
@@ -136,13 +136,13 @@
 	      <table width="100%" height="10" border="0" cellpadding="0" cellspacing="0">
 	        <tr>
 	          <td width="49%" valign="top">
-				<@list column=common.itemIdList[3]/>
+				<@list column=common.indexItemList[2]/>
 				</td>
 	          
 	          <td width="9"></td>
 	          
 	          <td valign="top">
-				<@list column=common.itemIdList[4]/>
+				<@list column=common.indexItemList[3]/>
 	          </td>
 	        </tr>
 	      </table>
@@ -163,7 +163,7 @@
 <table width="920" border="0" align="center" cellpadding="0" cellspacing="0" style="border:1px solid #dcdcdc;">
   <tbody>
     <tr>
-      <td class="baojie" align="left" background="${commTBase}/images/index-02_77.jpg" height="24"><div class="pianbt3">美国旅游 &gt;&nbsp;&nbsp;</div></td>
+      <td class="baojie" align="left" background="${commTBase}/images/index-02_77.jpg" height="24"><div class="pianbt3">${common.indexItemList[4].name} &gt;&nbsp;&nbsp;</div></td>
     </tr>
     <tr>
       <td align="left" valign="top" width="327"><table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -174,10 +174,13 @@
 				    <tr>
 				      <td id="demo1" valign="top"><table border="0" cellpadding="0" cellspacing="0">
 				        <tr>
-				        	<#list 1..7 as one>
+				        	<#list common.indexItemList[4].contents as one>
 		        	          <td><table width="100%"><tr><td><a  href="#">
-		        	          <img class=proimg border="0" height="120" alt="洛杉矶贝佛利山庄" src="${commTBase}/upload/20131224091209.jpg" width="160">
-		        	          </a></td></tr></table><table width="100%"><tr><td align="center"><a  href="#">洛杉矶贝佛利山庄</a></td></tr></table></td>
+		        	          <img class=proimg border="0" height="120" alt="${one.name}" src="${one.pic}" width="160">
+		        	          </a></td></tr></table><table width="100%"><tr><td align="center"><a  href="${one.url}">${one.name}</a></td></tr></table></td>
+		        	          <#if one_index=6>
+		        	          <#break>
+		        	          </#if>
 				 			</#list>
 				        </tr>
 				      </table></td>

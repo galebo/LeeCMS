@@ -341,6 +341,13 @@ public class CommonController extends BaseController{
     	userDataCreator.saveRelate(type,null, groupId, sonIds, getCurrentUser(request));
 		return Result.Sucess;
     }
+    /*
+     * changeSort/ColColumnContent
+     * changeSort/Relative
+     * changeSort/Column
+     * changeSort/IndexItem
+     * changeSort/IndexMenu
+     */
 	
     @RequestMapping(value = "/jqJson/changeSort/{type}/{direct}/{groupId}/{relativeId}/{sonId}/{sort}", method = RequestMethod.GET)
     @ResponseBody
@@ -359,8 +366,8 @@ public class CommonController extends BaseController{
         	}
     		else
     		{
-        		commonService.getModifyDao().changeSort("update"+type+"Sort",destOne.getId(),sort);
-        		commonService.getModifyDao().changeSort("update"+type+"Sort",relativeId,destOne.getSort());
+        		commonService.getModifyDao().changeSort("updateRelativeSort",destOne.getId(),sort);
+        		commonService.getModifyDao().changeSort("updateRelativeSort",relativeId,destOne.getSort());
     		}
     	}
 		return Result.Sucess;

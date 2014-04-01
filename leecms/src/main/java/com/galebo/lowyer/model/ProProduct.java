@@ -1,35 +1,33 @@
 package com.galebo.lowyer.model;
 
-import com.galebo.lowyer.model.BaseObject;
+import static javax.persistence.GenerationType.IDENTITY;
 
-import org.compass.annotations.Searchable;
-import org.compass.annotations.SearchableComponent;
-import org.compass.annotations.SearchableId;
-import org.compass.annotations.SearchableProperty;
-
+import java.io.Serializable;
 import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-
 import javax.xml.bind.annotation.XmlRootElement;
 
-import java.io.Serializable;
+import org.compass.annotations.Searchable;
+import org.compass.annotations.SearchableId;
+import org.compass.annotations.SearchableProperty;
 
 @Entity
 @Table(name="pro_product")
 @Searchable
 @XmlRootElement
 public class ProProduct extends BaseObject implements Serializable {
-    private Long productId;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 6740275403001440717L;
+	private Long productId;
     private Long userId;
     private String nameCn;
     private String status;

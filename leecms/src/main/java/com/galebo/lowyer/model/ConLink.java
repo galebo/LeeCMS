@@ -27,7 +27,11 @@ import com.galebo.common.jgrid.JGridAble;
 @Searchable
 @XmlRootElement
 public class ConLink extends BaseObject implements Serializable,JGridAble{
-    private Long linkId;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -7450499980677202985L;
+	private Long linkId;
     private String type;
 	private Long userId;
     private String title;

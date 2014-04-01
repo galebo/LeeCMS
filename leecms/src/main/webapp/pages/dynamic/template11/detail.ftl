@@ -1,17 +1,17 @@
-<#import "common.ftl" as g/>
-<#import "common_item_detail.ftl" as item_detail/>
+<#import "${ftlPath}/common.ftl" as g/>
+<#import "${ftlPath}/common_item_detail.ftl" as item_detail/>
 
 
-<#macro detail>
-	<@item_detail.item_detail title='美国商标注册服务以及流程'>
+<#macro main detail>
+	<@item_detail.item_detail title=detail.item.name>
 		<table width="100%" border="0" cellspacing="0" cellpadding="20" height="300">
 			<tr>
 				<td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
 						<tr>
-							<td align="center" valign="top"><font style="font-size: 16px">美国商标注册服务以及流程</font></td>
+							<td align="center" valign="top"><font style="font-size: 16px">${detail.content.name}</font></td>
 						</tr>
 						<tr>
-							<td height="10"></td>
+							<td height="10">${detail.content.html}</td>
 						</tr>
 						<tr>
 							<td>
@@ -26,4 +26,4 @@
 	</@item_detail.item_detail>
 </#macro>
 
-<@detail/>
+<@main detail=data/>

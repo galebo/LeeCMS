@@ -18,12 +18,6 @@
 	<update id="updateRelativeSort" parameterClass="com.galebo.common.dao.SSIILL">
     <![CDATA[UPDATE cfg_Relative SET sort = #long2#  WHERE  cfg_relate_id = #long1#]]>
     </update>
-	<update id="updateColumnSort" parameterClass="com.galebo.common.dao.SSIILL">
-    <![CDATA[UPDATE cfg_Relative SET sort = #long2#  WHERE  cfg_relate_id = #long1#]]>
-    </update>
-	<update id="updateIndexMenuSort" parameterClass="com.galebo.common.dao.SSIILL">
-    <![CDATA[UPDATE cfg_Relative SET sort = #long2#  WHERE  cfg_relate_id = #long1#]]>
-    </update>
     
 	<update id="updateContentCount" parameterClass="java.lang.Long">
     <![CDATA[UPDATE con_Content SET VIEW_COUNT = VIEW_COUNT+1 WHERE  content_Id = #long1#]]>

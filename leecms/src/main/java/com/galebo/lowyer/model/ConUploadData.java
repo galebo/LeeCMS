@@ -1,35 +1,33 @@
 package com.galebo.lowyer.model;
 
-import com.galebo.lowyer.model.BaseObject;
+import static javax.persistence.GenerationType.IDENTITY;
 
-import org.compass.annotations.Searchable;
-import org.compass.annotations.SearchableComponent;
-import org.compass.annotations.SearchableId;
-import org.compass.annotations.SearchableProperty;
-
+import java.io.Serializable;
 import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-
 import javax.xml.bind.annotation.XmlRootElement;
 
-import java.io.Serializable;
+import org.compass.annotations.Searchable;
+import org.compass.annotations.SearchableId;
+import org.compass.annotations.SearchableProperty;
 
 @Entity
 @Table(name="con_upload_data")
 @Searchable
 @XmlRootElement
 public class ConUploadData extends BaseObject implements Serializable {
-    private Long uploadDataId;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 7950232668385976473L;
+	private Long uploadDataId;
     private String newName;
     private String name;
     private Long size;

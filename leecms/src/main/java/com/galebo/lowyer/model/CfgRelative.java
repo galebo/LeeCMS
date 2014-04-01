@@ -22,7 +22,11 @@ import com.galebo.lowyer.bean.Sortable;
 @Searchable
 @XmlRootElement
 public class CfgRelative extends BaseObject implements Serializable,Sortable {
-    private Long cfgRelateId;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -4624094357963175958L;
+	private Long cfgRelateId;
     private Long elementId;
     private String elementType;
     private String elementType2;

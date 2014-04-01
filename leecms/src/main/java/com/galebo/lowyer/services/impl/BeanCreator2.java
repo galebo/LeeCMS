@@ -88,7 +88,7 @@ public class BeanCreator2 extends BaseService implements BeanCreater {
 					common.setDefaultColumn(colColumn);
 
 			}
-			initIdMap(columnPidMap, common.getRootColumn(),common.getColumnIdMap(),0);
+			_common_initIdMap(columnPidMap, common.getRootColumn(),common.getColumnIdMap(),0);
 			
 			common.setColumnContentMap(queryDao.getColumnContentsMap(userId));
 
@@ -102,14 +102,21 @@ public class BeanCreator2 extends BaseService implements BeanCreater {
 			}
 			//组合栏目id与内容map
 			for (ColColumn colColumn : common.getColumns()) {
-				if(colColumn.getColPid()!=-1)
-					common.getItemIdList().add(getItem2(colColumn.getColumnId(), url, common));
+				if(colColumn.getColPid()!=-1){
+					Item item2 = getItem2(colColumn.getColumnId(), url, common);
+					common.getItemIdList().add(item2);
+					common.getItemIdMap().put(colColumn.getColumnId(),item2);
+				}
 			}
 		}
 		{
 			List<IndexMenu> indexMenus = queryDao.getIndexBeans(userId,Constants.indexMenuType);
-			common.setMenuList(getMenu(indexMenus,url,common));
+			common.setMenuList(_common_getIndexMenus(indexMenus,url,common));
 //				common.setMenuList(getMenu(common.getRootColumn(),url));
+			
+
+			List<IndexMenu> indexItems = queryDao.getIndexBeans(userId,Constants.indexItemType);
+			common.setIndexItemList(_common_getIndexItemList(indexItems,url,common));
 		}
 		
 		{
@@ -133,14 +140,41 @@ public class BeanCreator2 extends BaseService implements BeanCreater {
 			searchPage.setUrl(url.getSearchUrl());
 			common.setSearchPage(searchPage);
 		}
-		common.setDefaultItem(createItem(common.getDefaultColumn().getColumnId(), url, common));
+		common.setDefaultItem(_createItem(common.getDefaultColumn().getColumnId(), url, common));
 
 		
 		return common;
 	}
 
 
-	private void initIdMap(Map<Long, List<ColColumn>> parentIdMap, ColColumn parent, Map<Long, ColColumn> idMap,long level) {
+
+	private List<Menu> _common_getIndexMenus(List<IndexMenu> indexMenus, Url url,Common common) {
+
+		List<Menu> menus=new ArrayList<Menu>();
+		for (IndexMenu sonColumn:indexMenus) {
+			Menu menu = new Menu();
+			menu.setName(sonColumn.getName());
+			if(sonColumn.getType().equals("栏目"))
+				menu.setUrl(url.getItemUrl(sonColumn.getId()));
+			else if(sonColumn.getType().equals("链接")){
+				ConLink conLink = queryDao.getConLinkDao().get(sonColumn.getId());
+				menu.setUrl(url.getLinkUrl(conLink.getUrl()));
+			}else
+				menu.setUrl(url.getDetailNoTitleUrl(sonColumn.getId()));
+			menu.setId(sonColumn.getId());
+			menu.setSonMenus(new ArrayList<Menu>());
+			menus.add(menu);
+		}
+		return menus;
+	}
+	private List<Item> _common_getIndexItemList(List<IndexMenu> indexMenus, Url url, Common common) {
+		List<Item> indexItems=new ArrayList<Item>();
+		for (IndexMenu indexMenu : indexMenus) {
+			indexItems.add(common.getItemIdMap().get(indexMenu.getId()));
+		}
+		return indexItems;
+	}
+	private void _common_initIdMap(Map<Long, List<ColColumn>> parentIdMap, ColColumn parent, Map<Long, ColColumn> idMap,long level) {
 		if(parent==null)
 			return;
 		List<ColColumn> sonColumn = parentIdMap.get(parent.getColumnId());
@@ -150,7 +184,7 @@ public class BeanCreator2 extends BaseService implements BeanCreater {
 			son.setLevel(level);
 			log.debug(son.getColName()+","+level);
 			idMap.put(son.getColumnId(), son);
-			initIdMap(parentIdMap,son,idMap,level+1);
+			_common_initIdMap(parentIdMap,son,idMap,level+1);
 		}
 	}
 	public Index getIndex(Url url,Common common)
@@ -179,7 +213,7 @@ public class BeanCreator2 extends BaseService implements BeanCreater {
 		if(item==null)
 		{
 			log.debug("item no in Map");
-			item = createItem(itemId,url,common);
+			item = _createItem(itemId,url,common);
 			CmsMap.cmsMap.getItemMap().put(key, item);
 		}
 		return item;
@@ -190,7 +224,7 @@ public class BeanCreator2 extends BaseService implements BeanCreater {
 		if(detail==null)
 		{
 			log.debug("detail no in Map");
-			detail=createDetail(columnContentId,url,common);
+			detail=_createDetail(columnContentId,url,common);
 			CmsMap.cmsMap.getDetailMap().put(key, detail);
 		}
 		return detail;
@@ -201,40 +235,40 @@ public class BeanCreator2 extends BaseService implements BeanCreater {
 		if(detail==null)
 		{
 			log.debug("content no in Map");
-			detail=createContent(contentId,url,common);
+			detail=_createContent(contentId,url,common);
 			CmsMap.cmsMap.getContentMap().put(key, detail);
 		}
 		return detail;
 	}
-	private Item createItem(Long itemId,Url url,Common common) {
+	private Item _createItem(Long itemId,Url url,Common common) {
 		ColColumn column = common.getColumnIdMap().get(itemId);
 		Item item2=new Item();
-		List<UrlNameAuthor> contents = getContents(column.getColumnId(),url);
+		List<UrlNameAuthor> contents = _getContents(column.getColumnId(),url);
 
 		item2.setId(column.getColumnId());
 		item2.setContents(contents);
 		item2.setUrl(url.getItemUrl(column.getColumnId()));
 		item2.setName(column.getColName());
 		item2.setHasSon(column.getSonColumn().size()>0);
-		item2.setSonItems(createSimpleItem(column.getSonColumn(),url,common));
-		item2.setBrotherItems(createSimpleItem(common.getColumnId_brotherColumnsMap().get(column.getColumnId()),url,common));
+		item2.setSonItems(_createSimpleItem(column.getSonColumn(),url,common));
+		item2.setBrotherItems(_createSimpleItem(common.getColumnId_brotherColumnsMap().get(column.getColumnId()),url,common));
 		item2.setLevel(column.getLevel());
 		return item2;
 	}
 
-	private List<Item> createSimpleItem(List<ColColumn> list,Url url,Common common) {
+	private List<Item> _createSimpleItem(List<ColColumn> list,Url url,Common common) {
 		List<Item> a=new ArrayList<Item>();
 		for (ColColumn column : list) {
 			Item item2=new Item();
 			item2.setId(column.getColumnId());
 			item2.setUrl(url.getItemUrl(column.getColumnId()));
 			item2.setName(column.getColName());
-			item2.setContents(getContents(column.getColumnId(),url));
+			item2.setContents(_getContents(column.getColumnId(),url));
 			a.add(item2);
 		}
 		return a;
 	}
-	private Detail createContent(Long contentId,Url url,Common common) {
+	private Detail _createContent(Long contentId,Url url,Common common) {
 		ConContent bean = common.getContentIdMap().get(contentId);
 		Detail detail=new Detail();
 		
@@ -243,7 +277,7 @@ public class BeanCreator2 extends BaseService implements BeanCreater {
 
 		return detail;
 	}
-	private Detail createDetail(Long columnContentId,Url url,Common common) {
+	private Detail _createDetail(Long columnContentId,Url url,Common common) {
 		ColColumnContent columnContent = common.getColumnContentMap().get(columnContentId);
 		ColColumnContent pre = common.getColumnContentMap().get(columnContent.getPreId());
 		ColColumnContent next =  common.getColumnContentMap().get(columnContent.getNextId());
@@ -256,13 +290,13 @@ public class BeanCreator2 extends BaseService implements BeanCreater {
 
 
 		if(parentColumn==null)
-			detail.setSimilar(getContents(columnContent.getColColumn().getColumnId(), url));
+			detail.setSimilar(_getContents(columnContent.getColColumn().getColumnId(), url));
 		else
 		{
 			List<ColColumn> brotherColumn = common.getColumnPidMap().get(column.getColPid());
 			List<Item> brotherItems=new ArrayList<Item>();
 			for (ColColumn item2 : brotherColumn) {
-				brotherItems.add(createItem(item2.getColumnId(), url, common));
+				brotherItems.add(_createItem(item2.getColumnId(), url, common));
 			}
 			for (Item item2 : brotherItems) {
 				if(item2.getBrotherItems()==null)
@@ -302,32 +336,10 @@ public class BeanCreator2 extends BaseService implements BeanCreater {
 		return menus;
 	}
 
-	private List<Menu> getMenu(List<IndexMenu> indexMenus, Url url,Common common) {
-
-		List<Menu> menus=new ArrayList<Menu>();
-		for (IndexMenu sonColumn:indexMenus) {
-			Menu menu = new Menu();
-			menu.setName(sonColumn.getName());
-			if(sonColumn.getType().equals("栏目"))
-				menu.setUrl(url.getItemUrl(sonColumn.getId()));
-			else if(sonColumn.getType().equals("链接"))
-			{
-				ConLink conLink = queryDao.getConLinkDao().get(sonColumn.getId());
-				menu.setUrl(conLink.getUrl());
-			}
-			else
-				menu.setUrl(url.getDetailNoTitleUrl(sonColumn.getId()));
-			menu.setId(sonColumn.getId());
-			menu.setSonMenus(new ArrayList<Menu>());
-			menus.add(menu);
-		}
-		return menus;
-	}
-
 	/*
 	 * 获取栏目下面的内容
 	 */
-	private List<UrlNameAuthor> getContents(Long columnId,	Url url) {
+	private List<UrlNameAuthor> _getContents(Long columnId,	Url url) {
 		List<ColColumnContent> list = queryDao.getColumnContentsByColumnId(columnId);
 		List<UrlNameAuthor> Contents=new ArrayList<UrlNameAuthor>();
 

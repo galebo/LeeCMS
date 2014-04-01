@@ -1,37 +1,34 @@
 package com.galebo.lowyer.model;
 
-import com.galebo.common.jgrid.JGridAble;
-import com.galebo.lowyer.model.BaseObject;
-
-import org.compass.annotations.Searchable;
-import org.compass.annotations.SearchableComponent;
-import org.compass.annotations.SearchableId;
-import org.compass.annotations.SearchableProperty;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-
-import javax.xml.bind.annotation.XmlRootElement;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
+
+import org.compass.annotations.Searchable;
+import org.compass.annotations.SearchableId;
+import org.compass.annotations.SearchableProperty;
+
+import com.galebo.common.jgrid.JGridAble;
 
 @Entity
 @Table(name="pro_category_product")
 @Searchable
 @XmlRootElement
 public class ProCategoryProduct extends BaseObject implements Serializable,JGridAble {
-    private Long categoryProductId;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -663003190181310270L;
+	private Long categoryProductId;
     private Long categoryId;
     private Long sort;
     private Long productId;

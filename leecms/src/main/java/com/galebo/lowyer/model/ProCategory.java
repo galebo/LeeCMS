@@ -28,7 +28,11 @@ import com.galebo.common.jgrid.JGridAble;
 @Searchable
 @XmlRootElement
 public class ProCategory extends BaseObject implements Serializable,JGridAble{
-    private Long categoryId;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 6092617675093534794L;
+	private Long categoryId;
     private Long userId;
     private Date CTime;
     private Long smallId;

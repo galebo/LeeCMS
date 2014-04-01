@@ -28,7 +28,11 @@ import com.galebo.common.jgrid.JGridAble;
 @Searchable
 @XmlRootElement
 public class CfgGroup extends BaseObject implements Serializable,JGridAble {
-    private Long groupId;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -8924515176095335282L;
+	private Long groupId;
     private String groupName;
     private String groupKey;
     private String type;

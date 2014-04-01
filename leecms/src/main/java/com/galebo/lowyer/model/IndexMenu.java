@@ -3,10 +3,6 @@ package com.galebo.lowyer.model;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.Column;
-
-import org.compass.annotations.SearchableProperty;
-
 import com.galebo.common.jgrid.JGridAble;
 
 public class IndexMenu implements JGridAble{
