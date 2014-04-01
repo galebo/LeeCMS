@@ -14,15 +14,17 @@ import com.galebo.lowyer.bean.Item;
 import com.galebo.lowyer.bean.Menu;
 import com.galebo.lowyer.bean.common.UrlNameAuthor;
 import com.galebo.lowyer.bean.common.UrlNameAuthorHtml;
+import com.galebo.lowyer.services.impl.Constants;
 
 public class BeanCreator {
 
 	public Item getContentList(int count)
 	{
-		Item contentList=new Item();
-		contentList.setName("title");
-		contentList.setContents(getUrlNameList("二手房合同签订前和签订时需特别注意事项","一般情况下不能，因为房屋的权属以不动产登记本记载的为准，也就是以。",count));
-		return contentList;
+		Item item=new Item();
+		item.setName("title");
+		item.setType(Constants.columnType_normal_3CA);
+		item.setContents(getUrlNameList("二手房合同签订前和签订时需特别注意事项","一般情况下不能，因为房屋的权属以不动产登记本记载的为准，也就是以。",count));
+		return item;
 	}
 	public static List<UrlNameAuthor> getUrlNameList(String name,String url,int count) {
 		List<UrlNameAuthor> Contents=new ArrayList<UrlNameAuthor>();

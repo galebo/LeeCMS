@@ -21,6 +21,11 @@ public class Constants {
 	static public final String menuColumn="3BA";
 	static public final String menuContent="3BB";
 	static public final String selfType="3BC";
+	
+
+	static public final String columnType_normal_3CA="3CA";
+	static public final String columnType_pic_3CB   ="3CB";
+	static public final String columnType_video_3CC ="3CC";
 
 	public static final String DivDefineType = "2AA";
 	public static final String SiteDefineType = "2AB";

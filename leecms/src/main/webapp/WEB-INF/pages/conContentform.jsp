@@ -33,14 +33,14 @@
         <form:input path="pic" id="pic" cssClass="text large" cssErrorClass="text medium error" maxlength="256"/>
         <input type="button" value="<fmt:message key="uploadForm.file"/>" id="image3">
     </li>
-    <li>
+    <li>${columnId}
         <appfuse:label styleClass="desc" key="conContent.desc"/>
         <form:errors path="desc" cssClass="fieldError"/>
         <form:textarea path="desc" id="desc" cssClass="text large2" cssErrorClass="text medium error" rows="6" cols="120" />
     </li>
-    <c:if test="${not empty columnId}">
+    <c:if test="${not empty parentId}">
     <li>
-        <appfuse:lookupselect name="columnId" code="Columns" disabled="true" selected="${columnId}"/>
+        <appfuse:lookupselect name="columnId" code="Columns" disabled="true" selected="${parentId}"/>
     </li>
 	</c:if>
     <li>

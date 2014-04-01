@@ -242,32 +242,31 @@ public class BeanCreator2 extends BaseService implements BeanCreater {
 	}
 	private Item _createItem(Long itemId,Url url,Common common) {
 		ColColumn column = common.getColumnIdMap().get(itemId);
-		Item item2=new Item();
-		List<UrlNameAuthor> contents = _getContents(column.getColumnId(),url);
-
-		item2.setId(column.getColumnId());
-		item2.setContents(contents);
-		item2.setUrl(url.getItemUrl(column.getColumnId()));
-		item2.setName(column.getColName());
+		Item item2=_column2Item(url, column);
+		
 		item2.setHasSon(column.getSonColumn().size()>0);
 		item2.setSonItems(_createSimpleItem(column.getSonColumn(),url,common));
 		item2.setBrotherItems(_createSimpleItem(common.getColumnId_brotherColumnsMap().get(column.getColumnId()),url,common));
 		item2.setLevel(column.getLevel());
 		return item2;
 	}
-
 	private List<Item> _createSimpleItem(List<ColColumn> list,Url url,Common common) {
 		List<Item> a=new ArrayList<Item>();
 		for (ColColumn column : list) {
-			Item item2=new Item();
-			item2.setId(column.getColumnId());
-			item2.setUrl(url.getItemUrl(column.getColumnId()));
-			item2.setName(column.getColName());
-			item2.setContents(_getContents(column.getColumnId(),url));
-			a.add(item2);
+			a.add(_column2Item(url, column));
 		}
 		return a;
 	}
+	private Item _column2Item(Url url, ColColumn column) {
+		Item item2=new Item();
+		item2.setId(column.getColumnId());
+		item2.setUrl(url.getItemUrl(column.getColumnId()));
+		item2.setName(column.getColName());
+		item2.setType(column.getColType());
+		item2.setContents(_getContents(column.getColumnId(),url));
+		return item2;
+	}
+
 	private Detail _createContent(Long contentId,Url url,Common common) {
 		ConContent bean = common.getContentIdMap().get(contentId);
 		Detail detail=new Detail();

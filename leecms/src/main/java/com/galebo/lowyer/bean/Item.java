@@ -11,6 +11,7 @@ import com.galebo.lowyer.bean.common.UrlNameAuthor;
 public class Item {
 	Long id;
 	String name;
+	String type;
 	String url;
 	List<UrlNameAuthor> Contents;
 	Page page;
@@ -21,6 +22,12 @@ public class Item {
 	List<Item> brotherItems;
 	List<Item> sonItems;
 	long level;
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
 	public boolean isHasSon() {
 		return hasSon;
 	}

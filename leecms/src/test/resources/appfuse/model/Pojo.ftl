@@ -28,8 +28,8 @@ import org.compass.annotations.SearchableId;
 import org.compass.annotations.SearchableProperty;
 
 ${pojo.generateImports()}
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+
+
 
 import javax.xml.bind.annotation.XmlRootElement;
 

@@ -12,9 +12,14 @@
 <form:hidden path="userId"/>
 <ul>
     <li>
-        <appfuse:label styleClass="desc" key="colColumn.colName"/>
+		<appfuse:label styleClass="desc" key="colColumn.colName"/>
         <form:errors path="colName" cssClass="fieldError"/>
         <form:input path="colName" id="colName" cssClass="text medium" cssErrorClass="text medium error" maxlength="100"/>
+    </li>
+    <li>
+    	<appfuse:label styleClass="desc" key="colColumn.colType"/>
+        <form:errors path="colType" cssClass="fieldError"/>
+        <appfuse:lookupselect name="colType" code="ColumnType" selected="${colColumn.colType}"/>
     </li>
     <li class="buttonBar bottom">
 		<input type="hidden" id="jbox" name="jbox" value=""/>
