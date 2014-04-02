@@ -121,9 +121,9 @@ public class TemplateStatic {
 		templateUrl.setUploadDir(Constants.exportUploadDir);
 		
 		Index index = beanCreater.getIndex(url,common);
-		createHtml(index,url.getSaveIndexUrl(),"index.ftl",parentCommon,templateUrl,userId,useDb);
+		createHtml(index,null,url.getSaveIndexUrl(),"index.ftl",parentCommon,templateUrl,userId,useDb);
 		IndexSearch bean = beanCreater.getIndeSearch(url, common);
-		createHtml(bean,url.getSaveIndexSearch(),"indexSearch.ftl",parentCommon,templateUrl,userId,useDb);
+		createHtml(bean,null,url.getSaveIndexSearch(),"indexSearch.ftl",parentCommon,templateUrl,userId,useDb);
 
 		for (Iterator<ColColumn> iterator = common.getColumns().iterator(); iterator.hasNext();) {
 			ColColumn column = iterator.next();
@@ -133,18 +133,18 @@ public class TemplateStatic {
 			if(column.getSonColumn().size()>0)
 			{
 				item2 = beanCreater.getItem2(column.getColumnId(),url,common);
-				createHtml(item2,url.getSaveItemUrl(column.getColumnId()),"items.ftl",parentCommon,templateUrl,userId,useDb);
+				createHtml(item2,null,url.getSaveItemUrl(column.getColumnId()),"items.ftl",parentCommon,templateUrl,userId,useDb);
 			}
 			else
 			{
 				item2 = beanCreater.getItem2(column.getColumnId(),url,common);
-				createHtml(item2,url.getSaveItemUrl(column.getColumnId()),"item.ftl",parentCommon,templateUrl,userId,useDb);
+				createHtml(item2,null,url.getSaveItemUrl(column.getColumnId()),"item.ftl",parentCommon,templateUrl,userId,useDb);
 			}
 			
 			for (Iterator<UrlNameAuthor> iterator2 = item2.getContents().iterator(); iterator2.hasNext();) {
 				UrlNameAuthor content = iterator2.next();
 				Detail detail = beanCreater.getDetail(content.getId(),url, common);
-				createHtml(detail,url.getSaveDetailUrl(content.getId()),"detail.ftl",parentCommon,templateUrl,userId,useDb);
+				createHtml(detail,null,url.getSaveDetailUrl(content.getId()),"detail.ftl",parentCommon,templateUrl,userId,useDb);
 			}
 			log.debug("文章数："+item2.getContents().size());
 		}
@@ -157,15 +157,15 @@ public class TemplateStatic {
 		for (Iterator<UrlNameAuthor> iterator2 = similar.iterator(); iterator2.hasNext();) {
 			UrlNameAuthor content = iterator2.next();
 			Detail detail = beanCreater.getDetail2(content.getContentId(),url, common);
-			createHtml(detail,url.getSaveDetailNoTitleUrl(content.getId()),"detail2.ftl",parentCommon,templateUrl,userId,useDb);
+			createHtml(detail,null,url.getSaveDetailNoTitleUrl(content.getId()),"detail2.ftl",parentCommon,templateUrl,userId,useDb);
 		}
 	}
 
 	Map<String,Template> templateMap=new HashMap<String,Template>();
 
-	private void createHtml(Object bean, String outHtmlName,String ftlName,Common parentCommon,TemplateUrl templateUrl,Long userId, Boolean useDb) {
+	private void createHtml(Object bean,Object pageObject, String outHtmlName,String ftlName,Common parentCommon,TemplateUrl templateUrl,Long userId, Boolean useDb) {
 		Map<String, Object> map = new HashMap<String, Object>();
-		setMap(bean,map,templateUrl,parentCommon,userId,useDb);
+		setMap(bean,pageObject,map,templateUrl,parentCommon,userId,useDb);
 		try {
 			String name = templateUrl.getDynamicUrl()+"/"+ftlName;
 			if(templateMap.get(name)==null)
@@ -180,12 +180,13 @@ public class TemplateStatic {
 			WorkerException.handleNoThrowNew(e);
 		}
 	}
-	static public Map<String, Object> setMap(Object bean,Map<String, Object> map,TemplateUrl templateUrl,Common parentCommon,Long userId,boolean isUseDb) {
+	static public Map<String, Object> setMap(Object bean,Object pageObject,Map<String, Object> map,TemplateUrl templateUrl,Common parentCommon,Long userId,boolean isUseDb) {
 		if(templateUrl.getCssId()==1)
 			parentCommon.getDefines().put("g_boxCssId", "2");
 		else 
 			parentCommon.getDefines().put("g_boxCssId", "1");
 		map.put("data",bean);
+		map.put("pageObject",pageObject);
 		map.put("common",parentCommon);
 		map.put("commCssBase",templateUrl.getCommCssImageBase());
 		map.put("commBase",templateUrl.getCommBase());

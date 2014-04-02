@@ -101,10 +101,17 @@ function setHTML(name,html)
 	if(document.getElementById(name))
 		document.getElementById(name).innerHTML=html;
 }
+function setImg(name,pic,alt)
+{
+	if(document.getElementById(name)){
+		document.getElementById(name).src=pic;
+		document.getElementById(name).alt=alt;
+	}
+}
 function setUrl(name,url)
 {
 	if(document.getElementById(name))
-		document.getElementById(name).url=url;
+		document.getElementById(name).href=url;
 }
 function show(name)
 {
@@ -135,7 +142,24 @@ function showKey2(key)
 	$("#key2"+key2).css("color","#ff0000");
 }
 
-
+Date.prototype.format = function(fmt) 
+{ //author: meizz 
+  var o = { 
+    "M+" : this.getMonth()+1,                 //月份 
+    "d+" : this.getDate(),                    //日 
+    "h+" : this.getHours(),                   //小时 
+    "m+" : this.getMinutes(),                 //分 
+    "s+" : this.getSeconds(),                 //秒 
+    "q+" : Math.floor((this.getMonth()+3)/3), //季度 
+    "S"  : this.getMilliseconds()             //毫秒 
+  }; 
+  if(/(y+)/.test(fmt)) 
+    fmt=fmt.replace(RegExp.$1, (this.getFullYear()+"").substr(4 - RegExp.$1.length)); 
+  for(var k in o) 
+    if(new RegExp("("+ k +")").test(fmt)) 
+  fmt = fmt.replace(RegExp.$1, (RegExp.$1.length==1) ? (o[k]) : (("00"+ o[k]).substr((""+ o[k]).length))); 
+  return fmt; 
+};
 
 
 /*
@@ -180,19 +204,30 @@ Page.prototype._go=function()
 	{
 		setUrl(this.varName+index,this.contents[i].url);
 		setHTML(this.varName+index,this.contents[i].name);
+		var d = new Date();
+		d.setTime(this.contents[i].updateTime.time);
+		setHTML(this.varName+index+"time",d.format("yyyy-MM-dd hh:mm:ss"));
+		setImg(this.varName+index+"img",this.contents[i].pic,this.contents[i].name);
+		setUrl(this.varName+index+"imga",this.contents[i].url);
 		show(this.varName+index+"div");
 	}
 	if(this.now==this.totalPage)
 	{
-		for(;index<this.pageSize;index++)
-		{
-			hide(this.varName+index+"div");
-		}
+		hide(index);
 	}
 	setHTML("page_pageNo",this.now);
 };
+Page.prototype._hide=function(i){
+	for(;i<this.pageSize;i++)
+	{
+		hide(this.varName+i+"div");
+	}
+};
 Page.prototype.go=function(index)
 {
+	if(this.totalPage==0){
+		hide(0);
+	}
 	if(index<1||index>this.totalPage)
 		return;
 	this.now=index;

@@ -60,30 +60,30 @@
 <#macro item_detail_left>
 
 			<table style="border: 1px solid #dcdcdc;" border="0" cellpadding="0" cellspacing="0" width="100%">
-					<tbody>
-						<tr>
-     			 		<td class="baojie" align="left" background="${commTBase}/images/index-02_77.jpg" height="24"><div class="pianbt3">信息搜索 &gt;&nbsp;&nbsp;</div></td>
-						</tr>
-						<tr>
-							<td align="left" valign="top"><DIV class=lysearch>
-									<FORM action=search.asp method="get">
-										<INPUT value=0 type=hidden name=kwtype>
-											<P>
-												<INPUT name=q class=text type=text id="q" onfocus="if(this.value==this.defaultValue){this.value='';}" onBlur="if(this.value==''){this.value=this.defaultValue;}" value="请输入查找关键字"> <INPUT value=titlekeyword type=hidden name=searchtype>
-											</P>
-											<P>
-												<INPUT class=lysub value=提交 type=submit name=Submit>
-											</P>
-									</FORM>
-								</DIV></td>
-						</tr>
-					</tbody>
-				</table>
-				<table width="100%" height="10" border="0" cellpadding="0" cellspacing="0">
+				<tbody>
 					<tr>
-						<td></td>
+ 			 		<td class="baojie" align="left" background="${commTBase}/images/index-02_77.jpg" height="24"><div class="pianbt3">信息搜索 &gt;&nbsp;&nbsp;</div></td>
 					</tr>
-				</table>
+					<tr>
+						<td align="left" valign="top"><DIV class=lysearch>
+								<form action="#" method="get" id="act">
+									<P>
+										<input name="key" class="text" type="text" id="key" onfocus="if(this.value==this.defaultValue){this.value='';}" onBlur="if(this.value==''){this.value=this.defaultValue;}" value="请输入查找关键字"> 
+									</P>
+									<P>
+										<input class="lysub" value="提交" type="submit" name="Submit"
+										 onclick="document.getElementById('act').action='${common.searchPage.url}'+document.getElementById('key').value">
+									</P>
+								</form>
+							</div></td>
+					</tr>
+				</tbody>
+			</table>
+			<table width="100%" height="10" border="0" cellpadding="0" cellspacing="0">
+				<tr>
+					<td></td>
+				</tr>
+			</table>
 				
   	<@g.left_list column=common.itemIdList[2]/>
 

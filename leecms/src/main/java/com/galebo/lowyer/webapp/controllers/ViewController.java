@@ -14,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.galebo.common.WorkerException;
@@ -76,7 +77,8 @@ public class ViewController extends BaseController{
     }
 
 	@RequestMapping(value = "/pp/h/{name}/{type}/{id}", method = RequestMethod.GET)
-	public ModelAndView index(@PathVariable String name,@PathVariable String type,@PathVariable String id,HttpServletRequest request) {
+	public ModelAndView index(@PathVariable String name,@PathVariable String type,@PathVariable String id,@RequestParam(value="page",required=false) Integer page,
+			@RequestParam(value="pageSize",required=false) Integer pageSize,HttpServletRequest request) {
 		WebInfo webInfo = commonService.getQueryDao().getWebInfoByDomain(name);
 		if(webInfo==null)
 			return new ModelAndView("close");
@@ -84,12 +86,13 @@ public class ViewController extends BaseController{
 		url.setSon(new Url());
 		TemplateUrl templateUrl=new TemplateUrl();
 		init1(webInfo.getUserId(),"/pp/h/"+name+"/",url,templateUrl);
-		return exe(type, id, webInfo.getUserId(),webInfo.getParentId(),url,templateUrl);
+		return exe(type, id, webInfo.getUserId(),webInfo.getParentId(),url,templateUrl,page,pageSize);
 	}
 
-
+	
 	@RequestMapping(value = "/pages/view/{type}/{id}", method = RequestMethod.GET)
-	public ModelAndView index(@PathVariable String type,@PathVariable String id,HttpServletRequest request) {
+	public ModelAndView index(@PathVariable String type,@PathVariable String id,@RequestParam(value="page",required=false) Integer page,
+			@RequestParam(value="pageSize",required=false) Integer pageSize, HttpServletRequest request) {
 		Long currentUser = getCurrentUser(request);
 		if(currentUser==null)
 			return new ModelAndView("close");
@@ -97,11 +100,12 @@ public class ViewController extends BaseController{
 		url.setSon(new Url());
 		TemplateUrl templateUrl=new TemplateUrl();
 		init1(currentUser,PATH_NO_TEMPLATE_ID,url,templateUrl);
-		return exe(type, id, currentUser,null/*parentUserId*/,url,templateUrl);
+		return exe(type, id, currentUser,null/*parentUserId*/,url,templateUrl,page,pageSize);
 	}
 
 	@RequestMapping(value = "/pages/ftl/{templateId}/{cssId}/{type}/{id}", method = RequestMethod.GET)
-	public ModelAndView index(@PathVariable Long templateId,@PathVariable long cssId,@PathVariable String type,@PathVariable String id,HttpServletRequest request) {
+	public ModelAndView index(@PathVariable Long templateId,@PathVariable long cssId,@PathVariable String type,@PathVariable String id,@RequestParam(value="page",required=false) Integer page,
+			@RequestParam(value="pageSize",required=false) Integer pageSize,HttpServletRequest request) {
 
 		Long currentUser = getCurrentUser(request);
 		if(currentUser==null)
@@ -112,7 +116,7 @@ public class ViewController extends BaseController{
 		url.setBaseUrl("../");
 		templateUrl.set(templateId,cssId,"/p/common","");
 
-		return exe(type, id, currentUser,null/*parentUserId*/,url,templateUrl);
+		return exe(type, id, currentUser,null/*parentUserId*/,url,templateUrl,page,pageSize);
 	}
 
 
@@ -129,7 +133,7 @@ public class ViewController extends BaseController{
 		templateUrl.set(templateId,cssId,"/p/common","");
 	}
 
-	private ModelAndView exe(String type, String id,Long userId,Long parentUserId, Url url,TemplateUrl templateUrl) {
+	private ModelAndView exe(String type, String id,Long userId,Long parentUserId, Url url,TemplateUrl templateUrl, Integer page, Integer pageSize) {
 		url.setNoChangeUpload();
 		Common mainCommon=beanCreater.getCommon(userId, parentUserId, url);
 		Common common=mainCommon;
@@ -140,12 +144,15 @@ public class ViewController extends BaseController{
 			url=url.getSon();
 		}
 		Object object=null;
+		Object pageObject=null;
 		if(type.equals("item"))
 		{
 			Item item2 = beanCreater.getItem2(Long.valueOf(id),url,common);
 			if(item2.isHasSon())
 				type="items";
 			object = item2;
+			if(page!=null&&pageSize!=null)
+			pageObject=item2.getContents().subList((page-1)*pageSize, (page)*pageSize);
 		}
 		else if(type.equals("detail"))
 			object = beanCreater.getDetail(Long.valueOf(id),url,common);
@@ -164,14 +171,14 @@ public class ViewController extends BaseController{
 		}
 
 		System.out.println(JSONObject.fromBean(object).toString());
-		return getMV(templateUrl.getTemplateId(), object,type,mainCommon,templateUrl,userId,false);
+		return getMV(templateUrl.getTemplateId(), object,pageObject,type,mainCommon,templateUrl,userId,false);
 	}
 
 	
-	private ModelAndView getMV(Long templateId,Object object,String ftlName,Common common,TemplateUrl templateUrl,Long userId,boolean isUseDb) {
+	private ModelAndView getMV(Long templateId,Object object,Object pageObject,String ftlName,Common common,TemplateUrl templateUrl,Long userId,boolean isUseDb) {
 		ModelAndView mv = new ModelAndView("dynamic/template"+templateId+"/"+ftlName);
 
-		TemplateStatic.setMap(object, mv.getModelMap(),templateUrl,common,userId,isUseDb);
+		TemplateStatic.setMap(object,pageObject, mv.getModelMap(),templateUrl,common,userId,isUseDb);
 		return mv;
 	}
 	@RequestMapping(value = "/ftl/export", method = RequestMethod.GET)

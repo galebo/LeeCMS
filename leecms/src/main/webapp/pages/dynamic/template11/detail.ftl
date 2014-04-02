@@ -1,6 +1,7 @@
 <#import "${ftlPath}/common.ftl" as g/>
 <#import "${ftlPath}/common_item_detail.ftl" as item_detail/>
 
+<#macro preNext content preText><#if content.name !='' ><a href="${content.url}">${preText}${content.name}</a><#else>${preText}没有了</#if></#macro>
 
 <#macro main detail>
 	<@item_detail.item_detail title=detail.item.name>
@@ -16,8 +17,8 @@
 						<tr>
 							<td>
 								<p>&nbsp;</p> <br />
-								<DIV class=prevNews>上一篇：没有了</DIV>
-								<DIV class=nextNews><a href="./show.asp?id=144">下一篇：美国商标注册流程和收费</a></DIV>
+								<DIV class=prevNews><@preNext content=detail.content.pre preText="上一篇："/></DIV>
+								<DIV class=nextNews><@preNext content=detail.content.next preText="下一篇："/></DIV>
 							</td>
 						</tr>
 					</table></td>

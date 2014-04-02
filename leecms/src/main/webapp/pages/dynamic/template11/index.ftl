@@ -9,7 +9,7 @@
                 <td width="90" background="${commTBase}/images/index-02_69.jpg" align=left><div class="pianbt2">${column.name}&gt;&nbsp;&nbsp;</div></td>
                 <td width="16"><img src="${commTBase}/images/index-02_69.gif" width="16" height="26" /></td>
                 <td></td>
-                <td width="1"><a href="#" target="_parent"><img src="${commTBase}/images/index-02_59.jpg" border="0" /></a></td>
+                <td width="1"><a href="${column.url}" target="_parent"><img src="${commTBase}/images/index-02_59.jpg" border="0" /></a></td>
               </tr>
           </table></td>
         </tr>
@@ -20,7 +20,8 @@
                     <tr>
                       <td>
                       	<#list column.contents as one>
-                       <table width="100%" align="center" cellspacing="0" cellpadding="0"><tr> <td width=12 height=20><img src="${commTBase}/images/newsdot.gif"></td><td><a  href="#" >美国社会的自信</a></td></tr></table>
+                       <table width="100%" align="center" cellspacing="0" cellpadding="0"><tr> <td width=12 height=20><img src="${commTBase}/images/newsdot.gif"></td>
+                       <td><a  href="${one.url}" >${one.name}</a></td></tr></table>
 						</#list>
                        </td>
                     </tr>
@@ -175,7 +176,7 @@
 				      <td id="demo1" valign="top"><table border="0" cellpadding="0" cellspacing="0">
 				        <tr>
 				        	<#list common.indexItemList[4].contents as one>
-		        	          <td><table width="100%"><tr><td><a  href="#">
+		        	          <td><table width="100%"><tr><td><a  href="${one.url}">
 		        	          <img class=proimg border="0" height="120" alt="${one.name}" src="${one.pic}" width="160">
 		        	          </a></td></tr></table><table width="100%"><tr><td align="center"><a  href="${one.url}">${one.name}</a></td></tr></table></td>
 		        	          <#if one_index=6>

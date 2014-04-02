@@ -1,10 +1,23 @@
 <#import "${ftlPath}/common.ftl" as g/>
 <#import "${ftlPath}/common_item_detail.ftl" as item_detail/>
 
+<#macro page3 bean pageSize=10 varName="page">
+		<ul><li class="p_total">共<span id="${varName}_totalPage">0</span>页</li>
+      <li><a href="javascript:" onclick="${varName}.go(1)">«</a></li>
+      <li><a href="javascript:" onclick="${varName}.goPre()">‹</a></li>
+      <li class="p_current" id="${varName}_pageNo">0</li>
+      <li><a href="javascript:" onclick="${varName}.goNext()">›</a></li>
+      <li><a href="javascript:" onclick="${varName}.goEnd()">»</a></li>
+      </ul>
+        <script>var ${varName}=new Page("${varName}",${pageSize},[]);
+        ${varName}.go(1);</script>
+        
+</#macro>
 
-<#macro main item>
-	<@item_detail.item_detail title=item.name>
+<#macro main item varName="page">
+	<@item_detail.item_detail title=item.name >
 	
+<script type="text/javascript" src="${commBase}/js/business.js"></script>
 	<#if item.type = '3CB'>
 	
 		<table width="100%" border="0" cellspacing="0" cellpadding="20" height="300">
@@ -15,32 +28,25 @@
                       <div class="imgList">
 	                      <table cellpadding="0" cellspacing="0" align="center" border="0" width="100%"><tbody>
 		                     <tr>
-		                      <#list item.contents as one>
+		                      <#list 1..9 as one>
 		                      	 <td align="center" width="33%">
-		                      	 <ul><li><a target="_blank" href="${one.url}">
-		                      	 <img style="margin-bottom:2px;margin-top:8px;" src="${one.pic}" alt="${one.name}" border="0" height="150" width="200">${one.name}</a></li>
+		                      	 <ul id="${varName}${one_index}div">
+		                      	 <li>
+		                      	 <a id="${varName}${one_index}imga" target="_blank" href="#" >
+		                      	 <img id="${varName}${one_index}img" style="margin-bottom:2px;margin-top:8px;" src="#" alt="" border="0" height="150" width="200"></a>
+		                      	 <a id="${varName}${one_index}" target="_blank" href="#" ></a></li>
 		                      	 </ul></td>
 			                      <#if  one_index != 0 && one_index % 3 = 2 >
 			                      	</tr>
 			                      	<tr>
 			                      </#if>
 								</#list>
-							
-	                       <#if item.contents?size % 3 gt 0>
-		                       <#list 1..(item.contents?size %3 + 1) as one>
-			                     <td align="center" width="33%"><ul><li>&nbsp;</li></ul></td>
-								</#list>
-		                   </#if>
 				           </tr>
 	                      </tbody></table>
 	                   </div>
                       <div class="pager">
-                      <ul><li class="p_total">1/1</li>
-                      <li><a href="./list.asp?id=1&amp;PageNo=1">«</a></li>
-                      <li><a href="./list.asp?id=1&amp;PageNo=1">‹</a></li>
-                      <li class="p_current"> 1</li>
-                      <li><a href="./list.asp?id=1&amp;PageNo=1">›</a></li><li><a href="./list.asp?id=1&amp;PageNo=1">»</a></li>
-                      </ul></div></td>
+                      <@page3 bean=item pageSize=9 varName=varName/>
+                      </div></td>
                     </tr>
                   </tbody></table></td>
                 </tr>
@@ -53,14 +59,13 @@
                   <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
                     <tr>
                       <td><div class="box2"><ul>
-                      <#list item.contents as one>
-                      <li><span class="dateR">[${one.updateTime?string('yyyy-MM-dd')}]&nbsp;&nbsp;&nbsp;</span><a  href="${one.url}" >11${one.name}</a></li>
+                      <#list 1..10 as one>
+                      <li id="${varName}${one_index}div"><span class="dateR">[<span id="${varName}${one_index}time"> </span>]&nbsp;&nbsp;&nbsp;</span><a  id="${varName}${one_index}" href="#"></a></li>
 						</#list>
                       </ul></div>
-                      <div class=pager><UL><LI class=p_total>1/3</LI><li><a href="./list.asp?id=3&PageNo=1">&laquo;</a></li>
-                      <li><a href="./list.asp?id=3&PageNo=1">&#8249;</a></li><LI class=p_current> 1</LI><li><a href="./list.asp?id=3&PageNo=2">2</a></li>
-                      <li><a href="./list.asp?id=3&PageNo=3">3</a></li><li><a href="./list.asp?id=3&PageNo=2">&#8250;</a></li>
-                      <li><a href="./list.asp?id=3&PageNo=3">&raquo;</a></li></UL></div></td>
+                      <div class=pager>
+                      <@page3 bean=item pageSize=10 varName=varName/>
+                      </div></td>
                     </tr>
                   </table></td>
                 </tr>
