@@ -132,12 +132,12 @@ public class TemplateStatic {
 			Item item2=null;
 			if(column.getSonColumn().size()>0)
 			{
-				item2 = beanCreater.getItem2(column.getColumnId(),url,common);
+				item2 = beanCreater.getItem(column.getColumnId(),url,common);
 				createHtml(item2,null,url.getSaveItemUrl(column.getColumnId()),"items.ftl",parentCommon,templateUrl,userId,useDb);
 			}
 			else
 			{
-				item2 = beanCreater.getItem2(column.getColumnId(),url,common);
+				item2 = beanCreater.getItem(column.getColumnId(),url,common);
 				createHtml(item2,null,url.getSaveItemUrl(column.getColumnId()),"item.ftl",parentCommon,templateUrl,userId,useDb);
 			}
 			

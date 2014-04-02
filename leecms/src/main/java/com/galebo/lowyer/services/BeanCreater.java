@@ -16,7 +16,7 @@ public interface BeanCreater {
 	public Template getUserTemplate(long userId);
 	public Common getCommon(Long userId,Long parentId,Url url);
 	public Index getIndex(Url url,Common common);
-	public Item getItem2(Long itemId, Url url,Common common);
+	public Item getItem(Long itemId, Url url,Common common);
 	public Detail getDetail(Long columnContentId, Url url,Common common);
 	public Item getSearchItem(List<UrlNameAuthorHtml> contents,String key,Url url,Common common);
 	public Detail getDetail2(Long contentId, Url url, Common common);

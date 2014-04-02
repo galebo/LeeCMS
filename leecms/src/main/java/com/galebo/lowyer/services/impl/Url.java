@@ -4,7 +4,7 @@ import com.galebo.lowyer.services.impl.Constants;
 
 
 public class Url {
-	private static final String SS = "ss";
+	public static final String SS = "ss";
 	Url son=null;
 	boolean isChangeUpload =false;
 	/*

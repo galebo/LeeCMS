@@ -103,9 +103,9 @@ public class BeanCreator2 extends BaseService implements BeanCreater {
 			//组合栏目id与内容map
 			for (ColColumn colColumn : common.getColumns()) {
 				if(colColumn.getColPid()!=-1){
-					Item item2 = getItem2(colColumn.getColumnId(), url, common);
-					common.getItemIdList().add(item2);
-					common.getItemIdMap().put(colColumn.getColumnId(),item2);
+					Item item = getItem(colColumn.getColumnId(), url, common);
+					common.getItemIdList().add(item);
+					common.getItemIdMap().put(colColumn.getColumnId(),item);
 				}
 			}
 		}
@@ -192,10 +192,10 @@ public class BeanCreator2 extends BaseService implements BeanCreater {
 		Index index=new Index();
 		return index;
 	}
-	public Item getItem2(Long itemId, Url url,Common common)
+	public Item getItem(Long itemId, Url url,Common common)
 	{
-		Item item2 = _getItem2InMap(itemId, url, common);
-		return item2;
+		Item item = _getItemInMap(itemId, url, common);
+		return item;
 	}
 
 	public Detail getDetail(Long columnContentId, Url url,Common common) {
@@ -206,7 +206,7 @@ public class BeanCreator2 extends BaseService implements BeanCreater {
 		Detail detail = _getContentInMap(contentId, url, common);
 		return detail;
 	}
-	private Item _getItem2InMap(Long itemId, Url url,Common common)
+	private Item _getItemInMap(Long itemId, Url url,Common common)
 	{
 		String key = ""+itemId+"_"+url.getBaseUrl();
 		Item item = CmsMap.cmsMap.getItemMap().get(key);
@@ -242,13 +242,13 @@ public class BeanCreator2 extends BaseService implements BeanCreater {
 	}
 	private Item _createItem(Long itemId,Url url,Common common) {
 		ColColumn column = common.getColumnIdMap().get(itemId);
-		Item item2=_column2Item(url, column);
+		Item item=_column2Item(url, column);
 		
-		item2.setHasSon(column.getSonColumn().size()>0);
-		item2.setSonItems(_createSimpleItem(column.getSonColumn(),url,common));
-		item2.setBrotherItems(_createSimpleItem(common.getColumnId_brotherColumnsMap().get(column.getColumnId()),url,common));
-		item2.setLevel(column.getLevel());
-		return item2;
+		item.setHasSon(column.getSonColumn().size()>0);
+		item.setSonItems(_createSimpleItem(column.getSonColumn(),url,common));
+		item.setBrotherItems(_createSimpleItem(common.getColumnId_brotherColumnsMap().get(column.getColumnId()),url,common));
+		item.setLevel(column.getLevel());
+		return item;
 	}
 	private List<Item> _createSimpleItem(List<ColColumn> list,Url url,Common common) {
 		List<Item> a=new ArrayList<Item>();
@@ -258,13 +258,13 @@ public class BeanCreator2 extends BaseService implements BeanCreater {
 		return a;
 	}
 	private Item _column2Item(Url url, ColColumn column) {
-		Item item2=new Item();
-		item2.setId(column.getColumnId());
-		item2.setUrl(url.getItemUrl(column.getColumnId()));
-		item2.setName(column.getColName());
-		item2.setType(column.getColType());
-		item2.setContents(_getContents(column.getColumnId(),url));
-		return item2;
+		Item item=new Item();
+		item.setId(column.getColumnId());
+		item.setUrl(url.getItemUrl(column.getColumnId()));
+		item.setName(column.getColName());
+		item.setType(column.getColType());
+		item.setContents(_getContents(column.getColumnId(),url));
+		return item;
 	}
 
 	private Detail _createContent(Long contentId,Url url,Common common) {
@@ -281,7 +281,7 @@ public class BeanCreator2 extends BaseService implements BeanCreater {
 		ColColumnContent pre = common.getColumnContentMap().get(columnContent.getPreId());
 		ColColumnContent next =  common.getColumnContentMap().get(columnContent.getNextId());
 		Detail detail=new Detail();
-		detail.setItem(_getItem2InMap(columnContent.getColColumn().getColumnId(),url,common));
+		detail.setItem(_getItemInMap(columnContent.getColColumn().getColumnId(),url,common));
 		detail.setContent(Convertor.convert(columnContent,pre,next,url));
 
 		ColColumn column=common.getColumnIdMap().get(columnContent.getColColumn().getColumnId());
@@ -294,12 +294,12 @@ public class BeanCreator2 extends BaseService implements BeanCreater {
 		{
 			List<ColColumn> brotherColumn = common.getColumnPidMap().get(column.getColPid());
 			List<Item> brotherItems=new ArrayList<Item>();
-			for (ColColumn item2 : brotherColumn) {
-				brotherItems.add(_createItem(item2.getColumnId(), url, common));
+			for (ColColumn item : brotherColumn) {
+				brotherItems.add(_createItem(item.getColumnId(), url, common));
 			}
-			for (Item item2 : brotherItems) {
-				if(item2.getBrotherItems()==null)
-					item2.setBrotherItems(brotherItems);
+			for (Item item : brotherItems) {
+				if(item.getBrotherItems()==null)
+					item.setBrotherItems(brotherItems);
 			}
 			detail.setParentItems(brotherItems);
 		}
@@ -307,17 +307,17 @@ public class BeanCreator2 extends BaseService implements BeanCreater {
 	}
 
 	public Item getSearchItem(List<UrlNameAuthorHtml> contents,String key,Url url,Common common) {
-		Item item2=new Item();
+		Item item=new Item();
 
-		item2.setId(-1L);
+		item.setId(-1L);
 		List<UrlNameAuthor> cc=new ArrayList<UrlNameAuthor>();
 		for (UrlNameAuthorHtml urlNameAuthorHtml : contents) {
 			cc.add(urlNameAuthorHtml);
 		}
-		item2.setContents(cc);
-		item2.setUrl("#");
-		item2.setName("搜索\""+key+"\"结果,共"+contents.size()+"条");
-		return item2;
+		item.setContents(cc);
+		item.setUrl("#");
+		item.setName("搜索\""+key+"\"结果,共"+contents.size()+"条");
+		return item;
 	}
 	/*
 	 * 组合菜单

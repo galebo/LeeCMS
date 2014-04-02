@@ -137,7 +137,7 @@ public class ViewController extends BaseController{
 		url.setNoChangeUpload();
 		Common mainCommon=beanCreater.getCommon(userId, parentUserId, url);
 		Common common=mainCommon;
-		if(type.startsWith("ss"))
+		if(type.startsWith(Url.SS))
 		{
 			common=common.getSonCommon();
 			type = type.substring(2);
@@ -147,7 +147,7 @@ public class ViewController extends BaseController{
 		Object pageObject=null;
 		if(type.equals("item"))
 		{
-			Item item2 = beanCreater.getItem2(Long.valueOf(id),url,common);
+			Item item2 = beanCreater.getItem(Long.valueOf(id),url,common);
 			if(item2.isHasSon())
 				type="items";
 			object = item2;
@@ -211,6 +211,7 @@ public class ViewController extends BaseController{
     	String realPath = getServletContext().getRealPath(Constants.indexPath);
 
     	Url url=new Url();
+    	url.setSon(new Url());
 		url.setBaseUrl(PATH_NO_TEMPLATE_ID);
     	search.build(realPath, getCurrentUser(request),url);
 		return successView;
