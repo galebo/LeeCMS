@@ -35,10 +35,10 @@ public class Item {
 		this.hasSon = hasSon;
 	}
 	public String getContentsJson() {
+		if(contentsJson==null||contentsJson.length()==0){
+			return "[]";
+		}
 		return contentsJson;
-	}
-	public void setContentsJson(String contentsJson) {
-		this.contentsJson = contentsJson;
 	}
 	public String getPageJson() {
 		return JSONObject.fromBean(page).toString();

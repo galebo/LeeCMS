@@ -310,7 +310,11 @@ public class BeanCreator2 extends BaseService implements BeanCreater {
 		Item item2=new Item();
 
 		item2.setId(-1L);
-//		item2.setContents(contents);lyz
+		List<UrlNameAuthor> cc=new ArrayList<UrlNameAuthor>();
+		for (UrlNameAuthorHtml urlNameAuthorHtml : contents) {
+			cc.add(urlNameAuthorHtml);
+		}
+		item2.setContents(cc);
 		item2.setUrl("#");
 		item2.setName("搜索\""+key+"\"结果,共"+contents.size()+"条");
 		return item2;
