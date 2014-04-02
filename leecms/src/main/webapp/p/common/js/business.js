@@ -213,11 +213,11 @@ Page.prototype._go=function()
 	}
 	if(this.now==this.totalPage)
 	{
-		hide(index);
+		this._hideDiv(index);
 	}
 	setHTML("page_pageNo",this.now);
 };
-Page.prototype._hide=function(i){
+Page.prototype._hideDiv=function(i){
 	for(;i<this.pageSize;i++)
 	{
 		hide(this.varName+i+"div");
@@ -226,7 +226,7 @@ Page.prototype._hide=function(i){
 Page.prototype.go=function(index)
 {
 	if(this.totalPage==0){
-		hide(0);
+		this._hideDiv(0);
 	}
 	if(index<1||index>this.totalPage)
 		return;

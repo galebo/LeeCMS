@@ -9,7 +9,7 @@
       <li><a href="javascript:" onclick="${varName}.goNext()">›</a></li>
       <li><a href="javascript:" onclick="${varName}.goEnd()">»</a></li>
       </ul>
-        <script>var ${varName}=new Page("${varName}",${pageSize},[]);
+        <script>var ${varName}=new Page("${varName}",${pageSize},${bean.contentsJson});
         ${varName}.go(1);</script>
         
 </#macro>
