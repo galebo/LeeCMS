@@ -156,7 +156,7 @@ IndexMenu.prototype.addLinks=function (type){
 };
 IndexMenu.prototype.addContent= function (rowData,rowId,opType,tableId)
 {
-	var url="/jqJson/addMenu_Content/"+rowData.contentId;
+	var url="/jqJson/addMenu_Content/"+rowData.columnContentId;
 	G_callAjax(url,"",{closed:callBack_resetSonTable});
 };
 IndexMenu.prototype.changeSort= function (rowData,rowId,opType,tableId)

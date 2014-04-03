@@ -169,12 +169,12 @@ public class CommonController extends BaseController{
 		return Result.Sucess;
     }
     //将内容加入菜单
-    @RequestMapping(value = "/jqJson/addMenu_Content/{contentId}", method = RequestMethod.GET)
+    @RequestMapping(value = "/jqJson/addMenu_Content/{columnContentId}", method = RequestMethod.GET)
     @ResponseBody
-    public Object addMenu_Content(@PathVariable Long contentId,HttpServletRequest request) {
-    	String contentIds=""+contentId;
+    public Object addMenu_Content(@PathVariable Long columnContentId,HttpServletRequest request) {
+    	String columnContentIds=""+columnContentId;
 		Long userId = getCurrentUser(request);
-		userDataCreator.saveRelate(Constants.indexMenuType,Constants.menuContent, userId, contentIds, userId);
+		userDataCreator.saveRelate(Constants.indexMenuType,Constants.menuContent, userId, columnContentIds, userId);
 		return Result.Sucess;
     }
     //将自定义链接加入菜单

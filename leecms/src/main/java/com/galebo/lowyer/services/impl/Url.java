@@ -43,7 +43,7 @@ public class Url {
 		return this.baseUrl+(son==null?SS:"")+"detail/"+long1+".html";
 	}
 	public  String getDetailNoTitleUrl(Long long1) {
-		return this.baseUrl+(son==null?SS:"")+"detail2/"+long1+".html";
+		return this.baseUrl+(son==null?SS:"")+"detail/"+long1+".html";
 	}
 	public String getIndexSearch(String key1, String key2) {
 		return this.baseUrl+(son==null?SS:"")+"indexSearch/"+key1+"-"+key2+".html";
@@ -61,7 +61,7 @@ public class Url {
 		return this.saveBaseUrl+(son==null?SS:"")+"detail/"+long1+".html";
 	}
 	public  String getSaveDetailNoTitleUrl(Long long1) {
-		return this.saveBaseUrl+(son==null?SS:"")+"detail2/"+long1+".html";
+		return this.saveBaseUrl+(son==null?SS:"")+"detail/"+long1+".html";
 	}
 	public String getSaveIndexSearch() {
 		return this.saveBaseUrl+(son==null?SS:"")+"indexSearch/111.html";

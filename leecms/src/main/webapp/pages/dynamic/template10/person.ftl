@@ -1,3 +1,18 @@
+<#macro list1 item>
+	<div id="lawermore_down">
+		<div id="lawermore_down1">
+			<a href="${item.url}">${item.name}</a>
+		</div>
+		<div id="lawermore_down2_1">
+			<ul id="lawermore_down2">
+			<#list item.contents as one>
+				<li><a href='${one.url}' target='_blank'>${one.name}</a></li>
+			</#list>
+			</ul>
+		</div>
+	</div>
+</#macro>
+
 <#macro person_about>
 <div id="lawerxx">
 		<div id="lawerxx_box">
@@ -5,8 +20,7 @@
 				<div id="lawerxx_1_1">
 					<div id="lawerxx_1">
 						<p>
-							<a href="Contact.asp"> <img
-								src="http://images.xslsbj.com//UploadPic/lawface/315/4834b2707050ca8b.jpg"
+							<a href="Contact.asp"> <img src="http://images.xslsbj.com//UploadPic/lawface/315/4834b2707050ca8b.jpg"
 								border="0" alt="李永建律师" height="145px" width="125px" />
 							</a>
 						</p>
@@ -47,18 +61,8 @@
 					<br />
 				</div>
 
-				<div id="lawermore_down">
-					<div id="lawermore_down1">
-						<a href="${common.itemIdList[0].url}">${common.itemIdList[0].name}</a>
-					</div>
-					<div id="lawermore_down2_1">
-						<ul id="lawermore_down2">
-						<#list common.itemIdList[0].contents as one>
-							<li><a href='${one.url}' target='_blank'>${one.name}</a></li>
-						</#list>
-						</ul>
-					</div>
-				</div>
+
+				<@list1 item=common.indexItemList[0]/>
 			</div>
 		</div>
 	</div>

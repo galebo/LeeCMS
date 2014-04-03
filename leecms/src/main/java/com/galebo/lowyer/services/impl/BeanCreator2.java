@@ -151,17 +151,17 @@ public class BeanCreator2 extends BaseService implements BeanCreater {
 	private List<Menu> _common_getIndexMenus(List<IndexMenu> indexMenus, Url url,Common common) {
 
 		List<Menu> menus=new ArrayList<Menu>();
-		for (IndexMenu sonColumn:indexMenus) {
+		for (IndexMenu indexMenu:indexMenus) {
 			Menu menu = new Menu();
-			menu.setName(sonColumn.getName());
-			if(sonColumn.getType().equals("栏目"))
-				menu.setUrl(url.getItemUrl(sonColumn.getId()));
-			else if(sonColumn.getType().equals("链接")){
-				ConLink conLink = queryDao.getConLinkDao().get(sonColumn.getId());
+			menu.setName(indexMenu.getName());
+			if(indexMenu.getType().equals("栏目"))
+				menu.setUrl(url.getItemUrl(indexMenu.getId()));
+			else if(indexMenu.getType().equals("链接")){
+				ConLink conLink = queryDao.getConLinkDao().get(indexMenu.getId());
 				menu.setUrl(url.getLinkUrl(conLink.getUrl()));
 			}else
-				menu.setUrl(url.getDetailNoTitleUrl(sonColumn.getId()));
-			menu.setId(sonColumn.getId());
+				menu.setUrl(url.getDetailNoTitleUrl(indexMenu.getId()));
+			menu.setId(indexMenu.getId());
 			menu.setSonMenus(new ArrayList<Menu>());
 			menus.add(menu);
 		}

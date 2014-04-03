@@ -61,10 +61,10 @@
 			<@p.index_bianli/>
 		</div>
 		<div class="neirong_right">
-			<@div1 item1=common.itemIdList[1] item2=common.itemIdList[2]/>
+			<@div1 item1=common.indexItemList[1] item2=common.indexItemList[2]/>
 			<@g.adv1/>
-			<@div1 item1=common.itemIdList[3] item2=common.itemIdList[4]/>
-			<@div1 item1=common.itemIdList[5] item2=common.itemIdList[6]/>
+			<@div1 item1=common.indexItemList[3] item2=common.indexItemList[4]/>
+			<@div1 item1=common.indexItemList[5] item2=common.itemIdList[6]/>
 		</div>
 	</div>
 	<div id="hezuo_add">
