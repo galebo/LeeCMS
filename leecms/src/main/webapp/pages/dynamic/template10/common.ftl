@@ -1,13 +1,9 @@
 <#macro top>
-<script language="javascript" src="http://www.xslsbj.com/js/checkForm.js"></script>
+<script language="javascript" src="${commTBase}/js/checkForm.js"></script>
 <body>
-	<!--[if IE 6]>
-<script type="text/javascript" src="http://www.xslsbj.com/js/DD_belatedPNG.js" ></script>
-<script type="text/javascript">DD_belatedPNG.fix('img,background');</script>
-<![endif]-->
 
 	<div id="topwidth">
-		<a href='http://www.xslsbj.com/'><img src='http://images.xslsbj.com/uploadpic/logo/767889691182.png' border='0' title='北京刑事律师'></a>
+		<a href='${common.homePage.url}'><img src='${commTBase}/uploadpic/767889691182.png' border='0' title='北京刑事律师'></a>
 	</div>
 </#macro>
 <#macro menu>
@@ -37,10 +33,10 @@
 			</div>
 </#macro>
 <#macro adv1>
-	<@flash id="neirong_allogo" width='680' height='90' src='http://images.xslsbj.com/uploadpic/common/banner/tabanner2.swf'/>
+	<@flash id="neirong_allogo" width='680' height='90' src='${commTBase}/upload/tabanner2.swf'/>
 </#macro>
 <#macro logo1>
-	<@flash id="logo" width='1000' height='180' src='http://www.xslsbj.com//uploadpic/common/banner/TABanner.swf'/>
+	<@flash id="logo" width='1000' height='180' src='${commTBase}/uploadpic/TABanner.swf'/>
 </#macro>
 
 <#macro foot>

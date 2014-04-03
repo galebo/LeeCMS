@@ -51,10 +51,10 @@
 	<div id="neirong">
 		<div id="neirong_left">
 			<div id="neirong_left1">
-				<a href="/AnYuan.asp"><img src="http://www.xslsbj.com/style/images/tup_1.gif" /></a>
+				<a href="/AnYuan.asp"><img src="${commTBase}/images/tup_1.gif" /></a>
 			</div>
 			<div id="neirong_left1">
-				<a href="/GuestBook/#end"><img src="http://www.xslsbj.com/style/images/tup_2.gif" /></a>
+				<a href="/GuestBook/#end"><img src="${commTBase}/images/tup_2.gif" /></a>
 			</div>
 			<@g.index_search/>
 			

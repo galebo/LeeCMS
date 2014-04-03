@@ -1,0 +1,114 @@
+/* CSS Document */
+
+@import url(base.css);
+
+
+/* =================== 律师信息=================== */
+#lawerxx{width:1000px;margin:8px auto;}
+#lawerxx_1{	width:131px;height:151px; margin:10px 0 0 9px; display:inline;	float:left;	background-color:#FFFFFF;	border: 1px solid #cdc7c7; text-align:center; vertical-align:middle;  display:table-cell; display:inline}
+#lawerxx_1 p{position:static;+position:absolute; margin-top:3px;}
+
+#lawerxx_1 img{position:static;+position:relative;left:-50%;}
+
+#lawerxx_box{ width:998px; margin-bottom:10px; display:inline; float:left;background-color:#faf9f9;border-top-color:#c72106;	border-bottom-color:#ddd4d4;border-left-color:#ddd4d4;	border-right-color:#ddd4d4;	border-top-width: 3px;	border-right-width: 1px;	border-bottom-width: 1px;	border-left-width: 1px;	border-top-style: solid;	border-right-style: solid;	border-bottom-style: solid;	border-left-style: solid;}
+
+
+#lawerxx_1_1{ width:310px; float:left}
+#lawerxx_2{ width:313px; float:left;}
+#lawerxx_2_1{ width:1px; height:288px;float:right}
+#lawerxx_3{ float:left; width:140px; margin:15px 0px 0px 12px; line-height:20px; display:inline}
+#lawerxx_3 span{ font-size:13px; color:#7f1503; font-weight:bold; line-height:25px;text-indent:10px; }
+#lawerxx_3 font{ font-size:13px; color:#433f3e; }
+#lawerxx_4{ width:295px; float:left; padding-left:10px; padding-top:5px; line-height:20px;}
+#lawerxx_4 span{ color:#7f1503; font-weight:bold; float:left}
+#lawerxx_4 font{ color:#c72106; font-size:12px;}
+#lawerxx_4_1{ line-height:20px; width:225px; float:left;}
+#lawerxx_4_1 a{color:#c72106;}
+#lawerxx_4_x{ width:295px; float:left; padding-left:10px; padding-top:5px; line-height:20px;}
+#lawerxx_4_x span{ color:#282828; font-weight:bold; float:left}
+#lawerxx_4_x font{ color:#282828; font-size:12px;}
+#lawerxx_4_1_x{ line-height:20px; width:205px; float:left;}
+#lawerxx_4_1_x a{color:#c72106;}
+.lawerxx_33{ *margin-left:-10px;}
+
+
+
+/* =================== 律师信息_more=================== */
+#lawermore{ width:683px; float:right}
+#lawermore_top{ width:683px; height:135px; margin-bottom:10px; margin-top:10px; display:inline ;}
+.lawermoretop{font-size:14px; line-height:25px; margin:10px auto; width:98%}
+#lawermore_top  a{ color:#7f1503}
+#lawermore_top a:hover{	color:#FF0000;	text-decoration: underline;}
+#lawermore_top2{ width:683px; height:2px; background:url(images/fenge_2.gif) no-repeat; overflow:hidden}
+
+#lawermore_down{ height:110px; width:100%; margin-top:10px; display:inline}
+#lawermore_down1{ width:100%; text-indent:15px; font-size:14px ; height:20px; line-height:20px; background:url(images/tub_1.gif) no-repeat 75px 5px;}
+#lawermore_down1 a{ color:#7f1503;}
+#lawermore_down1 a:hover{ color:#FF0000;text-decoration: underline;}
+#lawermore_down2_1{ width:97%;}
+#lawermore_down2{ display:block; overflow:hidden; width:100%; height:140px; padding-top:10px;}
+#lawermore_down2 li{ display:block; overflow:hidden;float:left; width:49%; height:25px; text-indent:35px; font-size:14px; background:url(images/tub_2.gif) no-repeat 20px 10px; line-height:25px; text-overflow:ellipsis; white-space:nowrap;}
+#lawermore_down2 li a{ color:#000000}
+#lawermore_down2 li a:hover{ color:#FF0000; text-decoration:underline}
+
+
+/* =================== 内容=================== */
+#neirong{ width:1000px; margin:5px auto;}
+
+
+/* =================== 内容_left=================== */
+#neirong_left{ width:312px; float:left;}
+#neirong_left1{ width:312px; height:70px; margin-bottom:10px;}
+#neirong_left2{ width:312px; height:67px; border:1px solid #ddd4d4; background-color:#ffffff}
+#neirong_leftl2{ width:310px; height:65px; background:url(images/neirong_left2_bg.gif) repeat-x; margin:1px;}
+
+
+#neirong_left2_2{ width:290px; height:45px; margin:10px 0 0 10px; float:left; background-color:#FFFFFF; display:inline}
+#neirong_left2_2_1{ height:29px; width:280px; float:left; margin:10px 0 0 10px; display:inline}
+
+#neirong_left2_2_2{	height:27px; width:190px;font-size:18px;	border:1px solid #ddd4d4;	float:left;}
+#neirong_left2_2_3{ border:none; width:80px; height:29px; float:left; background:url(images/butten_2.gif) no-repeat;}
+
+/* =================== 内容_left_便民导航=================== */
+#neirong_bm{ width:312px; border:1px solid #ddd4d4; background-color:#fcf8f9; margin-top:10px; float:left;}
+#neirong_bml{ width:310px; background-color:#faf7f7; margin:1px;padding-bottom:1px; display:inline; float:left;}
+
+.neirong_bm1{ height:30px; width:100%; background:url(images/tub_5.gif) no-repeat 15px 13px; text-indent:35px; margin:0px; padding-top:13px; color:#771303; font-size:16px; font-weight:bold; float:left;}
+#neirong_bm2{ width:298px; margin:7px;background-color:#FFFFFF; overflow:hidden; float:left; display:inline}
+#neirong_bm2_1{ width:288px; padding:15px 0px; margin:0 auto; border-bottom:1px solid #efeeee; overflow:hidden}
+#neirong_bm2_2{ color:#771303 ;height:20px;font-size:14px; padding-bottom:10px; line-height:20px; text-indent:10px; float:left;}
+#neirong_bm2_2 img{ margin:0px 0 0 5px; padding-top:6px; float:left;}
+#neirong_bm2_2 span{ float:left;}
+#neirong_bm2_2 a{color:#771303 ;}
+#neirong_bm2_2 a:hover{color:#FF0000; text-decoration:underline;}
+#neirong_bm2_3 { width:96%; float:left;}
+#neirong_bm2_3 span{ padding:10px 0px 0 10px;}
+#neirong_bm2_3 span a{ color:#000000; font-size:13px;}
+#neirong_bm2_3 span a:hover{ color:#ff0000; text-decoration:underline;}
+
+#neirong_bm2_4{height:20px;font-size:14px; line-height:20px; padding-bottom:10px; text-indent:10px; background:url(images/tub_4.gif) no-repeat 85px 6px;}
+#neirong_bm2_4 a{color:#771303 ;}
+#neirong_bm2_4 a:hover{color:#FF0000; text-decoration:underline;}
+
+
+/* =================== 内容right_案例=================== */
+.neirong_right{ width:680px; float:right; display:inline}
+.neirong_anli{ width:338px; float:left; height:255px; margin-bottom:10px;}
+.neirong_anli_1{ height:35px; width:100%; background:url(images/dhtub_1.gif) no-repeat;}
+.neirong_anli_1 h1{ text-indent:30px; font-size:14px; float:left; width:150px; font-weight:bold; color:#FFFFFF; padding-top:11px; margin:0; height:20px;}
+.neirong_anli_1 span a{ color:#FFFFFF; float:right; padding:10px 15px 0 0;}
+.neirong_anli_1 span a:hover{ color:#FFFF00; text-decoration:underline;}
+
+
+.neirong_anli_11{height:219px; width:334px; float:left; background-color:#f9f6f6; margin-left:1px;}
+.neirong_anli_1_2{ height:220px; width:336px; float:left; border-bottom:1px solid #ddd4d4; border-right:1px solid #ddd4d4; border-left:1px solid #ddd4d4; background-color:#ffffff}
+.neirong_anli_1_21{ width:325px; height:205px; margin:9px auto;background-color:#FFFFFF}
+.neirong_anliul{ display:block; overflow:hidden; width:100%; height:205px; padding-top:5px; font-size:13px;}
+.neirong_anliul li{ display:block; overflow:hidden; width:100%; height:25px; line-height:25px; background:url(images/tub_3.gif) no-repeat 15px 10px; text-indent:30px;}
+.neirong_anliul li a{ color:#000000;}
+.neirong_anliul li a:hover{ color:#ff0000; text-decoration:underline;}
+
+
+.neirong_anli2{ width:338px; float:right; height:255px; margin-bottom:10px;}
+
+#neirong_allogo{ width:680px; height:90px; margin:0 0 10px 0; float:left;}

@@ -1,0 +1,261 @@
+/* CSS Document */
+
+@import url(base.css);
+
+/* =================== 内容=================== */
+#list_nr{ width:1000px; margin:0 auto; padding-bottom:10px;}
+
+/* =================== 内容_left=================== */
+#list_left{ width:250px; float:left; margin:5px 0 10px 0;}
+#list_left_top{ width:249px;}
+#list_left_top_1{ width:249px; height:34px; background:url(images/list_top_bg.gif) no-repeat;}
+#list_left_top_1 h3{ margin:0; text-indent:28px; padding-top:10px; font-size:14px; color:#ffffff}
+#list_left_nr{ width:247px; float:left; background-color:#FFFFFF; border-bottom:1px solid #ddd4d4;border-left:1px solid #ddd4d4;border-right:1px solid #ddd4d4}
+#list_left_nrbg{ width:245px; float:left; margin:0 1px 1px 1px; background-color:#faf7f7; display:inline}
+
+#list_left_nr1{ width:233px; margin:10px 6px; background-color:#FFFFFF}
+#list_left_nr2{ width:100%; margin-top:3px;}
+
+.list_left_nrul{ width:100%; display:block; overflow:hidden;}
+.list_left_nrul li{ width:100%; display:block; overflow:hidden; height:32px; line-height:31px; text-align:center; font-size:14px; font-weight:bold; background:url(images/list_nr1_bg.gif) no-repeat;}
+.list_left_nrul li a{width:100%; display:block; overflow:hidden; background:url(images/list_nr1_bg.gif) no-repeat;}
+.list_left_nrul li a:hover{ width:100%; display:block; overflow:hidden; background:url(images/list_nr_bg.gif) no-repeat; color:#a71f08}
+.list_left_nrul li a.on{ width:100%; display:block; overflow:hidden; background:url(images/list_nr_bg.gif) no-repeat; color:#a71f08;}
+
+#list_left_nr3{ width:247px; height:67px; float:left; margin-top:10px; border:1px solid #ddd4d4; background-color:#FFFFFF;}
+#list_left_nr3_1{ width:245px; height:65px; margin:1px; background:url(images/neirong_left2_bg.gif) repeat-x;}
+#list_left_nr3_2{ width:236px; height:55px; margin:5px 4px; float:left; background-color:#FFFFFF; display:inline}
+.list_left_nr_img{ width:247px; float:left; margin-top:10px; border:1px solid #ddd4d4; background-color:#FFFFFF;}
+
+#list_lfet_input{ width:230px; margin:13px 0 0 5px; display:inline; float:left;}
+.list_left_input{ height:27px; width:155px; float:left; border:1px solid #ddd4d4; background:url(images/list_input_bg.gif) no-repeat; font-size:14px; line-height:27px;}
+.list_left_input_bt{ border:none; height:29px; width:68px; float:left; background:url(images/list_input_buttom.gif) no-repeat; cursor:pointer;}
+
+
+/* =================== 内容_right=================== */
+#list_right{ width:747px; float:right;margin:5px 0 10px 0;}
+#list_right_nr{ width:745px; float:left;border-top:3px solid #b41f07; border-bottom:1px solid #ddd4d4;border-left:1px solid #ddd4d4;border-right:1px solid #ddd4d4; background-color:#FFFFFF;}
+#list_right_nr_1{ width:743px; padding-bottom:10px; float:left; margin:0 1px 1px 1px; background-color:#FAF7F7; display:inline;}
+#list_right_nr_2{ margin:8px 8px 0 8px; width:727px; display:inline; float:left; background-color:#FFFFFF; overflow: hidden}
+
+#list_right_nr_3{ width:100%; height:25px; line-height:25px;}
+#list_right_nr_3 strong{ height:25px; line-height:25px; padding-left:10px; font-size:14px; color:#000000}
+#list_right_nr_3 span{ font-size:14px;}
+#list_right_nr_3 span a{ color:#000000; font-weight:bold;}
+#list_right_nr_3 span a:hover{ color:#a71f08; font-weight:bold;}
+
+#list_right_nr_3 font{ padding:0 5px; font-weight:bold}
+
+#list_right_xq{ width:95%; margin:0 auto; padding-bottom:15px; font-size: 15px;}
+
+#list_right_xq p{ width:100%; line-height:35px; color:#000000; font-size:14px;}
+
+
+/* 内容页主体 */
+#artpage{font-size: 15px; line-height:35px;}
+
+
+
+
+#list_right_xq1{ width:100%; margin-top:10px;color:#000000; line-height:40px; text-align:center; border-bottom:1px solid #CCCCCC;}
+#list_right_xq1 h1{ margin:0; line-height:40px; font-size:26px; margin-bottom:5px;}
+#list_right_xq1 span{ padding-left:10px; font-size:14px;}
+#list_right_xq1 font{font-size:14px; }
+#list_right_xq1 font a{ color:#053fa0;}
+#list_right_xq1 font a:hover{ color:#FF0000; text-decoration:underline}
+
+#list_right_xq2{ width:97%; margin:0 auto}
+#list_right_xq2_1{ width:100%; height:35px; line-height:35px; text-indent:15px; color:#370202; font-size:14px; margin-bottom:1px; border-bottom:1px solid #dbd8d8; background:#f1eded;}
+#list_right_xq2_1 span{ color:#FF0000; font-weight:bold; padding:0 3px;}
+
+#list_right_xq2_2{ width:100%; height:260px; background:#f7f4f4}
+#list_right_xq2_21{ width:100%; height:30px; line-height:30px; background:url(images/tub_6.jpg) no-repeat 18px 7px; text-indent:43px; font-weight:bold; font-size:13px;  color:#370202}
+
+#list_right_xq2_22{ width:100%; line-height:25px; display:black; font-size:14px;}
+#list_right_xq2_22 span{ padding-left:20px; color:#000000}
+#list_right_xq2_22 font{ padding-left:20px; color:#000000; font-size:14px; *margin-top:-10px;}
+#list_right_xq2_22 font input{ border:none; width:60px; font-size:14px; background:#f7f4f4;color:#0d339f}
+#list_right_xq2_22 font a{ color:#FF0000;}
+#list_right_xq2_22 font a:hover{ color:#E6465A; text-decoration:underline}
+#list_right_xq2_22 input{ background:url(images/list_xqinput_bg.jpg) no-repeat; width:134px; height:19px; font-size:13px; border:1px solid #aba8a8}
+
+
+#list_right_xq2_23{width:100%; line-height:25px; display:none;}
+#list_right_xq2_23 span{padding-left:20px; color:#0000006}
+#list_right_xq2_23 input{ background:url(images/list_xqinput_bg.jpg) no-repeat; width:134px; font-size:14px; height:19px; border:1px solid #aba8a8}
+#list_right_xq2_23 font input{ border:none; width:50px; font-size:12px; background:#f7f4f4; color:#0d339f}
+#list_right_xq2_23 font{ padding-left:15px;}
+
+.list_right_xqinput{ width:660px; margin:15px 20px 0 20px; font-size:13px;}
+
+
+#list_right_xq2_24{ width:100%; height:40px; line-height:40px;}
+#list_right_xq2_24 input{ width:81px; height:26px; background:url(images/list_xqbuttom_bg.jpg) no-repeat; border:none; margin-left:20px; margin-top:10px;}
+#list_right_xq2_24 span{ padding-left:10px; color:#999999; font-size:14px;color:#333333;}
+
+
+
+#list_right_xq3{ width:97%; margin:0 auto; }
+#list_right_xq3_1{ width:100%;background:#f7f4f4; margin:10px 0 }
+#list_right_xq3_2{ width:100%; height:30px; line-height:30px;background:url(images/tub_5.jpg) no-repeat 10px 16px; text-indent:25px; padding:5px 0 0 0; color:#360302; font-size:14px; font-weight:bold}
+
+#list_right_xq3_1 ul{ display:block; overflow:hidden; width:92%; margin:0 auto; padding-bottom:10px;}
+#list_right_xq3_1 ul li{ display:block; overflow:hidden; width:100%; height:25px; line-height:25px; font-size:13px;}
+#list_right_xq3_1 ul li a{ color:#0d339f}
+#list_right_xq3_1 ul li a:hover{ color:#FF0000; text-decoration:underline}
+
+/* =================== 联系我们板块=================== */
+
+#contact_us{ width:100%; margin-top:10px; border-top:1px solid #CCCCCC}
+
+#contact_us_1{ width:100%; margin:10px auto 0 auto;}
+#contact_us_2{ width:125px; height:145px; float:left; margin-left:7px; display:inline}
+
+#contact_us_3{ width:550px; float:right; margin-right:10px; display:inline; color:#000000; line-height:40px; font-size:14px;}
+
+#contact_us_4{ width:100%; background:#f7f4f4; margin-bottom:10px;}
+#contact_us_4_1{ width:100%; line-height:25px; padding:10px 0;}
+.contact_us_input{ border:none; background:url(images/QQ_buttem.jpg) no-repeat; width:75px; height:22px; margin-bottom:-4px;}
+#contact_us_4_1 span{ padding-left:30px; font-size:14px;}
+#contact_us_4_1 font{ font-size:14px;}
+
+#dAbtBtn{
+  text-align:left;
+  width:710px;
+  border-bottom:3px solid #0487C1;
+  margin-bottom:10px;
+}
+#dAbtLi{
+  font-size:15px;
+  line-height:150%;
+  width:670px;
+  text-align:left;
+  color:#333333;
+  clear:both;
+}
+#dAbtLi li{
+  float:left;
+  width:330px;
+  list-style-type:none;
+}
+#dAbtLx{
+  width:710px;
+  height:170px;
+  display:block;
+}
+#dAbtLx1{
+	float:left;
+/* 	width:131px;
+	height:148px;
+	padding-top:3px; */
+	border-top:1px solid #D5D5D5;
+	border-left:1px solid #D5D5D5;
+	border-right:1px solid #D5D5D5;
+	border-bottom:1px solid #D5D5D5;
+}
+#dAbtLx2{
+  float:left;
+  width:560px;
+  text-align:left;
+  padding-left:10px;
+ 	line-height:180%;
+}
+#dAbtLx2 li{
+  display:inline;
+  height:27px;
+  width:280px;
+  float:left;
+  list-style-type:none;
+  text-align:left;
+}
+
+#dAbtLx2 li.tww{
+  width:560px;
+}
+
+/** Link ********************************************/
+a.linkBlue:link,a.linkBlue:active,a.linkBlue:visited {
+	text-decoration:none;
+	font-size:13px;
+	color:#0045BE;
+}
+a.linkBlue:hover {
+	text-decoration:underline;
+	font-size:13px;
+	color:#FF0000;
+}
+a.linkBlue2:link,a.linkBlue2:active,a.linkBlue2:visited {
+	text-decoration:none;
+	font-size:15px;
+	color:#0045BE;
+}
+a.linkBlue2:hover {
+	text-decoration:underline;
+	font-size:15px;
+	color:#FF0000;
+}
+
+a.linkGray:link,a.linkGray:active,a.linkGray:visited {
+	text-decoration:none;
+	font-size:13px;
+	color:#333333;
+}
+a.linkGray:hover {
+	text-decoration:underline;
+	font-size:13px;
+	color:#FF0000;
+}
+
+
+/* =================== 留言板块=================== */
+#leave_mess{ width:99%; margin-left:4px; padding-bottom:15px; float:left; display:inline}
+#leave_mess1{ height:30px; width:100%; border-top:1px solid #CCCCCC; background:#faf6f7; float:left}
+#leave_mess1_1{ width:250px; float:left; text-indent:20px; height:30px; line-height:30px; font-size:14px;color:#000000}
+#leave_mess1_1 span{ font-size:14px; color:#660606; padding:0 5px;}
+#leave_mess1_2{ width:200px; margin-right:20px; height:30px; line-height:30px; float:right; text-align:right; font-size:14px; color:#000000}
+#leave_mess1_2 font{ font-size:14px;}
+
+#leave_mess2{ width:97%;border-bottom:1px dashed #CCCCCC; display:inline; margin:10px 0 0 10px; min-height:70px; float:left; padding-bottom:10px;}
+.leave_mess2_1{ width:56px; height:62px; padding-top:3px; float:left;border:1px solid #CCCCCC; display:inline; text-align:center; margin:0 0 10px 10px;}
+.leave_mess3{ width:620px; float:right; line-height:23px;}
+.leave_mess4{ width:100%; color:#737071; font-size:13px;}
+.leave_mess4_1{ width:100%; height:20px; line-height:20x; font-size:13px;}
+.leave_mess4_2{ width:300px; line-height:15px; float:left}
+.leave_mess4_3{ width:300px; line-height:15px; float:right; text-align:right}
+.leave_mess4_3 font{ font-size:12px;}
+.leave_mess4_4{ margin:0 ; line-height:15px;}
+
+
+.leave_mess5{ width:100%; margin-top:5px;line-height:23px; color:#ac1c04; font-size:13px;}
+
+#leave_mess6{ height:30px; width:100%; background:#faf6f7; float:left; color:#000000; margin-top:20px}
+#leave_mess7{ width:260px; float:left; line-height:30px; text-indent:15px;}
+#leave_mess7 span{ color:#FF0000; padding:0 5px;}
+#leave_mess8{ width:300px; line-height:30px; text-align:right; float:right; margin-right:20px;}
+.leave_mess8_1{ background:none; color:#992902; padding:2px 3px; border:none}
+.leave_mess8_2{ background:#992902; color:#ffffff; padding:2px 3px; border:none}
+#leave_mess8 font{ font-size:12px;}
+
+/*===============模版====================*/
+#list_right_lawers{ width:98%; line-height:30px; font-size:14px; margin:10px auto 0 auto;}
+#list_right_lawers span{ color:#FF0000; font-weight:bold;}
+#list_right_lawers font{ font-size:14px; color:#000000;}
+#list_right_lawers p{ margin:0;}
+#list_right_lawers a{ padding:0 10px 0 0;}
+#list_right_lawers a:hover{ color:#FF0000;}
+#list_right_lawers a.on{ color:#FF0000;}
+#list_right_lawers1{ width:100%;line-height:30px; font-size:14px;}
+#list_right_lawers1 span{ font-weight:bold; font-size:14px; color:#000000; padding:0 5px;}
+
+/* =================== 律师所简介=================== */
+#list_right_lawers{ width:94%; line-height:30px; font-size:14px; margin:10px auto 0 auto;}
+#list_right_lawerspp{ width:100%; margin:0;line-height:30px; font-weight:normal;}
+#list_right_lawerspp h4{ width:100%; margin:0; font-size:14px; font-weight:normal;}
+#list_right_lawerspp font{ font-size:14px; color:#000000}
+#list_right_lawerspps{ width:100%; line-height:30px; font-size:14px; color:#000000; font-weight: normal;}
+#list_right_lawerspp1{ width:100%; margin:0;line-height:30px; font-weight:normal;}
+#list_right_lawerspp1 span{ color:#FF0000; font-weight:bold}
+#list_right_lawerspps span{ color:#000000; font-weight:normal; font-size:14px;}
+#list_right_lawerspps font{ color:#000000; font-weight:normal; font-size:14px;}
+#list_right_lawers a{ padding:0 10px 0 0;}
+#list_right_lawers a:hover{ color:#FF0000}

@@ -1,0 +1,93 @@
+/* CSS Document */
+
+/* =================== 主控制 ================== */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,hr,
+fieldset,input,p,blockquote,th,td {_margin:0px; padding:0px;}
+table {border-collapse:collapse;border-spacing:0;}
+fieldset,img {border:none;}
+address,caption,cite,code,dfn,th,var {font-style:normal;font-weight:normal;}
+ol,ul {list-style:none; margin:0;}
+li{ list-style:none;}
+li .li{ list-style:broken line }
+caption,th {text-align:left;}
+img a {border: none;}
+a{ color:#333; text-decoration:none;}
+a:hover{ color:#FF6600;}
+#sty img{margin:0px}
+
+/* =================== 公共部分=================== */
+body { font: 12px Verdana, Helvetica, sans-serif; line-height: 1.25em; color: #330000; width: 100%; height:100%;}
+select, input{font: 12px Verdana, Helvetica, sans-serif;}
+html, html>body { width: 100%;height: 100%; margin:0;}
+#clear {height: 1px;line-height: 1px;font-size: 1px;clear: both;margin-top:-1px; display:block;}
+
+
+/* =================== 头部=================== */
+#topwidth{ width:1000px; height:115px; margin:0 auto}
+#toplogo{ width:200px; height:52px; float:left; padding:30px 0 0 10px;}
+/*#toplogo{float: left; width: 730px; height: 86px; text-align: left;}8*/
+#top121{ width:730px; float:left; height:115px;text-align:left;}
+#top122{ width:270px; float:right; height:115px;}
+#toplg_right{ float:right; width:260px; height:86px; background:url(images/tel_bg.gif) no-repeat; margin-top:20px;}
+#toplg_right span{ font-size:14px; font-weight:bold; float:left; padding:8px 0 0 35px;}
+#toplg_right font{ font-weight:bold; float:left; font-size:13px; color:#FF0000; padding:8px 0px 0px 0px}
+/*#top_nf{width:205px; height:45px; margin:30px 0px 0px 53px;}*/
+#top_nf{margin:30px 0px 0px 53px;}
+
+#toplgname{ width:400px; float:left; line-height:30px; padding:50px 0 0 0; margin-left:20px; font-size:14px; font-weight:bold; color:#262976}
+
+#toplgname span{ padding:0 10px 0 0;}
+
+
+/* =================== 菜单栏=================== */
+#menu1{ width:100%; height:42px; background:url(images/top_bg.gif) repeat-x;}
+.menul1 { width:1000px; height:40px; margin:0 auto; overflow:hidden; display:block}
+.menul1 li{line-height:40px; margin:0 7px; display:block; overflow:hidden; font-size:15px; font-weight:bold; width:90px; height:40px; float:left; text-align:center;}
+
+.menul1 li a{ color:#FFFFFF; overflow:hidden; display:block; width:90px; height:40; line-height:40px;}
+
+.menul1 li a:hover{ color:#FFFF00;background:url(images/top_bg2.gif) no-repeat 4px 6px;}
+
+
+/* =================== logo=================== */
+#logo{ width:1000px; height:184px; margin:5px auto}
+
+
+/* =================== 合作网站=================== */
+#hezuo_add{ width:1000px; margin:0px auto;}
+#hezuo_add_nr{ width:998px; float:left; display:inline; border-bottom:1px solid #ddd4d4; border-left:1px solid #ddd4d4; border-right:1px solid #ddd4d4; background-color:#f3f0f0; border-top:3px solid #FF0000}
+#hezuo_add_nr1{ width:100%; height:36px; background:url(images/tub_1.gif) no-repeat 83px 20px}
+#hezuo_add_nr1 h1{ font-size:15px; font-weight:bold; color:#7d1706; margin:0; text-indent:15px; padding-top:15px; float:left;}
+
+#hezuo_add_nr2{ width:97%; margin:0 auto; padding-bottom:20px; line-height:20px; font-size:13px;}
+#hezuo_add_nr2 span{ padding-right:10px;}
+#hezuo_add_nr2 span a{ color:#000000}
+#hezuo_add_nr2 span a:hover{ color:#FF0000; text-decoration:underline}
+
+#hezuo_add_nr2 font{ padding-right:10px; font-size:12px; color:#a61c05; font-weight:bold}
+
+
+/* =================== foot=================== */
+#foot1{ width:1000px;margin:0 auto;}
+#foot1_1{ width:100%; height:30px; text-align:center; float:left; margin:25px 0 15px 0; display:inline; line-height:30px; border-bottom:1px solid #ddd4d4; border-top:1px solid #ddd4d4;}
+#foot1_1 a{ color:#23708c}
+#foot1_1 a:hover{ color:#FF0000; text-decoration:underline}
+#foot1_1 span{ padding:0 5px; color:#ddd4d4}
+
+#foot2{ width:100%; float:left; line-height:20px}
+#foot2_1{ padding:0px 0 30px 0; text-align:center; line-height:20px;}
+#foot2_1 span{ color:#23708c; font-size:13px;}
+#foot2_1 a{ color:#23708c; font-size:13px;}
+#foot2_1 a:hover{ color:#FF0000; text-decoration:underline}
+#foot2_1 font{ padding:0 5px; font-size:13px;}
+#foot2_1 font a{ color:#0066cc; text-decoration:underline; font-size:13px;}
+#foot2_1 font a:hover{ color:#FF0000;}
+#foot2_2{ font-size:13px; font-weight:bold;}
+
+/* ===================主内容区================== */
+#dArtMain{
+  font-size:15px;
+  line-height:150%;
+  width:750px;
+  color:#333333;
+}
