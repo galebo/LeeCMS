@@ -56,7 +56,7 @@
 <div class="foot">
 	<#list groupLinks?keys as key>
 		<div class="foot_box1">
-		<h3>${groupLinks[key].title}</h3>
+		<h3>${groupLinks[key].name}</h3>
 		<ul class="link">
 		<li>
 			<#list groupLinks[key].sons as one2>

@@ -7,7 +7,7 @@ import net.sf.json.JSONArray;
 
 public class Group {
 	List<UrlNameImg> sons;
-	String title;
+	String name;
 
 	String json;
 	public String getJson() {
@@ -18,12 +18,12 @@ public class Group {
 		this.json = json;
 	}
 
-	public String getTitle() {
-		return title;
+	public String getName() {
+		return name;
 	}
 
-	public void setTitle(String title) {
-		this.title = title;
+	public void setName(String title) {
+		this.name = title;
 	}
 
 	public List<UrlNameImg> getSons() {

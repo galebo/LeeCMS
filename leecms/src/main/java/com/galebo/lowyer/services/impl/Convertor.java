@@ -93,7 +93,7 @@ public class Convertor {
 			if(old!=null&&!old.getCfgGroup().getGroupKey().equals(one.getCfgGroup().getGroupKey()))
 			{
 				Group links=new Group();
-				links.setTitle(old.getCfgGroup().getGroupName());
+				links.setName(old.getCfgGroup().getGroupName());
 				links.setSons(list);
 				rtn.put(old.getCfgGroup().getGroupKey(), links);
 
@@ -106,7 +106,7 @@ public class Convertor {
 		if(old!=null)
 		{
 			Group links=new Group();
-			links.setTitle(old.getCfgGroup().getGroupName());
+			links.setName(old.getCfgGroup().getGroupName());
 			links.setSons(list);
 			rtn.put(old.getCfgGroup().getGroupKey(), links);
 		}

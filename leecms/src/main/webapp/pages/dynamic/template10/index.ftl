@@ -71,11 +71,11 @@
 		<div id="hezuo_add_top"></div>
 		<div id="hezuo_add_nr">
 			<div id="hezuo_add_nr1">
-				<h1>合作网站</h1>
+				<h1>${common.groupLinks['bottomLink'].name}</h1>
 			</div>
 			<div id="hezuo_add_nr2">
-			<#list 1..30 as one>
-			<span><a href='' target='_blank'>信阳刑事律师</a></span>&nbsp;
+			<#list common.groupLinks['bottomLink'].sons as one>
+			<span><a href='${one.url}' target='_blank'>${one.name}</a></span>&nbsp;
 			</#list>
 			</div>
 		</div>

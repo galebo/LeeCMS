@@ -65,7 +65,7 @@ public class ViewController extends BaseController{
     		one.setUrl("#");
     		loops.add(one);
 			Group links=new Group();
-			links.setTitle("title");
+			links.setName("title");
 			links.setSons(loops);
     		return new ModelAndView("/web/main").addObject("user", getCurrentUser_(request)).addObject("loop1",links);
     	}

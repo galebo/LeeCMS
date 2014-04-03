@@ -47,9 +47,9 @@
 	<div id="foot1">
 		<div id="foot1_1">
 			<#list common.links as one>
-			<a href="${one.url}">${one.name}</a><span>|</span> 
-		</#list>
-			<a href="/map.xml" target="_blank">网站地图</a>
+			<a href="${one.url}">${one.name}</a>
+			<span>|</span> 
+			</#list>
 		</div>
 	</div>
 	<div id="foot2">
