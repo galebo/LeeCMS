@@ -3,7 +3,7 @@
 <body>
 
 	<div id="topwidth">
-		<a href='${common.homePage.url}'><img src='${commTBase}/uploadpic/767889691182.png' border='0' title='北京刑事律师'></a>
+		<a href='${common.homePage.url}'><img src='${commTBase}/upload/767889691182.png' border='0' title='北京刑事律师'></a>
 	</div>
 </#macro>
 <#macro menu>
@@ -36,7 +36,7 @@
 	<@flash id="neirong_allogo" width='680' height='90' src='${commTBase}/upload/tabanner2.swf'/>
 </#macro>
 <#macro logo1>
-	<@flash id="logo" width='1000' height='180' src='${commTBase}/uploadpic/TABanner.swf'/>
+	<@flash id="logo" width='1000' height='180' src='${commTBase}/upload/TABanner.swf'/>
 </#macro>
 
 <#macro foot>
