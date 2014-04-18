@@ -199,8 +199,8 @@ A.imgLink:hover IMG {	BORDER-RIGHT: #ace 1px solid; PADDING-RIGHT: 3px; BORDER-T
 .prevNews {	OVERFLOW: hidden; WHITE-SPACE: nowrap; TEXT-OVERFLOW: ellipsis}
 .prevNews {	FLOAT: left; WIDTH: 50%}
 .nextNews {	TEXT-ALIGN: right}
-.prevNews A {	PADDING-RIGHT: 20px; PADDING-LEFT: 20px; BACKGROUND: url(img/iwms.gif) no-repeat 0px -400px; FLOAT: left; PADDING-BOTTOM: 0px; PADDING-TOP: 0px}
-.nextNews A {PADDING-RIGHT: 20px; PADDING-LEFT: 20px; BACKGROUND: url(img/iwms.gif) no-repeat right -450px; FLOAT: right; PADDING-BOTTOM: 0px; PADDING-TOP: 0px}
+.prevNews A {	PADDING-RIGHT: 20px; PADDING-LEFT: 20px; FLOAT: left; PADDING-BOTTOM: 0px; PADDING-TOP: 0px}
+.nextNews A {PADDING-RIGHT: 20px; PADDING-LEFT: 20px; FLOAT: right; PADDING-BOTTOM: 0px; PADDING-TOP: 0px}
 .luru_c{ color:#999; clear:both; overflow:hidden;}
 .artpage{ text-align:center; font-size:12px;}
 .artpage strong{ font-size:12px; border:1px solid #CCC; padding:2px 5px;}

@@ -25,7 +25,7 @@ a {color: #333333;text-decoration: none;}
 
 
 
-.topL {background: url("../img/logo.gif") no-repeat scroll 0 0 transparent;height: 50px;left: 10px;position: absolute;top: 30px;width: 250px;}
+.topL {height: 50px;left: 10px;position: absolute;top: 30px;width: 250px;}
 .topR {height: 62px;margin: 0 0 0 250px;width: auto;}
 .topR .topNav {clear: both;height: 26px;margin-right: 250px;margin-top: 12px;overflow: hidden !important;}
 .topR .topNav .topMenu {float: left;height: 26px;width: 13%;}

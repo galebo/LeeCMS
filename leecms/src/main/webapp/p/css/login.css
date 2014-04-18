@@ -1,0 +1,117 @@
+body, button, select, textarea, input {
+    font-family: Tahoma,Verdana;
+    font-size: 12px;
+}
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td {
+    margin: 0;
+    padding: 0;
+}
+
+.login-wrap {
+    background: url("../images/bg-login.png") repeat-x scroll 0 0 #FFFFFF;
+    height: 452px;
+    margin-top: -320px;
+    min-width: 965px;
+    padding-top: 28px;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    width: 100%;
+}
+.inner {
+    margin: 0 auto;
+    text-align: left;
+    width: 965px;
+}
+.banner {
+    float: left;
+    height: 332px;
+    position: relative;
+    top: 10px;
+    width: 535px;
+}
+.main {
+    float: right;
+    height: 322px;
+    width: 360px;
+}
+.login-nav {
+    margin: 20px 20px 20px 80px;
+    clear: both;
+}
+a, a:visited {
+    color: #5B5B5B;
+    text-decoration: none;
+}
+
+
+.hd {
+    height: 110px;
+}
+.bd {
+    height: 355px;
+}
+.ft .inner {
+    line-height: 1.5;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.ft .copyright {
+    color: #BEC0C0;
+    line-height: 2.2;
+    padding: 10px 0 0;
+}
+.ft a {
+    color: #BEC0C0;
+}
+
+
+
+address, caption, cite, code, dfn, em, strong, th, var, b, i, s {
+    font-style: normal;
+    font-weight: normal;
+}
+#loginForm th {
+    font-size: 14px;
+    height: 40px;
+    padding-right: 6px;
+    text-align: right;
+    width: 120px;
+}
+
+#loginForm .txt {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: none repeat scroll 0 0 #FBFBFB;
+    border-color: #C0C0C0 #E1E1E1 #E1E1E1 #C0C0C0;
+    border-image: none;
+    border-style: solid;
+    border-width: 1px;
+    font-size: 14px;
+    padding: 5px;
+    vertical-align: middle;
+    width: 270px;
+}
+#loginForm button {
+    border: 0 none;
+}
+#loginForm .act-btn {
+  background-color: rgba(0, 0, 0, 0);
+  background-image: url("../images/ptlogin.png");
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  border: 0 none;
+  cursor: pointer;
+  display: block;
+  font: 0px/9999px arial !important;
+  height: 42px;
+  left: 32px;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: relative;
+  width: 146px;
+}
