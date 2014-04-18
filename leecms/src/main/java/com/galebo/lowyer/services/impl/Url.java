@@ -34,7 +34,7 @@ public class Url {
 		return this.baseUrl+"index/1.html";
 	}
 	public  String getSearchUrl() {
-		return this.baseUrl+"search/";
+		return this.baseUrl+"search";
 	}
 	public  String getItemUrl(Long long1) {
 		return this.baseUrl+(son==null?SS:"")+"item/"+long1+".html";

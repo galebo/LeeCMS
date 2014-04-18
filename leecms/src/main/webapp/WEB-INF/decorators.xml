@@ -7,6 +7,8 @@
         <pattern>/resources/*</pattern>
         <pattern>/pp/*</pattern>
         <pattern>/pages/*</pattern>
+        <pattern>/login*</pattern>
+        <pattern>/p/*</pattern>
     </excludes>
     <decorator name="default" page="default.jsp">
         <pattern>/*</pattern>

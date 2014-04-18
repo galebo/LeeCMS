@@ -7,14 +7,25 @@
     <meta name="heading" content="<fmt:message key='404.title'/>"/>
 </head>
 
-<p>
-    <fmt:message key="404.message">
-        <fmt:param><c:url value="/mainMenu"/></fmt:param>
-    </fmt:message>
-</p>
-<p style="text-align: center; margin-top: 20px">
-    <a href="http://community.webshots.com/photo/87848122/87848260vtOXvy"
-        title="Emerald Lake - Western Canada, click to Zoom In">
-    <img  src="<c:url value="/p/images/404.jpg"/>" alt="Emerald Lake - Western Canada" /></a>
-</p>
+
+    <div style="width:600px;margin: 50px auto 70px auto;">
+        	<h1  style="text-align: center;margin-top:0px;font-size:40px;color: #5B4F5B;"><fmt:message key="404.message"/></h1>
+        	
+            <div style="color: #0898DD;
+    display: block;
+    font-size: 16px;
+    height: 25px;
+    line-height: 20px;
+    padding-left: 324px;
+    text-decoration: none;
+    width: 134px;position: absolute;"><span class="times"><span id="time"></span></span><a href="#" id="homepage"><fmt:message key="404.message2"/></a></div>
+        </div>
+        
+<script type="text/javascript" src="<c:url value='/p/js/error.js'/>"></script>
+<script type="text/javascript">
+	
+	document.getElementById('homepage').href=getUrl();
+</script>
+
+<script type="text/javascript" src="http://www.qq.com/404/search_children.js" charset="utf-8"></script>
 </page:applyDecorator>

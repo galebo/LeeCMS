@@ -9,21 +9,17 @@
 <head>
     <title><fmt:message key="errorPage.title"/></title>
     <link rel="stylesheet" type="text/css" media="all" href="<c:url value='/p/styles/${appConfig["csstheme"]}/theme.css'/>" />
+<script type="text/javascript" src="<c:url value='/p/js/error.js'/>"></script>
 </head>
 
 <body id="error">
     <div id="page">
         <div id="content" class="clearfix">
             <div id="main">
-                <h1>ffff<fmt:message key="errorPage.heading"/></h1>
-                <fmt:message key="exception_occur"/>
-                <%@ include file="/common/messages.jsp" %>
-                 <% if (exception != null) { %>
-                    <pre><% exception.printStackTrace(); %></pre>
-                 <% } else if ((Exception)request.getAttribute("javax.servlet.error.exception") != null) { %>
-                    <pre><% ((Exception)request.getAttribute("javax.servlet.error.exception"))
-                                           .printStackTrace(); %></pre>
-                 <% } %>
+                <h1><fmt:message key="errorPage.heading"/></h1>
+<script type="text/javascript">
+	self.location=getUrl();
+</script>
             </div>
         </div>
     </div>

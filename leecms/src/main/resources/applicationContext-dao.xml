@@ -26,66 +26,6 @@
     <!-- Activates scanning of @Autowired -->
     <context:annotation-config/>
 
-    <!-- Activates scanning of @Repository -->
-    <context:component-scan base-package="com.galebo.lowyer.dao"/>
 
-    <!-- Compass Search Section -->
-
-    <!-- Compass Bean, automatically scanning for searchable classes within the model -->
-    <!-- Hooks into Spring transaction management and stores the index on the file system -->
-    <bean id="compass" class="org.compass.spring.LocalCompassBean">
-        <property name="mappingScan" value="com.galebo.lowyer.model"/>
-        <property name="transactionManager" ref="transactionManager"/>
-        <property name="settings">
-            <map>
-                <entry key="compass.engine.connection" value="target/test-index"/>
-            </map>
-        </property>
-    </bean>
-
-    <!-- Compass Template allowing to automatically join/start exising transactions when performing operations -->
-    <bean id="compassTemplate" class="org.compass.core.CompassTemplate">
-        <property name="compass" ref="compass"/>
-    </bean>
-
-    <!-- Compass Search Helper allowing to perform search operations in a simpler manner -->
-    <bean id="compassSearchHelper" class="org.compass.core.support.search.CompassSearchHelper">
-        <constructor-arg ref="compass"/>
-        <property name="pageSize" value="10"/>
-    </bean>
-
-    <!-- CompassGps allows to perform index operation based on the select statements defined in iBatis -->
-    <bean id="compassGps" class="org.compass.gps.impl.SingleCompassGps" init-method="start" destroy-method="stop">
-        <property name="compass" ref="compass"/>
-        <property name="gpsDevices">
-            <list>
-                <bean class="org.compass.gps.device.ibatis.SqlMapClientGpsDevice">
-                    <property name="name" value="ibatis"/>
-                    <property name="sqlMapClient" ref="sqlMapClient"/>
-                    <property name="selectStatementsIds">
-                        <list>
-                            <value>getUsers</value>
-                        </list>
-                    </property>
-                </bean>
-            </list>
-        </property>
-    </bean>
-
-    <!-- Search AOP section allows to intercept operations and apply them to the index -->
-    <bean id="compassSearchSaveAdvice" class="com.galebo.lowyer.dao.ibatis.search.CompassSaveAdvice">
-        <property name="compass" ref="compass" />
-    </bean>
-    <bean id="compassSearchDeleteAdvice" class="com.galebo.lowyer.dao.ibatis.search.CompassDeleteAdvice">
-        <property name="compass" ref="compass" />
-    </bean>
-
-    <aop:config>
-        <aop:pointcut id="searchSave" expression="execution(* com.galebo.lowyer.dao.ibatis.*.save*(..))"/>
-        <aop:pointcut id="searchDelete" expression="execution(* com.galebo.lowyer.dao.ibatis.*.remove*(..))"/>
-
-        <aop:advisor pointcut-ref="searchSave" advice-ref="compassSearchSaveAdvice"/>
-        <aop:advisor pointcut-ref="searchDelete" advice-ref="compassSearchDeleteAdvice"/>
-    </aop:config>
 
 </beans>

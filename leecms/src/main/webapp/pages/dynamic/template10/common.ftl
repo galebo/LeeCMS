@@ -95,7 +95,7 @@
 				<div id="list_left_nr3_1">
 					<div id="list_left_nr3_2">
 						<div id="list_lfet_input">
-							<form name="formsearch" method="post" action="#" onsubmit="return zCheckSearch(this);">
+							<form name="formsearch" method="post" action="${common.searchPage.url}" onsubmit="return zCheckSearch(this);">
 								<input class="list_left_input" type="text" name="key" size="18" />
 								 <input type="submit" class="list_left_input_bt" value="文档搜索" />
 							</form>
@@ -133,7 +133,7 @@
 		<div id="neirong_leftl2">
 			<div id="neirong_left2_2">
 				<div id="neirong_left2_2_1">
-					<form name="formsearch" method="post" action="#" onsubmit="return zCheckSearch(this);">
+					<form name="formsearch" method="post" action="${common.searchPage.url}" onsubmit="return zCheckSearch(this);">
 						<input id="neirong_left2_2_2" type="text" name="key" /> 
 						<input type="submit" value="" id="neirong_left2_2_3" />
 					</form>

@@ -76,7 +76,12 @@ public class ViewController extends BaseController{
 		return new ModelAndView("/web/"+viewName);
     }
 
-	@RequestMapping(value = "/pp/h/{name}/{type}/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/pp/h/{name}/search", method = RequestMethod.POST)
+	public ModelAndView search(@PathVariable String name,@RequestParam(value="page",required=false) Integer page,
+			@RequestParam(value="pageSize",required=false) Integer pageSize,@RequestParam(value="key",required=false) String key, HttpServletRequest request) {
+		return index(name,"search", key, page, pageSize, request);
+	}
+	@RequestMapping(value = "/pp/h/{name}/{type}/{id}")
 	public ModelAndView index(@PathVariable String name,@PathVariable String type,@PathVariable String id,@RequestParam(value="page",required=false) Integer page,
 			@RequestParam(value="pageSize",required=false) Integer pageSize,HttpServletRequest request) {
 		WebInfo webInfo = commonService.getQueryDao().getWebInfoByDomain(name);
@@ -89,6 +94,12 @@ public class ViewController extends BaseController{
 		return exe(type, id, webInfo.getUserId(),webInfo.getParentId(),url,templateUrl,page,pageSize);
 	}
 
+
+	@RequestMapping(value = "/pages/view/search", method = RequestMethod.POST)
+	public ModelAndView search(@RequestParam(value="page",required=false) Integer page,
+			@RequestParam(value="pageSize",required=false) Integer pageSize,@RequestParam(value="key",required=false) String key, HttpServletRequest request) {
+		return index("search", key, page, pageSize, request);
+	}
 	
 	@RequestMapping(value = "/pages/view/{type}/{id}", method = RequestMethod.GET)
 	public ModelAndView index(@PathVariable String type,@PathVariable String id,@RequestParam(value="page",required=false) Integer page,
@@ -105,7 +116,7 @@ public class ViewController extends BaseController{
 
 	@RequestMapping(value = "/pages/ftl/{templateId}/{cssId}/{type}/{id}", method = RequestMethod.GET)
 	public ModelAndView index(@PathVariable Long templateId,@PathVariable long cssId,@PathVariable String type,@PathVariable String id,@RequestParam(value="page",required=false) Integer page,
-			@RequestParam(value="pageSize",required=false) Integer pageSize,HttpServletRequest request) {
+			@RequestParam(value="pageSize",required=false) Integer pageSize,@RequestParam(value="key",required=false) String key,HttpServletRequest request) {
 
 		Long currentUser = getCurrentUser(request);
 		if(currentUser==null)
@@ -116,6 +127,9 @@ public class ViewController extends BaseController{
 		url.setBaseUrl("../");
 		templateUrl.set(templateId,cssId,"/p/common","");
 
+		if(type.equals("search")&&key!=null){
+			id=key;
+		}
 		return exe(type, id, currentUser,null/*parentUserId*/,url,templateUrl,page,pageSize);
 	}
 
@@ -137,16 +151,14 @@ public class ViewController extends BaseController{
 		url.setNoChangeUpload();
 		Common mainCommon=beanCreater.getCommon(userId, parentUserId, url);
 		Common common=mainCommon;
-		if(type.startsWith(Url.SS))
-		{
+		if(type.startsWith(Url.SS)){
 			common=common.getSonCommon();
 			type = type.substring(2);
 			url=url.getSon();
 		}
 		Object object=null;
 		Object pageObject=null;
-		if(type.equals("item"))
-		{
+		if(type.equals("item")){
 			Item item2 = beanCreater.getItem(Long.valueOf(id),url,common);
 			if(item2.isHasSon())
 				type="items";
@@ -160,15 +172,13 @@ public class ViewController extends BaseController{
 			object = beanCreater.getDetail2(Long.valueOf(id),url,common);
 		else if(type.equals("indexSearch"))
 			object = beanCreater.getIndeSearch(url,common);
-		else if(type.equals("search"))
-		{
+		else if(type.equals("search")){
 			object = search(userId, common, id,url);
 			type="item";
-		}
-		else
-		{
+		}else if(type.equals("index")){
 			object = beanCreater.getIndex(url,common);
-		}
+		}else
+			return new ModelAndView("close");
 
 		System.out.println(JSONObject.fromBean(object).toString());
 		return getMV(templateUrl.getTemplateId(), object,pageObject,type,mainCommon,templateUrl,userId,false);
